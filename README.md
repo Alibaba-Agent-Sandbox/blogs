@@ -71,7 +71,3 @@ python -m pip install pyyaml && python scripts/validate.py
 官网的构建脚本 `npm run sync:blogs` 把 `posts/` 复制到 `src/content/blog/`，文章里的相对图片路径会改写成站内路径。官网只读取 `main`。合并到 `main` 后，`notify-website.yml` 会向官网仓库发送 `blogs-updated` 事件，官网的 Deploy 工作流随之重新构建。
 
 这需要在本仓库设置 Actions secret `WEBSITE_DISPATCH_TOKEN`（对 `website` 仓库有 `contents:write` 权限的令牌）。没有设置时，手动运行官网的 Deploy 工作流即可发布。
-
-## 许可 · License
-
-文章以 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 发布，文中的代码以 Apache-2.0 发布。
