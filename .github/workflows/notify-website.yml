@@ -1,0 +1,27 @@
+name: Notify website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "posts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ask the website to rebuild with these posts
+        env:
+          GH_TOKEN: ${{ secrets.WEBSITE_DISPATCH_TOKEN }}
+          SHA: ${{ github.sha }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "WEBSITE_DISPATCH_TOKEN is unset. Run the website's Deploy workflow by hand to publish these posts."
+            exit 0
+          fi
+          gh api repos/Alibaba-Agent-Sandbox/website/dispatches \
+            -f event_type=blogs-updated \
+            -f client_payload[sha]="$SHA"
