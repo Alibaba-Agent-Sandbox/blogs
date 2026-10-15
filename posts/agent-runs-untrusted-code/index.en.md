@@ -30,15 +30,39 @@ Nothing the agent wrote needs to be installed on your machine, and the script ne
 
 The default provider is Alibaba Cloud Agent Sandbox Express Edition (`alicloud-express`), which needs an API key.
 
+Install `abx` with one command. On macOS or Linux:
+
 ```bash
-npm install -g @agent-sandbox/cli
+curl -fsSL https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.sh | sh
+abx --version
+```
+
+On Windows, in PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.ps1 | iex
+abx --version
+```
+
+The npm package is coming and is not yet published (`npm install -g @agent-sandbox/cli`). You can also build from source, which needs Node.js 20 or newer:
+
+```bash
+git clone https://github.com/Alibaba-Agent-Sandbox/agent-sandbox.git
+cd agent-sandbox
+npm ci
+npm run build
+npm pack
+npm install -g ./agent-sandbox-cli-0.3.0.tgz
+abx --version
 export ABX_SANDBOX_API_KEY="<YOUR_API_KEY>"
 ```
 
-The Python SDK is one package:
+Two Python packages share one version. Install `agent-sandbox-client` on your machine (the client; `import agent_sandbox` is unchanged). Install `agent-sandbox-server` inside a template image (the HTTP service the platform starts). The client depends on `agent-sandbox-server` of the same version, so a client install also provides `agent_sandbox.server` locally. Do not run `pip install agent-sandbox`: that name on PyPI is an unrelated project. Extras on the client are `fast`, `session`, `mcp` and `declarative`; `agent-sandbox-client[all]` installs those.
 
 ```bash
-pip install agent-sandbox
+pip install agent-sandbox-client
+pip install "agent-sandbox-client[all]"
+pip install agent-sandbox-server
 ```
 
 ## With the Python SDK

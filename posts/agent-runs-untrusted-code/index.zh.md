@@ -30,15 +30,39 @@ Coding Agent 的日常是：读需求，写一段脚本，然后立刻想执行�
 
 默认提供方是阿里云智能体沙箱极速版（`alicloud-express`），需要一个 API Key。
 
+用一行命令安装 `abx`。macOS 或 Linux：
+
 ```bash
-npm install -g @agent-sandbox/cli
+curl -fsSL https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.sh | sh
+abx --version
+```
+
+Windows 在 PowerShell 里：
+
+```powershell
+irm https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.ps1 | iex
+abx --version
+```
+
+npm 包即将发布，目前还不能安装（`npm install -g @agent-sandbox/cli`）。也可以从源码安装，需要 Node.js 20 或更高：
+
+```bash
+git clone https://github.com/Alibaba-Agent-Sandbox/agent-sandbox.git
+cd agent-sandbox
+npm ci
+npm run build
+npm pack
+npm install -g ./agent-sandbox-cli-0.3.0.tgz
+abx --version
 export ABX_SANDBOX_API_KEY="<YOUR_API_KEY>"
 ```
 
-Python SDK 一个包就够：
+Python 是两个同版本的包。本机装 `agent-sandbox-client`（客户端，`import agent_sandbox` 不变）。模板镜像里装 `agent-sandbox-server`（平台启动的 HTTP 服务）。客户端依赖同版本的 `agent-sandbox-server`，所以本机装了客户端也就有 `agent_sandbox.server`。不要执行 `pip install agent-sandbox`：PyPI 上那个名字是另一个无关项目。客户端 extras 是 `fast`、`session`、`mcp`、`declarative`；`agent-sandbox-client[all]` 会把这些一起装上。
 
 ```bash
-pip install agent-sandbox
+pip install agent-sandbox-client
+pip install "agent-sandbox-client[all]"
+pip install agent-sandbox-server
 ```
 
 ## 用 Python SDK

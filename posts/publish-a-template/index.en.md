@@ -47,10 +47,14 @@ Every template that has a `commands.py` has to pass.
 What the template is, how to deploy it and how to run its e2e:
 
 ```bash
-abx template install alibaba-agent-sandbox/awesome-templates//<name>
-abx deploy
+abx template init -t python ./my-template
+abx template deploy ./my-template -y --generation 2 \
+  --start-cmd 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py' \
+  --ready-cmd 'agent-sandbox-server healthcheck --port 9000'
 python3 scripts/run_local_e2e.py
 ```
+
+`--start-cmd` and `--ready-cmd` only work with `--generation 2`. The image does not set `CMD` or `ENTRYPOINT`; the platform start command runs `agent-sandbox-server`. If a generation-1 template already uses that name, delete it first (`abx template delete <id> -y`). After the template is in the catalog, other people install it with `abx template install alibaba-agent-sandbox/awesome-templates//<name>`. `abx deploy` is the same command as `abx template deploy`.
 
 ## 5. Check before you submit
 
