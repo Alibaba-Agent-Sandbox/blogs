@@ -30,7 +30,21 @@ Coding Agent 的日常是：读需求，写一段脚本，然后立刻想执行�
 
 默认提供方是阿里云智能体沙箱极速版（`alicloud-express`），需要一个 API Key。
 
-npm 包还在准备，包名未定。在它发布之前，从源码安装 `abx`：
+用一行命令安装 `abx`。macOS 或 Linux：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.sh | sh
+abx --version
+```
+
+Windows 在 PowerShell 里：
+
+```powershell
+irm https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.ps1 | iex
+abx --version
+```
+
+npm 包即将发布，目前还不能安装（`npm install -g @agent-sandbox/cli`）。也可以从源码安装，需要 Node.js 20 或更高：
 
 ```bash
 git clone https://github.com/Alibaba-Agent-Sandbox/agent-sandbox.git
@@ -40,8 +54,6 @@ npm run build
 npm pack
 npm install -g ./agent-sandbox-cli-0.3.0.tgz
 abx --version
-
-# npm install -g @agent-sandbox/cli
 export ABX_SANDBOX_API_KEY="<YOUR_API_KEY>"
 ```
 

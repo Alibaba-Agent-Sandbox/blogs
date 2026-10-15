@@ -30,7 +30,21 @@ Nothing the agent wrote needs to be installed on your machine, and the script ne
 
 The default provider is Alibaba Cloud Agent Sandbox Express Edition (`alicloud-express`), which needs an API key.
 
-The npm package is coming, and its name is not final. Until it is published, install `abx` from source:
+Install `abx` with one command. On macOS or Linux:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.sh | sh
+abx --version
+```
+
+On Windows, in PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.ps1 | iex
+abx --version
+```
+
+The npm package is coming and is not yet published (`npm install -g @agent-sandbox/cli`). You can also build from source, which needs Node.js 20 or newer:
 
 ```bash
 git clone https://github.com/Alibaba-Agent-Sandbox/agent-sandbox.git
@@ -40,8 +54,6 @@ npm run build
 npm pack
 npm install -g ./agent-sandbox-cli-0.3.0.tgz
 abx --version
-
-# npm install -g @agent-sandbox/cli
 export ABX_SANDBOX_API_KEY="<YOUR_API_KEY>"
 ```
 
