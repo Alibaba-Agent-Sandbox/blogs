@@ -47,10 +47,14 @@ python3 scripts/run_local_e2e.py
 模板是什么、怎么部署、怎么跑它的 e2e：
 
 ```bash
-abx template install alibaba-agent-sandbox/awesome-templates//<name>
-abx deploy
+abx template init -t python ./my-template
+abx template deploy ./my-template -y --generation 2 \
+  --start-cmd 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py' \
+  --ready-cmd 'agent-sandbox-server healthcheck --port 9000'
 python3 scripts/run_local_e2e.py
 ```
+
+`--start-cmd` 和 `--ready-cmd` 只在 `--generation 2` 下生效。镜像不写 `CMD` 或 `ENTRYPOINT`，由平台的启动命令运行 `agent-sandbox-server`。如果同名模板已经是 generation 1，先删掉（`abx template delete <id> -y`）。模板进了目录之后，别人用 `abx template install alibaba-agent-sandbox/awesome-templates//<name>` 安装。`abx deploy` 就是 `abx template deploy`。
 
 ## 5. 提 PR 前自查
 
