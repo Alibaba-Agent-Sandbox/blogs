@@ -31,14 +31,18 @@ Nothing the agent wrote needs to be installed on your machine, and the script ne
 The default provider is Alibaba Cloud Agent Sandbox Express Edition (`alicloud-express`), which needs an API key.
 
 ```bash
-npm install -g @agent-sandbox/cli
+curl -fsSL https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.sh | sh
 export ABX_SANDBOX_API_KEY="<YOUR_API_KEY>"
 ```
 
-The Python SDK is one package:
+Windows users can install the binary with `irm https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.ps1 | iex` in PowerShell. Follow the installer's PATH instructions; on Windows, open a new terminal. Run `abx --version` before continuing.
+
+In PowerShell, configure the key with `abx config set sandbox_api_key <YOUR_API_KEY>` instead of the Bash `export` command above.
+
+The Python client distribution is `agent-sandbox-client`; its import remains `agent_sandbox`. Until the matching client and server packages are available on PyPI, install both from the same pinned source revision:
 
 ```bash
-pip install agent-sandbox
+python -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/35da216a300f1e2e84254a1cf4b4a7ea98681505.tar.gz#subdirectory=server-sdk" "agent-sandbox-client @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/35da216a300f1e2e84254a1cf4b4a7ea98681505.tar.gz#subdirectory=client-sdk"
 ```
 
 ## With the Python SDK

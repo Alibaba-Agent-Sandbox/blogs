@@ -31,14 +31,18 @@ Coding Agent 的日常是：读需求，写一段脚本，然后立刻想执行�
 默认提供方是阿里云智能体沙箱极速版（`alicloud-express`），需要一个 API Key。
 
 ```bash
-npm install -g @agent-sandbox/cli
+curl -fsSL https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.sh | sh
 export ABX_SANDBOX_API_KEY="<YOUR_API_KEY>"
 ```
 
-Python SDK 一个包就够：
+Windows 用户在 PowerShell 使用 `irm https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.ps1 | iex` 安装二进制。请按安装脚本提示设置 PATH；Windows 安装后新开终端。继续前先运行 `abx --version`。
+
+PowerShell 中请使用 `abx config set sandbox_api_key <YOUR_API_KEY>` 配置密钥，替代上面的 Bash `export` 命令。
+
+Python 客户端发行名是 `agent-sandbox-client`，导入仍为 `agent_sandbox`。配套客户端和服务端尚未发布到 PyPI 时，从同一固定提交同时安装：
 
 ```bash
-pip install agent-sandbox
+python -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/35da216a300f1e2e84254a1cf4b4a7ea98681505.tar.gz#subdirectory=server-sdk" "agent-sandbox-client @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/35da216a300f1e2e84254a1cf4b4a7ea98681505.tar.gz#subdirectory=client-sdk"
 ```
 
 ## 用 Python SDK
