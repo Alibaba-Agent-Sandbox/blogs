@@ -42,7 +42,7 @@ In PowerShell, configure the key with `abx config set sandbox_api_key <YOUR_API_
 The Python client distribution is `agent-sandbox-client`; its import remains `agent_sandbox`. Until the matching client and server packages are available on PyPI, install both from the same pinned source revision:
 
 ```bash
-python -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/35da216a300f1e2e84254a1cf4b4a7ea98681505.tar.gz#subdirectory=server-sdk" "agent-sandbox-client @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/35da216a300f1e2e84254a1cf4b4a7ea98681505.tar.gz#subdirectory=client-sdk"
+python -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=server-sdk" "agent-sandbox-client @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=client-sdk"
 ```
 
 ## With the Python SDK
