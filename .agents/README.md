@@ -77,3 +77,5 @@ If access or a required gate blocks publication, finish safe local work, retain 
 drafts/patches and report the blocker without claiming an Issue, PR or merge exists.
 
 - [Accepted SDK source recipe](notes/proposed/process/2026-10-18-accepted-sdk-source.md).
+
+- [Consumer entry compatibility](notes/proposed/process/2026-10-19-consumer-entries.md) · [verification](evidence/verify/2026-10-19-consumer-entries.md)

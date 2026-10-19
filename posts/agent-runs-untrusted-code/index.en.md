@@ -51,7 +51,7 @@ Here is the whole script. `AGENT_CODE` is the part the agent generated; we hand 
 
 ```python
 import asyncio
-from agent_sandbox import Sandbox
+from agent_sandbox.api.sandbox import Sandbox
 
 CSV = """region,amount
 hangzhou,120
@@ -104,11 +104,13 @@ beijing    110
 The same flow by hand with `abx`:
 
 ```bash
+# Native CLI; if help lists --detach, use: abx create base --detach
 abx create --template base
 abx upload <sandbox-id> ./sales.csv /home/user/sales.csv
 abx upload <sandbox-id> ./analyze.py /home/user/analyze.py
 abx exec <sandbox-id> -- python /home/user/analyze.py
 abx kill <sandbox-id> --yes
+# Standard Express entry: abx kill <sandbox-id> (without --yes)
 ```
 
 `analyze.py` is the script inside `AGENT_CODE` above, and `<sandbox-id>` is the value `abx create` prints. The result prints in your terminal; use `abx download` when you need a file back. Always `abx kill` when you are done: a sandbox uses quota for as long as it lives, and `abx list` shows everything still running.

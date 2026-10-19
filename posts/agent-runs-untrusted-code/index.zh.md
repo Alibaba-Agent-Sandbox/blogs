@@ -51,7 +51,7 @@ python -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-S
 
 ```python
 import asyncio
-from agent_sandbox import Sandbox
+from agent_sandbox.api.sandbox import Sandbox
 
 CSV = """region,amount
 hangzhou,120
@@ -104,11 +104,13 @@ beijing    110
 同样的流程，用 `abx` 手动走一遍：
 
 ```bash
+# 原生 CLI；若帮助列出 --detach，改用 abx create base --detach
 abx create --template base
 abx upload <sandbox-id> ./sales.csv /home/user/sales.csv
 abx upload <sandbox-id> ./analyze.py /home/user/analyze.py
 abx exec <sandbox-id> -- python /home/user/analyze.py
 abx kill <sandbox-id> --yes
+# 标准极速版入口：abx kill <sandbox-id>（不加 --yes）
 ```
 
 `analyze.py` 就是上面 `AGENT_CODE` 里那段脚本，`<sandbox-id>` 换成 `abx create` 打印出来的值，结果直接打印在终端。需要拿回文件时用 `abx download`。用完一定要 `abx kill`：沙箱按存活时间占用额度，`abx list` 可以看到所有还在运行的沙箱。
