@@ -79,3 +79,5 @@ drafts/patches and report the blocker without claiming an Issue, PR or merge exi
 - [Accepted SDK source recipe](notes/proposed/process/2026-10-18-accepted-sdk-source.md).
 
 - [Consumer entry compatibility](notes/proposed/process/2026-10-19-consumer-entries.md) · [verification](evidence/verify/2026-10-19-consumer-entries.md)
+
+- [Use current Express CLI in the bilingual walkthrough](notes/implemented/process/2026-10-22-current-express-cli-examples.md) · [verification](evidence/verify/2026-10-22-current-express-cli-examples.md)
