@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" role="img" aria-labelledby="title desc">
-<title id="title">从安装到精确清理</title><desc id="desc">每一步都有退出码与结果证据；列表缺席不等于资源已删除。</desc>
+<title id="title">随手开一个临时云端工作区</title><desc id="desc">安装工具、连接账户，把命令放到沙箱里运行。</desc>
 <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0a1830"/><stop offset="1" stop-color="#173d4c"/></linearGradient><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#81d9d0" stroke-width="1.5"/></marker></defs>
 <rect width="1120" height="430" rx="24" fill="url(#bg)"/>
 <g font-family="system-ui, Noto Sans CJK SC, sans-serif">
-<text x="44" y="53" fill="#81d9d0" font-size="16" letter-spacing="3">DEVELOPER JOURNEY · 01</text>
-<text x="44" y="104" fill="#f4f8ff" font-size="32" font-weight="700">从安装到精确清理</text>
+<text x="44" y="53" fill="#81d9d0" font-size="16" letter-spacing="3">BUILD WITH SANDBOX · 01</text>
+<text x="44" y="104" fill="#f4f8ff" font-size="31" font-weight="700">随手开一个临时云端工作区</text>
 <rect x="44" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="63" y="187" fill="#81d9d0" font-size="16">01</text>
-<text x="63" y="224" fill="#fff" font-size="23" font-weight="650">安装与校验</text>
-<text x="63" y="260" fill="#d5e5f0" font-size="17">官方二进制 / npm</text>
-<text x="63" y="289" fill="#d5e5f0" font-size="16">固定版本 + checksum</text>
+<text x="63" y="224" fill="#fff" font-size="22" font-weight="650">安装 abx</text>
+<text x="63" y="260" fill="#d5e5f0" font-size="17">独立二进制 / npm</text>
+<text x="63" y="289" fill="#d5e5f0" font-size="16">终端里的开发入口</text>
 <path d="M283 234H300" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="309" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="328" y="187" fill="#81d9d0" font-size="16">02</text>
-<text x="328" y="224" fill="#fff" font-size="23" font-weight="650">配置账户</text>
-<text x="328" y="260" fill="#d5e5f0" font-size="17">Key / API URL / Domain</text>
-<text x="328" y="289" fill="#d5e5f0" font-size="16">同一提供方与地域</text>
+<text x="328" y="224" fill="#fff" font-size="22" font-weight="650">连接账户</text>
+<text x="328" y="260" fill="#d5e5f0" font-size="17">提供方与连接配置</text>
+<text x="328" y="289" fill="#d5e5f0" font-size="16">使用自己的沙箱资源</text>
 <path d="M548 234H565" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="574" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="593" y="187" fill="#81d9d0" font-size="16">03</text>
-<text x="593" y="224" fill="#fff" font-size="23" font-weight="650">真实运行</text>
-<text x="593" y="260" fill="#d5e5f0" font-size="17">create → info → exec</text>
-<text x="593" y="289" fill="#d5e5f0" font-size="16">hello + 列表可见</text>
+<text x="593" y="224" fill="#fff" font-size="22" font-weight="650">运行命令</text>
+<text x="593" y="260" fill="#d5e5f0" font-size="17">创建 → 执行 → 查看</text>
+<text x="593" y="289" fill="#d5e5f0" font-size="16">在独立环境中工作</text>
 <path d="M813 234H830" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="839" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="858" y="187" fill="#81d9d0" font-size="16">04</text>
-<text x="858" y="224" fill="#fff" font-size="23" font-weight="650">精确清理</text>
-<text x="858" y="260" fill="#d5e5f0" font-size="17">kill → 相同 ID 查询</text>
-<text x="858" y="289" fill="#d5e5f0" font-size="16">确认 NotFound</text>
-<text x="44" y="378" fill="#c9dbe8" font-size="18">每一步都有退出码与结果证据；列表缺席不等于资源已删除。</text>
+<text x="858" y="224" fill="#fff" font-size="22" font-weight="650">结束任务</text>
+<text x="858" y="260" fill="#d5e5f0" font-size="17">保留需要的结果</text>
+<text x="858" y="289" fill="#d5e5f0" font-size="16">释放临时沙箱</text>
+<text x="44" y="378" fill="#c9dbe8" font-size="18">安装工具、连接账户，把命令放到沙箱里运行。</text>
 </g></svg>

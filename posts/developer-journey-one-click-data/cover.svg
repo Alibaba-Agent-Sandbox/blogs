@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" role="img" aria-labelledby="title desc">
-<title id="title">一次调用，远端计算，独立验收</title><desc id="desc">图中数值来自真实复验；审计观察真实 HTTP，没有替换返回结果。</desc>
+<title id="title">把 CSV 交给云端，拿回地区汇总表</title><desc id="desc">一次 Python 函数调用，串起临时环境、数据处理和结果返回。</desc>
 <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0a1830"/><stop offset="1" stop-color="#173d4c"/></linearGradient><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#81d9d0" stroke-width="1.5"/></marker></defs>
 <rect width="1120" height="430" rx="24" fill="url(#bg)"/>
 <g font-family="system-ui, Noto Sans CJK SC, sans-serif">
-<text x="44" y="53" fill="#81d9d0" font-size="16" letter-spacing="3">DEVELOPER JOURNEY · 05</text>
-<text x="44" y="104" fill="#f4f8ff" font-size="32" font-weight="700">一次调用，远端计算，独立验收</text>
+<text x="44" y="53" fill="#81d9d0" font-size="16" letter-spacing="3">BUILD WITH SANDBOX · 05</text>
+<text x="44" y="104" fill="#f4f8ff" font-size="31" font-weight="700">把 CSV 交给云端，拿回地区汇总表</text>
 <rect x="44" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="63" y="187" fill="#81d9d0" font-size="16">01</text>
-<text x="63" y="224" fill="#fff" font-size="23" font-weight="650">本地输入</text>
+<text x="63" y="224" fill="#fff" font-size="22" font-weight="650">本地读入</text>
 <text x="63" y="260" fill="#d5e5f0" font-size="17">10 条合成订单</text>
-<text x="63" y="289" fill="#d5e5f0" font-size="16">CSV 字符串传入</text>
+<text x="63" y="289" fill="#d5e5f0" font-size="16">CSV 文本作为参数</text>
 <path d="M283 234H300" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="309" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="328" y="187" fill="#81d9d0" font-size="16">02</text>
-<text x="328" y="224" fill="#fff" font-size="23" font-weight="650">远端 Pandas</text>
-<text x="328" y="260" fill="#d5e5f0" font-size="17">去重 → 校验 → 汇总</text>
-<text x="328" y="289" fill="#d5e5f0" font-size="16">code-interpreter-v1</text>
+<text x="328" y="224" fill="#fff" font-size="22" font-weight="650">远端清洗</text>
+<text x="328" y="260" fill="#d5e5f0" font-size="17">Pandas 去重与筛选</text>
+<text x="328" y="289" fill="#d5e5f0" font-size="16">统一地区、处理无效行</text>
 <path d="M548 234H565" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="574" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="593" y="187" fill="#81d9d0" font-size="16">03</text>
-<text x="593" y="224" fill="#fff" font-size="23" font-weight="650">独立核对</text>
-<text x="593" y="260" fill="#d5e5f0" font-size="17">本地 csv + Decimal</text>
-<text x="593" y="289" fill="#d5e5f0" font-size="16">6 条有效 / 193.10</text>
+<text x="593" y="224" fill="#fff" font-size="22" font-weight="650">按地区汇总</text>
+<text x="593" y="260" fill="#d5e5f0" font-size="17">6 条有效订单</text>
+<text x="593" y="289" fill="#d5e5f0" font-size="16">销售额合计 193.10</text>
 <path d="M813 234H830" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="839" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="858" y="187" fill="#81d9d0" font-size="16">04</text>
-<text x="858" y="224" fill="#fff" font-size="23" font-weight="650">自动清理</text>
-<text x="858" y="260" fill="#d5e5f0" font-size="17">成功与异常路径</text>
-<text x="858" y="289" fill="#d5e5f0" font-size="16">DELETE 204 → GET 404</text>
-<text x="44" y="378" fill="#c9dbe8" font-size="18">图中数值来自真实复验；审计观察真实 HTTP，没有替换返回结果。</text>
+<text x="858" y="224" fill="#fff" font-size="22" font-weight="650">保存结果</text>
+<text x="858" y="260" fill="#d5e5f0" font-size="17">本地 CSV / JSON</text>
+<text x="858" y="289" fill="#d5e5f0" font-size="16">计算结束后自动清理</text>
+<text x="44" y="378" fill="#c9dbe8" font-size="18">一次 Python 函数调用，串起临时环境、数据处理和结果返回。</text>
 </g></svg>
