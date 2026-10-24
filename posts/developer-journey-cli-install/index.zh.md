@@ -1,6 +1,6 @@
 ---
-title: 从官网开始安装 abx，再完整跑一次沙箱生命周期
-summary: 从官网安装入口出发，验证下载校验、CLI 版本、真实创建与执行，并用精确 ID 确认资源已删除。附可独立运行的复现实验。
+title: 用 abx 开一个临时云端开发环境
+summary: 安装命令行工具，创建一个临时沙箱，在里面运行命令、查看环境，用完后释放资源。适合第一次上手 Agent Sandbox。
 date: 2026-10-24
 category: case
 tags: [cli, sandbox, getting-started]
@@ -9,40 +9,38 @@ cover: ./cover.svg
 draft: false
 ---
 
-安装成功，不只是终端里出现一个版本号。这篇案例从 [Agent Sandbox 官网](/start/) 的安装入口开始，继续完成真实沙箱的创建、信息查询、命令执行、列表查询和删除。最终要回答两个问题：工具是否真的能连接你的提供方，以及实验结束后资源是否真的不存在了。
+想试运行一段代码，又不想把依赖装进日常使用的电脑，可以先开一个临时云端环境。任务结束后删除环境，下次需要时再创建。
 
-这是五个开发者实践的第一篇。测试环境为 Linux x86_64，后端为 Alibaba Cloud Express。其他系统的安装入口虽然存在，本文没有把它们记作实测通过。
+这篇从安装 `abx` 开始，创建一个 `base` 沙箱，运行第一条命令，再介绍查看和释放这个环境的方法。后面的 [Qwen Code 案例](/blog/developer-journey-qwen-python/)和 [Python 模板案例](/blog/developer-journey-registry-template/)都会用到这些操作。
 
-## 安装 CLI，并固定实验版本
+本文使用 Linux、Alibaba Cloud Express 和 `abx 0.4.12`。开始前需要有自己的沙箱账户；账户配置入口见[官网上手指南](/start/)。
 
-官网提供独立二进制和 npm 两条入口。独立二进制的基础 CLI 操作不要求先安装 Python；如果使用 npm，需要满足包声明的 Node.js 版本要求（Node.js 20 或更新版本）。
+## 把 CLI 装到自己的工作目录
 
-为便于复现，把安装脚本先保存下来，再明确选择实验版本和安装目录：
+独立二进制适合只想先用 CLI 的情况，不需要预先安装 Python。下面把工具放到当前目录的 `bin` 中：
 
 ```bash
 curl -fsSL https://www.agent-sandbox.cn/install.sh -o install-abx.sh
 ABX_VERSION=0.4.12 ABX_INSTALL_DIR="$PWD/bin" sh install-abx.sh
 export PATH="$PWD/bin:$PATH"
 abx --version
-abx --help
 ```
 
-安装器会下载对应平台的发行文件并校验 checksum。不要绕过校验，也不要把“下载到一个同名文件”当成版本核验。若选择 npm 路线，可以使用独立目录，避免覆盖已有安装：
+安装器会下载适合当前平台的文件并校验下载内容。这里固定版本，方便按文章操作；安装完成后应看到 `abx, version 0.4.12`。
+
+如果你平时使用 Node.js，也可以选 npm 路线，要求 Node.js 20 或更新版本：
 
 ```bash
 npm install --global --prefix "$PWD/abx-npm" @agent-sandbox/cli@0.4.12
-"$PWD/abx-npm/bin/abx" --version
+export PATH="$PWD/abx-npm/bin:$PATH"
+abx --version
 ```
 
-网站更新后，还在新目录中不设置 `ABX_VERSION` 运行了官网默认安装器：它从官网镜像下载 `0.4.12`，校验与版本检查同样通过。
+两种方式选一种即可。如果电脑里已经有另一个 `abx`，用 `type -P abx` 查看当前 shell 使用的是哪个文件。
 
-两条安装路线应分别核对版本。切换后可用 `type -P abx` 确认当前 shell 实际调用哪个文件。
+## 连接沙箱账户
 
-本轮最终使用公开发行的 `0.4.12` 完成两条安装路线：独立二进制通过发行校验和检查，npm 包通过 registry integrity 检查；隔离目录中的 npm 全局安装也报告相同版本。[安装证据](./proof/installation.json)保留版本、制品摘要和发行工作流结果。
-
-## 配置自己的沙箱账户
-
-按照官网的提供方配置指南，使用你自己的同一账户、地域和接入地址。下面的变量是占位符，不是可用凭据：
+将提供方和连接信息放进当前终端的环境变量。请把占位符换成自己账户的配置：
 
 ```bash
 export ABX_PROVIDER=alicloud-express
@@ -51,33 +49,55 @@ export ABX_SANDBOX_BASE_URL='<YOUR_SANDBOX_API_URL>'
 export ABX_SANDBOX_DOMAIN='<YOUR_SANDBOX_DOMAIN>'
 ```
 
-沙箱 API 凭据与模型 API 凭据是两回事。本篇只验证沙箱生命周期，不需要 LLM API key。若电脑上还配置了其他提供方的 `E2B_*` 变量，请先核对它们是否会影响本次账户选择；不要把不同账户的 key、base URL 和 domain 混用。
+API key、接入地址和域名应来自同一账户配置。若另一套 E2B 配置也在当前 shell 中，先确认它不会影响此次连接。本篇只运行沙箱，不调用模型，因此不需要 LLM API key。
 
-## 手动走完一次生命周期
-
-使用 `--detach` 让创建命令返回本次 sandbox ID，而不是直接进入交互终端：
+## 创建第一个环境
 
 ```bash
 SID=$(abx create base --detach --timeout 300)
-abx info "$SID" --format json
+```
+
+`base` 是创建时使用的模板。`--detach` 让命令返回沙箱 ID，方便后续继续操作；`--timeout 300` 给这个临时环境设置 300 秒的生命周期。
+
+把 ID 保存在 `SID` 变量后，就可以在同一个沙箱里执行命令：
+
+```bash
 abx exec "$SID" -- echo hello
+```
+
+终端会输出：
+
+```text
+hello
+```
+
+这里 `--` 后面的内容由沙箱执行。以后需要运行自己的程序时，可以沿用这个命令结构，把 `echo hello` 换成目标命令。
+
+## 查看环境，也把它接进脚本
+
+当终端里同时开着几个任务时，可以用列表查找沙箱；已经知道 ID 时，直接查它的信息更方便：
+
+```bash
 abx list
+abx info "$SID" --format json
+```
+
+JSON 信息包含沙箱状态、使用的模板、资源配置和生命周期，适合由脚本读取。标准 `info` 的参数是 `--format json`；不同命令的输出选项可以通过各自的 `--help` 查看。
+
+新建资源可能稍后才出现在列表中。刚创建时若列表还没显示，先用返回的 ID 查询，不必马上再创建一个。
+
+## 用完就释放
+
+临时任务结束后，主动删除沙箱：
+
+```bash
 abx kill "$SID"
 abx info "$SID"
 ```
 
-执行结果应包含 `hello`。最后一次 `info` 应报告该精确 ID 不存在，并以非零状态退出；这是预期的清理结果，不是脚本中的成功业务调用。
+删除后的 `info` 会提示资源不存在，并返回非零退出码。对于刚刚删除的这个 ID，这是正常结果。
 
-这里有两个容易混淆的细节：
-
-- 标准 `info` 使用 `--format json`。扩展命令的全局 `--json` 并不意味着所有标准命令都采用同一参数接口；以各自 `--help` 为准。
-- 列表可能有短暂可见性延迟。创建后能按精确 ID 查询并执行命令，比立即在列表中找到它更直接；但列表功能本身仍应单独有界重试验证。
-
-手动步骤便于理解。正式实验使用下面的程序，把执行与清理放进 `try/finally`，失败也保留证据。
-
-## 运行完整复现实验
-
-附件 [run.py](./lab/run.py) 和 [support.py](./lab/support.py) 只使用 Python 标准库来驱动已安装的 CLI，不需要安装 Python SDK。可以从博客仓库取得完整目录：
+如果想把这套过程放进自动化任务，可以参考附件 [run.py](./lab/run.py) 和 [support.py](./lab/support.py)。它们把创建、执行和清理串在一起，正常结束或遇到普通异常时都会尝试释放本次创建的环境：
 
 ```bash
 git clone --depth 1 https://github.com/Alibaba-Agent-Sandbox/blogs.git agent-sandbox-cases
@@ -85,26 +105,6 @@ cd agent-sandbox-cases/posts/developer-journey-cli-install
 python3 lab/run.py
 ```
 
-程序依次检查：
+这个脚本会自己创建并删除另一个沙箱，不会接管前面手动创建的 `SID`。若进程被强制终止，保留的资源 ID 可用于手动清理。
 
-| 检查 | 通过依据 |
-| --- | --- |
-| 创建 | 退出码为零，取得单个 sandbox ID |
-| 信息 | 精确 ID 的 JSON 查询成功 |
-| 执行 | 远端输出严格等于 `hello` |
-| 列表 | 在有限次数查询内包含本次 ID |
-| 删除 | `kill` 成功，再按相同 ID 查询确认 NotFound |
-
-成功时会输出 `status: PASS` 和 `cleanup_verified: true`。完整命令、退出码和输出写入 `lab/evidence/result.json`；用于故障恢复的真实 ID 放在 `lab/.private/`。后者不应提交或公开。
-
-程序不会因为“列表里没看到”就认定资源已删除，也不会把一次删除请求等同于清理完成。若进程被强制终止，无法保证 `finally` 执行；应使用自己保存的 ID 做恢复清理。
-
-## 本次验证的边界
-
-这篇验证的是 Linux 上的安装与一个真实 Express 沙箱生命周期。它没有执行所有提供方、所有平台，也没有修改团队、配额、卷或 API key 等管理资源。
-
-最初实验中，曾把列表延迟和 NotFound 文案识别错误归为失败；这些是测试程序的判断问题，原始失败记录保留，修正后按精确 ID 重跑。最终 `0.4.12` 复验耗时约 9.5 秒，生命周期与精确清理均通过。[结果附件](./proof/result.json)保留命令、退出码和关键业务输出，省略账户元数据及列表中的其他资源。附件源码与最终执行的文件字节一致。
-
-接下来可以阅读 [用 Python SDK 自建 Qwen Code 沙箱](/blog/developer-journey-qwen-python/)，把同一个应用命令通过 SDK、CLI 和 HTTP POST 三条路径调用起来。
-
-附件的[源码 SHA256 清单](./lab/source-sha256.json)用于确认复现文件的字节。它与运行结果一起使用，单有哈希清单并不证明实验通过。
+现在已经有了一个可从终端管理的临时环境。接下来可以给它装入自己的程序：例如[运行 Qwen Code 并提供自定义接口](/blog/developer-journey-qwen-python/)，或者直接[从 Registry 选择 Python 模板](/blog/developer-journey-registry-template/)。

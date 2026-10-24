@@ -2,7 +2,7 @@
 <title id="t">合成订单地区金额</title><desc id="d">east 14010 分，north 2300 分，west 3000 分，总计19310分。</desc>
 <rect width="900" height="400" rx="20" fill="#f1f6fb"/>
 <g font-family="system-ui, Noto Sans CJK SC, sans-serif">
-<text x="38" y="54" font-size="26" font-weight="700" fill="#17324d">真实复验结果 · 金额（分）</text>
+<text x="38" y="54" font-size="26" font-weight="700" fill="#17324d">各地区销售额 · 金额（分）</text>
 <text x="38" y="134" font-size="20" fill="#17324d">east</text>
 <rect x="140" y="105" width="580" height="43" rx="7" fill="#2563eb"/>
 <text x="735" y="134" font-size="20" fill="#17324d">14010</text>

@@ -1,6 +1,6 @@
 ---
-title: 用 Python SDK 自建 Qwen Code 沙箱，并把自定义命令交给 CLI 和 HTTP
-summary: 自己编写沙箱应用，安装固定版本 Qwen Code，用 SDK、CLI 和真实 POST 调用自定义命令，再让模型实际修复文件并验证结果。
+title: 给 Qwen Code 一个沙箱，再把常用操作变成 API
+summary: 用 Python SDK 创建临时代码工作区，让 Qwen Code 修复一个计算函数，并把订单金额计算封装成可由 Python、CLI 和 HTTP 调用的命令。
 date: 2026-10-24
 category: case
 tags: [python, qwen-code, api, sandbox]
@@ -9,24 +9,22 @@ cover: ./cover.svg
 draft: false
 ---
 
-这篇案例自己编写一个 Qwen Code 沙箱：Python SDK 负责创建和配置环境，沙箱里的 Python 服务注册业务命令，宿主机通过 SDK、CLI 和 HTTP 调用它。最后让 Qwen Code 真正修改一份有 bug 的程序，再用独立测试检查修改结果。
+让代码助手修改文件时，一个独立的临时工作区很实用：源文件和工具装在沙箱里，任务完成后把需要的产物取回，再释放环境。
 
-这里没有直接采用官方 Qwen 模板，因此结果也不能当作官方 Qwen Registry 镜像的验收。我们测试的是自己的应用、安装步骤和调用链。
+这篇用 Python SDK 自己搭一个 Qwen Code 沙箱。让它修复计算器里的错误，并给同一个应用增加 `invoice_total` 命令。这样，代码助手负责修改程序，普通业务计算则可以直接通过 Python、CLI 或 HTTP 调用。
 
-## 准备两个独立账户上下文
+## 准备沙箱账户和模型服务
 
-先按 [CLI 安装实践](/blog/developer-journey-cli-install/) 安装并配置 `abx`。宿主 Python 使用独立环境：
+先按[CLI 上手案例](/blog/developer-journey-cli-install/)安装 `abx 0.4.12`，配置自己的 Express 沙箱账户。Python 依赖放在独立环境中：
 
 ```bash
 python3.12 -m venv .venv
 . .venv/bin/activate
-python -m pip install --index-url https://pypi.org/simple 'agent-sandbox-client==0.3.1a2'
-python -m pip check
+python -m pip install --index-url https://pypi.org/simple \
+  'agent-sandbox-client==0.3.1a2'
 ```
 
-`0.3.1a2` 是显式选择的 alpha。client 会安装同版本的宿主 server 依赖，但这不会自动升级远端沙箱里的服务。本例的远端 bootstrap 仍固定 `agent-sandbox-server==0.3.1a1`，需要把这两层版本区分开。
-
-除沙箱账户的 `ABX_*` 配置外，还需要自己的模型服务：
+这里选用的是 SDK alpha 版本。除沙箱连接配置外，还需要 Qwen 使用的模型服务：
 
 ```bash
 export OPENAI_API_KEY='<YOUR_MODEL_API_KEY>'
@@ -34,13 +32,69 @@ export OPENAI_BASE_URL='<YOUR_OPENAI_COMPATIBLE_BASE_URL>'
 export QWEN_MODEL='qwen3-coder-flash'
 ```
 
-模型名称必须是该服务实际支持的名称。实验专用的 `QWEN_MODEL` 不继承宿主泛用的 `OPENAI_MODEL`，避免把另一个项目的模型配置误传给 Qwen。
+模型名称应是你的服务实际提供的名称。本例用单独的 `QWEN_MODEL`，避免沿用其他项目留下的模型配置。
 
-## 编写特殊命令
+取得示例代码后，可以先读一下三个主要文件：
 
-[commands.py](./lab/commands.py) 注册三个命令：`qwen_version` 查询版本，`repair_calculator` 启动有时间和轮数限制的真实 Qwen 任务，`invoice_total` 演示类型化业务调用。
+```bash
+git clone --depth 1 https://github.com/Alibaba-Agent-Sandbox/blogs.git agent-sandbox-cases
+cd agent-sandbox-cases/posts/developer-journey-qwen-python
+```
 
-下面是业务命令的核心代码，完整附件还检查了非有限价格、负价格和无效折扣：
+| 文件 | 负责什么 |
+| --- | --- |
+| [bootstrap.sh](./lab/bootstrap.sh) | 安装 Node.js、Qwen Code 和沙箱内的 Python 服务 |
+| [commands.py](./lab/commands.py) | 定义查询版本、修复代码、计算金额三个应用命令 |
+| [run.py](./lab/run.py) | 创建沙箱、上传文件、启动应用、调用命令和取回产物 |
+
+## 创建工作区，把工具装进去
+
+程序通过 `ProviderSandbox.create(template="base", timeout=900)` 创建环境，再把 bootstrap 和应用代码写入 `/home/user/journey-qwen/`。项目文件放在其中的 `project/` 目录。
+
+bootstrap 固定了 Node.js `24.16.0`、Qwen Code `0.23.0` 和远端 `agent-sandbox-server==0.3.1a1`。Node.js 下载会校验官方 SHA256；Python 服务从官方 PyPI 安装，避免新版本尚未同步到镜像源。
+
+本地 client 和远端 server 是两个安装位置。本地使用 `0.3.1a2`，不会自动改变 bootstrap 中指定的远端版本。
+
+工具准备好后，程序启动监听 9008 端口的应用服务。下面是完整程序中的关键调用，其中 `sb` 是已创建的沙箱，`env` 提供工具路径和模型配置：
+
+```python
+server = await sb.start_server(
+    port=9008,
+    command="python3 -m agent_sandbox.server serve --port 9008 "
+            "--commands /home/user/journey-qwen/commands.py",
+    token=app_token,
+    env=env,
+    timeout=60,
+)
+```
+
+`app_token` 是程序为这次应用生成的随机令牌。它保护应用接口，与创建沙箱时使用的控制面 API key 分开。
+
+## 让 Qwen 真正修改文件
+
+示例先写入一个有意出错的计算函数：
+
+```python
+def add(a, b):
+    return a - b
+```
+
+随后调用 `repair_calculator`，要求 Qwen 修改磁盘上的 `calculator.py`，让 `add` 返回两数之和，并生成说明修改内容的 `REPORT.md`。
+
+这个命令内部启动 Qwen Code 子进程，把工作目录设为刚创建的项目。它限制最多 8 轮、120 秒运行预算，外层子进程另有 150 秒超时保护。工作目录只是任务起点，并不是访问控制边界；示例中的 `--yolo` 用在这个可丢弃沙箱里。
+
+完成后，程序取回修改后的源码和报告。修改后的核心逻辑是：
+
+```python
+def add(a, b):
+    return a + b
+```
+
+本例还用几组输入运行修改后的函数，例如 `add(2, 3)` 得到 `5`，`add(123, 456)` 得到 `579`。实际执行修改后的文件，可以及时发现模型只解释了方案、却没有把修改写入磁盘的情况。
+
+## 加一个不需要模型参与的业务命令
+
+同一个服务还可以提供普通 Python 函数。例如，对一笔订单按数量和折扣计算总额：
 
 ```python
 from decimal import Decimal, ROUND_HALF_UP
@@ -60,41 +114,28 @@ def invoice_total(unit_price: str, quantity: int, discount_percent: int = 0) -> 
             "discount_percent": discount_percent}
 ```
 
-注册函数使它成为应用服务的命令，并不意味着把任意宿主 Python 函数直接传给 CLI。CLI 最终调用的是沙箱中已启动的 HTTP 服务。
+`@command` 把函数注册成应用命令。价格使用字符串传入，再由 `Decimal` 计算，结果按两位小数返回。
 
-## 创建环境并启动服务
+### 在 Python 中调用
 
-[run.py](./lab/run.py) 使用公开的 `ProviderSandbox` 创建 `base` 沙箱，然后写入 bootstrap 和应用文件。它在创建回调中保存本次 ID，以便后续步骤失败时仍能恢复清理。
-
-[bootstrap.sh](./lab/bootstrap.sh) 做了三件具体的事：下载 Node.js `24.16.0` 并校验官方 SHA256；安装 Qwen Code `0.23.0`；把远端 server alpha 安装到应用专属 Python 目录。最后一步明确使用官方 PyPI，因为首次实验使用的镜像源尚未同步该 alpha。
-
-启动服务的关键调用如下，完整程序负责先构造 `sb`、`app_token` 和必要环境变量：
-
-```python
-server = await sb.start_server(
-    port=9008,
-    command="python3 -m agent_sandbox.server serve --port 9008 "
-            "--commands /home/user/journey-qwen/commands.py",
-    token=app_token,
-    env=env,
-    timeout=60,
-)
-```
-
-`app_token` 是每次实验随机生成的应用令牌。模型凭据只注入本次拥有的 sandbox；原始模型输出保留在私有恢复目录，不进入公开附件。
-
-## 同一个命令，三条真实调用路径
-
-SDK 调用使用启动后返回的应用客户端：
+服务启动后，直接使用返回的应用客户端：
 
 ```python
 answer = await server.commands.run(
     "invoice_total", unit_price="19.00", quantity=3, discount_percent=10
 )
-assert answer == {"total": "51.30", "quantity": 3, "discount_percent": 10}
+print(answer)
 ```
 
-CLI 则指定相同应用端口，并在调用环境中提供本次应用令牌：
+单价 `19.00`、数量 `3`、打九折，得到：
+
+```json
+{"total": "51.30", "quantity": 3, "discount_percent": 10}
+```
+
+### 在终端中调用
+
+应用运行期间，也可以让 CLI 调用同一个命令。`SID` 和 `APP_TOKEN` 分别是这个沙箱的 ID 和启动服务时的令牌：
 
 ```bash
 ABX_SERVER_TOKEN="$APP_TOKEN" abx run "$SID" invoice_total \
@@ -102,9 +143,11 @@ ABX_SERVER_TOKEN="$APP_TOKEN" abx run "$SID" invoice_total \
   --json-args '{"unit_price":"19.00","quantity":3,"discount_percent":10}'
 ```
 
-这里的 `SID` 和 `APP_TOKEN` 来自你自己的创建过程；自动实验会管理它们，不会把真实值打印到公开日志。普通输出是业务对象；使用扩展全局 `--json` 时，外层格式另有 `result` 包装，不应混淆。
+这适合临时调试，或者把现成的业务命令放进 shell 流程。
 
-HTTP 路线是真实的宿主 POST：
+### 从 HTTP 客户端调用
+
+其他程序不必通过 CLI，可以向应用发送 POST：
 
 ```python
 async with httpx.AsyncClient(timeout=30, follow_redirects=False) as http:
@@ -113,39 +156,22 @@ async with httpx.AsyncClient(timeout=30, follow_redirects=False) as http:
         headers=server.auth_headers(),
         json={"unit_price": "19.00", "quantity": 3, "discount_percent": 10},
     )
-    assert response.status_code == 200
-    assert response.json()["result"]["total"] == "51.30"
+    response.raise_for_status()
+    print(response.json()["result"])
 ```
 
-使用应用绑定返回的 URL 和 `auth_headers()`，不要自己拼域名，也不要把沙箱控制面 key 直接当成应用 Bearer token。平台网关认证和应用认证可能同时存在。
+这段代码使用 `httpx`，与前面的 `server` 处在同一个异步流程里。URL 和认证头由应用客户端提供，不需要自己拼接沙箱域名。缺少必要参数时接口返回 `400`；缺少或使用错误的应用令牌时返回 `401`。
 
-实验保留平台网关所需头，分别删除或替换应用令牌，确认两种情况都返回 `401`；缺少必要参数返回 `400`。这样测试的是应用鉴权边界，而不是误删所有认证后被前置网关拦截。
+## 跑完示例，拿走产物
 
-## 确认 Qwen 真的修改了文件
-
-程序先写入一个有意错误的文件：
-
-```python
-def add(a, b):
-    return a - b
-```
-
-随后调用 `repair_calculator`，要求 Qwen 使用文件工具修改 `calculator.py`，并在同一目录写出 `REPORT.md`。Qwen 的工作目录设为这个可丢弃项目，配置最大 8 轮、120 秒预算，外层子进程另有 150 秒超时保护。`--yolo` 仅用于本实验拥有的 sandbox；工作目录是起点，不是访问控制，不能据此宣称模型只能访问该目录。
-
-通过条件不是模型回答“已修复”，也不是进程退出码为零。宿主会下载实际源码和报告，再在沙箱里检查四组独立输入：`(2, 3)`、`(-4, 9)`、`(0, 0)`、`(123, 456)`。结果必须分别为 `5`、`5`、`0`、`579`，报告还必须非空。
-
-首次错误配置曾使模型服务返回“不支持该模型”的内容，而外层进程仍退出零。正是文件和独立断言阻止了误报成功。这个例子说明，模型任务应验收产物和业务行为，而不只验收模型进程。
-
-## 一次运行完整实验
+配置完成后，在示例目录运行：
 
 ```bash
-git clone --depth 1 https://github.com/Alibaba-Agent-Sandbox/blogs.git agent-sandbox-cases
-cd agent-sandbox-cases/posts/developer-journey-qwen-python
 python lab/run.py
 ```
 
-完整程序会执行创建、安装、三路调用、`200/400/401` 边界、真实模型修复和清理。结果写到 `lab/evidence/result.json`；成功必须同时满足 `status: PASS` 和 `cleanup_verified: true`。关闭应用客户端只是释放连接，删除 sandbox 才会释放云资源，程序两者都做，并按精确 ID 复查。
+程序会在一次运行中完成以上操作，包括三种调用方式，然后自动删除自己创建的沙箱。它不是一个常驻服务；如果需要手动用 CLI 调试，应在应用仍运行时调用，而不是等脚本结束后复用已经删除的 ID。
 
-最终复验使用公开 CLI `0.4.12`、从官方 PyPI 新安装的宿主 SDK `0.3.1a2`，运行的正是附件文件，耗时约 89 秒。三条业务调用、`400/401` 边界、真实文件修改、四组独立运算和精确清理全部通过；[结果附件](./proof/result.json)保留了相应证据。它是有界的开发实践，不是任意模型、任意代码任务或多租户服务的生产保证。
+运行后可以查看 `lab/calculator.generated.py` 和 `lab/REPORT.generated.md`。需要保留的业务结果应在释放沙箱前下载到本地；应用客户端的 `aclose()` 只是关闭连接，真正释放云资源需要 `sb.kill()`。
 
-附件的[源码 SHA256 清单](./lab/source-sha256.json)用于确认复现文件的字节。它与运行结果一起使用，单有哈希清单并不证明实验通过。
+这个例子把两类工作放进了同一个临时环境：Qwen 处理需要读写代码的任务，注册好的 Python 命令提供稳定的调用入口。沿用这个结构，可以继续设计自己的项目操作；新增命令时，把参数、返回值和允许执行的操作写清楚。

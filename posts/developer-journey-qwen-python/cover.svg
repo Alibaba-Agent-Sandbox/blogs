@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" role="img" aria-labelledby="title desc">
-<title id="title">一个应用服务，三种调用入口</title><desc id="desc">控制面负责创建与销毁；应用调用使用绑定 URL 和对应认证。</desc>
+<title id="title">代码助手与业务接口，共用一个沙箱</title><desc id="desc">Qwen 修改项目文件；Python 命令提供可重复调用的业务操作。</desc>
 <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0a1830"/><stop offset="1" stop-color="#173d4c"/></linearGradient><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#81d9d0" stroke-width="1.5"/></marker></defs>
 <rect width="1120" height="430" rx="24" fill="url(#bg)"/>
 <g font-family="system-ui, Noto Sans CJK SC, sans-serif">
-<text x="44" y="53" fill="#81d9d0" font-size="16" letter-spacing="3">DEVELOPER JOURNEY · 02</text>
-<text x="44" y="104" fill="#f4f8ff" font-size="32" font-weight="700">一个应用服务，三种调用入口</text>
+<text x="44" y="53" fill="#81d9d0" font-size="16" letter-spacing="3">BUILD WITH SANDBOX · 02</text>
+<text x="44" y="104" fill="#f4f8ff" font-size="31" font-weight="700">代码助手与业务接口，共用一个沙箱</text>
 <rect x="44" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="63" y="187" fill="#81d9d0" font-size="16">01</text>
-<text x="63" y="224" fill="#fff" font-size="23" font-weight="650">宿主调用方</text>
-<text x="63" y="260" fill="#d5e5f0" font-size="17">Python SDK · CLI</text>
-<text x="63" y="289" fill="#d5e5f0" font-size="16">真实 HTTP POST</text>
+<text x="63" y="224" fill="#fff" font-size="22" font-weight="650">准备项目</text>
+<text x="63" y="260" fill="#d5e5f0" font-size="17">Python SDK 创建沙箱</text>
+<text x="63" y="289" fill="#d5e5f0" font-size="16">上传代码与工具</text>
 <path d="M283 234H300" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="309" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="328" y="187" fill="#81d9d0" font-size="16">02</text>
-<text x="328" y="224" fill="#fff" font-size="23" font-weight="650">提供方绑定</text>
-<text x="328" y="260" fill="#d5e5f0" font-size="17">返回应用 URL</text>
-<text x="328" y="289" fill="#d5e5f0" font-size="16">解析网关认证头</text>
+<text x="328" y="224" fill="#fff" font-size="22" font-weight="650">Qwen 修复代码</text>
+<text x="328" y="260" fill="#d5e5f0" font-size="17">修改 calculator.py</text>
+<text x="328" y="289" fill="#d5e5f0" font-size="16">取回源码与说明</text>
 <path d="M548 234H565" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="574" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="593" y="187" fill="#81d9d0" font-size="16">03</text>
-<text x="593" y="224" fill="#fff" font-size="23" font-weight="650">沙箱应用服务</text>
-<text x="593" y="260" fill="#d5e5f0" font-size="17">9008 /commands/...</text>
-<text x="593" y="289" fill="#d5e5f0" font-size="16">独立应用 Bearer 令牌</text>
+<text x="593" y="224" fill="#fff" font-size="22" font-weight="650">封装业务命令</text>
+<text x="593" y="260" fill="#d5e5f0" font-size="17">invoice_total</text>
+<text x="593" y="289" fill="#d5e5f0" font-size="16">计算数量、折扣与金额</text>
 <path d="M813 234H830" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="839" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="858" y="187" fill="#81d9d0" font-size="16">04</text>
-<text x="858" y="224" fill="#fff" font-size="23" font-weight="650">自定义命令</text>
-<text x="858" y="260" fill="#d5e5f0" font-size="17">invoice_total / Qwen</text>
-<text x="858" y="289" fill="#d5e5f0" font-size="16">金额结果 + 文件产物</text>
-<text x="44" y="378" fill="#c9dbe8" font-size="18">控制面负责创建与销毁；应用调用使用绑定 URL 和对应认证。</text>
+<text x="858" y="224" fill="#fff" font-size="22" font-weight="650">调用应用</text>
+<text x="858" y="260" fill="#d5e5f0" font-size="17">Python / CLI / HTTP</text>
+<text x="858" y="289" fill="#d5e5f0" font-size="16">结果：51.30</text>
+<text x="44" y="378" fill="#c9dbe8" font-size="18">Qwen 修改项目文件；Python 命令提供可重复调用的业务操作。</text>
 </g></svg>

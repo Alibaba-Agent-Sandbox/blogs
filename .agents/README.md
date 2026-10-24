@@ -83,3 +83,5 @@ drafts/patches and report the blocker without claiming an Issue, PR or merge exi
 - [Use current Express CLI in the bilingual walkthrough](notes/implemented/process/2026-10-22-current-express-cli-examples.md) · [verification](evidence/verify/2026-10-22-current-express-cli-examples.md)
 
 Developer journey cases: [decision](notes/proposed/feature/2026-10-24-developer-journey-cases.md) · [verification](evidence/verify/2026-10-24-developer-journey-cases.md).
+
+- [Practical case narrative](notes/proposed/process/2026-10-24-practical-case-narrative.md) · [verification](evidence/verify/2026-10-24-practical-case-narrative.md).
