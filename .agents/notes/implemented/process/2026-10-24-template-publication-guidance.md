@@ -1,6 +1,6 @@
 # Decision: Describe template publication as a usable contribution
 
-Status: proposed
+Status: implemented
 
 ## Problem
 
@@ -20,7 +20,7 @@ Deleting status from the example would misdescribe the current index schema. Rep
 
 ## Dependencies
 
-The owner normative correction must land before this post is merged: [awesome-templates PR 205](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/pull/205). [CLI 0.4.16 publication](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/blob/af0911a99f7269718f8e6488a835bdd441ab771c/.agents/evidence/verify/2026-10-24-cli-0416-release.md) establishes the installed command version. Tracking: [blogs Issue 9](https://github.com/Alibaba-Agent-Sandbox/blogs/issues/9).
+The owner normative correction landed as `ba17fbd32da188a2e4452f5946fa72135fc41c8e`: [awesome-templates PR 205](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/pull/205). [CLI 0.4.16 publication](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/blob/af0911a99f7269718f8e6488a835bdd441ab771c/.agents/evidence/verify/2026-10-24-cli-0416-release.md) establishes the installed command version. Tracking: [blogs Issue 9](https://github.com/Alibaba-Agent-Sandbox/blogs/issues/9).
 
 ## Test Strategy
 
@@ -28,7 +28,7 @@ Validate all post frontmatter, changed document targets, bilingual consistency a
 
 ## Acceptance criteria
 
-Readers can distinguish catalog inclusion from the scope of actual usage. English and Chinese match, owner semantics are merged, post CI passes and the website consumes the merged blog source.
+Readers can distinguish catalog inclusion from the scope of actual usage. English and Chinese match, owner semantics are merged, post CI passes. Website aggregation and deployment are a separate follow-up after the blog merge.
 
 ## Evidence
 

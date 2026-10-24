@@ -86,4 +86,4 @@ Developer journey cases: [decision](notes/proposed/feature/2026-10-24-developer-
 
 - [Practical case narrative](notes/proposed/process/2026-10-24-practical-case-narrative.md) · [verification](evidence/verify/2026-10-24-practical-case-narrative.md).
 
-- [Template publication guidance](notes/proposed/process/2026-10-24-template-publication-guidance.md) · [verification](evidence/verify/2026-10-24-template-publication-guidance.md).
+- [Template publication guidance](notes/implemented/process/2026-10-24-template-publication-guidance.md) · [verification](evidence/verify/2026-10-24-template-publication-guidance.md).
