@@ -1,6 +1,7 @@
 # Decision: Use verified CLI and paired Python installations
 
-Status: proposed
+Status: superseded
+Superseded-by: [current documentation](../implemented/process/2026-10-24-current-documentation-sync.md)
 
 ## Problem
 
@@ -43,4 +44,4 @@ Retain the previously executed installer evidence as historical verification.
 
 ## Evidence
 
-[Verification](../../../evidence/verify/2026-10-16-installation-review.md).
+[Verification](../../evidence/verify/2026-10-16-installation-review.md).

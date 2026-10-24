@@ -1,6 +1,6 @@
 # Decision: Publish five reproducible developer journey cases
 
-Status: proposed
+Status: implemented
 
 ## Problem
 The user requested a new developer's public-documentation journey covering CLI installation,
@@ -46,3 +46,7 @@ versions/prerequisites, observed results and cleanup instructions. Published evi
 credentials, account identifiers or private logs. The small generated add application's success
 does not claim to resolve the larger numeric environment's bounded build timeout. Required CI
 and independent review pass; actual remote merge and website publication are read back.
+
+## Delivery confirmation
+
+Merged in https://github.com/Alibaba-Agent-Sandbox/blogs/pull/7. Current public page/title readback is recorded in [the later synchronization evidence](../../../evidence/verify/2026-10-24-current-documentation-sync.md); original verification files remain unchanged.

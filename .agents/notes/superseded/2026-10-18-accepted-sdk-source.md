@@ -1,5 +1,6 @@
 # Decision: Point current source-install examples to the accepted native SDK
-Status: proposed
+Status: superseded
+Superseded-by: [current documentation](../implemented/process/2026-10-24-current-documentation-sync.md)
 
 ## Problem
 

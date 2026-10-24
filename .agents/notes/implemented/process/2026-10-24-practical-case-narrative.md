@@ -1,6 +1,6 @@
 # Decision: Present practical cases as developer workflows
 
-Status: proposed
+Status: implemented
 
 ## Problem
 The user found the five published case articles read like acceptance reports. Counts of
@@ -43,3 +43,7 @@ for an editorial change.
 All five articles and their figures describe practical developer workflows. Setup and commands
 remain usable, known limitations remain relevant and accurate, prior evidence remains intact,
 and the updated public pages are read back after publication.
+
+## Delivery confirmation
+
+Merged in https://github.com/Alibaba-Agent-Sandbox/blogs/pull/8. Current public page/title readback is recorded in [the later synchronization evidence](../../../evidence/verify/2026-10-24-current-documentation-sync.md); original verification files remain unchanged.
