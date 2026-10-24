@@ -1,0 +1,356 @@
+[
+  {
+    "name": "info",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "requested-lifetime-and-kill-policy",
+    "passed": true,
+    "details": {
+      "lease_seconds": 900.0,
+      "on_timeout": "kill"
+    }
+  },
+  {
+    "name": "exec",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "capabilities",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "owned-data-directory",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "file-write-read",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "file-written-remove",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "download-generated-source",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "generated-source-sha256",
+    "passed": true,
+    "details": {
+      "local": "b5a8a47f8fa0e58841376ce9a88243c0c9ea7cb8aa9feb837c92d48250fefa33",
+      "remote": "b5a8a47f8fa0e58841376ce9a88243c0c9ea7cb8aa9feb837c92d48250fefa33"
+    }
+  },
+  {
+    "name": "list-0",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "list-contains-exact-owned-id",
+    "passed": true,
+    "details": {
+      "attempts": 1,
+      "bounded_delay_seconds": 20
+    }
+  },
+  {
+    "name": "commands",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "upload",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "add",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "CLI-add-business",
+    "passed": true,
+    "details": {
+      "result": 42
+    }
+  },
+  {
+    "name": "sample-upload",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "file-list",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "file-stat",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "file-search",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "download",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "file-mkdir",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "mkdir-postcondition",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "file-move",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "move-postconditions",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "file-rm",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "removed-stat-notfound",
+    "passed": true,
+    "details": {
+      "exit_code": 4
+    }
+  },
+  {
+    "name": "remove-postcondition",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "upload-download-sha256",
+    "passed": true,
+    "details": "9dd50049f9d6da4ea6622612768fbf81f911c3e401b9d8e1caed607900e4f503"
+  },
+  {
+    "name": "system-info",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "system-metrics",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "system-ports",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "system-packages",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "system-env",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "background",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "process-list",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "background-owned-pid",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "process-info",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "process-signal",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "process-list-after",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "owned-process-terminated",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "HTTP-health",
+    "passed": true,
+    "details": {
+      "status": 200
+    }
+  },
+  {
+    "name": "GET-application-capabilities",
+    "passed": true,
+    "details": {
+      "status": 200,
+      "api_version": 2,
+      "server_version": "0.3.1a1",
+      "command_endpoints": {
+        "list_commands": {
+          "method": "GET",
+          "path": "/commands",
+          "group": "commands",
+          "summary": "List the registered custom commands.",
+          "streaming": false,
+          "enabled": true,
+          "allowed": true,
+          "reason": null,
+          "rule": null,
+          "scopes": [
+            "commands:list"
+          ],
+          "limits": {},
+          "params": {}
+        },
+        "run_command": {
+          "method": "POST",
+          "path": "/commands/{name}",
+          "group": "commands",
+          "summary": "Run a registered named command.",
+          "streaming": false,
+          "enabled": true,
+          "allowed": true,
+          "reason": null,
+          "rule": null,
+          "scopes": [
+            "commands:run"
+          ],
+          "limits": {},
+          "params": {}
+        }
+      }
+    }
+  },
+  {
+    "name": "GET-registered-commands",
+    "passed": true,
+    "details": {
+      "commands": [
+        {
+          "name": "add",
+          "args": [
+            {
+              "name": "a",
+              "type": "integer",
+              "required": true,
+              "default": null,
+              "description": ""
+            },
+            {
+              "name": "b",
+              "type": "integer",
+              "required": true,
+              "default": null,
+              "description": ""
+            }
+          ],
+          "description": "Add two integers and return the sum."
+        }
+      ]
+    }
+  },
+  {
+    "name": "POST-add-17-25",
+    "passed": true,
+    "details": {
+      "status": 200,
+      "response": {
+        "result": 42
+      },
+      "expected": 42
+    }
+  },
+  {
+    "name": "POST-add--15-7",
+    "passed": true,
+    "details": {
+      "status": 200,
+      "response": {
+        "result": -8
+      },
+      "expected": -8
+    }
+  },
+  {
+    "name": "POST-add-0-0",
+    "passed": true,
+    "details": {
+      "status": 200,
+      "response": {
+        "result": 0
+      },
+      "expected": 0
+    }
+  },
+  {
+    "name": "POST-add-2147483648-2147483648",
+    "passed": true,
+    "details": {
+      "status": 200,
+      "response": {
+        "result": 4294967296
+      },
+      "expected": 4294967296
+    }
+  },
+  {
+    "name": "POST-negative-400",
+    "passed": true,
+    "details": {
+      "status": 400
+    }
+  },
+  {
+    "name": "POST-negative-404",
+    "passed": true,
+    "details": {
+      "status": 404
+    }
+  },
+  {
+    "name": "PTY-cwd-environment",
+    "passed": true,
+    "details": null
+  }
+]

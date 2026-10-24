@@ -1,0 +1,66 @@
+name: abx-nl-python-add-dcd7e0
+version: 1.0.0
+description: Python 沙箱，提供 add 命令计算两个整数之和
+spec_version: 4
+workflow_contract_version: 1
+generation: 2
+user: user
+workdir: /home/user/app
+base:
+  image: fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49
+build:
+  mode: steps
+  steps:
+  - type: USER
+    args:
+    - root
+  - type: RUN
+    args:
+    - python3 -m pip install --index-url https://pypi.org/simple --no-cache-dir
+      "agent-sandbox-server==0.3.1a1"
+  - type: RUN
+    args:
+    - mkdir -p /home/user/app && printf '%s'
+      'IiIiYWJ4LW5sLXB5dGhvbi1hZGQtZGNkN2UwIOKAlCBzYW5kYm94IGNvbW1hbmQgc2VydmVyLiIiIgpmcm9tIF9fZnV0dXJlX18gaW1wb3J0IGFubm90YXRpb25zCgppbXBvcnQgb3MKCmZyb20gYWdlbnRfc2FuZGJveC5zZXJ2ZXIgaW1wb3J0IGNvbW1hbmQsIHN0YXJ0CgoKQGNvbW1hbmQoImFkZCIsIGRlc2NyaXB0aW9uPSJBZGQgdHdvIGludGVnZXJzIGFuZCByZXR1cm4gdGhlIHN1bS4iKQpkZWYgYWRkKGE6IGludCwgYjogaW50KSAtPiBpbnQ6CiAgICByZXR1cm4gYSArIGIKCgojIEJpbmQgdGhlIHBvcnQgb25seSB3aGVuIHJ1biBhcyBtYWluLCBzbyBhIHBsYXRmb3JtIC0tY29tbWFuZHMgaW1wb3J0IGRvZXMgbm90IHNlcnZlLgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgc3RhcnQoaW50KG9zLmVudmlyb24uZ2V0KCJBQlhfU0VSVkVSX1BPUlQiLCAiOTAwMCIpKSkK'
+      | base64 -d > /home/user/app/commands.py
+  - type: RUN
+    args:
+    - python3 -m py_compile /home/user/app/commands.py && chown -R user:user
+      /home/user/app
+  - type: WORKDIR
+    args:
+    - /home/user/app
+  - type: USER
+    args:
+    - user
+provides:
+  app:
+    protocol: agent-sandbox-server
+    version: 2
+    port: 9000
+    operations:
+    - commands.list
+    - commands.run
+default_workflow: application
+workflows:
+  application:
+    kind: application
+    input: source
+    service: app
+    startup: entrypoint
+    binding:
+      transport: http
+      endpoint: provider-port
+      caller: host
+      authentication: none
+    operation: commands.run
+    required_operations: []
+start_cmd: agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py
+ready_cmd: agent-sandbox-server healthcheck --port 9000
+env:
+  LANG: C.UTF-8
+ports:
+- 9000
+resources:
+  cpu: 2
+  memory: 4096

@@ -1,0 +1,6 @@
+{
+  "python": "3.12.13",
+  "agent-sandbox-client": "0.3.1a1",
+  "agent-sandbox-server": "0.3.1a1",
+  "PyYAML": "6.0.3"
+}

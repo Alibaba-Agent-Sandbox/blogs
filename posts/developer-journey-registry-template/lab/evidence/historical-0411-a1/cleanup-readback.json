@@ -1,0 +1,21 @@
+{
+  "retrieved_at": "2026-10-24T03:32:16.638157+00:00",
+  "passed": true,
+  "resources": {
+    "sandbox": {
+      "exact_owned_id": true,
+      "exit_code": 1,
+      "absent": true,
+      "readback_reason": "SandboxNotFound",
+      "http_404_observed": false
+    },
+    "template": {
+      "exact_owned_id": true,
+      "exit_code": 1,
+      "absent": true,
+      "readback_reason": "TemplateNotFound",
+      "http_404_observed": true
+    }
+  },
+  "scope": "Independent exact-ID readback after successful documented journey cleanup; no creation or deletion was repeated."
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "path": "/commands/hello",
+    "status": 200,
+    "body": {
+      "result": "Hello, Ada!"
+    }
+  },
+  {
+    "path": "/commands/run_script",
+    "status": 200,
+    "body": {
+      "result": "42\n"
+    }
+  },
+  {
+    "path": "/commands/run_script",
+    "status": 400,
+    "body": {
+      "error": "Required argument 'code' missing",
+      "type": "ValueError"
+    }
+  },
+  {
+    "path": "/commands/unknown",
+    "status": 404,
+    "body": {
+      "error": "Unknown command 'unknown'; available: _debug_info, hello, run, run_script, test",
+      "type": "ValueError"
+    }
+  }
+]

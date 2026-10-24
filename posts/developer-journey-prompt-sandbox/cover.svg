@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="430" viewBox="0 0 1120 430" role="img" aria-labelledby="title desc">
+  <title id="title">一句话创建 add 沙箱：公开 CLI 0.4.12 实测</title>
+  <desc id="desc">原创流程示意，非终端截图。Qwen Code 实际生成四文件，云端构建60秒进入Ready，CLI和HTTP返回42；50项验收通过，精确清理。总创建331.54秒，复杂数值构建和工作目录限制仍保留。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#102238"/><stop offset="1" stop-color="#172f42"/></linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#59d2ba"/></marker>
+  </defs>
+  <rect width="1120" height="430" rx="22" fill="url(#bg)"/>
+  <g font-family="system-ui, 'Noto Sans CJK SC', sans-serif">
+    <text x="48" y="51" fill="#68dfc6" font-size="16" letter-spacing="2">DEVELOPER JOURNEY · 04 · CLI 0.4.12</text>
+    <text x="48" y="96" fill="#fff" font-size="33" font-weight="700">一句话，走完真实生成与云端验收</text>
+    <g fill="#203d52" stroke="#3f6074">
+      <rect x="48" y="132" width="222" height="116" rx="13"/><rect x="315" y="132" width="222" height="116" rx="13"/>
+      <rect x="582" y="132" width="222" height="116" rx="13"/><rect x="849" y="132" width="222" height="116" rx="13"/>
+    </g>
+    <g stroke="#59d2ba" stroke-width="3" marker-end="url(#arrow)"><path d="M280 190H304"/><path d="M547 190H571"/><path d="M814 190H838"/></g>
+    <g fill="#fff" font-size="21" font-weight="650"><text x="68" y="168">中文需求</text><text x="335" y="168">Qwen Code</text><text x="602" y="168">云端 steps</text><text x="869" y="168">CLI + HTTP</text></g>
+    <g fill="#c5d7e4" font-size="17"><text x="68" y="203">add(a, b)</text><text x="68" y="228">两个整数，返回和</text><text x="335" y="203">实际生成四文件</text><text x="335" y="228">未手修模型产物</text><text x="602" y="203">60 秒进入 READY</text><text x="602" y="228">2 CPU / 4096 MB</text><text x="869" y="203">17 + 25 → 42</text><text x="869" y="228">源码 SHA256 一致</text></g>
+    <rect x="48" y="273" width="1023" height="76" rx="13" fill="#132c38" stroke="#368f7d"/>
+    <text x="69" y="304" fill="#68dfc6" font-size="22" font-weight="700">50 / 50 断言通过</text><text x="328" y="304" fill="#e1eaf1" font-size="18">创建总耗时 331.54 秒 · 精确 ID 清理并确认不存在</text>
+    <text x="69" y="332" fill="#c5d7e4" font-size="16">文件后置条件 · 精确列表 · 后台进程 · 真实 PTY · POST 业务结果 · 原字节附件复现</text>
+    <text x="48" y="383" fill="#dfc39a" font-size="16">保留限制：复杂数值构建仍超时；生成 README 的工作目录可写声明与实测不符。</text>
+    <text x="48" y="407" fill="#91a9ba" font-size="13">原创流程示意，非终端截图；完整证据、配置边界与后续 Issue 见正文。</text>
+  </g>
+</svg>

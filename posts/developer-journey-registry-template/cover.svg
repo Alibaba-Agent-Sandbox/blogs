@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="430" viewBox="0 0 1120 430" role="img" aria-labelledby="title desc">
+<title id="title">Registry 模板实战：从公开源码到三种调用入口</title>
+<desc id="desc">固定模板源码，经官方 steps 构建，验证 CLI、SDK 和 HTTP，精确删除并回读。正式 CLI 0.4.12 与 SDK 0.3.1a2 实测 29 项断言通过。</desc>
+<defs><style>text{font-family:system-ui,-apple-system,"Noto Sans SC","Microsoft YaHei",sans-serif}.h{font-size:22px;font-weight:700;fill:#0f172a}.b{font-size:16px;fill:#475569}.c{font-family:ui-monospace,monospace;font-size:14px;fill:#475569}</style></defs>
+<rect width="1120" height="430" rx="24" fill="#f8fafc"/>
+<text x="48" y="70" font-size="31" font-weight="750" fill="#0f172a">Registry 模板：从公开源码到可调用 API</text>
+<text x="48" y="105" class="b">python-hello · Express 云端 steps · 可重跑脚本与精确清理</text>
+<rect x="48" y="144" width="238" height="176" rx="16" fill="white" stroke="#cbd5e1"/>
+<text x="68" y="180" class="h">01  固定源码</text><text x="68" y="217" class="b">Registry → Git 提交</text><text x="68" y="247" class="c">prepare_steps.py</text><text x="68" y="285" class="b">保留来源与输入哈希</text>
+<rect x="310" y="144" width="238" height="176" rx="16" fill="#eff6ff" stroke="#93c5fd"/>
+<text x="330" y="180" class="h">02  等待 READY</text><text x="330" y="217" class="b">提交云端构建步骤</text><text x="330" y="247" class="b">按精确模板 ID 轮询</text><text x="330" y="285" class="b">就绪后创建 sandbox</text>
+<rect x="572" y="144" width="238" height="176" rx="16" fill="white" stroke="#cbd5e1"/>
+<text x="592" y="180" class="h">03  三入口验证</text><text x="592" y="217" class="b">CLI · Python SDK · HTTP</text><text x="592" y="247" class="b">文件、进程、真实终端</text><text x="592" y="285" class="b">29 / 29 功能断言通过</text>
+<rect x="834" y="144" width="238" height="176" rx="16" fill="#ecfdf5" stroke="#6ee7b7"/>
+<text x="854" y="180" class="h">04  清理并回读</text><text x="854" y="217" class="b">删除本次精确资源</text><text x="854" y="247" class="b">确认 NotFound</text><text x="854" y="285" class="b">保留脱敏结果与哈希</text>
+<text x="48" y="375" class="b">正式版本实测：CLI 0.4.12 · host SDK 0.3.1a2</text>
+<text x="1072" y="375" text-anchor="end" class="b">远程 server 固定 0.3.0</text>
+</svg>

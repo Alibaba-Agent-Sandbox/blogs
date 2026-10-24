@@ -1,0 +1,27 @@
+{
+  "version": "0.4.12",
+  "git_head": null,
+  "tarball": "https://registry.npmjs.org/@agent-sandbox/cli/-/cli-0.4.12.tgz",
+  "bytes": 2173637,
+  "sha256": "dabd223398697d25bb5783773eb068ff65e7f102c4c2948b6e4a70462c3d411a",
+  "npm_integrity_verified": true,
+  "fresh_install_version": "abx, version 0.4.12",
+  "binary_install_version": "abx, version 0.4.12",
+  "binary_installer_checksum_verified": true,
+  "release_workflow": {
+    "id": 40065607620,
+    "conclusion": "success"
+  },
+  "binary_workflow": {
+    "id": 40065606848,
+    "conclusion": "success"
+  },
+  "documented_global_prefix_install": "PASS: npm install --global --prefix isolated-prefix @agent-sandbox/cli@0.4.12; executable reports 0.4.12",
+  "deployed_default_installer": {
+    "default_installer_exit": 0,
+    "version": "abx, version 0.4.12",
+    "explicit_version_override": false,
+    "website_download": true,
+    "checksum_verified": true
+  }
+}

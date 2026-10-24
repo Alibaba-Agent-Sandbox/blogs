@@ -1,0 +1,97 @@
+{
+  "created_at": "2026-10-24T04:20:20.986088+00:00",
+  "policy": "Explicit file allowlist; original evidence preserved; paths are relative to the developer-journey artifact root.",
+  "files": [
+    {
+      "source": "experiments/03_registry_end_to_end.py",
+      "published": "03_registry_end_to_end.py",
+      "source_sha256": "a0ff438429fa9cf01c54cf58c930641b4a11ce2d063052906f7008ee53de2b2b",
+      "published_sha256": "a0ff438429fa9cf01c54cf58c930641b4a11ce2d063052906f7008ee53de2b2b",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-public-rerun/checks.json",
+      "published": "checks.json",
+      "source_sha256": "e950f1c6827d94e94ab349c285496634ffa3378292911a9204cc74c1cd7bbcfe",
+      "published_sha256": "e950f1c6827d94e94ab349c285496634ffa3378292911a9204cc74c1cd7bbcfe",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-public-rerun/result.json",
+      "published": "result.json",
+      "source_sha256": "cc8a699a4d27a52ccd1676c62d9e09d8daa0a674cb5f0eead92f610e64ba3e82",
+      "published_sha256": "cc8a699a4d27a52ccd1676c62d9e09d8daa0a674cb5f0eead92f610e64ba3e82",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-public-rerun/http.json",
+      "published": "http.json",
+      "source_sha256": "69f20f10b54be26962f4ccde4cd16c8ca4869a5566443f38698abd9c6fddb82a",
+      "published_sha256": "69f20f10b54be26962f4ccde4cd16c8ca4869a5566443f38698abd9c6fddb82a",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-public-rerun/source.json",
+      "published": "source.json",
+      "source_sha256": "cd31fdd1c3385748a01566f2ef06534112fc67301cd5424551f5c2e9fe755d5e",
+      "published_sha256": "cd31fdd1c3385748a01566f2ef06534112fc67301cd5424551f5c2e9fe755d5e",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-public-rerun/steps-provenance.json",
+      "published": "steps-provenance.json",
+      "source_sha256": "1896f951733dfa5ab5f55bf8fbb8dbaa8d339cb726cf1587b2b06fa403837d3a",
+      "published_sha256": "1896f951733dfa5ab5f55bf8fbb8dbaa8d339cb726cf1587b2b06fa403837d3a",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-public-rerun/versions.json",
+      "published": "versions.json",
+      "source_sha256": "0529952eede9a590ee0360be84362224c87b82e96ae986a1b1cc525eae85e61a",
+      "published_sha256": "0529952eede9a590ee0360be84362224c87b82e96ae986a1b1cc525eae85e61a",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-public-rerun/commands.json",
+      "published": "commands.json",
+      "source_sha256": "32236e22bda8d11c59d1e38ee2e9b64c19ef391078ef7e25363fe4090e5406be",
+      "published_sha256": "6c3f722792a268f51c57efdd0bc0b5acf1b3a5f79e611bc3a2d8f2e44478587f",
+      "transformation": "normalize local CLI and Python executable paths"
+    },
+    {
+      "source": "evidence/03-public-rerun/terminal.txt",
+      "published": "terminal.txt",
+      "source_sha256": "ced3d141a5fe1db41cdba72a3039c20b8e07cfdc9c0c09f20782ffb9cd01a1f9",
+      "published_sha256": "b1a92a9566d60b6013da224d327690399b15006ccb7ba8aad39ec58e319147a2",
+      "transformation": "strip terminal ANSI/control sequences; normalize line endings"
+    },
+    {
+      "source": "evidence/03-public-rerun-cleanup-readback.json",
+      "published": "cleanup-readback.json",
+      "source_sha256": "d9825e3eb1f6370fccab0427414b0a3d5e05e44ee6e82861d81ea87a6219ec83",
+      "published_sha256": "d9825e3eb1f6370fccab0427414b0a3d5e05e44ee6e82861d81ea87a6219ec83",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-public-readback.json",
+      "published": "public-docs-readback.json",
+      "source_sha256": "f477f712c2fa35d1cccb4bf29891516adb9735cc42fb57be9cd2541bc1d74825",
+      "published_sha256": "f477f712c2fa35d1cccb4bf29891516adb9735cc42fb57be9cd2541bc1d74825",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-post-publication-verification.json",
+      "published": "post-publication-verification.json",
+      "source_sha256": "061187089c27872665f3e98aae3226f0276c31bce12901b0350287f40246d26b",
+      "published_sha256": "061187089c27872665f3e98aae3226f0276c31bce12901b0350287f40246d26b",
+      "transformation": "unchanged"
+    },
+    {
+      "source": null,
+      "published": "summary.json",
+      "source_sha256": null,
+      "published_sha256": "8133fb77a09ababf272abb002f1facd8da32189e4be48f85119dee1ea5ef1b0f",
+      "transformation": "derived factual summary; original evidence remains unchanged"
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+[
+  {
+    "step": "source clone",
+    "command": "git clone --quiet --no-checkout <url> <private-workdir>/source",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "step": "source checkout",
+    "command": "git -C <private-workdir>/source checkout --quiet 565e546a3e1d814e840062cbdd5da4ba295e16a6",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "step": "source revision",
+    "command": "git -C <private-workdir>/source rev-parse HEAD",
+    "exit_code": 0,
+    "stdout": "565e546a3e1d814e840062cbdd5da4ba295e16a6\n",
+    "stderr": ""
+  },
+  {
+    "step": "CLI version",
+    "command": "abx --version",
+    "exit_code": 0,
+    "stdout": "abx, version 0.4.11\n",
+    "stderr": ""
+  },
+  {
+    "step": "documented source preparation",
+    "command": "python scripts/prepare_steps.py python-hello --output <private-workdir>/prepared",
+    "exit_code": 0,
+    "stdout": "Prepared python-hello: 9 explicit steps; no cloud call\n",
+    "stderr": ""
+  },
+  {
+    "step": "steps deployment",
+    "command": "abx --json template deploy <private-workdir>/prepared --build steps --alias journey-registry-6939bf399d3f -y",
+    "exit_code": 0,
+    "stdout": "{\n  \"TemplateID\": \"<template_id>\",\n  \"BuildID\": \"N/A\",\n  \"ACR Image\": \"N/A\",\n  \"Build mode\": \"steps\",\n  \"Status\": \"submitted\"\n}\n",
+    "stderr": "{\n  \"level\": \"progress\",\n  \"message\": \"Creating template from platform steps: journey-registry-6939bf399d3f\"\n}\n{\n  \"level\": \"progress\",\n  \"message\": \"Template registration submitted: <template_id>\"\n}\n"
+  },
+  {
+    "step": "template readiness 1",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 2",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 3",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 4",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 5",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 6",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 7",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 8",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 9",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 10",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'state': 'building'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "template readiness 11",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"code\": \"200\",\n  \"createdTime\": \"2026-10-24T03:28:11.282729Z\",\n  \"message\": \"success\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n<private-metadata>\n<private-metadata>\n  \"runtimeConfig\": \"{'cpu': 2, 'diskSize': 15360, 'internetAccess': True, 'memorySize': 2048, 'sandboxConfig': {'generation': 2, 'image': 'fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49', 'osType': 'linux-amd64', 'readyCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server healthcheck --port 9000'\\\", 'startCommand': \\\"/usr/bin/env -- 'DEBIAN_FRONTEND=noninteractive' 'LANG=C.UTF-8' /bin/sh -c 'agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py'\\\"}}\",\n  \"status\": \"{'finishedAt': '2026-10-24T03:29:51.80978Z', 'state': 'ready'}\",\n<private-metadata>\n<private-metadata>\n  \"templateID\": \"<template_id>\",\n  \"statusCode\": \"200\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "sandbox create",
+    "command": "abx create <template_id> --detach --timeout 1200",
+    "exit_code": 0,
+    "stdout": "<sandbox_id>\n",
+    "stderr": ""
+  },
+  {
+    "step": "sandbox info",
+    "command": "abx info <sandbox_id> --format json",
+    "exit_code": 0,
+    "stdout": "{\n  \"sandboxId\": \"<sandbox_id>\",\n  \"templateId\": \"journey-registry-6939bf399d3f\",\n  \"name\": \"journey-registry-6939bf399d3f\",\n  \"metadata\": {\n    \"allowInternetAccess\": \"true\",\n<private-metadata>\n    \"fcSessionID\": \"<request-or-resource-id>\",\n    \"functionName\": \"<provider-function>\",\n<private-metadata>\n    \"templateRuntime\": \"micro-sandbox\"\n  },\n  \"allowInternetAccess\": true,\n  \"envdVersion\": \"0.6.1\",\n  \"startedAt\": \"2026-10-24T03:30:03.440Z\",\n  \"endAt\": \"2026-10-24T03:50:03.440Z\",\n  \"state\": \"running\",\n  \"cpuCount\": 2,\n  \"memoryMB\": 2048,\n  \"lifecycle\": {\n    \"onTimeout\": \"kill\",\n    \"autoResume\": false\n  },\n<private-metadata>\n  \"volumeMounts\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "exec",
+    "command": "abx exec <sandbox_id> -- python3 -c print(6*7)",
+    "exit_code": 0,
+    "stdout": "42\n",
+    "stderr": ""
+  },
+  {
+    "step": "capabilities",
+    "command": "abx --json sandbox capabilities <sandbox_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"capabilities\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "commands",
+    "command": "abx --json sandbox command list <sandbox_id>",
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"name\": \"hello\",\n    \"args\": [\n      {\n        \"name\": \"name\",\n        \"type\": \"string\",\n        \"required\": false,\n        \"default\": \"World\",\n        \"description\": \"\"\n      }\n    ],\n    \"description\": \"Say hello.\"\n  },\n  {\n    \"name\": \"run_script\",\n    \"args\": [\n      {\n        \"name\": \"code\",\n        \"type\": \"string\",\n        \"required\": true,\n        \"default\": null,\n        \"description\": \"\"\n      }\n    ],\n    \"description\": \"Execute Python code and return stdout.\"\n  },\n  {\n    \"name\": \"run\",\n    \"args\": [\n      {\n        \"name\": \"file\",\n        \"type\": \"string\",\n        \"required\": false,\n        \"default\": \"main.py\",\n        \"description\": \"\"\n      }\n    ],\n    \"description\": \"Run a Python script.\"\n  },\n  {\n    \"name\": \"test\",\n    \"args\": [\n      {\n        \"name\": \"path\",\n        \"type\": \"string\",\n        \"required\": false,\n        \"default\": \".\",\n        \"description\": \"\"\n      }\n    ],\n    \"description\": \"Run tests with pytest.\"\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "step": "hello",
+    "command": "abx --json run <sandbox_id> hello --arg name=Ada",
+    "exit_code": 0,
+    "stdout": "{\n  \"result\": \"Hello, Ada!\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "inline code",
+    "command": "abx --json run <sandbox_id> run_script --json-args {\"code\":\"print(21 * 2)\"}",
+    "exit_code": 0,
+    "stdout": "{\n  \"result\": \"42\\n\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "upload main.py",
+    "command": "abx upload <sandbox_id> <private-workdir>/main.py /home/user/app/main.py",
+    "exit_code": 0,
+    "stdout": "Uploaded <private-workdir>/main.py -> /home/user/app/main.py\n",
+    "stderr": ""
+  },
+  {
+    "step": "upload test_main.py",
+    "command": "abx upload <sandbox_id> <private-workdir>/test_main.py /home/user/app/test_main.py",
+    "exit_code": 0,
+    "stdout": "Uploaded <private-workdir>/test_main.py -> /home/user/app/test_main.py\n",
+    "stderr": ""
+  },
+  {
+    "step": "run uploaded script",
+    "command": "abx --json run <sandbox_id> run --arg file=main.py",
+    "exit_code": 0,
+    "stdout": "{\n  \"result\": \"42\\n\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "run uploaded pytest",
+    "command": "abx --json run <sandbox_id> test --arg path=test_main.py",
+    "exit_code": 0,
+    "stdout": "{\n  \"result\": \"============================= test session starts ==============================\\nplatform linux -- Python 3.13.13, pytest-8.4.2, pluggy-1.7.0\\nrootdir: /home/user/app\\ncollected 1 item\\n\\ntest_main.py .                                                           [100%]\\n\\n============================== 1 passed in 0.01s ===============================\\n\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "files list",
+    "command": "abx --json sandbox files list <sandbox_id> --path /home/user/app",
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"name\": \"__pycache__\",\n    \"type\": \"directory\",\n    \"size\": 4096\n  },\n  {\n    \"name\": \"commands.py\",\n    \"type\": \"file\",\n    \"size\": 2979\n  },\n  {\n    \"name\": \"main.py\",\n    \"type\": \"file\",\n    \"size\": 13\n  },\n  {\n    \"name\": \"test_main.py\",\n    \"type\": \"file\",\n    \"size\": 42\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "step": "files stat",
+    "command": "abx --json sandbox files stat <sandbox_id> --path /home/user/app/main.py",
+    "exit_code": 0,
+    "stdout": "{\n  \"Name\": \"main.py\",\n  \"Path\": \"/home/user/app/main.py\",\n  \"Type\": \"file\",\n  \"Size\": \"13\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "files search",
+    "command": "abx --json sandbox files search <sandbox_id> --path /home/user/app --pattern *.py",
+    "exit_code": 0,
+    "stdout": "{\n  \"path\": \"/home/user/app\",\n  \"pattern\": \"*.py\",\n  \"results\": [\n    \"/home/user/app/main.py\",\n    \"/home/user/app/test_main.py\",\n    \"/home/user/app/commands.py\"\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "download",
+    "command": "abx download <sandbox_id> /home/user/app/main.py <private-workdir>/download.py",
+    "exit_code": 0,
+    "stdout": "Downloaded /home/user/app/main.py -> <private-workdir>/download.py\n",
+    "stderr": ""
+  },
+  {
+    "step": "mkdir",
+    "command": "abx sandbox files mkdir <sandbox_id> --path /home/user/app/proof",
+    "exit_code": 0,
+    "stdout": "Directory created: /home/user/app/proof\n",
+    "stderr": ""
+  },
+  {
+    "step": "move",
+    "command": "abx sandbox files mv <sandbox_id> --source /home/user/app/main.py --dest /home/user/app/proof/moved.py",
+    "exit_code": 0,
+    "stdout": "Moved: /home/user/app/main.py -> /home/user/app/proof/moved.py\n",
+    "stderr": ""
+  },
+  {
+    "step": "remove confirmed",
+    "command": "abx sandbox files rm <sandbox_id> --path /home/user/app/proof/moved.py -y",
+    "exit_code": 0,
+    "stdout": "Deleted: /home/user/app/proof/moved.py\n",
+    "stderr": ""
+  },
+  {
+    "step": "removed file readback",
+    "command": "abx --json sandbox files list <sandbox_id> --path /home/user/app/proof",
+    "exit_code": 0,
+    "stdout": "{\n  \"status\": \"success\",\n  \"message\": \"Directory /home/user/app/proof is empty.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "system info",
+    "command": "abx --json sandbox system info <sandbox_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"OS\": \"Linux\",\n  \"Arch\": \"x86_64\",\n  \"Hostname\": \"aliyun.local\",\n  \"CPU_Count\": \"2\",\n  \"Python\": \"3.13.13\",\n  \"Disk_Total_GB\": \"14.75\",\n  \"Disk_Free_GB\": \"13.25\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "system metrics",
+    "command": "abx --json sandbox system metrics <sandbox_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"cpu_load_1m\": 0.0,\n  \"cpu_load_5m\": 0.0,\n  \"cpu_load_15m\": 0.0,\n  \"disk_total_gb\": 14.75,\n  \"disk_used_gb\": 0.74,\n  \"disk_free_gb\": 13.25\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "system ports",
+    "command": "abx --json sandbox system ports <sandbox_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"raw_output\": [\n    \"State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                   \",\n    \"LISTEN 0      4096         0.0.0.0:49983      0.0.0.0:*                                             \",\n    \"LISTEN 0      5            0.0.0.0:9000       0.0.0.0:*    users:((\\\"agent-sandbox-s\\\",pid=535,fd=3)) \",\n    \"LISTEN 0      100          0.0.0.0:9001       0.0.0.0:*    users:((\\\"agent-sandbox-s\\\",pid=535,fd=11))\",\n    \"LISTEN 0      4096         0.0.0.0:111        0.0.0.0:*                                             \",\n    \"LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*\"\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "system packages",
+    "command": "abx --json sandbox system packages <sandbox_id>",
+    "exit_code": 0,
+    "stdout": "{\n  \"manager\": \"pip\",\n  \"packages\": [\n    {\n      \"name\": \"agent-sandbox-server\",\n      \"version\": \"0.3.0\"\n    },\n    {\n      \"name\": \"iniconfig\",\n      \"version\": \"2.3.1\"\n    },\n    {\n      \"name\": \"packaging\",\n      \"version\": \"26.3\"\n    },\n    {\n      \"name\": \"pip\",\n      \"version\": \"26.0.1\"\n    },\n    {\n      \"name\": \"pluggy\",\n      \"version\": \"1.7.0\"\n    },\n    {\n      \"name\": \"Pygments\",\n      \"version\": \"2.21.0\"\n    },\n    {\n      \"name\": \"pytest\",\n      \"version\": \"8.4.2\"\n    },\n    {\n      \"name\": \"websockets\",\n      \"version\": \"17.3\"\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "filtered environment",
+    "command": "abx --json sandbox system env <sandbox_id> --filter PATH,HOME",
+    "exit_code": 0,
+    "stdout": "{\n  \"variables\": {\n    \"HOME\": \"/home/user\",\n    \"PATH\": \"/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/.fce2b\"\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "background process",
+    "command": "abx exec --background <sandbox_id> -- sleep 77",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "571\n"
+  },
+  {
+    "step": "process list",
+    "command": "abx --json sandbox process list <sandbox_id>",
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"pid\": 571,\n    \"command\": \"/bin/bash -l -c sleep 77\",\n    \"status\": \"running\"\n  },\n  {\n    \"pid\": 529,\n    \"command\": \"/bin/bash -l -c /tmp/start.sh\",\n    \"status\": \"running\"\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "step": "process info",
+    "command": "abx --json sandbox process info <sandbox_id> 571",
+    "exit_code": 0,
+    "stdout": "{\n  \"PID\": \"571\",\n  \"Command\": \"/bin/bash -l -c sleep 77\",\n  \"State\": \"running\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "step": "process signal",
+    "command": "abx sandbox process signal <sandbox_id> 571 --signal 15",
+    "exit_code": 0,
+    "stdout": "Signal 15 sent to process 571.\n",
+    "stderr": ""
+  },
+  {
+    "step": "process readback",
+    "command": "abx --json sandbox process list <sandbox_id>",
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"pid\": 529,\n    \"command\": \"/bin/bash -l -c /tmp/start.sh\",\n    \"status\": \"running\"\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "step": "delete owned sandbox",
+    "command": "abx kill <sandbox_id>",
+    "exit_code": 0,
+    "stdout": "Sandbox <sandbox_id> has been killed\n",
+    "stderr": ""
+  },
+  {
+    "step": "read back deleted sandbox",
+    "command": "abx info <sandbox_id>",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Sandbox <sandbox_id> wasn't found\n"
+  },
+  {
+    "step": "delete owned template",
+    "command": "abx template delete <template_id> -y",
+    "exit_code": 0,
+    "stdout": "\nSandbox templates to delete\n<template_id>\n\n- Deleting sandbox template <template_id>\n\n",
+    "stderr": ""
+  },
+  {
+    "step": "read back deleted template",
+    "command": "abx --json template info <template_id>",
+    "exit_code": 1,
+    "stdout": "{\n  \"status\": \"error\",\n<private-metadata>\n  \"code\": \"E5000\",\n  \"suggestion\": \"Check template ID, AK/SK, and network connectivity.\"\n}\n",
+    "stderr": ""
+  }
+]

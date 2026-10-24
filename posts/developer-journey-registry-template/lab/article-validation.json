@@ -1,0 +1,289 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-24T05:36:30.119532+00:00",
+  "scope": "Registry case only; final public CLI0.4.12/SDK0.3.1a2 exact-attachment run passed; historical evidence preserved",
+  "svg_xml": "PASS",
+  "python_ast": "PASS",
+  "script_matches_executed_sha256": true,
+  "scan_method": "Exact known credentials and exact scenario-owned IDs; workstation path patterns; ANSI bytes. Generic sandbox paths are retained.",
+  "files": [
+    {
+      "path": "cover.svg",
+      "sha256": "f0b58bfb83ef400f7da345fd6d92e9a6c4e90c51abad09601d9da46e55a1fd84",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "flow.svg",
+      "sha256": "86beadfe1115d43a700a20b39ff24382f9c39b806e622443debf57125d8ae597",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "index.zh.md",
+      "sha256": "74f66627610c365242f21d9946dd15f34bd9514c8525fe2c1dc78abb68f36a8e",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/03_registry_end_to_end.py",
+      "sha256": "871e2d60fcabeb91c3974607edd898a1b55efce6e313875d407fa691956fc73e",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/README.md",
+      "sha256": "40f61964c52f64187832386a56596d14416cfc03d17325d6cf265597ecd5046f",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/checks.json",
+      "sha256": "e950f1c6827d94e94ab349c285496634ffa3378292911a9204cc74c1cd7bbcfe",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/cleanup-readback.json",
+      "sha256": "d9825e3eb1f6370fccab0427414b0a3d5e05e44ee6e82861d81ea87a6219ec83",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/commands.json",
+      "sha256": "6c3f722792a268f51c57efdd0bc0b5acf1b3a5f79e611bc3a2d8f2e44478587f",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/http.json",
+      "sha256": "69f20f10b54be26962f4ccde4cd16c8ca4869a5566443f38698abd9c6fddb82a",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/manifest.json",
+      "sha256": "1d99679ea06e6841a513430f3700d88561b4ecc5b074eed63233736698ff8462",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/post-publication-verification.json",
+      "sha256": "061187089c27872665f3e98aae3226f0276c31bce12901b0350287f40246d26b",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/public-docs-readback.json",
+      "sha256": "f477f712c2fa35d1cccb4bf29891516adb9735cc42fb57be9cd2541bc1d74825",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/result.json",
+      "sha256": "cc8a699a4d27a52ccd1676c62d9e09d8daa0a674cb5f0eead92f610e64ba3e82",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/scan-report.json",
+      "sha256": "e88dd51cbb3e507962a0d21d4e96fe47ab2762f00a3645e4c92b70f8f5f5e33d",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/source.json",
+      "sha256": "cd31fdd1c3385748a01566f2ef06534112fc67301cd5424551f5c2e9fe755d5e",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/steps-provenance.json",
+      "sha256": "1896f951733dfa5ab5f55bf8fbb8dbaa8d339cb726cf1587b2b06fa403837d3a",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/summary.json",
+      "sha256": "8133fb77a09ababf272abb002f1facd8da32189e4be48f85119dee1ea5ef1b0f",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/terminal.txt",
+      "sha256": "b1a92a9566d60b6013da224d327690399b15006ccb7ba8aad39ec58e319147a2",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/historical-0411-a1/versions.json",
+      "sha256": "0529952eede9a590ee0360be84362224c87b82e96ae986a1b1cc525eae85e61a",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/checks.json",
+      "sha256": "e950f1c6827d94e94ab349c285496634ffa3378292911a9204cc74c1cd7bbcfe",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/commands.json",
+      "sha256": "9eacc8f5276ec36ba52c091b7f04e96d9994a0b5f1f262d2a7aa769ec856eae9",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/execution.json",
+      "sha256": "cdc299a0fa97c082fadfc0d4a54a988f94f1294924cc08dc8da81a37b00da361",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/http.json",
+      "sha256": "69f20f10b54be26962f4ccde4cd16c8ca4869a5566443f38698abd9c6fddb82a",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/manifest.json",
+      "sha256": "703844ef9b59a21f5afeeb93e155534e6634a85ffed8b8d9d5c20ff4860ff12b",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/result.json",
+      "sha256": "937f9965a9c8acb95093e3297357415b54295e74fd6464966c79632c10ac90be",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/scan-report.json",
+      "sha256": "ca7f9d77c0ab3e33dc851baa0f1849276636ef82b6f020ae0217076af461ace9",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/source.json",
+      "sha256": "cd31fdd1c3385748a01566f2ef06534112fc67301cd5424551f5c2e9fe755d5e",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/steps-provenance.json",
+      "sha256": "1896f951733dfa5ab5f55bf8fbb8dbaa8d339cb726cf1587b2b06fa403837d3a",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/summary.json",
+      "sha256": "31a32a14ce69684e41600a22c1ebeb10b67a51ab8c299d734e246c31a836fea8",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/terminal.txt",
+      "sha256": "b1a92a9566d60b6013da224d327690399b15006ccb7ba8aad39ec58e319147a2",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "path": "lab/evidence/release-0412-a2/versions.json",
+      "sha256": "2e55fa6c3288fee04d9ed3e64d495e8199d118f6942061c894b960a0524655e3",
+      "credential_matches": 0,
+      "exact_owned_resource_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    }
+  ],
+  "public_links": [
+    {
+      "url": "https://github.com/Alibaba-Agent-Sandbox/awesome-templates/pull/202",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/565e546a3e1d814e840062cbdd5da4ba295e16a6/python-hello",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/Alibaba-Agent-Sandbox/python-sdk/pull/93",
+      "status": 200
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/awesome-templates/docs/platform-steps.zh-CN.md/",
+      "status": 200
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/python-sdk/docs/zh/guide/template-server-api.md/",
+      "status": 200
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/templates/python-hello/",
+      "status": 200
+    },
+    {
+      "url": "https://www.agent-sandbox.cn/start/",
+      "status": 200
+    }
+  ]
+}

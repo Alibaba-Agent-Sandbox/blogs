@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "scanned_at": "2026-10-24T04:20:21.100908+00:00",
+  "source_files_unchanged": true,
+  "method": "Exact known credential/domain values and exact owned resource IDs checked privately; local workstation path patterns and ANSI bytes scanned. Sandbox paths such as /home/user and /usr/local are intentionally retained as runtime facts.",
+  "source_file_count": 12,
+  "published_file_count_excluding_this_report": 14,
+  "files": [
+    {
+      "file": "03_registry_end_to_end.py",
+      "sha256": "a0ff438429fa9cf01c54cf58c930641b4a11ce2d063052906f7008ee53de2b2b",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "checks.json",
+      "sha256": "e950f1c6827d94e94ab349c285496634ffa3378292911a9204cc74c1cd7bbcfe",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "cleanup-readback.json",
+      "sha256": "d9825e3eb1f6370fccab0427414b0a3d5e05e44ee6e82861d81ea87a6219ec83",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "commands.json",
+      "sha256": "6c3f722792a268f51c57efdd0bc0b5acf1b3a5f79e611bc3a2d8f2e44478587f",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "http.json",
+      "sha256": "69f20f10b54be26962f4ccde4cd16c8ca4869a5566443f38698abd9c6fddb82a",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "manifest.json",
+      "sha256": "1d99679ea06e6841a513430f3700d88561b4ecc5b074eed63233736698ff8462",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "post-publication-verification.json",
+      "sha256": "061187089c27872665f3e98aae3226f0276c31bce12901b0350287f40246d26b",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "public-docs-readback.json",
+      "sha256": "f477f712c2fa35d1cccb4bf29891516adb9735cc42fb57be9cd2541bc1d74825",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "result.json",
+      "sha256": "cc8a699a4d27a52ccd1676c62d9e09d8daa0a674cb5f0eead92f610e64ba3e82",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "source.json",
+      "sha256": "cd31fdd1c3385748a01566f2ef06534112fc67301cd5424551f5c2e9fe755d5e",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "steps-provenance.json",
+      "sha256": "1896f951733dfa5ab5f55bf8fbb8dbaa8d339cb726cf1587b2b06fa403837d3a",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "summary.json",
+      "sha256": "8133fb77a09ababf272abb002f1facd8da32189e4be48f85119dee1ea5ef1b0f",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "terminal.txt",
+      "sha256": "b1a92a9566d60b6013da224d327690399b15006ccb7ba8aad39ec58e319147a2",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "versions.json",
+      "sha256": "0529952eede9a590ee0360be84362224c87b82e96ae986a1b1cc525eae85e61a",
+      "known_sensitive_value_matches": 0,
+      "owned_resource_value_matches": 0,
+      "local_absolute_path_matches": 0,
+      "ansi_escape_bytes": 0
+    }
+  ]
+}

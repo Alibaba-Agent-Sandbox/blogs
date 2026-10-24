@@ -1,0 +1,76 @@
+{
+  "prompt": "创建一个 Python 沙箱，提供 add 命令接收两个整数并返回相加结果",
+  "model": "qwen3.8-max",
+  "versions": {
+    "cli": "abx, version 0.4.12",
+    "client": "0.3.1a2",
+    "python": "3.12.13"
+  },
+  "generation_timeout_seconds": 1200,
+  "build_timeout_seconds": 600,
+  "script_sha256": {
+    "run.py": "19fd608d16cbbae1e11deeac290e9d6c779a277d0a73360c300f3eb022b73595",
+    "verify.py": "e25d49f802ca681335682df5bb1ec81d14a39bcbc44a27461f1fee01d8efde92"
+  },
+  "generated_sha256": {
+    "commands.py": "b5a8a47f8fa0e58841376ce9a88243c0c9ea7cb8aa9feb837c92d48250fefa33",
+    "Dockerfile": "92db94d90b08cd8cb49060cff3ee765b2b7e17d0fdb204f2c9de7214ea81e258",
+    "template.yaml": "7d9b3483d01108122e43ba1bc6933ef216d4198a7bcbbaa8c69f17147a78dbca",
+    "README.md": "15b8b5eae3d47b8faab1969560f63abeba7f2a0894ed5f1c032ad5848f5bb5f0"
+  },
+  "cleanup": [
+    {
+      "kind": "sandbox",
+      "absent": true,
+      "delete_exit_code": 0,
+      "typed_readback": "SandboxNotFoundError"
+    },
+    {
+      "kind": "template",
+      "absent": true,
+      "delete_exit_code": 0
+    }
+  ],
+  "passed": true,
+  "create_exit_code": 0,
+  "create_elapsed_seconds": 331.54,
+  "cloud_ready_seconds": 60,
+  "host_qwen_code": "0.19.3",
+  "source_disk_embedded_remote_equal": true,
+  "assertions": {
+    "passed": 50,
+    "total": 50
+  },
+  "permission_observation": {
+    "read_only": true,
+    "exit_code": 0,
+    "observation": {
+      "uid": 1000,
+      "paths": {
+        "/home/user": {
+          "uid": 1000,
+          "gid": 1000,
+          "mode": "0o700",
+          "writable": true
+        },
+        "/home/user/app": {
+          "uid": 0,
+          "gid": 0,
+          "mode": "0o755",
+          "writable": false
+        },
+        "/home/user/app/commands.py": {
+          "uid": 1000,
+          "gid": 1000,
+          "mode": "0o644",
+          "writable": true
+        }
+      }
+    }
+  },
+  "unresolved_issues": [
+    "https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/issues/131",
+    "https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/issues/132"
+  ],
+  "interruption_cleanup_tested": false
+}

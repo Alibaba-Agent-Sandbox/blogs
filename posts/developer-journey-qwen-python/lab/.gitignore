@@ -1,0 +1,6 @@
+.private/
+evidence/
+__pycache__/
+*.generated.*
+05-data-result.json
+05-summary.csv

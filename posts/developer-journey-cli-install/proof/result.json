@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "workload_pass": true,
+  "list_visibility_pass": true,
+  "cleanup_verified": true,
+  "failure": null,
+  "cleanup_error": null,
+  "cli_version": "0.4.12",
+  "host_platform": "Linux x86_64",
+  "provider": "alicloud-express",
+  "source_result_sha256": "09b30d11994ed353d221f890161383de7287c42bb2d10a7d81c62a194b42e6b4",
+  "selection": "Command outcomes retained; account/resource metadata and unrelated list entries omitted.",
+  "commands": [
+    {
+      "command": "abx create base --detach --timeout 300",
+      "exit_code": 0,
+      "seconds": 2.95
+    },
+    {
+      "command": "abx info <owned-sandbox> --format json",
+      "exit_code": 0,
+      "seconds": 1.52
+    },
+    {
+      "command": "abx exec <owned-sandbox> -- echo hello",
+      "exit_code": 0,
+      "seconds": 1.68,
+      "stdout": "hello\n",
+      "stderr": ""
+    },
+    {
+      "command": "abx list",
+      "exit_code": 0,
+      "seconds": 1.12
+    },
+    {
+      "command": "abx kill <owned-sandbox>",
+      "exit_code": 0,
+      "seconds": 0.99
+    },
+    {
+      "command": "abx info <owned-sandbox>",
+      "exit_code": 1,
+      "seconds": 0.84,
+      "stdout": "",
+      "stderr": "Sandbox sbx-<resource-id> wasn't found\n"
+    }
+  ]
+}

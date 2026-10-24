@@ -1,0 +1,6 @@
+{
+  "raw_report_sha256": "2a50934fbed4a63fbaf39b13214a3b65e5b81113cd50330961f6cd20dd4cc1e1",
+  "published_proof_sha256": "48bdcfd2cba85fa081ea5cfe8d3243dc09844bc6373f39b6847b176014a19c74",
+  "selection": "proof.json selects non-sensitive facts from the original report, adds the separate read-only permissions observation and assertion count, and omits create stdout/stderr and all host paths. It is not a byte-identical copy of report.json. No raw/private logs are published.",
+  "artifact_policy": "The four generated files and two executed Python scripts preserve their exact original bytes; hashes are recorded in proof.json. Candidate12 remains a separate historical snapshot."
+}
