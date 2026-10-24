@@ -7,7 +7,7 @@ tags: [templates, registry]
 authors: [Alibaba-Agent-Sandbox]
 ---
 
-The Registry lists two kinds of entries: templates and providers. This post covers templates only; for providers see the [publish guide](https://registry.agent-sandbox.cn/en/publish/).
+The Registry lists two kinds of entries: templates and providers. This post covers source templates only; for providers see the [publish guide](https://registry.agent-sandbox.cn/en/publish/).
 
 Templates live in [awesome-templates](https://github.com/Alibaba-Agent-Sandbox/awesome-templates). Publishing means opening a pull request there.
 
@@ -33,7 +33,7 @@ For keys the template needs, list only the variable names in `template.yaml` and
 
 Add one entry under the right section of `awesome-templates.yaml`: `name`, `description`, `repo`, `path`, `tags`, `author`, `capabilities`, `status`.
 
-Keep new or incompletely verified templates `experimental`. Follow the spec's L0/L1/L2 requirements before promotion; an `official` upstream-agent claim also needs L3. A successful image build alone does not establish provider or model acceptance.
+Fill in the entry following the [contribution guide](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/CONTRIBUTING.md); maintainers review it before listing. `official` and `community` describe maintenance ownership, while `experimental` marks work the author is still developing. These labels do not decide whether a provider can launch the template or replace concrete usage and test records.
 
 ## 3. Verify locally
 
@@ -47,24 +47,24 @@ python3 scripts/run_local_e2e.py
 
 Every template that has a `commands.py` has to pass.
 
-## 4. The README says three things
+## 4. Help readers run the template
 
-What the template is, how to deploy it and how to run its e2e:
+Explain the required configuration, how to launch and call the application, and how to clean up. For an application template based on `_skeleton/`, configure Express and launch with CLI 0.4.16 or newer:
 
 ```bash
-abx template deploy ./my-template --generation 2 --alias my-template-review -y
-python3 scripts/run_local_e2e.py
+export ABX_SERVER_TOKEN="<YOUR_APPLICATION_TOKEN>"
+abx --provider alicloud-express template launch ./my-template --workflow application
 ```
 
-Deploy needs the CLI, Docker, ACR configuration and Express credentials. Use an alias you own. Keep generation2, `start_cmd` and `ready_cmd` in `template.yaml`; the image has no `CMD` or `ENTRYPOINT`. After catalog merge, consumers can use `abx template install alibaba-agent-sandbox/awesome-templates//<name>`. Each template's English/Chinese README must explain CLI, Python SDK and HTTP POST usage, authentication and cleanup. This article checks command syntax; it does not record a fresh cloud deployment.
+Before launching, configure Docker, ACR and Express credentials, and replace the example application token with a value you generate. Keep generation2, `start_cmd` and `ready_cmd` in `template.yaml`; the image has no `CMD` or `ENTRYPOINT`. After catalog merge, replace `./my-template` in the command with `alibaba-agent-sandbox/awesome-templates//my-template` to use the catalog source. Continue the README with actual named-command, Python SDK and HTTP POST examples, plus cleanup instructions for the sandbox, prepared template and image. See the [usage guide](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.md) for platform configuration and complete calling examples.
 
 ## 5. Check before you submit
 
-- Say which exact source and provider you verified. Add a provider to `tested_on` and the Verified table only with a passing evidence file, including owned-resource cleanup. Keep missing credentials, skipped models and untested providers explicit.
+- Attach concrete usage records to the PR: source commit, provider, build method, commands or model tasks executed, and cleanup results. Keep the README's verified section limited to those actual results; identify unrun or skipped checks separately. Maintainers use these records to review the contribution requirements. Listing alone does not mean every platform and feature was tested.
 - Every declared capability is implemented, and nothing undeclared is quietly supported.
 - No hard-coded secrets and no code that runs at install time.
 - Raise the version on every update.
 
 ## After the merge
 
-Once merged into `main`, the repository notifies the Registry to rebuild, and the Registry also pulls on its own every hour. Confirm on the [Registry templates page](https://registry.agent-sandbox.cn/en/templates/): your template appears with its capability tags and commands you can copy.
+Once merged into `main`, the repository notifies the Registry to rebuild, and the Registry also pulls on its own every hour. Confirm on the [Registry templates page](https://registry.agent-sandbox.cn/en/templates/): readers can find your template and follow the configuration and launch instructions for their selected platform.
