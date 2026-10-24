@@ -35,7 +35,7 @@ my-template/
 
 ## 3. 本地验证
 
-先从已验收的固定 Python SDK 源码安装运行时前置依赖（不假设 PyPI 已发布），再在模板仓库根目录运行：
+下面保留本文本地验证使用的固定 Python SDK 源码环境，再在模板仓库根目录运行。公开 PyPI client/server 0.3.1a5 已可安装；宿主安装与模板 Dockerfile 固定的运行时是不同位置，升级其中一个不会自动修改另一个。提交新模板时，以仓库当前贡献指南和 CI 的依赖为准：
 
 ```bash
 python3 -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=server-sdk" httpx -r scripts/requirements-spec.txt

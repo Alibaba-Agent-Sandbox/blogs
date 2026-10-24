@@ -39,10 +39,10 @@ Windows 用户在 PowerShell 使用 `irm https://raw.githubusercontent.com/Aliba
 
 PowerShell 中请使用 `abx config set sandbox_api_key <YOUR_API_KEY>` 配置密钥，替代上面的 Bash `export` 命令。
 
-Python 客户端发行名是 `agent-sandbox-client`，导入仍为 `agent_sandbox`。配套客户端和服务端尚未发布到 PyPI 时，从同一固定提交同时安装：
+Python 客户端发行名是 `agent-sandbox-client`，导入为 `agent_sandbox`。在独立 Python 环境中安装已发布的 alpha 版本；客户端会安装同版本的服务端依赖：
 
 ```bash
-python -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=server-sdk" "agent-sandbox-client @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=client-sdk"
+python -m pip install --index-url https://pypi.org/simple "agent-sandbox-client==0.3.1a5"
 ```
 
 ## 用 Python SDK
@@ -51,7 +51,7 @@ python -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-S
 
 ```python
 import asyncio
-from agent_sandbox.api.sandbox import Sandbox
+from agent_sandbox import AsyncSandbox
 
 CSV = """region,amount
 hangzhou,120
@@ -75,11 +75,15 @@ for region, amount in sorted(totals.items(), key=lambda kv: -kv[1]):
 
 
 async def main():
-    async with await Sandbox.create(template="base") as sandbox:
+    sandbox = await AsyncSandbox.create(template="base")
+    try:
         await sandbox.files.write("/home/user/sales.csv", CSV)
-        result = await sandbox.run_code(AGENT_CODE)
-        print(result.text)
+        await sandbox.files.write("/home/user/analyze.py", AGENT_CODE)
+        result = await sandbox.commands.run("python /home/user/analyze.py")
+        print(result.stdout)
         print("exit code:", result.exit_code)
+    finally:
+        await sandbox.kill()
 
 
 asyncio.run(main())
@@ -87,8 +91,8 @@ asyncio.run(main())
 
 几个要点：
 
-- `async with` 结束时会自动销毁沙箱，不管脚本成功还是抛异常。
-- `run_code` 在沙箱里的解释器中执行代码。需要跑 shell 命令时用 `sandbox.commands.run(...)`。
+- `finally` 在执行或读取结果失败时也会尝试销毁本次创建的沙箱。
+- `commands.run` 在 `base` 中启动 Python 进程执行文件；这里不依赖持久解释器会话。
 - 检查 `result.exit_code` 和 `result.stderr`，把错误信息交还给 Agent，让它自己修脚本，这就是一个完整的"写、跑、改"循环。
 
 脚本的输出是：
@@ -134,5 +138,5 @@ abx mcp install --target cursor   # 或 claude、vscode
 ## 接着做
 
 - 需要预装依赖？写一个[模板](https://registry.agent-sandbox.cn/templates/)，或者在 Registry 里找一个现成的。
-- 想换别的后端？看[提供方](https://registry.agent-sandbox.cn/providers/)，先安装再在 `Sandbox.create(provider=...)` 里指定。
+- 想换别的后端？看[提供方](https://registry.agent-sandbox.cn/providers/)，按该平台说明安装、配置插件，再使用公开的 `ProviderSandbox` 入口；完整代码见 [Python 提供方指南](https://github.com/Alibaba-Agent-Sandbox/python-sdk/blob/main/docs/zh/guide/providers.md)。
 - 完整的上手步骤见[开始使用](/start/)。

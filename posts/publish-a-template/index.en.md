@@ -37,7 +37,7 @@ Fill in the entry following the [contribution guide](https://github.com/Alibaba-
 
 ## 3. Verify locally
 
-Install the paired runtime prerequisite from the accepted immutable Python SDK source (the example does not assume PyPI publication), then run from the template repository root:
+The commands below retain this article’s pinned Python SDK source environment for local validation. Public PyPI client/server 0.3.1a5 is now available; the host installation and runtime pinned in a template Dockerfile are separate. For new contributions, follow the template repository’s current contributor guide and CI dependencies. Run from the template repository root:
 
 ```bash
 python3 -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=server-sdk" httpx -r scripts/requirements-spec.txt

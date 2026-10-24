@@ -39,10 +39,10 @@ Windows users can install the binary with `irm https://raw.githubusercontent.com
 
 In PowerShell, configure the key with `abx config set sandbox_api_key <YOUR_API_KEY>` instead of the Bash `export` command above.
 
-The Python client distribution is `agent-sandbox-client`; its import remains `agent_sandbox`. Until the matching client and server packages are available on PyPI, install both from the same pinned source revision:
+The Python client distribution is `agent-sandbox-client`, imported as `agent_sandbox`. Install the published alpha in an isolated Python environment; the client installs its matching server dependency:
 
 ```bash
-python -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=server-sdk" "agent-sandbox-client @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=client-sdk"
+python -m pip install --index-url https://pypi.org/simple "agent-sandbox-client==0.3.1a5"
 ```
 
 ## With the Python SDK
@@ -51,7 +51,7 @@ Here is the whole script. `AGENT_CODE` is the part the agent generated; we hand 
 
 ```python
 import asyncio
-from agent_sandbox.api.sandbox import Sandbox
+from agent_sandbox import AsyncSandbox
 
 CSV = """region,amount
 hangzhou,120
@@ -75,11 +75,15 @@ for region, amount in sorted(totals.items(), key=lambda kv: -kv[1]):
 
 
 async def main():
-    async with await Sandbox.create(template="base") as sandbox:
+    sandbox = await AsyncSandbox.create(template="base")
+    try:
         await sandbox.files.write("/home/user/sales.csv", CSV)
-        result = await sandbox.run_code(AGENT_CODE)
-        print(result.text)
+        await sandbox.files.write("/home/user/analyze.py", AGENT_CODE)
+        result = await sandbox.commands.run("python /home/user/analyze.py")
+        print(result.stdout)
         print("exit code:", result.exit_code)
+    finally:
+        await sandbox.kill()
 
 
 asyncio.run(main())
@@ -87,8 +91,8 @@ asyncio.run(main())
 
 A few things to notice:
 
-- `async with` destroys the sandbox on exit, whether the script succeeded or raised.
-- `run_code` runs code in the sandbox's interpreter. For a shell command use `sandbox.commands.run(...)`.
+- `finally` attempts to destroy the sandbox created by this example even if execution or result handling raises.
+- `commands.run` starts a Python process in `base` to execute the file; this example does not require a persistent interpreter session.
 - Check `result.exit_code` and `result.stderr`, and hand the error back to the agent so it can fix its own script. That is a complete write, run, fix loop.
 
 The script prints:
@@ -134,5 +138,5 @@ It is not magic. Code in the sandbox can still use whatever you give it: the fil
 ## Where to go next
 
 - Need dependencies preinstalled? Write a [template](https://registry.agent-sandbox.cn/en/templates/) or find one in the Registry.
-- Want another backend? See the [providers](https://registry.agent-sandbox.cn/en/providers/), install one first, then pass it to `Sandbox.create(provider=...)`.
+- Want another backend? See the [providers](https://registry.agent-sandbox.cn/en/providers/), install and configure the plugin according to its platform guide, then use the public `ProviderSandbox` entry. See the [Python provider guide](https://github.com/Alibaba-Agent-Sandbox/python-sdk/blob/main/docs/en/guide/providers.md) for a complete example.
 - The full steps are in [Get started](/en/start/).

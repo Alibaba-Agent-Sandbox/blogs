@@ -1,6 +1,7 @@
 # Decision: Keep consumer examples valid across client entries
 
-Status: proposed
+Status: superseded
+Superseded-by: [current documentation](../implemented/process/2026-10-24-current-documentation-sync.md)
 
 ## Problem
 Consumer examples await root Sandbox, which becomes the standard synchronous client.
@@ -39,4 +40,4 @@ Native examples remain valid on both entries; CLI choice matches actual help.
 Bilingual content, owner records and required current-head CI/review pass.
 
 ## Evidence
-[Verification](../../../evidence/verify/2026-10-19-consumer-entries.md).
+[Verification](../../evidence/verify/2026-10-19-consumer-entries.md).

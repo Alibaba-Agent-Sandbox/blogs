@@ -4,6 +4,20 @@
 
 The source of the Agent Sandbox blog: cases, tutorials, announcements and engineering notes. Posts are written here; the website reads them at build time and publishes them at [www.agent-sandbox.cn/en/blog/](https://www.agent-sandbox.cn/en/blog/).
 
+## 当前用法与历史案例 · Current guidance and reproducible cases
+
+新项目从[开始使用](https://www.agent-sandbox.cn/start/)选择安装与调用入口。当前 CLI 为 [0.4.17](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.4.17)，Python client/server 为 [0.3.1a5 alpha](https://github.com/Alibaba-Agent-Sandbox/python-sdk/releases/tag/v0.3.1a5)。默认 `base` 案例通过文件与进程 API 执行脚本；命名应用命令、持久解释器与 PTY 按各自的实际接口说明使用。
+
+For new projects, follow [Get started](https://www.agent-sandbox.cn/en/start/). Current releases are CLI 0.4.17 and Python client/server 0.3.1a5 alpha. The default `base` walkthrough uses file and process APIs; named application commands, persistent interpreters and PTY have separate interfaces and prerequisites.
+
+五篇 `developer-journey-*` 案例保留实际运行时使用的 CLI 0.4.12、Python 0.3.1a2 及各自固定的沙箱内依赖。升级当前安装指南不会改写旧脚本、生成结果或实验记录，也不表示它们已在新版重新运行。模板目录的后续默认启动矩阵另见 [46 个源码模板的双平台记录](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/78c30fbbd186cb59c3a0f0abd9fdf85b10c84b35/.agents/evidence/verify/2026-10-24-public-template-matrix.md)；不能替代案例中的具体模型或业务任务。
+
+The five `developer-journey-*` cases retain their executed CLI 0.4.12, Python 0.3.1a2 and individually pinned in-sandbox dependencies. Updating current guidance does not change their runnable attachments or historical results, or claim that the cases ran again on newer releases. Later template smoke coverage is recorded by the template repository and does not establish the cases' model or business outcomes.
+
+当前决策与验证入口见 [`.agents/README.md`](.agents/README.md)。维护文章时同步已有翻译，区分现行用法与固定版本复现，修改文章源文件后由官网构建同步。
+
+See [`.agents/README.md`](.agents/README.md) for current decisions and verification. Keep existing translations aligned, distinguish current usage from pinned reproductions, and update article sources here before the website ingests them.
+
 ## 目录结构 · Layout
 
 ```text

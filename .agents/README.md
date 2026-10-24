@@ -1,7 +1,13 @@
 # Engineering records: blogs
 
-Current review: [installation guidance](notes/proposed/process/2026-10-16-installation-review.md).
-Validation: [verification record](evidence/verify/2026-10-16-installation-review.md).
+Current documentation: [public installation and supported walkthrough](notes/implemented/process/2026-10-24-current-documentation-sync.md) · [verification](evidence/verify/2026-10-24-current-documentation-sync.md).
+
+- Current articles use the public client installation and documented process/file or application interfaces. CLI 0.4.17 and Python 0.3.1a5 are release identities, not proof that every post ran again on them.
+- The five practical cases were delivered in [PR #7](https://github.com/Alibaba-Agent-Sandbox/blogs/pull/7) and rewritten for usage in [PR #8](https://github.com/Alibaba-Agent-Sandbox/blogs/pull/8). Their pinned CLI 0.4.12/Python 0.3.1a2 scripts, generated snapshots and evidence remain historical.
+- [PR #10](https://github.com/Alibaba-Agent-Sandbox/blogs/pull/10) removed verification-stage promotion from the publishing tutorial. Catalog maintenance labels do not certify runtime behavior.
+- [CLI #132](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/issues/132) is now closed; its old generated snapshot and the prior failure record remain unchanged. [CLI #131](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/issues/131) is still open. Default template smoke and HTTP wait-time fixes do not establish a fix for that generated environment build.
+
+The links below include historical and superseded decisions. Immutable verification files describe their original date, versions and scope.
 
 This version-controlled directory records why this repository changes and how the change was
 verified. Scope: post structure, frontmatter, examples, assets and publication integration. New engineering records use English.
@@ -76,14 +82,16 @@ Explicit local-only, draft-only, review-only and no-merge instructions limit thi
 If access or a required gate blocks publication, finish safe local work, retain concrete
 drafts/patches and report the blocker without claiming an Issue, PR or merge exists.
 
-- [Accepted SDK source recipe](notes/proposed/process/2026-10-18-accepted-sdk-source.md).
+- [Accepted SDK source recipe](notes/superseded/2026-10-18-accepted-sdk-source.md).
 
-- [Consumer entry compatibility](notes/proposed/process/2026-10-19-consumer-entries.md) · [verification](evidence/verify/2026-10-19-consumer-entries.md)
+- [Consumer entry compatibility](notes/superseded/2026-10-19-consumer-entries.md) · [verification](evidence/verify/2026-10-19-consumer-entries.md)
 
 - [Use current Express CLI in the bilingual walkthrough](notes/implemented/process/2026-10-22-current-express-cli-examples.md) · [verification](evidence/verify/2026-10-22-current-express-cli-examples.md)
 
-Developer journey cases: [decision](notes/proposed/feature/2026-10-24-developer-journey-cases.md) · [verification](evidence/verify/2026-10-24-developer-journey-cases.md).
+Developer journey cases: [decision](notes/implemented/feature/2026-10-24-developer-journey-cases.md) · [verification](evidence/verify/2026-10-24-developer-journey-cases.md).
 
-- [Practical case narrative](notes/proposed/process/2026-10-24-practical-case-narrative.md) · [verification](evidence/verify/2026-10-24-practical-case-narrative.md).
+- [Practical case narrative](notes/implemented/process/2026-10-24-practical-case-narrative.md) · [verification](evidence/verify/2026-10-24-practical-case-narrative.md).
 
 - [Template publication guidance](notes/implemented/process/2026-10-24-template-publication-guidance.md) · [verification](evidence/verify/2026-10-24-template-publication-guidance.md).
+
+Historical installation/source-pin decisions are superseded by the current public-installation and explicit SDK-entry guidance above. Their original assumptions and evidence are retained, not rewritten as current recommendations.
