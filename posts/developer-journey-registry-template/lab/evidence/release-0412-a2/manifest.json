@@ -1,0 +1,79 @@
+{
+  "policy": "Explicit publication allowlist; originals preserved; executable paths normalized and terminal controls stripped only in publication copies. Blog attachment hash records executed bytes.",
+  "attachment": {
+    "path": "lab/03_registry_end_to_end.py",
+    "sha256": "871e2d60fcabeb91c3974607edd898a1b55efce6e313875d407fa691956fc73e"
+  },
+  "files": [
+    {
+      "source": "evidence/03-release-0412-031a2/result.json",
+      "published": "result.json",
+      "source_sha256": "937f9965a9c8acb95093e3297357415b54295e74fd6464966c79632c10ac90be",
+      "published_sha256": "937f9965a9c8acb95093e3297357415b54295e74fd6464966c79632c10ac90be",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-release-0412-031a2/checks.json",
+      "published": "checks.json",
+      "source_sha256": "e950f1c6827d94e94ab349c285496634ffa3378292911a9204cc74c1cd7bbcfe",
+      "published_sha256": "e950f1c6827d94e94ab349c285496634ffa3378292911a9204cc74c1cd7bbcfe",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-release-0412-031a2/commands.json",
+      "published": "commands.json",
+      "source_sha256": "21a82be90cfa7eaa6d02b6b6087dd881a2e17042dff5a2e95ac25c4db99925c7",
+      "published_sha256": "9eacc8f5276ec36ba52c091b7f04e96d9994a0b5f1f262d2a7aa769ec856eae9",
+      "transformation": "normalize controller CLI and Python executable paths"
+    },
+    {
+      "source": "evidence/03-release-0412-031a2/http.json",
+      "published": "http.json",
+      "source_sha256": "69f20f10b54be26962f4ccde4cd16c8ca4869a5566443f38698abd9c6fddb82a",
+      "published_sha256": "69f20f10b54be26962f4ccde4cd16c8ca4869a5566443f38698abd9c6fddb82a",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-release-0412-031a2/terminal.txt",
+      "published": "terminal.txt",
+      "source_sha256": "ced3d141a5fe1db41cdba72a3039c20b8e07cfdc9c0c09f20782ffb9cd01a1f9",
+      "published_sha256": "b1a92a9566d60b6013da224d327690399b15006ccb7ba8aad39ec58e319147a2",
+      "transformation": "strip terminal ANSI/control sequences; normalize line endings"
+    },
+    {
+      "source": "evidence/03-release-0412-031a2/source.json",
+      "published": "source.json",
+      "source_sha256": "cd31fdd1c3385748a01566f2ef06534112fc67301cd5424551f5c2e9fe755d5e",
+      "published_sha256": "cd31fdd1c3385748a01566f2ef06534112fc67301cd5424551f5c2e9fe755d5e",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-release-0412-031a2/steps-provenance.json",
+      "published": "steps-provenance.json",
+      "source_sha256": "1896f951733dfa5ab5f55bf8fbb8dbaa8d339cb726cf1587b2b06fa403837d3a",
+      "published_sha256": "1896f951733dfa5ab5f55bf8fbb8dbaa8d339cb726cf1587b2b06fa403837d3a",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-release-0412-031a2/versions.json",
+      "published": "versions.json",
+      "source_sha256": "2e55fa6c3288fee04d9ed3e64d495e8199d118f6942061c894b960a0524655e3",
+      "published_sha256": "2e55fa6c3288fee04d9ed3e64d495e8199d118f6942061c894b960a0524655e3",
+      "transformation": "unchanged"
+    },
+    {
+      "source": "evidence/03-final-public-execution.json",
+      "published": "execution.json",
+      "source_sha256": "cdc299a0fa97c082fadfc0d4a54a988f94f1294924cc08dc8da81a37b00da361",
+      "published_sha256": "cdc299a0fa97c082fadfc0d4a54a988f94f1294924cc08dc8da81a37b00da361",
+      "transformation": "derived public execution summary"
+    },
+    {
+      "source": null,
+      "published": "summary.json",
+      "source_sha256": null,
+      "published_sha256": "31a32a14ce69684e41600a22c1ebeb10b67a51ab8c299d734e246c31a836fea8",
+      "transformation": "derived summary from final run"
+    }
+  ]
+}

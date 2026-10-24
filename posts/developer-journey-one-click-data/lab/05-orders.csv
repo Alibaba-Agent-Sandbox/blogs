@@ -1,0 +1,11 @@
+order_id,region,quantity,unit_price
+A001, east ,2,19.95
+A002,west,3,10.00
+A003,EAST,1,99.90
+A004,north,5,2.50
+A002,west,3,10.00
+A005,,4,8.00
+A006,west,-1,20.00
+A007,west,two,11.00
+A008,North,2,5.25
+A009,east,3,0.10

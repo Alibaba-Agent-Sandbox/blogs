@@ -1,0 +1,124 @@
+{
+  "retrieved_at": "2026-10-24T03:27:51.789141+00:00",
+  "pages": [
+    {
+      "url": "https://registry.agent-sandbox.cn/templates/python-hello/",
+      "status": 200,
+      "sha256": "6f85e6becface126191ecd1157504dac14c5c7d792bb4439ec48cf6419ace9ff",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/en/templates/python-hello/",
+      "status": 200,
+      "sha256": "b19d5d2fb8de9923bb573809bbede1fb347305049ecb2ddcdc3c8dd2feb33793",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/awesome-templates/python-hello/README.zh-CN.md/",
+      "status": 200,
+      "sha256": "0637e793bf85cd6c1ff7fa46e1372a7df5452d1d7c3c45528cd54bcc0449dea1",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/awesome-templates/docs/platform-steps.md/",
+      "status": 200,
+      "sha256": "53d1ea3a429306aa3322dcfa24a4c160937f75d9cc8f3ca2c47656b512b6c5ce",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/awesome-templates/docs/platform-steps.zh-CN.md/",
+      "status": 200,
+      "sha256": "f843c455f70b5d673d472d3724c592a6af28bc2484c96bf8b54c0b81b317aaf4",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/python-sdk/docs/en/guide/build-and-deploy.md/",
+      "status": 200,
+      "sha256": "129bd02d95985e6a24308174425088c578e716d94fbd0462e7f27b1b1ece27a6",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/python-sdk/docs/en/guide/template-server-api.md/",
+      "status": 200,
+      "sha256": "fb9123b1af55d22646d9c1bac1c5f277d3fb94bc0937b909d418e91970ca02ab",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/python-sdk/docs/en/guide/authoring-templates.md/",
+      "status": 200,
+      "sha256": "e2c9d73cff64dcabac0c9302f631e949445d76fab1ce4129ff4ac368d1026d6c",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/python-sdk/docs/en/guide/server-sdk.md/",
+      "status": 200,
+      "sha256": "c59eb1bb47412ded37f2db5452747d34b3b2fff9ad5891dfdd5a1f15a6970797",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/python-sdk/docs/zh/guide/build-and-deploy.md/",
+      "status": 200,
+      "sha256": "52be60ee2d1f34a3116f43f4c25ecfa8b946c69cbb5c706da729d814d8139ba8",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/python-sdk/docs/zh/guide/template-server-api.md/",
+      "status": 200,
+      "sha256": "5f3ce83ec88f939fb72f4a88423af095a67bd68aee332e71b6b0510306d40027",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/python-sdk/docs/zh/guide/authoring-templates.md/",
+      "status": 200,
+      "sha256": "3daff65c4d38f754b990b21d8110de6f2b9a4cf0e175c4e3f1217b28ee2cb483",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "url": "https://registry.agent-sandbox.cn/source/python-sdk/docs/zh/guide/server-sdk.md/",
+      "status": 200,
+      "sha256": "a9093fb45631b6974d87c369683e1d87be31ba0b225399500c15499225bf292b",
+      "passed": true,
+      "missing": [],
+      "unexpected": []
+    }
+  ],
+  "passed": true,
+  "catalog": {
+    "url": "https://registry.agent-sandbox.cn/catalog.json",
+    "status": 200,
+    "sha256": "5f9a5faa63ca679286a8643ce7a733595237a30bb420e9a62bebea2d94eb0826",
+    "revisions": {
+      "awesome-templates": "565e546",
+      "awesome-providers": "d04c149",
+      "agent-sandbox": "07bcab4",
+      "python-sdk": "b0407a7",
+      "nodejs-sdk": "18dc919",
+      "registry": "7653e32"
+    }
+  },
+  "deployment": "https://github.com/Alibaba-Agent-Sandbox/registry/actions/runs/40058237324"
+}

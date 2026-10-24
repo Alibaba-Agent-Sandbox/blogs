@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "template": "python-hello",
+  "materializer_sha256": "6d20b9ed2b64d891caa7a345ead6c084cc7d1cce489e1fb8526c19ff103ddc45",
+  "source_manifest_contract_sha256": "d35c5d1b521dddcae2b50371a9d6ced47fe021bf121fb9233b40b12a251f1d05",
+  "template_version": "1.1.2",
+  "build_mode": "steps",
+  "base_image": "fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49",
+  "server_commit_override": null,
+  "template_server_commit": null,
+  "verified_base_path": "/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/.fce2b",
+  "copy_source_commit": null,
+  "asset_transport": "direct",
+  "steps_json_bytes": 4605,
+  "inputs_sha256": {
+    "Dockerfile": "87c7adc9f62b72ca4ab86fdccde992617b3aff16bdabad82a7af672712b3249c",
+    "template.yaml": "2b7d32f54affa308e14f1daeb35a61c7d67c46918f1d9a5c007b0af6ee5b8a44",
+    "commands.py": "819dd5d91a67edc9d681b01dc44caac479c6d693d947f1818d5a1253cc9b9ceb"
+  },
+  "generated_manifest_sha256": "872b573788b3c661c13e29f5807125e7b0a7066370713c67cbd6a79d05a3078b"
+}

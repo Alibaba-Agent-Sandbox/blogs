@@ -1,0 +1,59 @@
+{
+  "recorded_at": "2026-10-24T03:33:20.888879+00:00",
+  "status": "PASS",
+  "scenario": 3,
+  "public_pages": 13,
+  "assertions": 29,
+  "commands": 50,
+  "versions": {
+    "cli": "0.4.11",
+    "host_python": "3.12.13",
+    "client_sdk": "0.3.1a1",
+    "PyYAML": "6.0.3",
+    "sandbox_python": "3.13.13",
+    "sandbox_server_package": "0.3.0",
+    "sandbox_server_source": "e2cb27e24fde0a67112f82b8d44af463445a5d1a"
+  },
+  "source_revision": "565e546a3e1d814e840062cbdd5da4ba295e16a6",
+  "sdk_docs_revision": "b0407a7c9be5f6883be75143981b0318a03ad25d",
+  "registry_deployment": "https://github.com/Alibaba-Agent-Sandbox/registry/actions/runs/40058237324",
+  "cleanup": {
+    "sandbox": {
+      "exact_owned_id": true,
+      "exit_code": 1,
+      "absent": true,
+      "readback_reason": "SandboxNotFound",
+      "http_404_observed": false
+    },
+    "template": {
+      "exact_owned_id": true,
+      "exit_code": 1,
+      "absent": true,
+      "readback_reason": "TemplateNotFound",
+      "http_404_observed": true
+    }
+  },
+  "evidence_sha256": {
+    "03-public-readback.json": "f477f712c2fa35d1cccb4bf29891516adb9735cc42fb57be9cd2541bc1d74825",
+    "03-public-rerun/result.json": "cc8a699a4d27a52ccd1676c62d9e09d8daa0a674cb5f0eead92f610e64ba3e82",
+    "03-public-rerun/checks.json": "e950f1c6827d94e94ab349c285496634ffa3378292911a9204cc74c1cd7bbcfe",
+    "03-public-rerun/commands.json": "32236e22bda8d11c59d1e38ee2e9b64c19ef391078ef7e25363fe4090e5406be",
+    "03-public-rerun/http.json": "69f20f10b54be26962f4ccde4cd16c8ca4869a5566443f38698abd9c6fddb82a",
+    "03-public-rerun/source.json": "cd31fdd1c3385748a01566f2ef06534112fc67301cd5424551f5c2e9fe755d5e",
+    "03-public-rerun/steps-provenance.json": "1896f951733dfa5ab5f55bf8fbb8dbaa8d339cb726cf1587b2b06fa403837d3a",
+    "03-public-rerun/terminal.txt": "ced3d141a5fe1db41cdba72a3039c20b8e07cfdc9c0c09f20782ffb9cd01a1f9",
+    "03-public-rerun/versions.json": "0529952eede9a590ee0360be84362224c87b82e96ae986a1b1cc525eae85e61a",
+    "03-public-rerun-cleanup-readback.json": "d9825e3eb1f6370fccab0427414b0a3d5e05e44ee6e82861d81ea87a6219ec83",
+    "03-harness-interruption-regression.json": "6a7e86fa0d7e6f0fcb959aef053c31996eba1e0abd5df7452b0e14e4febdb687",
+    "03-harness-client-only-regression.json": "8efc60e98dc162531756572ed32a5249ef10f612c47737ab5003733d3844c631"
+  },
+  "limitations": [
+    "Express cloud-steps path only; default Docker build did not run because Docker is unavailable.",
+    "Template CI image-build and canonical jobs were scope-skipped, not image acceptance passes.",
+    "Runtime server package is the template pinned source version 0.3.0; the host SDK is published 0.3.1a1.",
+    "Original failures, command corrections, and first readback expectation are retained.",
+    "After live run, portable harness adds a whitelisted cleanup reason; offline interruption regression and independent exact-ID readback verify this evidence-only addition.",
+    "Optional host server package metadata is nullable in the standalone client-only harness; offline regression covers absence without claiming a new cloud run."
+  ],
+  "portable_script_sha256": "a0ff438429fa9cf01c54cf58c930641b4a11ce2d063052906f7008ee53de2b2b"
+}

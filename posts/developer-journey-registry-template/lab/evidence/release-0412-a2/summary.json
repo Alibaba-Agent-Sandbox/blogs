@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-10-24T05:34:17.441531+00:00",
+  "scenario": 3,
+  "assertions": 29,
+  "captured_commands": 40,
+  "versions": {
+    "cli": "0.4.12",
+    "host_python": "3.12.13",
+    "host_client_sdk": "0.3.1a2",
+    "host_server_sdk_optional": "0.3.1a2",
+    "PyYAML": "6.0.3",
+    "sandbox_python": "3.13.13",
+    "sandbox_server_package": "0.3.0",
+    "sandbox_server_source": "e2cb27e24fde0a67112f82b8d44af463445a5d1a"
+  },
+  "template_git_sha": "565e546a3e1d814e840062cbdd5da4ba295e16a6",
+  "attachment_sha256": "871e2d60fcabeb91c3974607edd898a1b55efce6e313875d407fa691956fc73e",
+  "elapsed_seconds": 52.826,
+  "cleanup": {
+    "sandbox": {
+      "delete_exit_code": 0,
+      "readback_exit_code": 1,
+      "readback_reason": "SandboxNotFound",
+      "absent": true
+    },
+    "template": {
+      "delete_exit_code": 0,
+      "readback_exit_code": 1,
+      "readback_reason": "TemplateNotFound",
+      "absent": true
+    }
+  },
+  "unexpected_nonzero_command_count": 0,
+  "scope": "Exact blog attachment executed using official public CLI0.4.12 and PyPI SDK0.3.1a2. Fixed Registry source through official prepare_steps.py; Express cloud steps only. No Docker build or other provider claim.",
+  "historical_evidence_preserved": true
+}

@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "completed": true,
+  "checks": [
+    {
+      "name": "template READY",
+      "passed": true
+    },
+    {
+      "name": "native info JSON",
+      "passed": true
+    },
+    {
+      "name": "exec output",
+      "passed": true
+    },
+    {
+      "name": "capabilities",
+      "passed": true
+    },
+    {
+      "name": "commands",
+      "passed": true
+    },
+    {
+      "name": "hello",
+      "passed": true
+    },
+    {
+      "name": "inline code",
+      "passed": true
+    },
+    {
+      "name": "uploaded script",
+      "passed": true
+    },
+    {
+      "name": "uploaded pytest",
+      "passed": true
+    },
+    {
+      "name": "files list",
+      "passed": true
+    },
+    {
+      "name": "files stat",
+      "passed": true
+    },
+    {
+      "name": "files search",
+      "passed": true
+    },
+    {
+      "name": "file SHA256",
+      "passed": true
+    },
+    {
+      "name": "removed file absent",
+      "passed": true
+    },
+    {
+      "name": "system info",
+      "passed": true
+    },
+    {
+      "name": "system metrics",
+      "passed": true
+    },
+    {
+      "name": "system ports",
+      "passed": true
+    },
+    {
+      "name": "system packages",
+      "passed": true
+    },
+    {
+      "name": "filtered environment",
+      "passed": true
+    },
+    {
+      "name": "owned process discovered",
+      "passed": true
+    },
+    {
+      "name": "owned process stopped",
+      "passed": true
+    },
+    {
+      "name": "real PTY preserves cwd and environment",
+      "passed": true
+    },
+    {
+      "name": "documented ProviderSandbox.application_client",
+      "passed": true
+    },
+    {
+      "name": "external POST /commands/hello 200",
+      "passed": true
+    },
+    {
+      "name": "external POST /commands/run_script 200",
+      "passed": true
+    },
+    {
+      "name": "external POST /commands/run_script 400",
+      "passed": true
+    },
+    {
+      "name": "external POST /commands/unknown 404",
+      "passed": true
+    },
+    {
+      "name": "discovery hides internal command",
+      "passed": true
+    },
+    {
+      "name": "custom GET route",
+      "passed": true
+    }
+  ],
+  "failure": null,
+  "cleanup": {
+    "sandbox": {
+      "delete_exit_code": 0,
+      "readback_exit_code": 1,
+      "absent": true
+    },
+    "template": {
+      "delete_exit_code": 0,
+      "readback_exit_code": 1,
+      "absent": true
+    }
+  },
+  "scope": "public Registry source prepared with its documented cloud-steps tool; Express only; no Docker build claim"
+}

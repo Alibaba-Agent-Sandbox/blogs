@@ -1,0 +1,17 @@
+
+Use the following link to inspect this Sandbox live inside the E2B Dashboard️:
+↪ 
+
+Terminal connecting to sandbox <sandbox_id>
+user@aliyun:~/app$ cd /tmp
+
+user@aliyun:/tmp$ export JOURNEY_PTY_FLAG=held
+
+user@aliyun:/tmp$ printf "PTY_CHECK_%s:%s:%s\n" PASS "$PWD" "$JOURNEY_PTY_FLAG"
+
+PTY_CHECK_PASS:/tmp:held
+user@aliyun:/tmp$ exit
+
+logout
+
+Closing terminal connection to sandbox <sandbox_id>

@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 52.826,
+  "script": "posts/developer-journey-registry-template/lab/03_registry_end_to_end.py",
+  "script_sha256": "871e2d60fcabeb91c3974607edd898a1b55efce6e313875d407fa691956fc73e",
+  "script_bytes_unchanged_during_run": true,
+  "cli": "0.4.12",
+  "host_sdk": "0.3.1a2",
+  "output_directory": "evidence/03-release-0412-031a2"
+}

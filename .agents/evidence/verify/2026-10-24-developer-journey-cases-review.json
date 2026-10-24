@@ -1,0 +1,50 @@
+{
+  "decision": "PASS for publication of the scoped five developer cases",
+  "review": "Independent read-only factual/contract/provenance review; no new runtime resources",
+  "articles": [
+    {
+      "slug": "developer-journey-cli-install",
+      "body_sha256": "683ee9e0f9e4603afb93a8f81d8cd3155a26531a93bf21a7d38b24208b3c8120",
+      "publication_ready": true
+    },
+    {
+      "slug": "developer-journey-qwen-python",
+      "body_sha256": "12ff20f609ce19552a7c9ace1ad127c77808c84954f57b64744486842e74dae4",
+      "publication_ready": true
+    },
+    {
+      "slug": "developer-journey-registry-template",
+      "body_sha256": "74f66627610c365242f21d9946dd15f34bd9514c8525fe2c1dc78abb68f36a8e",
+      "publication_ready": true
+    },
+    {
+      "slug": "developer-journey-prompt-sandbox",
+      "body_sha256": "0116c6e8e9d9cd3d5f01365fdbe007f309fce6b60ccf1710479cba0a62e3ed17",
+      "publication_ready": true
+    },
+    {
+      "slug": "developer-journey-one-click-data",
+      "body_sha256": "69d678305342578d566321236e2544cd8449afccab9a6c557fab56c0188b8ccf",
+      "publication_ready": true
+    }
+  ],
+  "public_runtime_evidence": {
+    "01": "CLI0.4.12 lifecycle and exact cleanup PASS",
+    "02": "CLI0.4.12/client0.3.1a2 real Qwen edit, SDK/CLI/POST and exact cleanup PASS",
+    "03": "29 assertions, 40 captured commands, 52.826 seconds, exact sandbox/template cleanup PASS",
+    "04": "Fresh public CLI0.4.12/client0.3.1a2 generation, 331.54 seconds create, READY60, 50 assertions, exact two-resource cleanup PASS",
+    "05": "Public client0.3.1a2 documentation/orders/exception paths PASS with automatic DELETE and precise GET404"
+  },
+  "reviewed_boundaries": [
+    "SDK alpha remains explicit; host and remote server versions distinguished",
+    "Complex numeric build not resolved: Issue131",
+    "Generated workdir writeability claim contradicts runtime: Issue132, disclosed and frozen bytes retained",
+    "04 arbitrary interruption cleanup unverified and explicitly disclosed",
+    "Express/Linux scope, no universal provider/platform or production-auth claim"
+  ],
+  "remaining_publication_gates": [
+    "blogs repository validation, required latest-head CI and normal merge",
+    "website integration and live article/attachment readback after deployment"
+  ],
+  "findings_blocking_publication": []
+}

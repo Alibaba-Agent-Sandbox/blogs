@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "host_client": "0.3.1a2",
+  "host_server": "0.3.1a2",
+  "source": "fresh official PyPI install",
+  "cli_used_for_workload": false,
+  "cases": [
+    {
+      "case": "documentation",
+      "experiment_pass": true,
+      "owned_count": 1,
+      "cleanup": [
+        {
+          "owned_id": "<owned-sandbox>",
+          "decorator_delete_events": 1,
+          "post_call_info_status": 404,
+          "confirmed_absent": true
+        }
+      ],
+      "seconds": 4.24,
+      "evidence": "documentation.json",
+      "sha256": "df9932f0eded7dfbb0c71c127b77b718840baf4f899ec44f157a12b3da791a19"
+    },
+    {
+      "case": "orders",
+      "experiment_pass": true,
+      "owned_count": 1,
+      "cleanup": [
+        {
+          "owned_id": "<owned-sandbox>",
+          "decorator_delete_events": 1,
+          "post_call_info_status": 404,
+          "confirmed_absent": true
+        }
+      ],
+      "seconds": 4.5,
+      "evidence": "orders.json",
+      "sha256": "660938d35fd91cd3ea155463ba2917ebe0b1e394651d39937c5ecfe3781c9157"
+    },
+    {
+      "case": "exception",
+      "experiment_pass": true,
+      "owned_count": 1,
+      "cleanup": [
+        {
+          "owned_id": "<owned-sandbox>",
+          "decorator_delete_events": 1,
+          "post_call_info_status": 404,
+          "confirmed_absent": true
+        }
+      ],
+      "seconds": 3.22,
+      "evidence": "exception.json",
+      "sha256": "e0d1c9a914002f1f97b3b88e6458955ab920e9a1802438e31632b4faf7a63023"
+    }
+  ],
+  "source_sha256": {
+    "05-data/05-data-processing.py": "7e48271ac7fa2599bc8bf594e347bbd46a8c85ae9c15298d01cbd5e14fabfe68",
+    "05-data/05-orders.csv": "47f51fb363d4f60259e763b83469319c8658c5a0cb851ce1b4a3952cf1c70395",
+    "05-data/05-documentation-example.py": "9ab540b591cacb2526f5fc957d9752da2355e6ee0ed17e32bc6240ccda8a14a3",
+    "05-data/05-failure-cleanup.py": "44d7cfce9c5d267c3dce59265bbb745120f43a684df13b2a830f360af54fbf95",
+    "05-data/audit.py": "ed7dcc6afbd8d38195e3387147e92c3a0d1e2b453ac6e27c05aea3dda1d67c84",
+    "05-data/support.py": "3a9bf3a58452ab4f6098d07f38d62060e28c7f5616bbd9586978e428d4d50e98",
+    "05-data/.gitignore": "c10927626ee163f99fa578a129759bf995f95470877ec15b2553800fe6924c24"
+  },
+  "initial_harness_error": "An initial documentation invocation passed a duplicated relative path; failed before resource creation, retained separately, corrected to the documented basename argument."
+}

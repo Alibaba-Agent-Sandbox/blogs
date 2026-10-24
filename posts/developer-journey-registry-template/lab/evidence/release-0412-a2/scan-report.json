@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "method": "Exact known credentials and exact final-run owned IDs checked privately; controller absolute paths and ANSI checked. Sandbox runtime paths are intentional.",
+  "files": [
+    {
+      "file": "checks.json",
+      "sha256": "e950f1c6827d94e94ab349c285496634ffa3378292911a9204cc74c1cd7bbcfe",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "commands.json",
+      "sha256": "9eacc8f5276ec36ba52c091b7f04e96d9994a0b5f1f262d2a7aa769ec856eae9",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "execution.json",
+      "sha256": "cdc299a0fa97c082fadfc0d4a54a988f94f1294924cc08dc8da81a37b00da361",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "http.json",
+      "sha256": "69f20f10b54be26962f4ccde4cd16c8ca4869a5566443f38698abd9c6fddb82a",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "manifest.json",
+      "sha256": "703844ef9b59a21f5afeeb93e155534e6634a85ffed8b8d9d5c20ff4860ff12b",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "result.json",
+      "sha256": "937f9965a9c8acb95093e3297357415b54295e74fd6464966c79632c10ac90be",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "source.json",
+      "sha256": "cd31fdd1c3385748a01566f2ef06534112fc67301cd5424551f5c2e9fe755d5e",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "steps-provenance.json",
+      "sha256": "1896f951733dfa5ab5f55bf8fbb8dbaa8d339cb726cf1587b2b06fa403837d3a",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "summary.json",
+      "sha256": "31a32a14ce69684e41600a22c1ebeb10b67a51ab8c299d734e246c31a836fea8",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "terminal.txt",
+      "sha256": "b1a92a9566d60b6013da224d327690399b15006ccb7ba8aad39ec58e319147a2",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    },
+    {
+      "file": "versions.json",
+      "sha256": "2e55fa6c3288fee04d9ed3e64d495e8199d118f6942061c894b960a0524655e3",
+      "credential_matches": 0,
+      "exact_owned_id_matches": 0,
+      "workstation_path_matches": 0,
+      "ansi_escape_bytes": 0
+    }
+  ]
+}

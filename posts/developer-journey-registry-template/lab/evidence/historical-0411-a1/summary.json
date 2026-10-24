@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "scenario": 3,
+  "verified_at": "2026-10-24",
+  "assertions": 29,
+  "commands": 50,
+  "versions": {
+    "abx": "0.4.11",
+    "host_python": "3.12.13",
+    "host_client_sdk": "0.3.1a1",
+    "PyYAML": "6.0.3",
+    "sandbox_python": "3.13.13",
+    "sandbox_server_package": "0.3.0",
+    "sandbox_server_source": "e2cb27e24fde0a67112f82b8d44af463445a5d1a"
+  },
+  "template_source_repository": "https://github.com/Alibaba-Agent-Sandbox/awesome-templates",
+  "template_git_sha": "565e546a3e1d814e840062cbdd5da4ba295e16a6",
+  "public_docs_pages": 13,
+  "public_docs_passed": true,
+  "registry_deployment": "https://github.com/Alibaba-Agent-Sandbox/registry/actions/runs/40058237324",
+  "cleanup": {
+    "sandbox": {
+      "exact_owned_id": true,
+      "exit_code": 1,
+      "absent": true,
+      "readback_reason": "SandboxNotFound",
+      "http_404_observed": false
+    },
+    "template": {
+      "exact_owned_id": true,
+      "exit_code": 1,
+      "absent": true,
+      "readback_reason": "TemplateNotFound",
+      "http_404_observed": true
+    }
+  },
+  "scope": "Public Registry python-hello source prepared using its existing prepare_steps.py; Express cloud steps, CLI/SDK/external HTTP/real PTY. No Docker image or other provider acceptance claim.",
+  "original_failures_preserved_elsewhere": true
+}
