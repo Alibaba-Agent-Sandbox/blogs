@@ -29,7 +29,7 @@ my-template/
 
 ## 2. 写索引记录
 
-在 `awesome-templates.yaml` 对应的分区加一条：`name`、`description`、`repo`、`path`、`tags`、`author`、`capabilities`、`status`。
+在 `awesome-templates.yaml` 对应的分区加一条：`name`、`description`、`repo`、`path`、`tags`、`author`、`status`。
 
 按[贡献指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/CONTRIBUTING.zh-CN.md)填写条目，由维护者审核后收录。`official`、`community` 说明维护归属，`experimental` 表示作者仍在开发；这些标签不决定某个平台能否启动，也不代替具体的使用与测试记录。
 
@@ -59,9 +59,9 @@ abx --provider alicloud-express template launch ./my-template --workflow applica
 ## 5. 提 PR 前自查
 
 - 随 PR 附上具体使用记录：源码提交、平台、构建方式、运行过的命令或模型任务及清理结果。README 的已验证部分只写这些实际结果；未运行或跳过的项目单独说明。维护者据此核对贡献要求，收录本身不表示所有平台和功能都已测试。
-- 声明的能力都真的实现了，没有声明的能力不要悄悄支持。
+- 声明的工作流和应用命令都能按 README 使用，参数与返回结果一致。
 - 没有写死的密钥，没有安装时执行的代码。
-- 每次更新都提高版本号。
+- 当运行行为、依赖、默认值、参数或资源配置改变时，更新 `template.yaml` 的版本，并在中英文 README 说明兼容性变化。
 
 ## 合并之后
 

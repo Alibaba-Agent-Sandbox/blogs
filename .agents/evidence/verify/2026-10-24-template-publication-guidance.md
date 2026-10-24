@@ -12,6 +12,7 @@ Scope: `posts/publish-a-template/index.en.md`, `posts/publish-a-template/index.z
 - Initial `python scripts/validate.py` failed because PyYAML was absent from the host interpreter. Installed the README-required PyYAML in an isolated virtual environment; the same validator then passed.
 - All four new upstream contribution/usage document targets were confirmed as files on the actual awesome-templates main through GitHub's contents API.
 - Published CLI 0.4.16 `abx template launch --help` passed. The actual `_skeleton/template.yaml` declares the `application` workflow and the application token variable. This checks the documented entry point, not a new execution of the illustrative my-template directory.
+- Independent review identified an obsolete `capabilities` index field and an overbroad version-bump instruction. The source schema-2 entries and owner spec require no such index field; `docs/project-standards.md` limits manifest version changes to runtime/dependency/default/argument/resource changes. Corrected both languages and described declared workflows/application commands instead. No Registry package-version mechanism is introduced.
 - `git diff --check` passed. Original post date/category and historical experiment records are unchanged. Both languages carry the same contribution and usage guidance.
 
 ## Limits and integration

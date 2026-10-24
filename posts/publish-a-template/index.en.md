@@ -31,7 +31,7 @@ For keys the template needs, list only the variable names in `template.yaml` and
 
 ## 2. Add the index entry
 
-Add one entry under the right section of `awesome-templates.yaml`: `name`, `description`, `repo`, `path`, `tags`, `author`, `capabilities`, `status`.
+Add one entry under the right section of `awesome-templates.yaml`: `name`, `description`, `repo`, `path`, `tags`, `author`, `status`.
 
 Fill in the entry following the [contribution guide](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/CONTRIBUTING.md); maintainers review it before listing. `official` and `community` describe maintenance ownership, while `experimental` marks work the author is still developing. These labels do not decide whether a provider can launch the template or replace concrete usage and test records.
 
@@ -61,9 +61,9 @@ Before launching, configure Docker, ACR and Express credentials, and replace the
 ## 5. Check before you submit
 
 - Attach concrete usage records to the PR: source commit, provider, build method, commands or model tasks executed, and cleanup results. Keep the README's verified section limited to those actual results; identify unrun or skipped checks separately. Maintainers use these records to review the contribution requirements. Listing alone does not mean every platform and feature was tested.
-- Every declared capability is implemented, and nothing undeclared is quietly supported.
+- Declared workflows and application commands work as documented, with matching parameters and results.
 - No hard-coded secrets and no code that runs at install time.
-- Raise the version on every update.
+- Update the version in `template.yaml` when runtime behavior, dependencies, defaults, arguments or resources change, and explain compatibility changes in both README languages.
 
 ## After the merge
 
