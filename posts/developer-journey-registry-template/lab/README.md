@@ -1,6 +1,6 @@
 # Registry case reproduction
 
-The current case uses the public OpenSandbox `python-hello` source launch with CLI 0.5.3 and Python 0.4.0a2. Manual CLI, SDK and HTTP steps are in `../index.zh.md`.
+The current case uses the public OpenSandbox `python-hello` source launch with CLI 0.5.5 and Python 0.4.0a6. Manual CLI, SDK and HTTP steps are in `../index.zh.md`.
 
 The executable reproduction lives with the templates it verifies: [public_launch_e2e.py](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/scripts/public_launch_e2e.py) and [public-template-launch.yml](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/.github/workflows/public-template-launch.yml). This avoids maintaining a second provider-specific runner in the blog. It uses a real Docker-backed OpenSandbox server, public Registry source, installed public tools and exact owned cleanup.
 

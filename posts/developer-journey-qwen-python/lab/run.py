@@ -2,6 +2,7 @@
 
 import asyncio, base64, hashlib, json, os, secrets, subprocess, time, traceback
 from pathlib import Path
+from importlib.metadata import version as package_version
 import httpx
 from support import ROOT, PRIVATE, VALUES, environment, redact
 
@@ -193,6 +194,9 @@ async def main():
             timeout=60,
         )
         record("server-health", await server.health())
+        capabilities = await server.discover()
+        record("runtime-version", {"server": capabilities.server_version, "client": package_version("agent-sandbox-client")})
+        assert capabilities.server_version == package_version("agent-sandbox-client")
         version = await server.commands.run("qwen_version")
         record("qwen-version", version)
         assert "0.23.0" in str(version)

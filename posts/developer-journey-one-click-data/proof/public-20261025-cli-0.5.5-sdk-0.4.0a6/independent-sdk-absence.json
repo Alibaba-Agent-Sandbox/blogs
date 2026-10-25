@@ -1,0 +1,22 @@
+{
+  "client": "0.4.0a6",
+  "scope": "independent read-only confirmation of exact case5 owned IDs; no account scan",
+  "checks": [
+    {
+      "case": "05-data-processing",
+      "owned_count": 1,
+      "independent_typed_absence": true
+    },
+    {
+      "case": "05-documentation-example",
+      "owned_count": 1,
+      "independent_typed_absence": true
+    },
+    {
+      "case": "05-failure-cleanup",
+      "owned_count": 1,
+      "independent_typed_absence": true
+    }
+  ],
+  "passed": true
+}

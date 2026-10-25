@@ -38,7 +38,7 @@ my-template/
 在模板仓库根目录安装当前公开服务端和校验依赖，再运行检查。模板 Dockerfile 中的运行时依赖也要单独指定：
 
 ```bash
-python3 -m pip install --index-url https://pypi.org/simple "agent-sandbox-server==0.4.0a2" httpx -r scripts/requirements-spec.txt
+python3 -m pip install --index-url https://pypi.org/simple "agent-sandbox-server==0.4.0a6" httpx -r scripts/requirements-spec.txt
 python3 scripts/check_template.py my-template
 python3 scripts/run_local_e2e.py
 ```
@@ -47,7 +47,7 @@ python3 scripts/run_local_e2e.py
 
 ## 4. README 帮使用者跑起来
 
-说明需要哪些配置、怎样启动和调用、用完如何清理。以从 `_skeleton/` 扩展的应用模板为例，配置好极速版后，安装 CLI `0.5.3`；安装方式以[当前使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)为准：
+说明需要哪些配置、怎样启动和调用、用完如何清理。以从 `_skeleton/` 扩展的应用模板为例，配置好极速版后，安装 CLI `0.5.5`；安装方式以[当前使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)为准：
 
 ```bash
 export ABX_SERVER_TOKEN="<YOUR_APPLICATION_TOKEN>"

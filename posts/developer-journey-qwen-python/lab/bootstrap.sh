@@ -14,7 +14,7 @@ export PATH="/home/user/journey-qwen/node/bin:$PATH"
 # This case uses headless file tools, not optional audio/clipboard/image/native-PTY addons.
 printf '\n[2/3] Install verified Qwen Code 0.23.0 archive with npm\n'
 timeout --kill-after=5s 90 npm install --omit=optional --loglevel=info --timing --registry=https://registry.npmjs.org --prefix /home/user/journey-qwen/qwen /home/user/journey-qwen/qwen-code-0.23.0.tgz
-printf '\n[3/3] Install agent-sandbox-server 0.4.0a2 from official PyPI\n'
-timeout --kill-after=5s 80 python3 -m pip install --index-url https://pypi.org/simple --disable-pip-version-check --timeout 15 --retries 1 --target /home/user/journey-qwen/python agent-sandbox-server==0.4.0a2
+printf '\n[3/3] Install agent-sandbox-server 0.4.0a6 from official PyPI\n'
+timeout --kill-after=5s 80 python3 -m pip install --index-url https://pypi.org/simple --disable-pip-version-check --timeout 15 --retries 1 --target /home/user/journey-qwen/python agent-sandbox-server==0.4.0a6
 node --version
 /home/user/journey-qwen/qwen/node_modules/.bin/qwen --version

@@ -43,7 +43,7 @@ A009,east,3,0.10
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install --index-url https://pypi.org/simple \
-  'agent-sandbox-client==0.4.0a2'
+  'agent-sandbox-client==0.4.0a6'
 ```
 
 这里使用 SDK alpha 版本。模型服务不参与这个流程，因此不需要 LLM API key。

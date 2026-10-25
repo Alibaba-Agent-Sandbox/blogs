@@ -43,3 +43,21 @@ These runs use the official website standalone installer, ordinary fresh public 
 
 - Fresh public OpenSandbox Registry template launch, actual host HTTP/API and CLI exec/upload/download round trip using the existing runner.
 - Final article rendering/relative links, source hashes, current-release records, normal PR checks and publication.
+
+## Current public CLI 0.5.5 / Python 0.4.0a6 runs
+
+CLI PR179 merged normally at `3f7fa28e16888a5489980dc56c86d6c71c11c4a0` after nine required checks. All five platform builds passed in [40229274612](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/actions/runs/40229274612); the official [v0.5.5 release](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.5) and [npm publication 40229548597](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/actions/runs/40229548597) succeeded. The public package has twelve release assets. A fresh public Linux binary and official npm install passed the installed-artifact checker; this is separate from a website default-installer test.
+
+New `proof/public-20261025-cli-0.5.5-sdk-0.4.0a6/` directories preserve current receipts. No older receipt is relabelled.
+
+1. CLI installation and lifecycle: PASS using a fresh official npm install, real base creation, info/list/exec and deletion, plus an independent public SDK typed NotFound lookup.
+2. Self-written Qwen SDK application: PASS with exact official host assets uploaded through the SDK, real model file edits and four independent arithmetic checks. SDK, CLI and HTTP return invoice total 51.30; invalid arguments and wrong/missing application credentials return the expected errors. Independent typed NotFound confirms deletion.
+3. Registry source: PENDING the final public OpenSandbox default Git/Docker run. The separate Express default Docker E7020 failure remains blocked and is not replaced by native steps results.
+4. Sentence-generated application: PASS, 54/54 assertions, a fresh standalone CLI and HOME, first managed Qwen installation, strict single-JSON receipt, actual remote server 0.4.0a6 and independently confirmed sandbox/template absence. Actual generated files and their hashes are captured in a new `generated-public-20261025-0.5.5/` directory. The model README is preserved output; reviewed article instructions remain the guidance.
+5. One-call data processing: PASS for the real Pandas processing, documentation and intended-failure examples. Each owns one create/delete. The independent SDK confirms all three exact IDs are absent; the independent local csv/Decimal oracle agrees on six valid rows and 19310 cents.
+
+A separate public CLI-generated MCP application also passed actual loopback HTTP authentication, initialization/catalog and five real cloud tool calls, with independent sandbox/PID absence. Earlier startup-probe failures remain separate receipts; an ASGI-only run is not presented as network HTTP proof.
+
+A separate no-model repeat launches the exact frozen generated source through the public CLI unified launch path. The original README curl (only replacing its application URL) returns HTTP 200/result 8 using Bearer alone. Missing and incorrect application credentials return 401; the owned sandbox and template have independent typed absence. Source and README hashes remain unchanged. This is a separate receipt, not a replacement of the fresh model-generation run.
+
+The final Registry receipt, its actual provider commit, final links/rendering and normal PR review/CI remain pending. This draft remains unpublished.

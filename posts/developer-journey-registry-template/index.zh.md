@@ -13,7 +13,7 @@ draft: false
 
 这篇选择 [python-hello](https://registry.agent-sandbox.cn/templates/python-hello/)，把它部署到 Docker 后端的 OpenSandbox，做一个可以从终端和程序中调用的 Python 工作台。我们会运行一段代码、上传文件、下载结果，并调用模板内的 HTTP 服务。
 
-示例使用 CLI `0.5.3` 和 Python client `0.4.0a2`。本机需要 Git、Node.js 22 或更新版本、Docker，以及可访问的 OpenSandbox Docker 后端和可写镜像仓库。Provider 负责构建和推送镜像，OpenSandbox 从同一仓库拉取镜像启动沙箱。
+示例使用 CLI `0.5.5` 和 Python client `0.4.0a6`。本文使用官网独立二进制，本机无需额外安装 Node.js；还需要 Git、Docker，以及可访问的 OpenSandbox Docker 后端和可写镜像仓库。Provider 负责构建和推送镜像，OpenSandbox 从同一仓库拉取镜像启动沙箱。
 
 ## 先看看模板提供了什么
 
@@ -41,7 +41,7 @@ cd registry-lab
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install --index-url https://pypi.org/simple \
-  'agent-sandbox-client==0.4.0a2'
+  'agent-sandbox-client==0.4.0a6'
 ```
 
 先准备自己的 [OpenSandbox Docker 后端](https://github.com/opensandbox-group/OpenSandbox)。连接地址和 API key 应指向同一服务；镜像仓库需要同时允许构建机推送、后端拉取。本文的实际运行使用独立的 Linux Docker 后端和临时本地镜像仓库；连接已有服务时，替换成自己的地址与权限配置。

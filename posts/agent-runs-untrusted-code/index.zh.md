@@ -42,7 +42,7 @@ PowerShell 中请使用 `abx config set sandbox_api_key <YOUR_API_KEY>` 配置�
 Python 客户端发行名是 `agent-sandbox-client`，导入为 `agent_sandbox`。在独立 Python 环境中安装已发布的 alpha 版本；客户端会安装同版本的服务端依赖：
 
 ```bash
-python -m pip install --index-url https://pypi.org/simple "agent-sandbox-client==0.4.0a2"
+python -m pip install --index-url https://pypi.org/simple "agent-sandbox-client==0.4.0a6"
 ```
 
 ## 用 Python SDK

@@ -13,7 +13,7 @@ draft: false
 
 这篇从一个最小例子开始：提供 `add` 命令，接收两个整数，返回它们的和。完成后，它既能在终端里调用，也能作为 HTTP API 被其他程序使用。
 
-这里使用 `abx 0.5.3`、Alibaba Cloud Express 杭州地域和服务端提供的 `qwen3-coder-flash` 模型。Qwen Code 在本机负责生成模板；应用代码随后运行在云端沙箱中。
+这里使用 `abx 0.5.5`、Alibaba Cloud Express 杭州地域和服务端提供的 `qwen3-coder-flash` 模型。Qwen Code 在本机负责生成模板；应用代码随后运行在云端沙箱中。
 
 ## 准备连接信息与模型
 
@@ -25,7 +25,7 @@ export ALIBABA_CLOUD_REGION_ID=cn-hangzhou
 export ALICLOUD_ACCESS_KEY_ID='<YOUR_ACCESS_KEY_ID>'
 export ALICLOUD_ACCESS_KEY_SECRET='<YOUR_ACCESS_KEY_SECRET>'
 export ABX_SANDBOX_API_KEY='<YOUR_SANDBOX_API_KEY>'
-export ABX_SERVER_TOKEN="$(python -c 'import secrets; print(secrets.token_urlsafe(32))')"
+export ABX_SERVER_TOKEN="$(python3 -c 'import secrets; print(secrets.token_urlsafe(32))')"
 
 export ABX_LLM_BASE_URL='<YOUR_OPENAI_COMPATIBLE_BASE_URL>'
 export ABX_LLM_API_KEY='<YOUR_MODEL_API_KEY>'
@@ -35,7 +35,7 @@ export ABX_QWEN_CODEGEN_TIMEOUT=1200
 
 模型名称要以自己的服务为准。这里给代码生成预留 1200 秒；它与沙箱存活时间、云端构建等待时间是三个不同的设置。
 
-CLI 支持自动准备 Qwen Code；如果本机已经安装，也可以用 `qwen --version` 查看版本。本例使用的是 CLI 准备的 Qwen Code；用 `qwen --version` 可以查看本机工具版本。
+本机没有可用的 Qwen Code 时，CLI 会把官方独立构建安装到 `~/.abx/bin/qwen`，随后直接调用它；已有安装时则复用本机工具。托管安装完成后，可用 `~/.abx/bin/qwen --version` 查看对应版本。这个工具负责在开发者机器上生成源码，与前一篇在沙箱内运行的 Qwen Code 是两个独立的安装。
 
 ## 描述需要的接口
 
@@ -84,7 +84,9 @@ def add(a: int, b: int) -> int:
 
 `@command` 把函数注册到应用服务中。完整文件还在 `__main__` 下提供启动逻辑；作为命令模块导入时，不会重复启动服务。
 
-可以下载本次生成的 [commands.py](./lab/generated-public-20261025-0.5.3/commands.py)、[Dockerfile](./lab/generated-public-20261025-0.5.3/Dockerfile) 和 [template.yaml](./lab/generated-public-20261025-0.5.3/template.yaml) 对照阅读。重新生成时，模型可能采用不同的参数名或组织方式，调用前应先阅读自己的文件。
+可以下载本次生成的 [commands.py](./lab/generated-public-20261025-0.5.5/commands.py)、[Dockerfile](./lab/generated-public-20261025-0.5.5/Dockerfile) 和 [template.yaml](./lab/generated-public-20261025-0.5.5/template.yaml) 对照阅读。重新生成时，模型可能采用不同的参数名或组织方式，调用前应先阅读自己的文件。
+
+`README.md` 也是模型生成的文件。应用令牌需要先在本机配置，CLI 启动时把它传给沙箱；生成说明中的“平台自动注入”不代表平台会替你生成令牌。调用方式以实际地址、应用配置和本文说明为准。
 
 ## 从 CLI 调用 add
 
@@ -112,7 +114,7 @@ abx --json sandbox command run "$SANDBOX_ID" add \
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install --index-url https://pypi.org/simple \
-  'agent-sandbox-client==0.4.0a2' httpx
+  'agent-sandbox-client==0.4.0a6' httpx
 ```
 
 下面的程序连接已创建的沙箱，从应用绑定中取得地址和认证头，再发送 POST：
@@ -147,7 +149,7 @@ asyncio.run(main())
 
 返回结果仍是 `{"result": 42}`。应用参数缺失会返回 `400`，调用不存在的命令会返回 `404`。这两个响应可以帮助调用方区分参数问题和接口名称问题。
 
-本例使用前面设置的 `ABX_SERVER_TOKEN` 保护应用接口；调用时把同一令牌传给 `application_client`。`auth_headers()` 会准备平台网关和应用所需的认证头，缺少或填写错误的应用令牌会返回 `401`。这里本地 client 与远端 server 都使用 `0.4.0a2`。
+本例使用前面设置的 `ABX_SERVER_TOKEN` 保护应用接口；调用时把同一令牌传给 `application_client`。`auth_headers()` 会准备平台网关和应用所需的认证头，缺少或填写错误的应用令牌会返回 `401`。这里本地 client 与远端 server 都使用 `0.4.0a6`。
 
 ## 在沙箱里继续探索
 

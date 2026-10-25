@@ -4,7 +4,7 @@ Pending: [unified template launch tutorial](notes/proposed/process/2026-10-25-un
 
 Current documentation: [public installation and supported walkthrough](notes/implemented/process/2026-10-24-current-documentation-sync.md) · [verification](evidence/verify/2026-10-24-current-documentation-sync.md).
 
-- Current articles use the public client installation and documented process/file or application interfaces. CLI 0.5.3 and Python 0.4.0a2 are the current coordinated dependency targets; final fresh public-install evidence is pending.
+- Current articles use the public client installation and documented process/file or application interfaces. CLI 0.5.5 and Python 0.4.0a6 are the current coordinated dependency targets; final fresh public-install evidence is pending.
 - The five practical cases were delivered in [PR #7](https://github.com/Alibaba-Agent-Sandbox/blogs/pull/7) and rewritten for usage in [PR #8](https://github.com/Alibaba-Agent-Sandbox/blogs/pull/8). Their older CLI 0.4.12/Python 0.3.1a2 evidence remains historical; current runnable attachments are being rerun with the coordinated releases.
 - [PR #10](https://github.com/Alibaba-Agent-Sandbox/blogs/pull/10) removed verification-stage promotion from the publishing tutorial. Catalog maintenance labels do not certify runtime behavior.
 - [CLI #132](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/issues/132) is now closed; its old generated snapshot and the prior failure record remain unchanged. [CLI #131](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/issues/131) is still open. Default template smoke and HTTP wait-time fixes do not establish a fix for that generated environment build.

@@ -13,7 +13,7 @@ draft: false
 
 这篇从安装 `abx` 开始，创建一个 `base` 沙箱，运行第一条命令，再介绍查看和释放这个环境的方法。后面的 [Qwen Code 案例](/blog/developer-journey-qwen-python/)和 [Python 模板案例](/blog/developer-journey-registry-template/)都会用到这些操作。
 
-本文使用 Linux、Alibaba Cloud Express 和 `abx 0.5.3`。开始前需要有自己的沙箱账户；账户配置入口见[官网上手指南](/start/)。
+本文使用 Linux、Alibaba Cloud Express 和 `abx 0.5.5`。开始前需要有自己的沙箱账户；账户配置入口见[官网上手指南](/start/)。
 
 ## 把 CLI 装到自己的工作目录
 
@@ -21,17 +21,17 @@ draft: false
 
 ```bash
 curl -fsSL https://www.agent-sandbox.cn/install.sh -o install-abx.sh
-ABX_VERSION=0.5.3 ABX_INSTALL_DIR="$PWD/bin" sh install-abx.sh
+ABX_VERSION=0.5.5 ABX_INSTALL_DIR="$PWD/bin" sh install-abx.sh
 export PATH="$PWD/bin:$PATH"
 abx --version
 ```
 
-安装器会下载适合当前平台的文件并校验下载内容。这里固定版本，方便按文章操作；安装完成后应看到 `abx, version 0.5.3`。
+安装器会下载适合当前平台的文件并校验下载内容。这里固定版本，方便按文章操作；安装完成后应看到 `abx, version 0.5.5`。
 
 如果你平时使用 Node.js，也可以选 npm 路线，要求 Node.js 20 或更新版本：
 
 ```bash
-npm install --global --prefix "$PWD/abx-npm" @agent-sandbox/cli@0.5.3 --registry=https://registry.npmjs.org
+npm install --global --prefix "$PWD/abx-npm" @agent-sandbox/cli@0.5.5 --registry=https://registry.npmjs.org
 export PATH="$PWD/abx-npm/bin:$PATH"
 abx --version
 ```

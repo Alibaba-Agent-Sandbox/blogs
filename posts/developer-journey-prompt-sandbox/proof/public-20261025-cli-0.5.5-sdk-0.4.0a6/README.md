@@ -1,0 +1,1 @@
+These are the public CLI 0.5.5 / PyPI SDK 0.4.0a6 run receipts. The JSON files were copied from the separately frozen redacted artifact pack. Resource identifiers and credentials are excluded. Earlier proof directories retain their original versions and results. This does not prove the pending OpenSandbox Registry case or any other launch/preparation path.

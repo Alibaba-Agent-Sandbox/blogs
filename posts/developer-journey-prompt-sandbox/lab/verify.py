@@ -1,12 +1,13 @@
 """Verify the captured integer-addition generated application on a real sandbox.
 
-Requires agent-sandbox-client==0.4.0a2 and httpx, plus the current abx on PATH.
+Requires agent-sandbox-client==0.4.0a6 and httpx, plus the current abx on PATH.
 This checks the captured application's add command; fresh model generation may
 choose different command names and must be reviewed before this verification.
 The script does not create or delete cloud resources; clean up the two exact IDs
 from your own creation command after verification, including on failure.
 """
 import uuid,argparse,asyncio,base64,hashlib,json,os,pty,re,select,shlex,struct,subprocess,tempfile,time
+from importlib.metadata import version
 from pathlib import Path
 from datetime import datetime
 from types import SimpleNamespace
@@ -86,7 +87,12 @@ cmd('file-rm',['sandbox','files','rm',sid,'--path','/home/user/04-dir/moved.csv'
 code,_=m.run('04-removed-stat',remap(['--json','sandbox','files','stat',sid,'--path','/home/user/04-dir/moved.csv']));raw=json.loads((PRIVATE/'04-removed-stat-raw.json').read_text());message=(raw['stdout']+raw['stderr']).lower();check('removed-stat-notfound',code!=0 and any(x in message for x in ['not found','notfound','no such file']),{'exit_code':code})
 cmd('remove-postcondition',['exec',sid,'python3','-c',"from pathlib import Path; assert not Path('/home/user/04-dir/moved.csv').exists(); print('REMOVE_CONFIRMED')"],'REMOVE_CONFIRMED')
 check('upload-download-sha256',(work/'04-data.csv').read_bytes()==(work/'04-data.download.csv').read_bytes(),hashlib.sha256(source.encode()).hexdigest())
-for op in ['info','metrics','ports','packages']:cmd('system-'+op,['--json','sandbox','system',op,sid])
+for op in ['info','metrics','ports','packages']:
+ data=cmd('system-'+op,['--json','sandbox','system',op,sid])
+ if op=='packages':
+  packages=data.get('packages',[]) if isinstance(data,dict) else []
+  versions=[p.get('version') for p in packages if p.get('name')=='agent-sandbox-server']
+  check('remote-server-matches-public-client',versions==[version('agent-sandbox-client')],{'remote_server_versions':versions,'public_client_version':version('agent-sandbox-client')})
 cmd('system-env',['--json','sandbox','system','env',sid,'--filter','PATH,HOME'])
 cmd('background',['exec','--background',sid,'sleep','89'])
 data=cmd('process-list',['--json','sandbox','process','list',sid]);items=data if isinstance(data,list) else data.get('processes',[]);owned=[p for p in items if 'sleep' in str(p) and '89' in str(p)];check('background-owned-pid',len(owned)==1)

@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "workload_pass": true,
+  "list_visibility_pass": true,
+  "cleanup_verified": true,
+  "failure": null,
+  "cleanup_error": null,
+  "commands": [
+    {
+      "command": "abx create base --detach --timeout 300",
+      "exit_code": 0,
+      "seconds": 1.45,
+      "stdout": "<owned-sandbox>\n",
+      "stderr": ""
+    },
+    {
+      "command": "abx info <owned-sandbox> --format json",
+      "exit_code": 0,
+      "seconds": 0.83,
+      "stdout": "{\n  \"sandboxId\": \"sbx-<resource-id>\",\n  \"templateId\": \"base\",\n  \"name\": \"base\",\n  \"metadata\": {\n    \"allowInternetAccess\": \"true\",\n    \"fcSessionDetails\": \"{\\\"containerId\\\":\\\"<container-id>\\\",\\\"createdTime\\\":\\\"2026-10-25T20:20:48Z\\\",\\\"functionName\\\":\\\"e2b-sandbox-template-<resource-id>\\\",\\\"lastModifiedTime\\\":\\\"2026-10-25T20:20:48Z\\\",\\\"qualifier\\\":\\\"LATEST\\\",\\\"sessionAffinityType\\\":\\\"HEADER_FIELD\\\",\\\"sessionId\\\":\\\"<resource-id>\\\",\\\"sessionIdleTimeoutInSeconds\\\":300,\\\"sessionStatus\\\":\\\"Active\\\"}\",\n    \"fcSessionID\": \"<resource-id>\",\n    \"functionName\": \"e2b-sandbox-template-<resource-id>\",\n    \"instanceID\": \"<container-id>\"\n  },\n  \"allowInternetAccess\": true,\n  \"envdVersion\": \"0.5.2\",\n  \"startedAt\": \"2026-10-25T20:20:48.646Z\",\n  \"endAt\": \"2026-10-25T20:25:48.646Z\",\n  \"state\": \"running\",\n  \"cpuCount\": 2,\n  \"memoryMB\": 2048,\n  \"lifecycle\": {\n    \"onTimeout\": \"kill\",\n    \"autoResume\": false\n  },\n  \"sandboxDomain\": \"<redacted>\",\n  \"volumeMounts\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "abx exec <owned-sandbox> -- echo hello",
+      "exit_code": 0,
+      "seconds": 1.56,
+      "stdout": "hello\n",
+      "stderr": ""
+    },
+    {
+      "command": "abx list",
+      "exit_code": 0,
+      "seconds": 0.8,
+      "stdout": "SANDBOX ID                                 TEMPLATE ID   ALIAS   STARTED AT               END AT                   STATE     VCPUS   RAM MIB   ENVD VERSION   METADATA\nsbx-<resource-id>   base          base    10/25/2026, 8:20:48 PM   10/25/2026, 8:25:50 PM   Running   2       2048      0.5.2          {\"allowInternetAccess\":\"true\",\"fcSessionDetails\":\"{\\\"containerId\\\":\\\"<container-id>\\\",\\\"createdTime\\\":\\\"2026-10-25T20:20:48Z\\\",\\\"functionName\\\":\\\"e2b-sandbox-template-<resource-id>\\\",\\\"lastModifiedTime\\\":\\\"2026-10-25T20:20:48Z\\\",\\\"qualifier\\\":\\\"LATEST\\\",\\\"sessionAffinityType\\\":\\\"HEADER_FIELD\\\",\\\"sessionId\\\":\\\"<resource-id>\\\",\\\"sessionIdleTimeoutInSeconds\\\":300,\\\"sessionStatus\\\":\\\"Active\\\"}\",\"fcSessionID\":\"<resource-id>\",\"functionName\":\"e2b-sandbox-template-<resource-id>\",\"instanceID\":\"<container-id>\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": "abx kill <owned-sandbox>",
+      "exit_code": 0,
+      "seconds": 0.85,
+      "stdout": "Sandbox sbx-<resource-id> has been killed\n",
+      "stderr": ""
+    },
+    {
+      "command": "abx info <owned-sandbox>",
+      "exit_code": 1,
+      "seconds": 0.8,
+      "stdout": "",
+      "stderr": "Sandbox sbx-<resource-id> wasn't found\n"
+    }
+  ]
+}

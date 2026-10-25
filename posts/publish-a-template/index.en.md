@@ -40,7 +40,7 @@ Fill in the entry following the [contribution guide](https://github.com/Alibaba-
 From the template repository root, install the public server and validation dependencies, then run the checks. Pin the runtime dependency in your template Dockerfile separately:
 
 ```bash
-python3 -m pip install --index-url https://pypi.org/simple "agent-sandbox-server==0.4.0a2" httpx -r scripts/requirements-spec.txt
+python3 -m pip install --index-url https://pypi.org/simple "agent-sandbox-server==0.4.0a6" httpx -r scripts/requirements-spec.txt
 python3 scripts/check_template.py my-template
 python3 scripts/run_local_e2e.py
 ```
@@ -49,7 +49,7 @@ Every template that has a `commands.py` has to pass.
 
 ## 4. Help readers run the template
 
-Explain the required configuration, how to launch and call the application, and how to clean up. For an application template based on `_skeleton/`, configure Express and install CLI `0.5.3`. Follow the [current installation instructions](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.md):
+Explain the required configuration, how to launch and call the application, and how to clean up. For an application template based on `_skeleton/`, configure Express and install CLI `0.5.5`. Follow the [current installation instructions](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.md):
 
 ```bash
 export ABX_SERVER_TOKEN="<YOUR_APPLICATION_TOKEN>"

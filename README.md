@@ -6,13 +6,13 @@ The source of the Agent Sandbox blog: cases, tutorials, announcements and engine
 
 ## 当前用法与历史案例 · Current guidance and reproducible cases
 
-新项目从[开始使用](https://www.agent-sandbox.cn/start/)选择安装与调用入口。当前 CLI 为 [0.5.3](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.3)，Python client/server 为 [0.4.0a2 alpha](https://github.com/Alibaba-Agent-Sandbox/python-sdk/releases/tag/v0.4.0a2)。默认 `base` 案例通过文件与进程 API 执行脚本；命名应用命令、持久解释器与 PTY 按各自的实际接口说明使用。
+新项目从[开始使用](https://www.agent-sandbox.cn/start/)选择安装与调用入口。当前 CLI 为 [0.5.5](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.5)，Python client/server 为 [0.4.0a6 alpha](https://github.com/Alibaba-Agent-Sandbox/python-sdk/releases/tag/v0.4.0a6)。默认 `base` 案例通过文件与进程 API 执行脚本；命名应用命令、持久解释器与 PTY 按各自的实际接口说明使用。
 
-For new projects, follow [Get started](https://www.agent-sandbox.cn/en/start/). Current releases are CLI 0.5.3 and Python client/server 0.4.0a2 alpha. The default `base` walkthrough uses file and process APIs; named application commands, persistent interpreters and PTY have separate interfaces and prerequisites.
+For new projects, follow [Get started](https://www.agent-sandbox.cn/en/start/). Current releases are CLI 0.5.5 and Python client/server 0.4.0a6 alpha. The default `base` walkthrough uses file and process APIs; named application commands, persistent interpreters and PTY have separate interfaces and prerequisites.
 
-五篇 `developer-journey-*` 案例的当前步骤和可运行附件统一使用 CLI 0.5.3、Python 0.4.0a2。历史 `proof/` 与 `evidence/` 子目录保留各次实际运行的原始版本与范围；最新运行结果见各案例的新记录，不能把旧记录当作新发行版证明。
+五篇 `developer-journey-*` 案例的当前步骤和可运行附件统一使用 CLI 0.5.5、Python 0.4.0a6。历史 `proof/` 与 `evidence/` 子目录保留各次实际运行的原始版本与范围；最新运行结果见各案例的新记录，不能把旧记录当作新发行版证明。
 
-The five `developer-journey-*` cases use CLI 0.5.3 and Python 0.4.0a2 in their current instructions and runnable attachments. Historical `proof/` and `evidence/` directories retain their original executed versions and scope. New runs receive separate evidence; an old receipt does not prove a new release.
+The five `developer-journey-*` cases use CLI 0.5.5 and Python 0.4.0a6 in their current instructions and runnable attachments. Historical `proof/` and `evidence/` directories retain their original executed versions and scope. New runs receive separate evidence; an old receipt does not prove a new release.
 
 当前决策与验证入口见 [`.agents/README.md`](.agents/README.md)。维护文章时同步已有翻译，区分现行用法与固定版本复现，修改文章源文件后由官网构建同步。
 

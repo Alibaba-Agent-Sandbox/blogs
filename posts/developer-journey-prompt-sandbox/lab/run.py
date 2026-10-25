@@ -1,6 +1,6 @@
 """Create a fresh model-generated add sandbox, verify it, and clean exact owned IDs.
 
-Requires current abx, agent-sandbox-client==0.4.0a2 and httpx. Configure provider
+Requires current abx, agent-sandbox-client==0.4.0a6 and httpx. Configure provider
 and model credentials in the environment. Reports are local; .private contains
 resource IDs and raw output and must not be included in a published report.
 """
@@ -119,7 +119,9 @@ finally:
         try:
             item["delete_exit_code"] = call("delete-template", ["template", "delete", tid, "-y"]).returncode
             result = call("template-after-delete", ["--json", "template", "info", tid])
-            item["absent"] = result.returncode != 0 and "TemplateNotFound" in result.stdout + result.stderr
+            item["absent"] = result.returncode == 4 and json.loads(result.stdout).get("code") == "E2001"
+            if item["absent"]:
+                item["typed_readback"] = "E2001"
         except Exception as error:
             item["failure_type"] = type(error).__name__
         cleanup.append(item)

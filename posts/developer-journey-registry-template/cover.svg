@@ -13,15 +13,15 @@
 <path d="M283 234H300" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="309" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="328" y="187" fill="#81d9d0" font-size="16">02</text>
-<text x="328" y="224" fill="#fff" font-size="22" font-weight="650">云端构建</text>
-<text x="328" y="260" fill="#d5e5f0" font-size="17">prepare_steps.py</text>
-<text x="328" y="289" fill="#d5e5f0" font-size="16">等模板 ready 后创建</text>
+<text x="328" y="224" fill="#fff" font-size="22" font-weight="650">启动模板</text>
+<text x="328" y="260" fill="#d5e5f0" font-size="17">abx template launch</text>
+<text x="328" y="289" fill="#d5e5f0" font-size="16">等待应用就绪</text>
 <path d="M548 234H565" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="574" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="593" y="187" fill="#81d9d0" font-size="16">03</text>
 <text x="593" y="224" fill="#fff" font-size="22" font-weight="650">运行项目</text>
 <text x="593" y="260" fill="#d5e5f0" font-size="17">上传 Python 文件</text>
-<text x="593" y="289" fill="#d5e5f0" font-size="16">执行脚本、进入终端</text>
+<text x="593" y="289" fill="#d5e5f0" font-size="16">执行脚本、取回文件</text>
 <path d="M813 234H830" stroke="#81d9d0" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="839" y="150" width="235" height="168" rx="14" fill="#18364c" stroke="#4c7a8b"/>
 <text x="858" y="187" fill="#81d9d0" font-size="16">04</text>

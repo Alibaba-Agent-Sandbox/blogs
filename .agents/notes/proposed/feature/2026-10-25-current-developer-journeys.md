@@ -25,6 +25,9 @@ No product API changes in this repository. Case scripts use current CLI, Python 
 - https://github.com/Alibaba-Agent-Sandbox/python-sdk/pull/112
 - https://github.com/Alibaba-Agent-Sandbox/awesome-templates/pull/222
 - https://github.com/Alibaba-Agent-Sandbox/awesome-templates/pull/224
+- https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/pull/179
+- https://github.com/Alibaba-Agent-Sandbox/python-sdk/pull/131
+- https://github.com/Alibaba-Agent-Sandbox/awesome-templates/pull/225
 - https://github.com/Alibaba-Agent-Sandbox/blogs/issues/14
 
 ## Test Strategy
