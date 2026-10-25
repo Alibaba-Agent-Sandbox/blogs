@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "completed": false,
+  "checks": [],
+  "failure": "RuntimeError: launch complete template: exit 1; see sanitized commands.json",
+  "cleanup": {},
+  "scope": "public Registry source through Express template launch; default Docker source build"
+}

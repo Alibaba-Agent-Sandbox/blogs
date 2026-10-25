@@ -1,0 +1,51 @@
+{
+  "channel": "website-default",
+  "version": "0.5.3",
+  "public_python": "0.4.0a2",
+  "cases": [
+    {
+      "template": "base",
+      "checks": [
+        "unified CLI managed launch and independent SDK connect",
+        "native exec structured JSON and value42",
+        "CLI upload/download binary equality with independent SDK read"
+      ],
+      "deadlines": [
+        {
+          "mode": "silent",
+          "seconds": 2.257,
+          "typed_E3001": true,
+          "exact_owned_pid_absent": true,
+          "subsequent_command_passed": true
+        },
+        {
+          "mode": "continuous",
+          "seconds": 2.314,
+          "typed_E3001": true,
+          "exact_owned_pid_absent": true,
+          "subsequent_command_passed": true
+        }
+      ],
+      "interpreter_api_exercised": false,
+      "independent_typed_absence": true,
+      "result": "PASS"
+    },
+    {
+      "template": "code-interpreter-v1",
+      "checks": [
+        "unified CLI managed launch and independent SDK connect",
+        "native exec structured JSON and value42",
+        "CLI upload/download binary equality with independent SDK read"
+      ],
+      "deadlines": [],
+      "interpreter_api_exercised": false,
+      "independent_typed_absence": true,
+      "result": "PASS"
+    }
+  ],
+  "created": 2,
+  "cleanup_confirmed": 2,
+  "native_template_info_structured_JSON": "PASS",
+  "result": "PASS",
+  "script_sha256": "33b0144999d8b23d8592de11cb08b36cb577ed9f98e571a9220d8f158bec704c"
+}

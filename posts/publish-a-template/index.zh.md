@@ -35,10 +35,10 @@ my-template/
 
 ## 3. 本地验证
 
-下面保留本文本地验证使用的固定 Python SDK 源码环境，再在模板仓库根目录运行。公开 PyPI client/server 0.3.1a5 已可安装；宿主安装与模板 Dockerfile 固定的运行时是不同位置，升级其中一个不会自动修改另一个。提交新模板时，以仓库当前贡献指南和 CI 的依赖为准：
+在模板仓库根目录安装当前公开服务端和校验依赖，再运行检查。模板 Dockerfile 中的运行时依赖也要单独指定：
 
 ```bash
-python3 -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=server-sdk" httpx -r scripts/requirements-spec.txt
+python3 -m pip install --index-url https://pypi.org/simple "agent-sandbox-server==0.4.0a6" httpx -r scripts/requirements-spec.txt
 python3 scripts/check_template.py my-template
 python3 scripts/run_local_e2e.py
 ```
@@ -47,7 +47,7 @@ python3 scripts/run_local_e2e.py
 
 ## 4. README 帮使用者跑起来
 
-说明需要哪些配置、怎样启动和调用、用完如何清理。以从 `_skeleton/` 扩展的应用模板为例，配置好极速版后，使用支持该模板规范版本的 CLI。规范 5 需要本次配套 CLI 更新，CLI 0.4.17 尚不支持；安装方式以[当前使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)为准：
+说明需要哪些配置、怎样启动和调用、用完如何清理。以从 `_skeleton/` 扩展的应用模板为例，配置好极速版后，安装 CLI `0.5.6`；安装方式以[当前使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)为准：
 
 ```bash
 export ABX_SERVER_TOKEN="<YOUR_APPLICATION_TOKEN>"

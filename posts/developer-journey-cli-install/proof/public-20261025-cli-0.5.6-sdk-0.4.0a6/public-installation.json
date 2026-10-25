@@ -1,0 +1,15 @@
+{
+  "scope": "Actual official website installer, explicit version0.5.6 in a fresh HOME; website default version/npm publication are separate scopes",
+  "source": "https://www.agent-sandbox.cn/install.sh",
+  "version_override": "0.5.6",
+  "download_route": "standard official GitHub fallback for explicit non-mirrored version",
+  "installer_sha256": "125cc4ad68eb5882fd9a47210563ecb677d46399ea795e4733caa48060869ec1",
+  "binary_sha256": "f7d900762660f49863bcb4749f1bb1f7b328d996b643a446868e2d3a36a2ac81",
+  "binary_size": 135400640,
+  "official_release": "https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.6",
+  "official_asset_name": "abx-0.5.6-linux-x64",
+  "official_metadata_size_and_sha_match": true,
+  "actual_version": "abx, version 0.5.6",
+  "installer_exit_code": 0,
+  "passed": true
+}

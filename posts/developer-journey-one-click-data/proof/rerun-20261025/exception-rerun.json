@@ -1,0 +1,61 @@
+{
+  "case": "exception-rerun",
+  "source": "05-failure-cleanup.py",
+  "experiment_pass": true,
+  "stdout": "{'expected_failure_observed': True, 'error_type': 'RuntimeError'}\n",
+  "stderr": "",
+  "events": [
+    {
+      "method": "POST",
+      "path": "/sandboxes",
+      "status": 201,
+      "response_keys": [
+        "templateID",
+        "sandboxID",
+        "alias",
+        "clientID",
+        "accountID",
+        "userID",
+        "envdVersion",
+        "envdAccessToken",
+        "domain"
+      ],
+      "owned_created": true
+    },
+    {
+      "method": "POST",
+      "path": "/process.Process/Start",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/files",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/process.Process/Start",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/process.Process/Start",
+      "status": 200
+    },
+    {
+      "method": "DELETE",
+      "path": "/sandboxes/sbx-<resource-id>",
+      "status": 204
+    }
+  ],
+  "cleanup": [
+    {
+      "owned_id": "<owned-sandbox>",
+      "decorator_delete_events": 1,
+      "post_call_info_status": 404,
+      "confirmed_absent": true
+    }
+  ],
+  "owned_count": 1,
+  "elapsed_seconds": 2.91
+}

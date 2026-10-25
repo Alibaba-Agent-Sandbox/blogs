@@ -1,0 +1,13 @@
+{
+  "scope": "Unmodified generated source from the actual public CLI 0.5.5 scenario; model README is captured output, not a substitute for reviewed article instructions",
+  "versions": {
+    "cli": "0.5.5",
+    "server": "0.4.0a6"
+  },
+  "sha256": {
+    "commands.py": "a1c664fbcc230a0fbf41d2be647cbf0b03021f0b25f96b08dd853e1b245514e8",
+    "Dockerfile": "537824dd3054830e3e927ca2e0df65174a9c901002003e1090f698bafa434867",
+    "template.yaml": "7623bc658fb13959d46a49da60f4146318d95dfe333b2849b918bbeafd0da9ef",
+    "README.md": "8e08188e3e3a01f000f2b3e6a5fe579718303be25d3c67470387eb13bd05fac8"
+  }
+}

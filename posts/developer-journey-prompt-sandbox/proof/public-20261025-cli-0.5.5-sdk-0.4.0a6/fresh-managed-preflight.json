@@ -1,0 +1,7 @@
+{
+  "home_initially_empty": true,
+  "qwen_on_path": null,
+  "cli": "/tmp/developer-rerun/public055-cases/01-cli/bin/abx",
+  "entry": "official GitHub public standalone; npm publisher still separate pending",
+  "client": "0.4.0a6"
+}

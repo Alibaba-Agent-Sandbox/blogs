@@ -15,13 +15,13 @@ draft: false
 
 ## 准备沙箱账户和模型服务
 
-先按[CLI 上手案例](/blog/developer-journey-cli-install/)安装 `abx 0.4.12`，配置自己的 Express 沙箱账户。Python 依赖放在独立环境中：
+先按[CLI 上手案例](/blog/developer-journey-cli-install/)安装 `abx 0.5.6`，配置自己的 Express 沙箱账户。使用 Python 3.10 或更新版本，把依赖放在独立环境中：
 
 ```bash
-python3.12 -m venv .venv
+python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install --index-url https://pypi.org/simple \
-  'agent-sandbox-client==0.3.1a2'
+  'agent-sandbox-client==0.4.0a6'
 ```
 
 这里选用的是 SDK alpha 版本。除沙箱连接配置外，还需要 Qwen 使用的模型服务：
@@ -51,9 +51,13 @@ cd agent-sandbox-cases/posts/developer-journey-qwen-python
 
 程序通过 `ProviderSandbox.create(template="base", timeout=900)` 创建环境，再把 bootstrap 和应用代码写入 `/home/user/journey-qwen/`。项目文件放在其中的 `project/` 目录。
 
-bootstrap 固定了 Node.js `24.16.0`、Qwen Code `0.23.0` 和远端 `agent-sandbox-server==0.3.1a1`。Node.js 下载会校验官方 SHA256；Python 服务从官方 PyPI 安装，避免新版本尚未同步到镜像源。
+Qwen Code `0.23.0` 要求 Node.js 22 或更新版本，基础镜像实测自带的是 Node.js `20.20.2`，因此这里需要升级。示例固定 Node.js `24.16.0` 和 Qwen Code `0.23.0`。开发者机器需要能访问官方 Node.js 下载站、npm 和 PyPI；沙箱还需要访问 npm 元数据、PyPI 和模型服务。
 
-本地 client 和远端 server 是两个安装位置。本地使用 `0.3.1a2`，不会自动改变 bootstrap 中指定的远端版本。
+`run.py` 先查询沙箱的 CPU 架构，在本机下载对应的官方 Node.js 安装包和 Qwen npm 包，分别校验官方 SHA256、固定 SHA512 完整性值，再通过 SDK 的 `files.write` 上传。bootstrap 再次校验文件，解压 Node.js，用标准 `npm install` 安装本地 Qwen 包，并从官方 PyPI 安装远端 `agent-sandbox-server==0.4.0a6`。这样不必让沙箱重复下载这两个较大的工具包。
+
+本例只用 Qwen 的非交互式文件工具，因此安装时使用 `--omit=optional`；音频、剪贴板、图像和原生 PTY 扩展没有在这个案例中验证。三个远端安装阶段有日志和带强制终止宽限的时间限制，外层 SDK 的整段安装预算为 300 秒。首次准备仍需要网络下载；反复执行同类任务时，应把这些固定工具放进自己的模板镜像，避免每个任务重新安装。
+
+本地 client 和远端 server 是两个安装位置，本例两处均明确安装 `0.4.0a6`。修改本地版本不会自动升级 bootstrap 中指定的远端服务。
 
 工具准备好后，程序启动监听 9008 端口的应用服务。下面是完整程序中的关键调用，其中 `sb` 是已创建的沙箱，`env` 提供工具路径和模型配置：
 

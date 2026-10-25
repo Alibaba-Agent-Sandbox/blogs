@@ -1,0 +1,9 @@
+Installing abx 0.5.3 (linux-x64) to <isolated-install>/bin
+Downloading https://www.agent-sandbox.cn/releases/download/v0.5.3/abx-0.5.3-linux-x64
+Checksum verified.
+Installed <isolated-install>/bin/abx
+warning: <isolated-install>/bin is not on PATH.
+Add this line to your shell profile (~/.profile, ~/.bashrc, or ~/.zshrc), then open a new terminal:
+export PATH="<isolated-install>/bin:$PATH"
+abx --version
+abx, version 0.5.3

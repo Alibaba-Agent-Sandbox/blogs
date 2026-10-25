@@ -42,7 +42,7 @@ In PowerShell, configure the key with `abx config set sandbox_api_key <YOUR_API_
 The Python client distribution is `agent-sandbox-client`, imported as `agent_sandbox`. Install the published alpha in an isolated Python environment; the client installs its matching server dependency:
 
 ```bash
-python -m pip install --index-url https://pypi.org/simple "agent-sandbox-client==0.3.1a5"
+python -m pip install --index-url https://pypi.org/simple "agent-sandbox-client==0.4.0a6"
 ```
 
 ## With the Python SDK

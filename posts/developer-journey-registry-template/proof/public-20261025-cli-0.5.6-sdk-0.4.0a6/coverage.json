@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "run": "https://github.com/Alibaba-Agent-Sandbox/awesome-templates/actions/runs/40239628612",
+  "actual_installation": "official npm CLI0.5.6 on Node22; fresh official PyPI client/server0.4.0a6",
+  "receipt_sha256": "48fb826052574bd8feec1079f6ccfd3e5d33b5fb35556630d9dd7fdc43264ef2",
+  "source": "public Registry default Git source automatically frozen to4229b6c4d96675a05bd0bef031fb36d43f138d14; no portable profile/local candidate override",
+  "article_steps": {
+    "installation": "actual published npm/PyPI and pinned provider install/doctor in existing workflow",
+    "source_launch": "default Git/Docker preparation plus declared service start/readiness",
+    "named_hello_and_inline_python": "actual CLI/Python/hostHTTP smoke calls with expected results",
+    "process_and_files": "actual CLI exec/stat/upload/download UTF8 round trip; SDK independent read/delete check",
+    "uploaded_python_and_pytest": "full real HTTP controller uploads Python and test files, executes run/test commands, checks successful pytest and failing-test error",
+    "app_authentication": "wrong application token rejected; gateway/application headers supplied through existing binding",
+    "owned_cleanup": "exact sandbox and local/registry prepared images independently absent; retained0/uncertain0"
+  },
+  "limits": [
+    "Not a literal transcript of every article example argument: article uses Ada/Python/main.py whereas checks use synthetic names and fresh filenames.",
+    "The specific CLI run --arg file=main.py combination was not separately invoked; run-file business executed through HTTP and CLI generic named dispatch executed hello/run_script.",
+    "This is the OpenSandbox default Git/Docker case. Express default Docker E7020 remains separate BLOCKED; Express native steps are a supplement.",
+    "No real-model result is claimed for this Registry case."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "cli": "0.5.1",
+  "client": "0.4.0a1",
+  "server": "0.4.0a1",
+  "source_revision": "591f8fd141373473c4473955e21d3f8467d9060c",
+  "scope": "Express only; no OpenSandbox claim",
+  "files": {
+    "calculator.generated.py": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772",
+    "result.json": "60d3c63c683968f546b08b47d383d5da2b21c91eb1ac7abcc81f7e66dd75d871",
+    "02-progress.json": "b3ed704e808baeb8ed865f57dfb0062b21ac240a2461135aef6330bf45b27378",
+    "REPORT.generated.md": "d3a72c75f5a10130b5e3282998a95aaedc894300c31a1303104ee3e1664c944b"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "tag_name": "v0.5.3",
+  "assets": [
+    {
+      "name": "abx-0.5.3-darwin-arm64",
+      "size": 122573936
+    },
+    {
+      "name": "abx-0.5.3-darwin-arm64.sha256",
+      "size": 89
+    },
+    {
+      "name": "abx-0.5.3-darwin-x64",
+      "size": 125801120
+    },
+    {
+      "name": "abx-0.5.3-darwin-x64.sha256",
+      "size": 87
+    },
+    {
+      "name": "abx-0.5.3-linux-arm64",
+      "size": 132779136
+    },
+    {
+      "name": "abx-0.5.3-linux-arm64.sha256",
+      "size": 88
+    },
+    {
+      "name": "abx-0.5.3-linux-x64",
+      "size": 135400640
+    },
+    {
+      "name": "abx-0.5.3-linux-x64.sha256",
+      "size": 86
+    },
+    {
+      "name": "abx-0.5.3-windows-x64.exe",
+      "size": 97686016
+    },
+    {
+      "name": "abx-0.5.3-windows-x64.exe.sha256",
+      "size": 92
+    },
+    {
+      "name": "agent-sandbox-cli-0.5.3.tgz",
+      "size": 2183834
+    },
+    {
+      "name": "agent-sandbox-cli-0.5.3.tgz.sha256",
+      "size": 94
+    }
+  ],
+  "source": "https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.3"
+}

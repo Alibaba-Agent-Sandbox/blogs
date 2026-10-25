@@ -1,0 +1,6 @@
+{
+  "client": "0.4.0a6",
+  "scope": "independent read-only lookup of exact case2 owned sandbox; no account scan",
+  "owned_count": 1,
+  "independent_typed_absence": true
+}

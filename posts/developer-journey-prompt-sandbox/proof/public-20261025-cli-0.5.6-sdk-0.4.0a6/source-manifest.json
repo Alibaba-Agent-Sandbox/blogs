@@ -1,0 +1,14 @@
+{
+  "executed_script_sha256": {
+    "run.py": "6ce09ce5c26adf4241371c97df13d0d83e2716d23cbd738fad7a5b70fa74b891",
+    "verify.py": "96945f90be00bba14a1f1abd9ee4e296aaa8f46876b0e513548bc29054ffec5b"
+  },
+  "generated_sha256": {
+    "commands.py": "cbf5d25a1f87d6918d322f782722405803098b145796d8bf871ff2de476fa6f0",
+    "Dockerfile": "9eceb7dd08232ff1a396195ff23d829b3842260be88c1dc203763e8533bee4d7",
+    "template.yaml": "ca8a00e5e4cc5c968c3f58726d4ccfe39fb210b4a95a8f578c79e534ffd8c9e2",
+    "README.md": "d3cc7abe31ab5e828b6b31b56875b3cac906c7c3e52f0d30708ce7a1564bf172"
+  },
+  "prompt": "创建一个 Python 沙箱，提供 add 命令，接收两个整数参数 a 和 b 并返回相加结果",
+  "result": true
+}

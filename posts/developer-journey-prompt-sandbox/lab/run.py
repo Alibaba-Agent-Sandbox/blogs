@@ -1,6 +1,6 @@
 """Create a fresh model-generated add sandbox, verify it, and clean exact owned IDs.
 
-Requires abx 0.4.12, agent-sandbox-client==0.3.1a2 and httpx. Configure provider
+Requires current abx, agent-sandbox-client==0.4.0a6 and httpx. Configure provider
 and model credentials in the environment. Reports are local; .private contains
 resource IDs and raw output and must not be included in a published report.
 """
@@ -18,7 +18,7 @@ import subprocess
 import sys
 import time
 
-PROMPT = "创建一个 Python 沙箱，提供 add 命令接收两个整数并返回相加结果"
+PROMPT = "创建一个 Python 沙箱，提供 add 命令，接收两个整数参数 a 和 b 并返回相加结果"
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--output", type=Path, default=Path("prompt-experiment"))
 parser.add_argument("--cli", default="abx")
@@ -63,7 +63,7 @@ try:
     report["versions"] = {"cli": version_result.stdout.strip(), "client": version("agent-sandbox-client"), "python": sys.version.split()[0]}
     report["script_sha256"] = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest() for name in ["run.py", "verify.py"]}
     started = time.monotonic()
-    command = [*base, "--json", "create", "--prompt", PROMPT, "--yes", "--detach", "--build", "steps", "--dir", str(generated), "--timeout", "900"]
+    command = [*base, "--json", "create", "--prompt", PROMPT, "--yes", "--build", "steps", "--dir", str(generated), "--timeout", "900"]
     process = subprocess.Popen(command, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, start_new_session=True)
     try:
         stdout, stderr = process.communicate(timeout=a.generation_timeout + 900)
@@ -80,6 +80,8 @@ try:
         result = json.loads(stdout)
         if result.get("ID"):
             state["sandboxes"] = [result["ID"]]
+        if result.get("TemplateID"):
+            state["templates"] = [result["TemplateID"]]
     except (ValueError, AttributeError):
         pass
     (private / "owned.json").write_text(json.dumps(state))
@@ -117,7 +119,9 @@ finally:
         try:
             item["delete_exit_code"] = call("delete-template", ["template", "delete", tid, "-y"]).returncode
             result = call("template-after-delete", ["--json", "template", "info", tid])
-            item["absent"] = result.returncode != 0 and "TemplateNotFound" in result.stdout + result.stderr
+            item["absent"] = result.returncode == 4 and json.loads(result.stdout).get("code") == "E2001"
+            if item["absent"]:
+                item["typed_readback"] = "E2001"
         except Exception as error:
             item["failure_type"] = type(error).__name__
         cleanup.append(item)

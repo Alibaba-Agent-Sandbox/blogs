@@ -1,0 +1,10 @@
+{
+  "cli": "0.5.1",
+  "client": "0.4.0a1",
+  "server": "platform managed runtime",
+  "source_revision": "591f8fd141373473c4473955e21d3f8467d9060c",
+  "scope": "Express only; no OpenSandbox claim",
+  "files": {
+    "result.json": "24c173c1f7bc0f7ce4e1d8e289d0cf722a429ae93d4959c5662144d36a93e655"
+  }
+}

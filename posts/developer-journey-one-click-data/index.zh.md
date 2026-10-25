@@ -40,10 +40,10 @@ A009,east,3,0.10
 按照[官网上手指南](/start/)配置自己的 Express 沙箱账户，然后创建独立 Python 环境：
 
 ```bash
-python3.12 -m venv .venv
+python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install --index-url https://pypi.org/simple \
-  'agent-sandbox-client==0.3.1a2'
+  'agent-sandbox-client==0.4.0a6'
 ```
 
 这里使用 SDK alpha 版本。模型服务不参与这个流程，因此不需要 LLM API key。

@@ -1,0 +1,11 @@
+{
+  "source": "explicit official public GitHub release, not website default installer",
+  "version": "0.5.5",
+  "url": "https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/download/v0.5.5/abx-0.5.5-linux-x64",
+  "sha256_url": "https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/download/v0.5.5/abx-0.5.5-linux-x64.sha256",
+  "sha256": "fe9345feb266507c8053366516710c76244ed01b058bc2efcf925aa62e38e4cf",
+  "bytes": 135400640,
+  "checksum_matches": true,
+  "fresh_home_version": "abx, version 0.5.5",
+  "binary": "/tmp/developer-rerun/public055-cases/01-cli/bin/abx"
+}

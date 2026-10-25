@@ -1,0 +1,14 @@
+{
+  "cli": "0.5.1",
+  "client": "0.4.0a1",
+  "server": "platform managed runtime",
+  "source_revision": "591f8fd141373473c4473955e21d3f8467d9060c",
+  "scope": "Express only; no OpenSandbox claim",
+  "files": {
+    "documentation-rerun.json": "95571b9d709f932d9d9500cfd6bf6b302ff462142f7acad1ee2d872757fc4fd7",
+    "orders-rerun.json": "f3af7c686388c48cf7c23fa28953d96b20774ab6bf66a433350c46b528992752",
+    "05-summary.csv": "a2698ed2ec885861bc2034bf6269c34fa2ade8936ea51c585a6b398022ca4126",
+    "05-data-result.json": "2e12ab743d04ae48be3fa8005d5f2a50bf19bdce3a1dd4134560553a57218f1d",
+    "exception-rerun.json": "e2baffeb27c6497459b828a8e920daee16b40e4a7445ab265d0e5361eb7964b6"
+  }
+}
