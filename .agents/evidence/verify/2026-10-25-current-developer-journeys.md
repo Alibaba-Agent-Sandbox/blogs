@@ -1,7 +1,7 @@
 # Verification: Current developer journeys
 
 - Date: 2026-10-25
-- Result: PARTIAL — four final public-release cases pass; the OpenSandbox Registry case is pending its public-source run.
+- Result: PARTIAL — all five final public-release runtime cases pass; final blog review, latest-head CI, merge and publication remain pending.
 - Issue: https://github.com/Alibaba-Agent-Sandbox/blogs/issues/14
 - Baseline: public website installer CLI 0.5.1, official PyPI client 0.4.0a1, Linux/Python 3.13. Model and provider credentials were injected from the process environment; values are excluded.
 
@@ -89,3 +89,16 @@ Final Registry receipt, exact provider source reference, local document/link/sec
 - Changed text/new receipt membership scan against configured credential values — PASS, no matches; no credential values are recorded.
 - All 89 previously tracked proof and generated-source files from the prior blog head are byte-identical. New public6 receipts and generated files use separate dated paths.
 - These local checks do not satisfy the pending Registry E2E, remote latest-head PR check, review or publication.
+
+
+## Final Registry case: public OpenSandbox default Git/Docker
+
+The existing owner [workflow40239628612](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/actions/runs/40239628612) completed successfully. Its final `python-hello` receipt is copied byte-identically into the new public6 proof directory. Installation is actual **official npm CLI0.5.6 on Node22** and public PyPI host/guest client/server0.4.0a6; it is not the standalone installation from case1. Provider is fixed to `188b04ce98c6b71da0ba4145845fbd925051b03a`; public source and verifier are `4229b6c4d96675a05bd0bef031fb36d43f138d14`, tree `5139b7af3c7cdf26178d77ce03b14f6ffe85bac5`. Default public Git lookup resolved that immutable source; build_profile is null, not portable/native-steps substitution.
+
+Actual checks: hello/run_script through CLI, Python and host HTTP (six expected results), wrong-token401, runtime source bytes, public remote server version, SDK process/file round trip, CLI exec/stat/upload/download with exact UTF8 bytes and independent SDK file deletion. The full HTTP controller passes21, fails0, skips0, including uploaded Python execution, successful pytest and failing-pytest500. Exact owned sandbox and prepared images are independently absent, retained0/uncertain0/cleanupfailures0. This is the Registry case; it does not turn the separate Express default Docker prerequisite failure into PASS and does not establish the whole46-template matrix.
+
+`coverage.json` maps article examples to actual contract checks. Illustrative names/filenames differ from synthetic test inputs. The specific `CLI run --arg file=main.py` combination was not separately invoked: run-file business ran through actual HTTP and CLI named dispatch ran hello/run_script. No new cloud lifecycle was added merely to repeat the same argument combination. The article now states the actual npm/Node installation and actual fixed provider/template refs; its source reference is no longer a placeholder.
+
+All five runtime scenarios are now complete. The earlier pending statements remain point-in-time preparation history. Final schema, relative-link, current attachment hash, credential-membership/history-preservation checks are rerun on this final article delta; latest remote validation and normal review/publication are still required.
+
+Final local delta checks: schema8/0, relative article links, all current runnable attachment hashes, byte-identical owner Registry receipt, exact public refs/no placeholder, configured-credential membership and diff whitespace all PASS. All116 prior-head proof/generated files remain byte-identical. Final remote schema check is pending this commit; blog stays draft until the overall template rerun/problem-resolution work is complete.

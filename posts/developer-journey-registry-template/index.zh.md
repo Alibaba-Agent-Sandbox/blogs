@@ -13,7 +13,7 @@ draft: false
 
 这篇选择 [python-hello](https://registry.agent-sandbox.cn/templates/python-hello/)，把它部署到 Docker 后端的 OpenSandbox，做一个可以从终端和程序中调用的 Python 工作台。我们会运行一段代码、上传文件、下载结果，并调用模板内的 HTTP 服务。
 
-示例使用 CLI `0.5.6` 和 Python client `0.4.0a6`。本文使用官网独立二进制，本机无需额外安装 Node.js；还需要 Git、Docker，以及可访问的 OpenSandbox Docker 后端和可写镜像仓库。Provider 负责构建和推送镜像，OpenSandbox 从同一仓库拉取镜像启动沙箱。
+示例使用 CLI `0.5.6` 和 Python client `0.4.0a6`。本例使用 npm 安装 CLI，请准备 Node.js 22 或更新版本；还需要 Git、Docker，以及可访问的 OpenSandbox Docker 后端和可写镜像仓库。Provider 负责构建和推送镜像，OpenSandbox 从同一仓库拉取镜像启动沙箱。
 
 ## 先看看模板提供了什么
 
@@ -33,9 +33,12 @@ Registry 帮助我们找到模板，实际部署使用 Git 仓库中的源码。
 
 ## 准备本机工具和账户配置
 
-先按[安装案例](/blog/developer-journey-cli-install/)准备 CLI，然后安装 Python 客户端：
+先按[安装案例](/blog/developer-journey-cli-install/)的 npm 路线准备 CLI；本例按 Node.js 22 环境复现。然后安装 Python 客户端：
 
 ```bash
+npm install --global @agent-sandbox/cli@0.5.6 --registry=https://registry.npmjs.org
+abx --version
+
 mkdir registry-lab
 cd registry-lab
 python3 -m venv .venv
@@ -56,12 +59,12 @@ export ABX_SERVER_TOKEN="$(python -c 'import secrets; print(secrets.token_urlsaf
 
 私有仓库还需要按 [Provider 配置说明](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/tree/main/opensandbox)配置 Docker 登录与后端拉取凭据。这些是运行平台的配置，不由模板提供账户信息。本例不调用模型，不需要 LLM API key。
 
-安装 OpenSandbox Provider，再检查连接。下面的精确提交应使用你已查看并信任的公开版本；安装后的 CLI 和 Python SDK 共用同一个 Provider。
+安装 OpenSandbox Provider，再检查连接。下面固定的是本例使用的公开提交；更新时先查看变更并确认信任。安装后的 CLI 和 Python SDK 共用同一个 Provider。
 
 ```bash
 abx provider install \
   Alibaba-Agent-Sandbox/awesome-providers//opensandbox \
-  --ref '<REVIEWED_40_HEX_PROVIDER_COMMIT>' --yes
+  --ref '188b04ce98c6b71da0ba4145845fbd925051b03a' --yes
 abx provider doctor opensandbox
 ```
 
@@ -83,7 +86,7 @@ export TEMPLATE_ID='<RETURNED_TEMPLATE_REFERENCE>'
 abx --json sandbox command list "$SANDBOX_ID"
 ```
 
-如果需要让团队固定复用同一份源码，在模板引用后加 `@<40位Git提交>`。不要把分支名当成不可变版本。
+本例实际解析到的模板提交为 `4229b6c4d96675a05bd0bef031fb36d43f138d14`。团队需要复用同一份源码时，在引用后加 `@4229b6c4d96675a05bd0bef031fb36d43f138d14`；不要把分支名当成不可变版本。
 
 ## 运行第一段 Python
 
