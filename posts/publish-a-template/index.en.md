@@ -49,19 +49,21 @@ Every template that has a `commands.py` has to pass.
 
 ## 4. Help readers run the template
 
-Explain the required configuration, how to launch and call the application, and how to clean up. For an application template based on `_skeleton/`, configure Express and launch with CLI 0.4.16 or newer:
+Explain the required configuration, how to launch and call the application, and how to clean up. For an application template based on `_skeleton/`, configure Express and use a CLI build supporting the template's specification version. Specification 5 templates require the coordinated CLI update; CLI 0.4.17 predates this format. Follow the [current installation instructions](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.md):
 
 ```bash
 export ABX_SERVER_TOKEN="<YOUR_APPLICATION_TOKEN>"
-abx --provider alicloud-express template launch ./my-template --workflow application
+abx --provider alicloud-express template launch ./my-template
 ```
+
+The template declares its startup/readiness commands and all services in `provides`. Launch starts that environment once; readers do not choose a workflow. Commands that need a prompt, password or workspace are invoked afterward with their documented arguments.
 
 Before launching, configure Docker, ACR and Express credentials, and replace the example application token with a value you generate. Keep generation2, `start_cmd` and `ready_cmd` in `template.yaml`; the image has no `CMD` or `ENTRYPOINT`. After catalog merge, replace `./my-template` in the command with `alibaba-agent-sandbox/awesome-templates//my-template` to use the catalog source. Continue the README with actual named-command, Python SDK and HTTP POST examples, plus cleanup instructions for the sandbox, prepared template and image. See the [usage guide](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.md) for platform configuration and complete calling examples.
 
 ## 5. Check before you submit
 
 - Attach concrete usage records to the PR: source commit, provider, build method, commands or model tasks executed, and cleanup results. Keep the README's verified section limited to those actual results; identify unrun or skipped checks separately. Maintainers use these records to review the contribution requirements. Listing alone does not mean every platform and feature was tested.
-- Declared workflows and application commands work as documented, with matching parameters and results.
+- The startup command starts the template, every declared service is ready, and application commands work as documented, with matching parameters and results.
 - No hard-coded secrets and no code that runs at install time.
 - Update the version in `template.yaml` when runtime behavior, dependencies, defaults, arguments or resources change, and explain compatibility changes in both README languages.
 

@@ -47,19 +47,21 @@ python3 scripts/run_local_e2e.py
 
 ## 4. README 帮使用者跑起来
 
-说明需要哪些配置、怎样启动和调用、用完如何清理。以从 `_skeleton/` 扩展的应用模板为例，配置好极速版后，用 CLI 0.4.16 或更新版本启动：
+说明需要哪些配置、怎样启动和调用、用完如何清理。以从 `_skeleton/` 扩展的应用模板为例，配置好极速版后，使用支持该模板规范版本的 CLI。规范 5 需要本次配套 CLI 更新，CLI 0.4.17 尚不支持；安装方式以[当前使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)为准：
 
 ```bash
 export ABX_SERVER_TOKEN="<YOUR_APPLICATION_TOKEN>"
-abx --provider alicloud-express template launch ./my-template --workflow application
+abx --provider alicloud-express template launch ./my-template
 ```
+
+模板声明启动、就绪命令和 `provides` 中的全部服务，一次启动即可使用，不需要选择工作流。需要提示词、密码或工作目录的命令，在启动后按文档参数调用。
 
 还需按[模板规范](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/template-spec.zh-CN.md)补齐 `docs/design/` 中的设计文档。启动前需要 Docker、ACR 配置与 Express 凭据，并把示例中的应用令牌替换为自己生成的值。在 `template.yaml` 中保留 generation2、`start_cmd` 和 `ready_cmd`；镜像不设置 `CMD` 或 `ENTRYPOINT`。目录合并后，把命令中的 `./my-template` 换成 `alibaba-agent-sandbox/awesome-templates//my-template` 即可从目录取用。README 应继续给出实际命名命令、Python SDK 与 HTTP POST 示例，以及沙箱、准备出的模板和镜像的清理步骤。不同平台的配置与完整调用方式见[使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)。
 
 ## 5. 提 PR 前自查
 
 - 随 PR 附上具体使用记录：源码提交、平台、构建方式、运行过的命令或模型任务及清理结果。README 的已验证部分只写这些实际结果；未运行或跳过的项目单独说明。维护者据此核对贡献要求，收录本身不表示所有平台和功能都已测试。
-- 声明的工作流和应用命令都能按 README 使用，参数与返回结果一致。
+- 启动命令能拉起模板，全部声明服务已就绪，应用命令能按 README 使用，参数与返回结果一致。
 - 没有写死的密钥，没有安装时执行的代码。
 - 当运行行为、依赖、默认值、参数或资源配置改变时，更新 `template.yaml` 的版本，并在中英文 README 说明兼容性变化。
 
