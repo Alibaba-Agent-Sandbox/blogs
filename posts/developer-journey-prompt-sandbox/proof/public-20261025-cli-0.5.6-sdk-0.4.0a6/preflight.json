@@ -1,0 +1,13 @@
+{
+  "cli_version": "abx, version 0.5.6",
+  "client": "0.4.0a6",
+  "qwen_on_path": false,
+  "managed_qwen_exists": false,
+  "managed_tools_exists": false,
+  "explicit_qwen_binary_override_present": false,
+  "home_initially_empty": true,
+  "home_expected": true,
+  "lookup_environment": "Isolated PATH excludes existing /usr/local/bin Qwen to exercise first managed installation; existing CA/proxy retained",
+  "entry": "Actual official website-installed GitHub0.5.6 standalone",
+  "requirement": "Explicit add integer parameters a and b; U103 case requirement correction"
+}

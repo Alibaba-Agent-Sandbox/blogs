@@ -1,0 +1,49 @@
+name: abx-nl-python-add-a-b-305f54
+version: 1.0.0
+description: Python沙箱提供add命令计算两个整数的和
+spec_version: 5
+provides:
+  app:
+    protocol: agent-sandbox-server
+    version: 2
+    port: 9000
+    operations:
+    - commands.list
+    - commands.run
+start_cmd: agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py
+ready_cmd: agent-sandbox-server healthcheck --port 9000
+ports:
+- 9000
+resources:
+  cpu: 2
+  memory: 4096
+env:
+  ABX_SERVER_TOKEN: ''
+generation: 2
+base:
+  image: fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49
+build:
+  mode: steps
+  steps:
+  - type: USER
+    args:
+    - root
+  - type: RUN
+    args:
+    - python3 -m pip install --index-url https://pypi.org/simple --no-cache-dir
+      'agent-sandbox-server==0.4.0a6'
+  - type: RUN
+    args:
+    - mkdir -p '/home/user/app' && printf '%s'
+      'IiIiYWJ4LW5sLXB5dGhvbi1hZGQtYS1iLTMwNWY1NCDigJQgc2FuZGJveCBjb21tYW5kIHNlcnZlci4iIiIKZnJvbSBfX2Z1dHVyZV9fIGltcG9ydCBhbm5vdGF0aW9ucwoKaW1wb3J0IG9zCgpmcm9tIGFnZW50X3NhbmRib3guc2VydmVyIGltcG9ydCBjb21tYW5kLCBzdGFydAoKCkBjb21tYW5kKCJhZGQiLCBkZXNjcmlwdGlvbj0iQWRkIHR3byBpbnRlZ2VycyBhIGFuZCBiLiIpCmRlZiBhZGQoYTogaW50LCBiOiBpbnQpIC0+IGludDoKICAgICIiIkFkZCB0d28gaW50ZWdlcnMgYW5kIHJldHVybiB0aGVpciBzdW0uIiIiCiAgICByZXR1cm4gYSArIGIKCgojIEJpbmQgdGhlIHBvcnQgb25seSB3aGVuIHJ1biBhcyBtYWluLCBzbyBhIHBsYXRmb3JtIC0tY29tbWFuZHMgaW1wb3J0IGRvZXMgbm90IHNlcnZlLgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgc3RhcnQoaW50KG9zLmVudmlyb24uZ2V0KCJBQlhfU0VSVkVSX1BPUlQiLCAiOTAwMCIpKSk='
+      | base64 -d > '/home/user/app/commands.py'
+  - type: WORKDIR
+    args:
+    - /home/user/app
+  - type: RUN
+    args:
+    - python3 -m py_compile '/home/user/app/commands.py' && chown -R 'user:user'
+      '/home/user/app'
+  - type: USER
+    args:
+    - user

@@ -1,0 +1,64 @@
+{
+  "input_sha256": "47f51fb363d4f60259e763b83469319c8658c5a0cb851ce1b4a3952cf1c70395",
+  "expected": {
+    "rows_input": 10,
+    "rows_duplicate": 1,
+    "rows_invalid": 3,
+    "rows_clean": 6,
+    "summary": [
+      {
+        "region": "east",
+        "orders": 3,
+        "units": 6,
+        "revenue_cents": 14010
+      },
+      {
+        "region": "north",
+        "orders": 2,
+        "units": 7,
+        "revenue_cents": 2300
+      },
+      {
+        "region": "west",
+        "orders": 1,
+        "units": 3,
+        "revenue_cents": 3000
+      }
+    ],
+    "revenue_cents": 19310
+  },
+  "actual": {
+    "rows_input": 10,
+    "rows_duplicate": 1,
+    "rows_invalid": 3,
+    "rows_clean": 6,
+    "summary": [
+      {
+        "region": "east",
+        "orders": 3,
+        "units": 6,
+        "revenue_cents": 14010
+      },
+      {
+        "region": "north",
+        "orders": 2,
+        "units": 7,
+        "revenue_cents": 2300
+      },
+      {
+        "region": "west",
+        "orders": 1,
+        "units": 3,
+        "revenue_cents": 3000
+      }
+    ],
+    "revenue_cents": 19310,
+    "summary_csv": "region,orders,units,revenue_cents\neast,3,6,14010\nnorth,2,7,2300\nwest,1,3,3000\n",
+    "remote": {
+      "hostname": "<remote-host-distinct-from-client>",
+      "marker": "orders-case-05-20261024",
+      "pandas_version": "3.0.3"
+    }
+  },
+  "assertions_passed": true
+}

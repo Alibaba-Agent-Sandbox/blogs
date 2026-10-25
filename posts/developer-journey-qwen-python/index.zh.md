@@ -15,7 +15,7 @@ draft: false
 
 ## 准备沙箱账户和模型服务
 
-先按[CLI 上手案例](/blog/developer-journey-cli-install/)安装 `abx 0.5.5`，配置自己的 Express 沙箱账户。使用 Python 3.10 或更新版本，把依赖放在独立环境中：
+先按[CLI 上手案例](/blog/developer-journey-cli-install/)安装 `abx 0.5.6`，配置自己的 Express 沙箱账户。使用 Python 3.10 或更新版本，把依赖放在独立环境中：
 
 ```bash
 python3 -m venv .venv

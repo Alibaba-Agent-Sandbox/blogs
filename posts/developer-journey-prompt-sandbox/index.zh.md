@@ -11,9 +11,9 @@ draft: false
 
 想试一个小接口时，业务逻辑往往只有几行，准备应用服务和运行环境却要做不少工作。`abx create --prompt` 可以把需求交给代码生成工具，让它一并生成应用代码和沙箱模板。
 
-这篇从一个最小例子开始：提供 `add` 命令，接收两个整数，返回它们的和。完成后，它既能在终端里调用，也能作为 HTTP API 被其他程序使用。
+这篇从一个最小例子开始：提供 `add` 命令，接收两个整数参数 `a`、`b`，返回它们的和。完成后，它既能在终端里调用，也能作为 HTTP API 被其他程序使用。
 
-这里使用 `abx 0.5.5`、Alibaba Cloud Express 杭州地域和服务端提供的 `qwen3-coder-flash` 模型。Qwen Code 在本机负责生成模板；应用代码随后运行在云端沙箱中。
+这里使用 `abx 0.5.6`、Alibaba Cloud Express 杭州地域和服务端提供的 `qwen3-coder-flash` 模型。Qwen Code 在本机负责生成模板；应用代码随后运行在云端沙箱中。
 
 ## 准备连接信息与模型
 
@@ -41,7 +41,7 @@ export ABX_QWEN_CODEGEN_TIMEOUT=1200
 
 ```bash
 abx --json create \
-  --prompt '创建一个 Python 沙箱，提供 add 命令接收两个整数并返回相加结果' \
+  --prompt '创建一个 Python 沙箱，提供 add 命令，接收两个整数参数 a 和 b 并返回相加结果' \
   --yes --build steps \
   --dir ./generated \
   --timeout 900
@@ -84,7 +84,7 @@ def add(a: int, b: int) -> int:
 
 `@command` 把函数注册到应用服务中。完整文件还在 `__main__` 下提供启动逻辑；作为命令模块导入时，不会重复启动服务。
 
-可以下载本次生成的 [commands.py](./lab/generated-public-20261025-0.5.5/commands.py)、[Dockerfile](./lab/generated-public-20261025-0.5.5/Dockerfile) 和 [template.yaml](./lab/generated-public-20261025-0.5.5/template.yaml) 对照阅读。重新生成时，模型可能采用不同的参数名或组织方式，调用前应先阅读自己的文件。
+可以下载本次生成的 [commands.py](./lab/generated-public-20261025-0.5.6/commands.py)、[Dockerfile](./lab/generated-public-20261025-0.5.6/Dockerfile) 和 [template.yaml](./lab/generated-public-20261025-0.5.6/template.yaml) 对照阅读。重新生成时，模型可能采用不同的参数名或组织方式，调用前应先阅读自己的文件。
 
 `README.md` 也是模型生成的文件。应用令牌需要先在本机配置，CLI 启动时把它传给沙箱；生成说明中的“平台自动注入”不代表平台会替你生成令牌。调用方式以实际地址、应用配置和本文说明为准。
 

@@ -18,7 +18,7 @@ import subprocess
 import sys
 import time
 
-PROMPT = "创建一个 Python 沙箱，提供 add 命令接收两个整数并返回相加结果"
+PROMPT = "创建一个 Python 沙箱，提供 add 命令，接收两个整数参数 a 和 b 并返回相加结果"
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--output", type=Path, default=Path("prompt-experiment"))
 parser.add_argument("--cli", default="abx")

@@ -44,7 +44,7 @@ These runs use the official website standalone installer, ordinary fresh public 
 - Fresh public OpenSandbox Registry template launch, actual host HTTP/API and CLI exec/upload/download round trip using the existing runner.
 - Final article rendering/relative links, source hashes, current-release records, normal PR checks and publication.
 
-## Current public CLI 0.5.5 / Python 0.4.0a6 runs
+## Prior public CLI 0.5.5 / Python 0.4.0a6 runs
 
 CLI PR179 merged normally at `3f7fa28e16888a5489980dc56c86d6c71c11c4a0` after nine required checks. All five platform builds passed in [40229274612](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/actions/runs/40229274612); the official [v0.5.5 release](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.5) and [npm publication 40229548597](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/actions/runs/40229548597) succeeded. The public package has twelve release assets. A fresh public Linux binary and official npm install passed the installed-artifact checker; this is separate from a website default-installer test.
 
@@ -61,3 +61,31 @@ A separate public CLI-generated MCP application also passed actual loopback HTTP
 A separate no-model repeat launches the exact frozen generated source through the public CLI unified launch path. The original README curl (only replacing its application URL) returns HTTP 200/result 8 using Bearer alone. Missing and incorrect application credentials return 401; the owned sandbox and template have independent typed absence. Source and README hashes remain unchanged. This is a separate receipt, not a replacement of the fresh model-generation run.
 
 The final Registry receipt, its actual provider commit, final links/rendering and normal PR review/CI remain pending. This draft remains unpublished.
+
+
+## Current public CLI 0.5.6 / Python 0.4.0a6 runs
+
+CLI [PR181](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/pull/181) merged at `1ea3eabd679c3cf26c824492a60fe2a8aea43f62` after all six applicable latest-head checks passed. Three additional workflows were not applicable under their path filters; they are not reported as executed. [Five-platform binaries 40236483898](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/actions/runs/40236483898), the formal [GitHub v0.5.6 release](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.6) and [npm publication 40236891035](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/actions/runs/40236891035) succeeded. Python remains the immutable public 0.4.0a6 release.
+
+New `proof/public-20261025-cli-0.5.6-sdk-0.4.0a6/` directories preserve these actual runs; all earlier proof bytes remain unchanged.
+
+1. CLI installation/lifecycle: PASS. A fresh HOME executes the actual website installer with explicit `ABX_VERSION=0.5.6`; its normal official GitHub fallback verifies SHA256 `f7d900762660f49863bcb4749f1bb1f7b328d996b643a446868e2d3a36a2ac81`. This is an explicit-version installation, not a website-default-version claim. Installed-artifact checks, real base creation/info/list/exec/deletion and independent SDK typed absence pass.
+2. Self-written Qwen application: PASS. Exact verified official Node/Qwen host assets, public server6 and client6, real model file edits, four held-out arithmetic cases, invoice51.30 through SDK/CLI/POST, 400/401 controls and independent typed sandbox absence.
+3. Registry source: PENDING the final public OpenSandbox default Git/Docker run after the template-owned output-mode and native-environment verifier fixes. Earlier OpenSandbox application smoke success did not reach the full controller and is not reported as a complete scenario pass. The separate Express default Docker E7020 failure remains BLOCKED.
+4. Sentence-generated application: PASS. The final requirement explicitly names integer arguments `a` and `b`, matching the fixed example calls without a schema-adaptation layer. Fresh empty HOME, no Qwen on the controlled child PATH, official standalone6 and SDK6; real managed installation plus model generation returns one strict JSON receipt in 73.36 seconds. All 54 CLI/application checks pass, including source identity, non-root filesystem, process/PTY, HTTP arithmetic/400/401/404 and server6. Exactly one sandbox and one template have independent typed absence (`SandboxNotFoundError` / `E2001`). The four newly linked generated files preserve exact model/CLI bytes. A separate earlier generic-prompt6 run passed54; it remains historical. A preceding failed freshness preflight accidentally allowed its launcher to start and was interrupted with exit130; its exact one sandbox/template were recovered and independently confirmed absent. That harness mistake is retained separately, not promoted to a product failure or pass.
+5. One-call data processing: PASS for all three unchanged examples. Pandas10→6 rows/19310cents matches the independent csv/Decimal oracle; documented and deliberate-failure examples each record one create/delete. All three IDs have independent SDK typed absence and no fallback deletion.
+
+The controlled PATH in case4 excludes a pre-existing host Qwen solely to exercise first managed installation; users with an existing valid Qwen do not need to alter PATH. U103 is a case-requirement omission corrected by specifying argument names, not a reproduced CLI generation bug. The prior public5 network MCP and frozen-README HTTP proofs remain their original separate scopes and are not relabelled public6.
+
+Final Registry receipt, exact provider source reference, local document/link/secret checks, latest PR checks and normal review/publication remain pending. No claim of all-five completion is made.
+
+
+### Current local article checks
+
+- Public SDK6 environment: `python scripts/validate.py` — PASS, 8 posts / 0 problems.
+- `git diff --check` — PASS.
+- Relative `./` links in all current article Markdown — PASS, every target exists.
+- Final public6 sentence run script and generated-source SHA256 against attached receipt — PASS; actual stdout parses as a single JSON value and managed-install completion appears on stderr.
+- Changed text/new receipt membership scan against configured credential values — PASS, no matches; no credential values are recorded.
+- All 89 previously tracked proof and generated-source files from the prior blog head are byte-identical. New public6 receipts and generated files use separate dated paths.
+- These local checks do not satisfy the pending Registry E2E, remote latest-head PR check, review or publication.
