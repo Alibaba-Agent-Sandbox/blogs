@@ -37,10 +37,10 @@ Fill in the entry following the [contribution guide](https://github.com/Alibaba-
 
 ## 3. Verify locally
 
-The commands below retain this article’s pinned Python SDK source environment for local validation. Public PyPI client/server 0.3.1a5 is now available; the host installation and runtime pinned in a template Dockerfile are separate. For new contributions, follow the template repository’s current contributor guide and CI dependencies. Run from the template repository root:
+From the template repository root, install the public server and validation dependencies, then run the checks. Pin the runtime dependency in your template Dockerfile separately:
 
 ```bash
-python3 -m pip install "agent-sandbox-server @ https://github.com/Alibaba-Agent-Sandbox/python-sdk/archive/e86cb0be24e0083a27396b260298e7cf27b660d6.tar.gz#subdirectory=server-sdk" httpx -r scripts/requirements-spec.txt
+python3 -m pip install --index-url https://pypi.org/simple "agent-sandbox-server==0.4.0a2" httpx -r scripts/requirements-spec.txt
 python3 scripts/check_template.py my-template
 python3 scripts/run_local_e2e.py
 ```
@@ -49,7 +49,7 @@ Every template that has a `commands.py` has to pass.
 
 ## 4. Help readers run the template
 
-Explain the required configuration, how to launch and call the application, and how to clean up. For an application template based on `_skeleton/`, configure Express and use a CLI build supporting the template's specification version. Specification 5 templates require the coordinated CLI update; CLI 0.4.17 predates this format. Follow the [current installation instructions](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.md):
+Explain the required configuration, how to launch and call the application, and how to clean up. For an application template based on `_skeleton/`, configure Express and install CLI `0.5.3`. Follow the [current installation instructions](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.md):
 
 ```bash
 export ABX_SERVER_TOKEN="<YOUR_APPLICATION_TOKEN>"

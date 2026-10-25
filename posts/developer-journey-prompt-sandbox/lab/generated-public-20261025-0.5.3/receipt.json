@@ -1,0 +1,16 @@
+{
+  "model": "qwen3-coder-flash",
+  "versions": {
+    "cli": "abx, version 0.5.3",
+    "client": "0.4.0a2",
+    "python": "3.13.13"
+  },
+  "runtime_server_version": "0.4.0a2",
+  "files_sha256": {
+    "commands.py": "cfff5f4e8b1cc30b6caadd2c59b8153f287b32af25d3db50a09f5f9a9f453b89",
+    "Dockerfile": "f909778d47cd022e56a310713d08452b1611566c7396270fc94c062e8f5e41de",
+    "template.yaml": "5c0881e7cc0c5e3ba415c433bdfe543c36e296365b71fabcd6a8f858e1b08bfb",
+    "README.md": "676d89a071056e3f68d17ddf3ee2489a66b3599ae0ed423ad879ba21776c38fd"
+  },
+  "verification_receipt": "../../proof/public-20261025-cli-0.5.3-sdk-0.4.0a2/receipt.json"
+}

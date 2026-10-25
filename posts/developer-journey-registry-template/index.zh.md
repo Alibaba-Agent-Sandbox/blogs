@@ -1,6 +1,6 @@
 ---
 title: 用 Registry 的 Python 模板搭一个远程脚本工作台
-summary: 从 python-hello 模板创建沙箱，上传并运行 Python 文件，通过 CLI、SDK 和 HTTP 调用它，再用终端和系统工具处理日常开发工作。
+summary: 从 python-hello 模板创建沙箱，上传并运行 Python 文件，通过 CLI、SDK 和 HTTP 调用它，并在同一个工作区上传、运行和取回文件。
 date: 2026-10-24
 category: case
 tags: [python, templates, registry, cli]
@@ -11,9 +11,9 @@ draft: false
 
 有一个 Python 脚本要临时跑一下，如果每次都从安装环境、启动服务开始，准备工作会比脚本本身更长。Registry 中的模板可以作为起点：先用现成的运行环境和应用命令，再上传自己的文件。
 
-这篇选择 [python-hello](https://registry.agent-sandbox.cn/templates/python-hello/)，把它部署到 Alibaba Cloud Express，做一个可以从终端和程序中调用的 Python 工作台。我们会运行一段代码、上传文件、下载结果，并连接交互终端。
+这篇选择 [python-hello](https://registry.agent-sandbox.cn/templates/python-hello/)，把它部署到 Docker 后端的 OpenSandbox，做一个可以从终端和程序中调用的 Python 工作台。我们会运行一段代码、上传文件、下载结果，并调用模板内的 HTTP 服务。
 
-这里采用云端 steps 构建，所以本机无需 Docker。示例使用 CLI `0.4.12` 和 Python client `0.3.1a2`，后者是显式选择的 alpha 版本。
+示例使用 CLI `0.5.3` 和 Python client `0.4.0a2`。本机需要 Git、Node.js 22 或更新版本、Docker，以及可访问的 OpenSandbox Docker 后端和可写镜像仓库。Provider 负责构建和推送镜像，OpenSandbox 从同一仓库拉取镜像启动沙箱。
 
 ## 先看看模板提供了什么
 
@@ -27,13 +27,13 @@ draft: false
 | `Dockerfile` | 定义基础环境与依赖 |
 | `commands.py` | 提供可从 CLI、SDK、HTTP 调用的命令 |
 
-Registry 帮助我们找到模板，实际部署使用 Git 仓库中的源码。本文固定源码提交，避免以后分支更新时，安装步骤跟着变化。
+Registry 帮助我们找到模板，实际部署使用 Git 仓库中的源码。启动时可使用公开引用，也可以固定到 Git 提交，避免分支更新改变下一次构建的源码。
 
-![从模板源码准备云端构建，再创建和使用 Python 工作台](./flow.svg)
+![从模板源码启动并使用 Python 工作台](./flow.svg)
 
 ## 准备本机工具和账户配置
 
-先按[安装案例](/blog/developer-journey-cli-install/)准备 CLI，然后为模板准备工具安装 Python 依赖：
+先按[安装案例](/blog/developer-journey-cli-install/)准备 CLI，然后安装 Python 客户端：
 
 ```bash
 mkdir registry-lab
@@ -41,54 +41,51 @@ cd registry-lab
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install --index-url https://pypi.org/simple \
-  'agent-sandbox-client==0.3.1a2' 'PyYAML==6.0.3'
+  'agent-sandbox-client==0.4.0a2'
 ```
 
-除了运行沙箱所需的连接配置，创建模板还需要有权限的阿里云 AK/SK：
+先准备自己的 [OpenSandbox Docker 后端](https://github.com/opensandbox-group/OpenSandbox)。连接地址和 API key 应指向同一服务；镜像仓库需要同时允许构建机推送、后端拉取。本文的实际运行使用独立的 Linux Docker 后端和临时本地镜像仓库；连接已有服务时，替换成自己的地址与权限配置。
 
 ```bash
-export ABX_PROVIDER=alicloud-express
-export ABX_SANDBOX_API_KEY='<YOUR_SANDBOX_API_KEY>'
-export ABX_SANDBOX_BASE_URL='<YOUR_EXPRESS_API_BASE_URL>'
-export ABX_SANDBOX_DOMAIN='<YOUR_EXPRESS_SANDBOX_DOMAIN>'
-export ALICLOUD_ACCESS_KEY_ID='<YOUR_ACCESS_KEY_ID>'
-export ALICLOUD_ACCESS_KEY_SECRET='<YOUR_ACCESS_KEY_SECRET>'
-export ALIBABA_CLOUD_REGION_ID='<YOUR_REGION_ID>'
+export ABX_PROVIDER=opensandbox
+export ABX_OPENSANDBOX_BASE_URL='<YOUR_OPENSANDBOX_SERVER_URL>'
+export ABX_OPENSANDBOX_API_KEY='<YOUR_OPENSANDBOX_API_KEY>'
+export ABX_OPENSANDBOX_IMAGE_REPOSITORY='<YOUR_WRITABLE_REGISTRY/REPOSITORY>'
+export ABX_SERVER_TOKEN="$(python -c 'import secrets; print(secrets.token_urlsafe(32))')"
 ```
 
-这些配置应对应同一账户和目标地域。如果当前 shell 还保留了另一套 `E2B_API_KEY`、`E2B_API_URL`、`E2B_DOMAIN`，先处理配置冲突。这个流程不使用模型服务，不需要 LLM API key。
+私有仓库还需要按 [Provider 配置说明](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/tree/main/opensandbox)配置 Docker 登录与后端拉取凭据。这些是运行平台的配置，不由模板提供账户信息。本例不调用模型，不需要 LLM API key。
 
-## 把模板准备成云端构建配方
+安装 OpenSandbox Provider，再检查连接。下面的精确提交应使用你已查看并信任的公开版本；安装后的 CLI 和 Python SDK 共用同一个 Provider。
 
 ```bash
-git clone https://github.com/Alibaba-Agent-Sandbox/awesome-templates.git
-cd awesome-templates
-git checkout 565e546a3e1d814e840062cbdd5da4ba295e16a6
-python scripts/prepare_steps.py python-hello --output ./python-hello-steps
-abx --json template deploy ./python-hello-steps --build steps \
-  --alias "python-hello-$(date +%s)" -y
+abx provider install \
+  Alibaba-Agent-Sandbox/awesome-providers//opensandbox \
+  --ref '<REVIEWED_40_HEX_PROVIDER_COMMIT>' --yes
+abx provider doctor opensandbox
 ```
 
-`prepare_steps.py` 会生成一个新的模板目录，把模板所需的源码和配置放进 steps 配方。它支持[指南中说明的 Dockerfile 范围](https://registry.agent-sandbox.cn/source/awesome-templates/docs/platform-steps.zh-CN.md/)，不是任意 Dockerfile 的通用转换器。
-
-部署输出中的 `TemplateID` 就是接下来要使用的模板 ID。先保存它并查看构建状态：
+## 直接启动完整模板
 
 ```bash
-export TEMPLATE_ID='<DEPLOY_RETURNED_TEMPLATE_ID>'
-abx --json template info "$TEMPLATE_ID"
+abx --provider opensandbox --json template launch \
+  alibaba-agent-sandbox/awesome-templates//python-hello \
+  --sandbox-timeout 1200 --yes
 ```
 
-看到 `submitted` 或 `building` 时，云端还在准备环境。等状态变为 `ready` 后，再创建沙箱。如果仍在构建，稍后重复查询；若失败，先处理构建错误，不要反复创建实例。
+这个命令拉取源码、准备镜像、创建沙箱、启动模板声明的服务并等待就绪。构建和镜像上传由 Provider 完成，无需先下载转换脚本，也不用在几种启动类型之间选择。
 
-这个模板内的 server 固定为源码版本 `e2cb27e24fde0a67112f82b8d44af463445a5d1a`，包版本为 `0.3.0`。本机 client 的安装不会自动升级它。
-
-## 创建工作台，运行第一段 Python
+返回值包含 `sandbox_id`、`template_reference` 和 `services`。保存前两项，后续操作和清理都会用到：
 
 ```bash
-abx create "$TEMPLATE_ID" --detach --timeout 1200
-export SANDBOX_ID='<CREATE_RETURNED_SANDBOX_ID>'
+export SANDBOX_ID='<RETURNED_SANDBOX_ID>'
+export TEMPLATE_ID='<RETURNED_TEMPLATE_REFERENCE>'
 abx --json sandbox command list "$SANDBOX_ID"
 ```
+
+如果需要让团队固定复用同一份源码，在模板引用后加 `@<40位Git提交>`。不要把分支名当成不可变版本。
+
+## 运行第一段 Python
 
 这里创建了一个生命周期为 1200 秒的实例。命令列表可以帮助我们了解模板提供的接口。先调用 `hello`，再把一段 Python 交给 `run_script`：
 
@@ -143,9 +140,11 @@ import os
 from agent_sandbox import ProviderSandbox
 
 async def main():
-    sandbox = await ProviderSandbox.connect(os.environ["SANDBOX_ID"])
+    sandbox = await ProviderSandbox.connect(
+        os.environ["SANDBOX_ID"], provider="opensandbox")
     try:
-        async with await sandbox.application_client(9000) as client:
+        async with await sandbox.application_client(
+            9000, token=os.environ["ABX_SERVER_TOKEN"]) as client:
             result = await client.commands.run("hello", name="Python")
             print(result)
     finally:
@@ -169,50 +168,18 @@ async with httpx.AsyncClient(timeout=30) as http:
     print(response.json())
 ```
 
-响应为 `{"result": "Hello, Ada!"}`。认证头由应用绑定提供。本文的模板未设置业务访问令牌；接入自己的业务前，应配置适当的应用认证。网关认证与应用令牌是不同的层次，控制面 API key 不能直接当作业务令牌使用。
+响应为 `{"result": "Hello, Ada!"}`。认证头由应用绑定提供。业务令牌使用前面设置的 `ABX_SERVER_TOKEN`。网关认证与应用令牌是不同的层次，控制面 API key 不能直接当作业务令牌使用。
 
-## 需要排查时，直接进入终端
+## 同一个工作台，用完后释放
 
-脚本行为与预想不一致时，可以先看系统状态，或直接进入同一个沙箱：
+通过 `abx exec` 排查脚本时，使用的仍是前面创建的实例。文件上传、命名命令和普通进程执行各有用途，可以按任务选择；本例没有把应用命令当成平台原生解释器接口。
 
-```bash
-abx --json sandbox system metrics "$SANDBOX_ID"
-abx --json sandbox system ports "$SANDBOX_ID"
-abx --json sandbox process list "$SANDBOX_ID"
-abx connect "$SANDBOX_ID"
-```
-
-进入终端后，可以切换到应用目录，查看文件，手动运行 Python：
-
-```bash
-cd /home/user/app
-python3 main.py
-exit
-```
-
-`exit` 离开这次终端会话，沙箱仍然存在。文件操作、应用调用和交互终端都针对同一个实例，适合把“上传—运行—查看结果”的过程连起来。
-
-## 结束任务，保留想复用的模板
-
-用完工作台后删除实例：
+用完后先下载需要保留的文件，再删除实例：
 
 ```bash
 abx kill "$SANDBOX_ID"
 ```
 
-模板和实例是两个资源。保留模板，下次就可以再次使用它的 ID 创建实例；如果这个模板也只是临时试用，可以一并删除：
+本例中返回的 `template_reference` 是 Provider 准备的镜像引用。删除沙箱不会删除镜像；可以保留它供下次创建实例，也可以在自己的镜像仓库中删除这次生成的精确标签。OpenSandbox 不提供 Express 的模板管理接口，不能用 `abx template delete` 代替仓库清理。
 
-```bash
-abx template delete "$TEMPLATE_ID" -y
-```
-
-想一次体验完整流程，可以下载[配套脚本](./lab/03_registry_end_to_end.py)，在前面创建的 `registry-lab` 中运行：
-
-```bash
-python 03_registry_end_to_end.py \
-  --abx "$(command -v abx)" \
-  --source-ref 565e546a3e1d814e840062cbdd5da4ba295e16a6 \
-  --build-timeout 900 --output ./registry-run
-```
-
-输出目录需要是新目录。这个脚本会自行创建模板和实例，运行示例后释放它们；前面手动创建的资源仍由你自己管理。要做更持久的开发工作，可以沿用手动步骤，保留模板并按任务创建新实例。
+如果想从一台新的 Linux Docker 主机重做完整流程，可以使用[同一个公开启动脚本](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/scripts/public_launch_e2e.py)及[运行配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/.github/workflows/public-template-launch.yml)。它从公开 Registry 引用获取 `python-hello`，调用实际服务，校验文件往返，然后只清理本次所属沙箱和镜像。已有 OpenSandbox 服务的开发者也可以按本文的手动步骤，把它用作日常 Python 工作台。

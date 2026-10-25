@@ -1,6 +1,6 @@
 """Create a real Qwen sandbox with public SDK; use custom command via SDK, CLI, HTTP."""
 
-import asyncio, hashlib, json, os, secrets, subprocess, time, traceback
+import asyncio, base64, hashlib, json, os, secrets, subprocess, time, traceback
 from pathlib import Path
 import httpx
 from support import ROOT, PRIVATE, VALUES, environment, redact
@@ -31,7 +31,27 @@ def record(name, result):
 
 
 async def remote(command, timeout=240):
-    result = await sb.commands.run(command, timeout=timeout)
+    partial_stdout, partial_stderr = [], []
+
+    def output(chunk):
+        partial_stdout.append(chunk)
+        print(redact(chunk), end="", flush=True)
+
+    def errors(chunk):
+        partial_stderr.append(chunk)
+        print(redact(chunk), end="", flush=True)
+
+    try:
+        result = await sb.commands.run(
+            command, timeout=timeout, on_stdout=output, on_stderr=errors
+        )
+    except Exception:
+        record("remote-failure", {
+            "command": command,
+            "partial_stdout": "".join(partial_stdout)[-12000:],
+            "partial_stderr": "".join(partial_stderr)[-4000:],
+        })
+        raise
     record(
         "remote",
         {
@@ -41,8 +61,62 @@ async def remote(command, timeout=240):
             "stderr": result.stderr[-1500:],
         },
     )
-    assert result.exit_code == 0, "remote command failed"
+    if result.exit_code != 0:
+        try:
+            names = sorted(
+                Path(item.name).name for item in await sb.files.list("/home/user/.npm/_logs")
+                if item.name.endswith("-debug-0.log")
+            )
+            if names:
+                debug = await sb.files.read("/home/user/.npm/_logs/" + names[-1])
+                target = PRIVATE / "npm-bootstrap-debug.log"
+                target.write_text(debug)
+                target.chmod(0o600)
+                record("bootstrap-debug", {"private_log_saved": True})
+        except Exception as error:
+            record("bootstrap-debug", {"readback_error_type": type(error).__name__})
+        raise AssertionError("remote command failed")
     return result
+
+
+async def upload_official_tools():
+    """Verify exact official archives on the developer host, then upload via SDK."""
+    architecture = (await remote("uname -m")).stdout.strip()
+    arch = {"x86_64": "x64", "aarch64": "arm64"}.get(architecture)
+    if arch is None:
+        raise RuntimeError(f"Unsupported sandbox architecture: {architecture}")
+    node_archive = f"node-v24.16.0-linux-{arch}.tar.xz"
+    node_origin = "https://nodejs.org/dist/v24.16.0/"
+    qwen_url = "https://registry.npmjs.org/@qwen-code/qwen-code/-/qwen-code-0.23.0.tgz"
+    qwen_integrity = "foznQtmptzM7DtYGPALZVtwUBVTsANYc6ytWOfGisXB7FgpzNmYT6xIHzh+26RJD9Kl+qzRW0gFp/AkqRouhnQ=="
+    async with httpx.AsyncClient(timeout=180, follow_redirects=True) as http:
+        async def fetch(url):
+            response = await http.get(url)
+            response.raise_for_status()
+            return response.content
+        node_bytes, checksums, qwen_bytes = await asyncio.gather(
+            fetch(node_origin + node_archive),
+            fetch(node_origin + "SHASUMS256.txt"),
+            fetch(qwen_url),
+        )
+    expected = [line.split()[0] for line in checksums.decode().splitlines()
+                if line.split()[-1] == node_archive]
+    if len(expected) != 1 or hashlib.sha256(node_bytes).hexdigest() != expected[0]:
+        raise AssertionError("Official Node.js archive checksum mismatch")
+    if hashlib.sha512(qwen_bytes).digest() != base64.b64decode(qwen_integrity):
+        raise AssertionError("Pinned official Qwen Code archive integrity mismatch")
+    for name, content in [(node_archive, node_bytes),
+                          ("node.sha256", f"{expected[0]}  {node_archive}\n"),
+                          ("qwen-code-0.23.0.tgz", qwen_bytes),
+                          ("qwen.sha512", f"{hashlib.sha512(qwen_bytes).hexdigest()}  qwen-code-0.23.0.tgz\n")]:
+        await sb.files.write("/home/user/journey-qwen/" + name, content)
+    record("official-tool-archives", {
+        "node_version": "24.16.0", "node_architecture": arch,
+        "node_bytes": len(node_bytes), "node_sha256": expected[0],
+        "qwen_version": "0.23.0", "qwen_bytes": len(qwen_bytes),
+        "qwen_integrity": "sha512-" + qwen_integrity,
+        "delivery": "official host download, verified before SDK files.write",
+    })
 
 
 async def cli(args):
@@ -98,6 +172,7 @@ async def main():
         await sb.files.write(
             "/home/user/journey-qwen/commands.py", (WORK / "commands.py").read_text()
         )
+        await upload_official_tools()
         await remote("bash /home/user/journey-qwen/bootstrap.sh", timeout=300)
         await sb.files.write(
             "/home/user/journey-qwen/project/calculator.py",
@@ -164,12 +239,11 @@ async def main():
                 denied_headers = {
                     key: value
                     for key, value in server.auth_headers().items()
-                    if key.lower() != "authorization"
+                    if value not in {app_token, f"Bearer {app_token}"}
                 }
                 if label == "wrong-application-token":
-                    denied_headers["Authorization"] = (
-                        "Bearer intentionally-invalid-application-token"
-                    )
+                    denied_headers["Authorization"] = "Bearer intentionally-invalid-application-token"
+                    denied_headers["X-Access-Token"] = "intentionally-invalid-application-token"
                 denied = await http.post(
                     server.base_url.rstrip("/") + "/commands/invoice_total",
                     headers=denied_headers,

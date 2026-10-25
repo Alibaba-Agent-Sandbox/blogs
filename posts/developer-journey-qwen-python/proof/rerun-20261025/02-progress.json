@@ -1,0 +1,140 @@
+[
+  {
+    "name": "model-configuration",
+    "result": {
+      "model": "<redacted>",
+      "selection": "QWEN_MODEL or <redacted> default"
+    }
+  },
+  {
+    "name": "created",
+    "result": {
+      "sandbox": "<owned-sandbox>",
+      "template": "base"
+    }
+  },
+  {
+    "name": "remote",
+    "result": {
+      "command": "mkdir -p /home/user/journey-qwen/project",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  {
+    "name": "remote",
+    "result": {
+      "command": "bash /home/user/journey-qwen/bootstrap.sh",
+      "exit_code": 0,
+      "stdout": "node-v24.16.0-linux-x64.tar.xz: OK\n\nadded 13 packages in 4s\n\n3 packages are looking for funding\n  run `npm fund` for details\nCollecting agent-sandbox-server==0.4.0a1\n  Downloading agent_sandbox_server-0.4.0a1-py3-none-any.whl.metadata (4.1 kB)\nCollecting websockets>=12.0 (from agent-sandbox-server==0.4.0a1)\n  Downloading websockets-17.3-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.3 kB)\nDownloading agent_sandbox_server-0.4.0a1-py3-none-any.whl (216 kB)\nDownloading websockets-17.3-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (225 kB)\nInstalling collected packages: websockets, agent-sandbox-server\n\nSuccessfully installed agent-sandbox-server-0.4.0a1 websockets-17.3\nv24.16.0\n0.23.0\n",
+      "stderr": "npm notice\nnpm notice New major version of npm available! 11.13.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n"
+    }
+  },
+  {
+    "name": "server-health",
+    "result": true
+  },
+  {
+    "name": "qwen-version",
+    "result": "0.23.0"
+  },
+  {
+    "name": "special-sdk",
+    "result": {
+      "total": "51.30",
+      "quantity": 3,
+      "discount_percent": 10
+    }
+  },
+  {
+    "name": "cli",
+    "result": {
+      "args": [
+        "run",
+        "sbx-<resource-id>",
+        "invoice_total",
+        "--server-port",
+        "9008",
+        "--json-args",
+        "{\"unit_price\": \"19.00\", \"quantity\": 3, \"discount_percent\": 10}"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"total\":\"51.30\",\"quantity\":3,\"discount_percent\":10}\n",
+      "stderr": ""
+    }
+  },
+  {
+    "name": "special-http-post",
+    "result": {
+      "status": 200,
+      "body": {
+        "result": {
+          "total": "51.30",
+          "quantity": 3,
+          "discount_percent": 10
+        }
+      }
+    }
+  },
+  {
+    "name": "special-http-invalid",
+    "result": {
+      "status": 400
+    }
+  },
+  {
+    "name": "missing-application-token",
+    "result": {
+      "status": 401
+    }
+  },
+  {
+    "name": "wrong-application-token",
+    "result": {
+      "status": 401
+    }
+  },
+  {
+    "name": "qwen-model-task",
+    "result": {
+      "exit_code": 0,
+      "report_exists": true
+    }
+  },
+  {
+    "name": "remote",
+    "result": {
+      "command": "python3 -I -c \"from pathlib import Path; ns={}; exec(compile(Path('/home/user/journey-qwen/project/calculator.py').read_text(), 'calculator.py', 'exec'), ns); assert all(ns['add'](a,b)==a+b for a,b in [(2,3),(-4,9),(0,0),(123,456)]); print('four independent arithmetic cases passed')\"",
+      "exit_code": 0,
+      "stdout": "four independent arithmetic cases passed\n",
+      "stderr": ""
+    }
+  },
+  {
+    "name": "model-artifact-validation",
+    "result": {
+      "source_sha256": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772",
+      "report_nonempty": true,
+      "heldout_cases": 4
+    }
+  },
+  {
+    "name": "kill",
+    "result": {
+      "requested": true
+    }
+  },
+  {
+    "name": "cli",
+    "result": {
+      "args": [
+        "info",
+        "sbx-<resource-id>"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Sandbox sbx-<resource-id> wasn't found\n"
+    }
+  }
+]

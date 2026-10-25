@@ -1,0 +1,22 @@
+{
+  "install_exit": 0,
+  "version": "abx, version 0.5.3",
+  "installer_sha256": "74f4643a56688deec5da196c1d16c5115cf9ecccba3196ecc242db215608a8f4",
+  "binary_sha256": "f9bac25b5f07495a940eb304a93a3906c71201cdd6ac13271596f2380a5dcf7a",
+  "ABX_VERSION_set": false,
+  "ABX_DOWNLOAD_BASE_set": false,
+  "fresh_HOME": true,
+  "outside_checkout_cwd": true,
+  "path_export_verified": true,
+  "delivery": "default official website mirror",
+  "cloud_receipt": "website-default-managed.json",
+  "actual_public_python_distributions": {
+    "agent-sandbox-client": "0.4.0a2",
+    "agent-sandbox-server": "0.4.0a2"
+  },
+  "public_manifest": "website-default-manifest.json",
+  "manifest_tag": "v0.5.3",
+  "manifest_asset_count": 12,
+  "sanitized_install_log": "website-default-install.log",
+  "frozen_installer": "website-default-installer.sh"
+}

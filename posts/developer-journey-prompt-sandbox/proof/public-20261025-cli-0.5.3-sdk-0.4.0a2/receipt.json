@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "versions": {
+    "cli": "abx, version 0.5.3",
+    "client": "0.4.0a2",
+    "python": "3.13.13"
+  },
+  "runtime_server_version": "0.4.0a2",
+  "distribution": "fresh public standalone binary from official website installer; ordinary public Python SDK venv; isolated HOME",
+  "model": "qwen3-coder-flash",
+  "prompt": "创建一个 Python 沙箱，提供 add 命令接收两个整数并返回相加结果",
+  "create_seconds": 117.22,
+  "assertions": 53,
+  "verification_output": "info PASS\nrequested-lifetime-and-kill-policy PASS\nexec PASS\ncapabilities PASS\nnon-root-writable-app PASS\nowned-data-directory PASS\nfile-write-read PASS\nfile-written-remove PASS\ndownload-generated-source PASS\ngenerated-source-sha256 PASS\nlist-0 PASS\nlist-contains-exact-owned-id PASS\ncommands PASS\nupload PASS\nadd PASS\nCLI-add-business PASS\nsample-upload PASS\nfile-list PASS\nfile-stat PASS\nfile-search PASS\ndownload PASS\nfile-mkdir PASS\nmkdir-postcondition PASS\nfile-move PASS\nmove-postconditions PASS\nfile-rm PASS\nremoved-stat-notfound PASS\nremove-postcondition PASS\nupload-download-sha256 PASS\nsystem-info PASS\nsystem-metrics PASS\nsystem-ports PASS\nsystem-packages PASS\nsystem-env PASS\nbackground PASS\nprocess-list PASS\nbackground-owned-pid PASS\nprocess-info PASS\nprocess-signal PASS\nprocess-list-after PASS\nowned-process-terminated PASS\nHTTP-health PASS\nGET-application-capabilities PASS\nGET-registered-commands PASS\nPOST-application-token-missing PASS\nPOST-application-token-wrong PASS\nPOST-add-17-25 PASS\nPOST-add--15-7 PASS\nPOST-add-0-0 PASS\nPOST-add-2147483648-2147483648 PASS\nPOST-negative-400 PASS\nPOST-negative-404 PASS\nPTY-cwd-environment PASS\nAssertions 53 / 53\n",
+  "generated_sha256": {
+    "commands.py": "cfff5f4e8b1cc30b6caadd2c59b8153f287b32af25d3db50a09f5f9a9f453b89",
+    "Dockerfile": "f909778d47cd022e56a310713d08452b1611566c7396270fc94c062e8f5e41de",
+    "template.yaml": "5c0881e7cc0c5e3ba415c433bdfe543c36e296365b71fabcd6a8f858e1b08bfb",
+    "README.md": "676d89a071056e3f68d17ddf3ee2489a66b3599ae0ed423ad879ba21776c38fd"
+  },
+  "script_sha256": {
+    "run.py": "8ec19641647c48835323bf9a08db3d5477c34ae193f484720814edaa7a5eae62",
+    "verify.py": "7bb4c43ef27932b377fb1c7e88e377054585371c4a61c8527420c7f25ec828b8"
+  },
+  "cleanup": [
+    {
+      "kind": "sandbox",
+      "absent": true,
+      "delete_exit_code": 0,
+      "typed_readback": "SandboxNotFoundError"
+    },
+    {
+      "kind": "template",
+      "absent": true,
+      "delete_exit_code": 0
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 """Verify the captured integer-addition generated application on a real sandbox.
 
-Requires agent-sandbox-client==0.3.1a2 and httpx, plus abx 0.4.12 on PATH.
+Requires agent-sandbox-client==0.4.0a2 and httpx, plus the current abx on PATH.
 This checks the captured application's add command; fresh model generation may
 choose different command names and must be reviewed before this verification.
 The script does not create or delete cloud resources; clean up the two exact IDs
@@ -54,6 +54,7 @@ lease=(datetime.fromisoformat(info['endAt'].replace('Z','+00:00'))-datetime.from
 check('requested-lifetime-and-kill-policy',abs(lease-900)<=1 and info.get('lifecycle',{}).get('onTimeout')=='kill',{'lease_seconds':lease,'on_timeout':info.get('lifecycle',{}).get('onTimeout')})
 cmd('exec',['exec',sid,'python3','-c','import sys; print("REMOTE_PYTHON_READY", sys.version.split()[0])'],'REMOTE_PYTHON_READY')
 cmd('capabilities',['--json','sandbox','capabilities',sid])
+cmd('non-root-writable-app',['exec',sid,'python3','-c',"import os,tempfile; from pathlib import Path; assert os.geteuid()!=0; root=Path('/home/user/app'); p=Path(tempfile.mkdtemp(prefix='abx-write-',dir=root)); f=p/'probe.txt'; f.write_text('writable'); assert f.read_text()=='writable'; f.unlink(); p.rmdir(); print('NON_ROOT_WRITE_READ_DELETE_PASS')"],'NON_ROOT_WRITE_READ_DELETE_PASS')
 cmd('owned-data-directory',['sandbox','files','mkdir',sid,'--path',remote_root])
 cmd('file-write-read',['exec',sid,'python3','-c',"from pathlib import Path; p=Path('/home/user/04-written.txt'); p.write_text('CLI_WRITE_READ_OK'); print(p.read_text())"],'CLI_WRITE_READ_OK')
 cmd('file-written-remove',['sandbox','files','rm',sid,'--path','/home/user/04-written.txt','-y'])
@@ -96,11 +97,18 @@ async def api():
  for k,v in environment().items():
   if k.startswith(('ABX_','ALICLOUD_','ALIBABA_')):os.environ[k]=v
  from agent_sandbox import ProviderSandbox
- sb=await ProviderSandbox.connect(sid);server=await sb.application_client(9000);url=server.base_url.rstrip('/');m.state['server_url']=url;m.STATE.write_text(json.dumps(m.state))
+ sb=await ProviderSandbox.connect(sid);server=await sb.application_client(9000,token=os.environ.get("ABX_SERVER_TOKEN"));url=server.base_url.rstrip('/');m.state['server_url']=url;m.STATE.write_text(json.dumps(m.state))
  async with httpx.AsyncClient(timeout=60,headers=server.auth_headers()) as client:
   r=await client.get(url+'/health');check('HTTP-health',r.status_code==200,{'status':r.status_code})
   r=await client.get(url+'/capabilities');cap=r.json();check('GET-application-capabilities',r.status_code==200 and cap.get('api_version')==2 and all(cap.get('endpoints',{}).get(name,{}).get('allowed') is True for name in ['list_commands','run_command']),{'status':r.status_code,'api_version':cap.get('api_version'),'server_version':cap.get('server_version'),'command_endpoints':{name:cap.get('endpoints',{}).get(name) for name in ['list_commands','run_command']}})
   r=await client.get(url+'/commands');body=r.json();check('GET-registered-commands',r.status_code==200 and all(name in json.dumps(body) for name in ['add']),body)
+  token=os.environ['ABX_SERVER_TOKEN']
+  gateway={key:value for key,value in server.auth_headers().items() if value not in {token,'Bearer '+token}}
+  async with httpx.AsyncClient(timeout=30) as unauthenticated:
+   for label,extra in [('missing',{}),('wrong',{'Authorization':'Bearer intentionally-invalid-application-token','X-Access-Token':'intentionally-invalid-application-token'})]:
+    r=await unauthenticated.post(url+'/commands/add',headers={**gateway,**extra},json={'a':17,'b':25})
+    check('POST-application-token-'+label,r.status_code==401,{'status':r.status_code})
+
   for a,b in [(17,25),(-15,7),(0,0),(2**31,2**31)]:
    r=await client.post(url+'/commands/add',json={'a':a,'b':b});data=r.json();value=data.get('result')
    check('POST-add-'+str(a)+'-'+str(b),r.status_code==200 and type(value) is int and value==a+b,{'status':r.status_code,'response':data,'expected':a+b})

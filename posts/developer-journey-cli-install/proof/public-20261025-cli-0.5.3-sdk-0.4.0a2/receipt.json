@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "versions": {
+    "cli": "0.5.3",
+    "client": "0.4.0a2",
+    "server": "0.4.0a2"
+  },
+  "distribution": "official website installer with explicit ABX_VERSION=0.5.3; downloaded GitHub release binary",
+  "installer_url": "https://www.agent-sandbox.cn/install.sh",
+  "installer_sha256": "a39cbd45cb11e2c8450c56ad55fbf536700bf2f42b2c9a96b2094f38a0d0f00b",
+  "binary_sha256": "f9bac25b5f07495a940eb304a93a3906c71201cdd6ac13271596f2380a5dcf7a",
+  "checks": {
+    "workload_pass": true,
+    "list_visibility_pass": true,
+    "cleanup_verified": true
+  },
+  "independent_cleanup": {
+    "owned_sandbox_absent": true,
+    "readback": "independent public Python SDK SandboxNotFoundError"
+  },
+  "commands": [
+    {
+      "command": "abx create base --detach --timeout 300",
+      "exit_code": 0,
+      "seconds": 1.27
+    },
+    {
+      "command": "abx info <owned-sandbox> --format json",
+      "exit_code": 0,
+      "seconds": 0.81
+    },
+    {
+      "command": "abx exec <owned-sandbox> -- echo hello",
+      "exit_code": 0,
+      "seconds": 1.45
+    },
+    {
+      "command": "abx list",
+      "exit_code": 0,
+      "seconds": 0.83
+    },
+    {
+      "command": "abx kill <owned-sandbox>",
+      "exit_code": 0,
+      "seconds": 0.82
+    },
+    {
+      "command": "abx info <owned-sandbox>",
+      "exit_code": 1,
+      "seconds": 0.78
+    }
+  ],
+  "business_output": "hello",
+  "source_sha256": {
+    "support.py": "3a9bf3a58452ab4f6098d07f38d62060e28c7f5616bbd9586978e428d4d50e98",
+    "run.py": "27152a2f0c3bb4f1017ee1a263823f4e61afb7df3d13a3d05ab210528e9d16bb"
+  }
+}

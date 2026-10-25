@@ -1,0 +1,9 @@
+Installing abx 0.5.3 (linux-x64) to <workdir>/01-cli/bin
+Downloading https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/download/v0.5.3/abx-0.5.3-linux-x64
+Checksum verified.
+Installed <workdir>/01-cli/bin/abx
+warning: <workdir>/01-cli/bin is not on PATH.
+Add this line to your shell profile (~/.profile, ~/.bashrc, or ~/.zshrc), then open a new terminal:
+export PATH="<workdir>/01-cli/bin:$PATH"
+abx --version
+abx, version 0.5.3

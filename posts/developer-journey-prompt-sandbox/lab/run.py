@@ -1,6 +1,6 @@
 """Create a fresh model-generated add sandbox, verify it, and clean exact owned IDs.
 
-Requires abx 0.4.12, agent-sandbox-client==0.3.1a2 and httpx. Configure provider
+Requires current abx, agent-sandbox-client==0.4.0a2 and httpx. Configure provider
 and model credentials in the environment. Reports are local; .private contains
 resource IDs and raw output and must not be included in a published report.
 """
@@ -63,7 +63,7 @@ try:
     report["versions"] = {"cli": version_result.stdout.strip(), "client": version("agent-sandbox-client"), "python": sys.version.split()[0]}
     report["script_sha256"] = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest() for name in ["run.py", "verify.py"]}
     started = time.monotonic()
-    command = [*base, "--json", "create", "--prompt", PROMPT, "--yes", "--detach", "--build", "steps", "--dir", str(generated), "--timeout", "900"]
+    command = [*base, "--json", "create", "--prompt", PROMPT, "--yes", "--build", "steps", "--dir", str(generated), "--timeout", "900"]
     process = subprocess.Popen(command, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, start_new_session=True)
     try:
         stdout, stderr = process.communicate(timeout=a.generation_timeout + 900)
@@ -80,6 +80,8 @@ try:
         result = json.loads(stdout)
         if result.get("ID"):
             state["sandboxes"] = [result["ID"]]
+        if result.get("TemplateID"):
+            state["templates"] = [result["TemplateID"]]
     except (ValueError, AttributeError):
         pass
     (private / "owned.json").write_text(json.dumps(state))

@@ -1,0 +1,48 @@
+name: abx-nl-python-add-68cccd
+version: 1.0.0
+description: 一个提供加法运算的Python沙箱模板
+spec_version: 5
+provides:
+  app:
+    protocol: agent-sandbox-server
+    version: 2
+    port: 9000
+    operations:
+    - commands.list
+    - commands.run
+start_cmd: agent-sandbox-server serve --port 9000 --commands /home/user/app/commands.py
+ready_cmd: agent-sandbox-server healthcheck --port 9000
+ports:
+- 9000
+resources:
+  cpu: 2
+  memory: 4096
+env:
+  ABX_SERVER_TOKEN: ''
+base:
+  image: fc-e2b-registry.cn-hangzhou.cr.aliyuncs.com/runtime/base:v0.0.49
+build:
+  mode: steps
+  steps:
+  - type: USER
+    args:
+    - root
+  - type: RUN
+    args:
+    - python3 -m pip install --index-url https://pypi.org/simple --no-cache-dir
+      'agent-sandbox-server==0.4.0a2'
+  - type: RUN
+    args:
+    - mkdir -p '/home/user/app' && printf '%s'
+      'IiIiYWJ4LW5sLXB5dGhvbi1hZGQtNjhjY2NkIOKAlCBzYW5kYm94IGNvbW1hbmQgc2VydmVyLiIiIgpmcm9tIF9fZnV0dXJlX18gaW1wb3J0IGFubm90YXRpb25zCgppbXBvcnQgb3MKCmZyb20gYWdlbnRfc2FuZGJveC5zZXJ2ZXIgaW1wb3J0IGNvbW1hbmQsIHN0YXJ0CgoKQGNvbW1hbmQoImFkZCIsIGRlc2NyaXB0aW9uPSJBZGQgdHdvIGludGVnZXJzIGFuZCByZXR1cm4gdGhlIHN1bS4iKQpkZWYgYWRkKGE6IGludCwgYjogaW50KSAtPiBpbnQ6CiAgICAiIiJBZGQgdHdvIGludGVnZXJzIGFuZCByZXR1cm4gdGhlIHN1bS4iIiIKICAgIHJldHVybiBhICsgYgoKCiMgQmluZCB0aGUgcG9ydCBvbmx5IHdoZW4gcnVuIGFzIG1haW4sIHNvIGEgcGxhdGZvcm0gLS1jb21tYW5kcyBpbXBvcnQgZG9lcyBub3Qgc2VydmUuCmlmIF9fbmFtZV9fID09ICJfX21haW5fXyI6CiAgICBzdGFydChpbnQob3MuZW52aXJvbi5nZXQoIkFCWF9TRVJWRVJfUE9SVCIsICI5MDAwIikpKQ=='
+      | base64 -d > '/home/user/app/commands.py'
+  - type: WORKDIR
+    args:
+    - /home/user/app
+  - type: RUN
+    args:
+    - python3 -m py_compile '/home/user/app/commands.py' && chown -R 'user:user'
+      '/home/user/app'
+  - type: USER
+    args:
+    - user
