@@ -117,3 +117,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [Five service and benchmark cases](notes/proposed/feature/2026-10-27-five-service-benchmark-practices.md) · [verification](evidence/verify/2026-10-27-five-service-benchmark-practices.md). Actual workflows and assets; full series pending.
 
 - [Three startup model practices](notes/proposed/feature/2026-10-27-three-startup-model-practices.md) · [verification](evidence/verify/2026-10-27-three-startup-model-practices.md). Actual models, all methods and artifacts; full series pending.
+
+- [Three more native practices](notes/proposed/feature/2026-10-27-three-more-native-practices.md) · [verification](evidence/verify/2026-10-27-three-more-native-practices.md).
