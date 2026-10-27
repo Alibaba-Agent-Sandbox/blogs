@@ -1,0 +1,50 @@
+# Generated report: `generated_hello.py`
+
+## Purpose
+
+`generated_hello.py` is a minimal Python program that writes one fixed line to
+standard output. It serves as a sandbox smoke test: if the interpreter runs and
+the expected line appears, the environment is working.
+
+## Output
+
+Running the program prints exactly one line, followed by a newline:
+
+```
+Hello from the sandbox
+```
+
+The program writes to stdout and exits with status `0`. It takes no arguments,
+reads no input, and produces no other output.
+
+## How it works
+
+| Part | Role |
+| --- | --- |
+| `#!/usr/bin/env python3` | Shebang so the file can run as an executable script. |
+| Module docstring | States the program's single responsibility. |
+| `main()` | Calls `print("Hello from the sandbox")`. |
+| `if __name__ == "__main__":` guard | Runs `main()` on direct execution and keeps the module safe to import. |
+
+The greeting is a string literal, so the output is deterministic and has no
+dependencies on locale, environment variables, or the working directory.
+
+## Running it
+
+```sh
+python3 generated_hello.py
+```
+
+Verified output:
+
+```sh
+$ python3 generated_hello.py
+Hello from the sandbox
+$ echo $?
+0
+```
+
+## Requirements
+
+Python 3.6 or newer. No third-party packages are used. The `-> None` return
+annotation requires Python 3.

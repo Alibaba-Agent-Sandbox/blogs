@@ -1,0 +1,75 @@
+# Generated Report: `generated_hello.py`
+
+## Overview
+
+`generated_hello.py` is a minimal, dependency-free Python program that writes a single
+fixed greeting to standard output:
+
+```
+Hello from the sandbox
+```
+
+## Source
+
+```python
+#!/usr/bin/env python3
+"""Print a fixed greeting to standard output."""
+
+
+def main() -> None:
+    """Print the greeting exactly once."""
+    print("Hello from the sandbox")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+## How it works
+
+| Element | Purpose |
+| --- | --- |
+| Shebang (`#!/usr/bin/env python3`) | Allows direct execution (`./generated_hello.py`) on systems where the file has the executable bit set. |
+| Module docstring | Documents the file's intent for readers and tooling. |
+| `main()` | Encapsulates the behaviour so it can be imported and called (or unit-tested) without running at import time. |
+| `print(...)` | Emits the greeting followed by a single trailing newline to stdout. |
+| `if __name__ == "__main__":` | Standard entry-point guard; `main()` runs only on direct execution, not on import. |
+
+## Running it
+
+```bash
+python3 generated_hello.py
+```
+
+Expected stdout (with one trailing newline, no other output):
+
+```
+Hello from the sandbox
+```
+
+The program takes no command-line arguments, reads no input, and performs no I/O other
+than the single write to stdout. It always exits with status `0`.
+
+## Verification
+
+Confirm the output matches exactly, byte for byte:
+
+```bash
+python3 generated_hello.py | od -c | head -2
+```
+
+Or compare against a reference string:
+
+```bash
+[ "$(python3 generated_hello.py)" = "Hello from the sandbox" ] && echo PASS || echo FAIL
+```
+
+## Requirements
+
+- Python 3 (uses `->` return type annotations; no third-party packages).
+- No network, filesystem, or environment access required.
+
+## Notes
+
+- The greeting is hard-coded intentionally; there is no configuration or templating.
+- Output goes to stdout, so it composes cleanly with pipes and redirection.

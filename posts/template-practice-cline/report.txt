@@ -1,0 +1,87 @@
+# Generated Report: `generated_hello.py`
+
+## Overview
+
+`generated_hello.py` is a minimal, dependency-free Python program that prints a
+single, fixed line of text to standard output:
+
+```
+Hello from the sandbox
+```
+
+It exists to demonstrate that generated code can be written to the workspace and
+executed successfully. It performs no I/O other than that one write: it reads no
+files, takes no command-line arguments, opens no network connections, and
+modifies no state.
+
+## Requirements
+
+- Python 3 (developed and verified against Python 3.13.13). It uses only the
+  built-in `print` function, so any Python 3.x interpreter works.
+- No third-party packages are required.
+
+## How to run
+
+From the directory containing the script:
+
+```bash
+python3 generated_hello.py
+```
+
+Expected output (one line, terminated by a newline):
+
+```
+Hello from the sandbox
+```
+
+The script is also executable directly if the execute bit is set
+(`chmod +x generated_hello.py && ./generated_hello.py`), thanks to the
+`#!/usr/bin/env python3` shebang.
+
+## Code structure
+
+| Element  | Kind         | Purpose |
+| -------- | ------------ | ------- |
+| `MESSAGE` | module-level constant (`str`) | Holds the exact text to emit: `"Hello from the sandbox"`. Keeping the literal in one place makes the output easy to audit or change. |
+| `main()` | function returning `None` | Prints `MESSAGE` to standard output. Factored into a function so the behavior can be imported and tested without running the script. |
+| `if __name__ == "__main__":` | module guard | Calls `main()` only when the file is run as a script, not when it is imported as a module. |
+
+Execution flow when run as a script:
+
+1. The interpreter loads the module, defining `MESSAGE` and `main`.
+2. The `__name__ == "__main__"` guard evaluates true, so `main()` is called.
+3. `main()` calls `print(MESSAGE)`, which writes the message plus a trailing
+   newline (`print`'s default `end="\n"`) to `sys.stdout`.
+4. `main()` returns `None`; the interpreter exits with status code `0`.
+
+## Output contract
+
+- Exactly 22 characters of text (`Hello from the sandbox`) followed by a single
+  newline.
+- No leading/trailing whitespace beyond that newline, no logging, and no output
+  on `stderr`.
+- Exit status `0` on success.
+
+## Verification
+
+The program was executed and its output captured for comparison:
+
+```bash
+$ python3 generated_hello.py
+Hello from the sandbox
+```
+
+An exact-match check confirms nothing extra is emitted:
+
+```bash
+$ python3 generated_hello.py | diff - <(printf 'Hello from the sandbox\n') && echo MATCH
+MATCH
+```
+
+## Notes
+
+- Creating these files added `generated_hello.py` and `GENERATED_REPORT.md`
+  only; no pre-existing, unrelated files were modified or removed.
+- Possible extensions (not implemented, to keep the program minimal): accepting
+  an optional message argument, writing to a file instead of `stdout`, or adding
+  unit tests that assert the printed string.

@@ -1,0 +1,54 @@
+# Generated Report: generated_hello.py
+
+## Summary
+
+`generated_hello.py` is a minimal command-line program. It writes one line of text to
+standard output and then exits:
+
+```
+Hello from the sandbox
+```
+
+## Files
+
+| Path | Role |
+| --- | --- |
+| `generated_hello.py` | The program. |
+| `GENERATED_REPORT.md` | This document. |
+
+No other files were created, modified, or removed.
+
+## How it works
+
+The source defines one function and one entry-point guard:
+
+1. `main()` calls `print("Hello from the sandbox")`. `print` appends a single newline,
+   so the process emits exactly one line.
+2. `if __name__ == "__main__":` runs `main()` only when the file is executed as a script.
+   Importing the module runs nothing.
+
+The program takes no arguments, reads no input, writes no files, and opens no network
+connections. It imports nothing from the standard library.
+
+## Running it
+
+```
+python3 generated_hello.py
+```
+
+Expected output, one line:
+
+```
+Hello from the sandbox
+```
+
+The exit status is `0` on success. Any message on standard error means the interpreter
+could not load or run the file.
+
+## Design notes
+
+- The message lives in one place, inside `main()`. There is no duplication and no
+  configuration to keep in sync.
+- The `main()` / entry-point guard split keeps the behavior testable: a test can import
+  the module and call `main()`, or run it as a subprocess and compare the output line.
+- No dependencies, so it runs on any CPython 3 interpreter.
