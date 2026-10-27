@@ -1,0 +1,123 @@
+# Generated Report
+
+## Overview
+
+This report documents `generated_hello.py`, a minimal, dependency-free Python
+program that emits one line of text to standard output.
+
+## Files
+
+| Path | Role |
+| --- | --- |
+| `generated_hello.py` | The generated program. |
+| `GENERATED_REPORT.md` | This document. |
+
+No pre-existing files were created, modified, or removed as part of this task
+(`commands.py` and `__pycache__/` remain untouched).
+
+## Behavior
+
+- **Input:** none. The program reads no arguments, no environment variables,
+  no standard input, and no files.
+- **Output:** exactly one line on stdout, terminated by a single newline:
+
+  ```
+  Hello from the sandbox
+  ```
+
+- **Exit status:** `0` on success. Any other status indicates an interpreter
+  problem rather than a program error, since there are no failure paths.
+- **Side effects:** none. No files, sockets, or subprocesses are created.
+
+## Implementation
+
+```python
+#!/usr/bin/env python3
+"""Print a single greeting line and exit successfully."""
+
+
+def main() -> None:
+    print("Hello from the sandbox")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Design notes:
+
+1. **`main()` function** — keeps the logic importable. Importing the module
+   (`import generated_hello`) defines `main` without printing anything, because
+   the call is guarded by `if __name__ == "__main__":`. This makes the module
+   usable in tests and in larger programs.
+2. **Single `print` call** — `print` appends exactly one `\n`, so the output is
+   one line and nothing else. The literal is spelled `Hello from the sandbox`
+   with no trailing punctuation and no leading indentation.
+3. **`-> None` annotations and a docstring** — self-documenting and compatible
+   with type checkers such as `mypy` and linters such as `ruff`/`flake8`.
+4. **No third-party imports** — only Python's standard library is used, so the
+   script runs on any CPython 3.x installation.
+
+## How to Run
+
+From the directory containing the file:
+
+```sh
+python3 generated_hello.py
+```
+
+Or, since the file carries a shebang and can be made executable:
+
+```sh
+chmod +x generated_hello.py
+./generated_hello.py
+```
+
+## Verification
+
+Executed in the sandbox:
+
+```sh
+$ python3 generated_hello.py
+Hello from the sandbox
+$ echo $?
+0
+```
+
+Byte-exact check (the expected output is 23 characters: 22 visible characters
+plus the terminating newline):
+
+```sh
+$ python3 generated_hello.py | od -c | head -n 2
+0000000   H   e   l   l   o       f   r   o   m       t   h   e       s
+0000020   a   n   d   b   o   x  \n
+```
+
+## Testing
+
+A minimal unit test that asserts both the printed text and the silent-import
+property:
+
+```python
+import subprocess
+import sys
+
+def test_stdout_matches_expected() -> None:
+    result = subprocess.run(
+        [sys.executable, "generated_hello.py"],
+        capture_output=True, text=True, check=True,
+    )
+    assert result.stdout == "Hello from the sandbox\n"
+    assert result.stderr == ""
+```
+
+## Extending the Program
+
+- **Configurable message:** add `argparse` and a `--message` option, defaulting
+  to `Hello from the sandbox` so current behavior is preserved.
+- **Internationalization:** look up the greeting from a mapping keyed by locale
+  (`locale.getlocale()`), with the current string as the fallback.
+- **Structured output:** emit JSON (e.g. `{"message": ...}`) behind a `--json`
+  flag for machine consumption.
+- **Exit codes:** introduce non-zero codes only if the program gains failure
+  modes such as file or network access.

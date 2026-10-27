@@ -1,0 +1,60 @@
+# GENERATED_REPORT.md
+
+## Purpose
+
+`generated_hello.py` is a minimal, self-contained Python program that writes one
+fixed line of text to standard output. It exists to confirm that a Python
+interpreter is present and working inside the sandbox environment.
+
+## Program under report
+
+| Item | Value |
+| --- | --- |
+| File | `generated_hello.py` |
+| Language | Python 3 |
+| Third-party dependencies | None (standard library only; no imports beyond `__future__`) |
+| Inputs read | None (no arguments, stdin, environment variables, or files) |
+| Side effects | Writes one line to stdout |
+| Exit status | `0` on success |
+
+## Structure
+
+The module is deliberately small and has three parts:
+
+- **Module docstring** — one line stating the module's intent, matching the
+  documentation style used elsewhere in this workspace.
+- **`GREETING`** — a module-level constant holding the exact output text
+  `Hello from the sandbox`. Keeping the literal in a named constant means the
+  string appears once, so it can be compared against expected output directly.
+- **`main()`** — annotated `-> None`; emits `GREETING` with a single `print`
+  call. `print` appends exactly one newline, so the program's complete output is
+  the greeting followed by a line terminator.
+- **`if __name__ == "__main__":` guard** — calls `main()` only when the file is
+  executed as a script. Importing the module for testing or inspection defines
+  `GREETING` and `main` without producing output, which makes the module usable
+  as a test fixture.
+
+## How to run
+
+```bash
+python3 generated_hello.py
+```
+
+Expected output (exactly one line, plus trailing newline):
+
+```text
+Hello from the sandbox
+```
+
+## Verification performed
+
+The script was executed in the workspace with the interpreter available on
+`PATH`. It exited with status `0` and its stdout matched the expected line byte
+for byte, including the single trailing newline and no other output on stdout or
+stderr.
+
+## Notes on scope
+
+Adding this report did not modify any pre-existing file in the workspace.
+`commands.py` and the `__pycache__/` directory are unrelated to this program and
+were preserved as found.
