@@ -101,3 +101,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [Template practice series](notes/proposed/feature/2026-10-27-template-practice-series.md) · [verification](evidence/verify/2026-10-27-template-practice-series.md).
 
 - [More template practice cases](notes/proposed/feature/2026-10-27-template-practice-more.md) · [verification](evidence/verify/2026-10-27-template-practice-more.md).
+
+- [Interpreter expenses practical case](notes/proposed/feature/2026-10-27-interpreter-expenses-case.md) · [verification](evidence/verify/2026-10-27-interpreter-expenses-case.md).
