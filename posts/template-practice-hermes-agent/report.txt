@@ -1,0 +1,15 @@
+# Generated Report
+
+## Program: generated_hello.py
+
+A minimal Python 3 script that prints exactly one line to stdout:
+
+    Hello from the sandbox
+
+### Behavior
+- No input is read; no files or network are touched.
+- Exits with status 0 after printing the single line.
+
+### Run it
+
+    python3 generated_hello.py

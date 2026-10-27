@@ -1,0 +1,11 @@
+{
+  "posts/template-practice-qwen-code/generated_hello.py": "sha256:a57a671fbdb7c8f01b4ca182c02d99d387f96282efff72fe4cc988069a0a1993",
+  "posts/template-practice-qwen-code/quickstart.py": "sha256:77b5c399ed14b3b2668c8fc944841c052965f6ebd8f9fd22377f8410df56ec50",
+  "posts/template-practice-qwen-code/report.txt": "sha256:893e7aedcb78870db44a2d3f3044182c4424982eb8c7db7dc5888eb6640c708a",
+  "posts/template-practice-deepseek-harness/generated_hello.py": "sha256:7a0689976efe34d5e3fee54fda2de67593309ac7b0b59ffe495d5add168b7983",
+  "posts/template-practice-deepseek-harness/quickstart.py": "sha256:0513688230d785e6ca0f014b3614a4da30124842305466fc5ec3bf3a75c357ec",
+  "posts/template-practice-deepseek-harness/report.txt": "sha256:0bf1e4d6de4055d0cd8292aab104c3de10ee2f312cb82f12f4d38fa49227be19",
+  "posts/template-practice-hermes-agent/generated_hello.py": "sha256:bef5d52082fc48aa45a460aec4ec5d98605ef1d35735b4729ea07bb100595e03",
+  "posts/template-practice-hermes-agent/quickstart.py": "sha256:bfeab164093ec21cd8c4673faacd14f446992f58dd38fa02761ff5c117454eb5",
+  "posts/template-practice-hermes-agent/report.txt": "sha256:759a908f9db2bf0b5e80854e473179c5033ac5059999519797c40b993c2bef8d"
+}
