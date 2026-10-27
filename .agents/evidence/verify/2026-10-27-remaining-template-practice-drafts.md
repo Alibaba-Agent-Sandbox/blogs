@@ -1,22 +1,28 @@
-# Remaining template practical plans
+# Native desktop practical case and remaining unpublished plans
 
-Result: PARTIAL (article-source coverage50; seven practical workflows incomplete)
+Result: PARTIAL (44 actual scoped case sources; six practical workflows incomplete)
 
-Date: 2026-10-27. Each of50 catalog templates has one distinct practical article
-source:43 actual scoped cases and7 unpublished plans. This is not50 verified
-providers/templates or50 published business cases. [Coverage](2026-10-27-remaining-template-practice-drafts/coverage.json).
+Date: 2026-10-27. Every one of the 50 catalog templates has one distinct article source:
+44 actual scoped cases and six unpublished plans. Article coverage is separate from
+provider qualification and public publication. [Coverage](2026-10-27-remaining-template-practice-drafts/coverage.json).
 
-- Amp/Qoder/Cursor/Devin require their original account credentials; E2B desktop
-  requires its own authorized account. No key-issuer inference or foreign ID conversion.
-- Native OpenSandbox interpreter actual image pull hit local disk floor before
-  instance creation; frozen SDK installation alone does not establish native use.
-- OSWorld actual native GUI/accessibility gates still fail and repair is ongoing.
-  Its attached HTML/task JSON are actual inputs, not successful results.
-- All seven draft:true articles state missing actual effects. Examples are original
-  current source README programs and explicit configuration/task/cleanup paths;
-  draft Python AST syntax checked, no execution against unavailable accounts claimed.
-- Post validator PASS58/zero problems. Explicit blog sync/full build PASS1263 pages;
-  all14 draft bilingual article routes absent. Website source excludes draft posts
-  in its collection; no fabricated effect image or native credential attachment.
-- Configured-secret scan35 changed files and diff check PASS. Current-head CI
-  and predecessor merge pending.
+- OSWorld source f7a42361fc65fed9af8f5fcafc55411cbe418d61 actual Express and
+  default OpenSandbox each PASS 19 native assertions and 7 fresh documented checks,
+  all 11 named methods, original evaluator/real GUI, expense 51.30 saved with score 0 to 1,
+  independent current XML and changed original PNG. All owned resources absent.
+- Its article includes actual input HTML/task JSON, unchanged executed full SDK
+  attachment and original inspected screenshot. No raster modification or raw
+  credential/private endpoint. Explicit screen/viewport offsets and account/model
+  scope, setup/use/effects/extensions/cleanup. Source PR277 required before publish.
+- Amp/Qoder/Cursor/Devin and E2B desktop require original account credentials.
+  Native OpenSandbox interpreter actual image pull hit local disk floor before
+  instance creation. SDK installation alone does not establish native code use.
+- Six draft:true plans state missing actual effects. Current SDK examples/task/
+  cleanup paths and Python AST syntax checked; no unavailable-account runs claimed.
+- `python scripts/validate.py`: PASS, 58 source posts, zero problems.
+- Explicit website sync and full build: PASS, 1265 pages. Both OSWorld language
+  routes contain the actual amount; all four attachments match source bytes.
+  All 12 bilingual draft routes are absent. Coverage is exactly 50 templates,
+  44 actual scoped cases and six drafts; draft Python attachments parse successfully.
+- Configured-secret scan and `git diff --check`: PASS. Current-head CI,
+  predecessor/source merge and public readback remain pending.

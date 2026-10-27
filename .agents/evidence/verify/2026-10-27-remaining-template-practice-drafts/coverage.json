@@ -179,8 +179,8 @@
     {
       "template": "osworld",
       "article": "posts/template-practice-osworld/index.zh.md",
-      "state": "unpublished-practical-plan",
-      "actual_case_effects_recorded": false,
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
       "whole_template_qualification_claim": false
     },
     {
@@ -352,6 +352,6 @@
       "whole_template_qualification_claim": false
     }
   ],
-  "actual_case_sources": 43,
-  "unpublished_plans": 7
+  "actual_case_sources": 44,
+  "unpublished_plans": 6
 }
