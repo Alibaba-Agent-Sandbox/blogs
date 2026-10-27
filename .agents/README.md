@@ -119,3 +119,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [Three startup model practices](notes/proposed/feature/2026-10-27-three-startup-model-practices.md) · [verification](evidence/verify/2026-10-27-three-startup-model-practices.md). Actual models, all methods and artifacts; full series pending.
 
 - [Three more native practices](notes/proposed/feature/2026-10-27-three-more-native-practices.md) · [verification](evidence/verify/2026-10-27-three-more-native-practices.md).
+
+- [Explicit compatible-agent practical cases](notes/proposed/feature/2026-10-27-explicit-compatible-agent-practices.md) · [verification](evidence/verify/2026-10-27-explicit-compatible-agent-practices.md). Native vendor commands remain unverified; template Beta retained.
