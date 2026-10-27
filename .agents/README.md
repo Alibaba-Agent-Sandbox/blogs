@@ -122,3 +122,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 
 - [Explicit compatible-agent practical cases](notes/proposed/feature/2026-10-27-explicit-compatible-agent-practices.md) · [verification](evidence/verify/2026-10-27-explicit-compatible-agent-practices.md). Native vendor commands remain unverified; template Beta retained.
 - [Native browser/gateway practices](notes/proposed/feature/2026-10-27-browser-gateway-practices.md) · [verification](evidence/verify/2026-10-27-browser-gateway-practices.md).
+
+- [Remaining unpublished practical plans](notes/proposed/feature/2026-10-27-remaining-template-practice-drafts.md) · [verification](evidence/verify/2026-10-27-remaining-template-practice-drafts.md). Article coverage is separate from business qualification/publication.
