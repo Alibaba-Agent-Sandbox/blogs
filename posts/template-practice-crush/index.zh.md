@@ -135,3 +135,16 @@ abx kill "$SANDBOX_ID"
 Crush `0.98.1` 使用 **FSL-1.1-MIT**，当前不是 MIT 或 OSI 批准的开源发行版。
 二次开发和分发前查看[上游许可证](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/crush/upstream-LICENSE.md)；
 模板封装的 Apache-2.0 许可证不会改变原生二进制的授权条件。
+
+## 在 OpenSandbox 中使用同一工作流
+
+这个案例也可以在 OpenSandbox 中完成。先按[OpenSandbox 提供方指南](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/blob/main/opensandbox/docs/README.md)准备服务地址、服务 API Key 和镜像仓库，然后在创建实例前选择平台：
+
+```bash
+export ABX_PROVIDER=opensandbox
+export ABX_OPENSANDBOX_USE_SERVER_PROXY=true
+```
+
+接着执行上面的 launch、业务命令和 SDK 示例；后续终端与 Python 继续使用同一个平台和实例 ID。沙箱 API Key 与应用令牌分别配置，原有业务输入、返回结果和结束实例的方法相同。
+
+这里使用 OpenSandbox1.1.1 的服务代理模式；CLI、完整 SDK 示例和直接 HTTP 都能完成文中的实际任务。代理模式要求客户端能访问服务地址。若部署环境改为直连模式，客户端还必须能访问提供方解析出的端点；更换配置后重新创建自己的实例，不复用另一平台的 ID。

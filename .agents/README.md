@@ -124,3 +124,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [Native browser/gateway practices](notes/proposed/feature/2026-10-27-browser-gateway-practices.md) · [verification](evidence/verify/2026-10-27-browser-gateway-practices.md).
 
 - [Native desktop case and remaining practical plans](notes/proposed/feature/2026-10-27-remaining-template-practice-drafts.md) · [verification](evidence/verify/2026-10-27-remaining-template-practice-drafts.md). Article coverage is separate from business qualification/publication.
+
+- [OpenSandbox practical profiles](notes/proposed/feature/2026-10-27-opensandbox-practical-profiles.md) · [verification](evidence/verify/2026-10-27-opensandbox-practical-profiles.md). Actual per-case platform/endpoint settings; full catalog work remains open.

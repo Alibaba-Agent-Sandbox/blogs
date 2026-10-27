@@ -1,0 +1,227 @@
+{
+  "result": "PASS",
+  "profiles": 13,
+  "checks": [
+    {
+      "slug": "template-practice-polyglot-toolchain",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-polyglot-toolchain",
+      "asset": "quickstart.py",
+      "sha256": "2afe9cb5a64f2656da0c5c993ebf16390e43ea8ca31f7c947eba4e3a631ffeb8"
+    },
+    {
+      "slug": "template-practice-qm-sandbox",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-qm-sandbox",
+      "asset": "note.txt",
+      "sha256": "ff99d0fa4d6124c88227bb9d69622a581230995b7244a459b4b9ee75d622334f"
+    },
+    {
+      "slug": "template-practice-qm-sandbox",
+      "asset": "quickstart.py",
+      "sha256": "b7b73500ec10f827f5997dd2c833ec0b6ec253cf7e31c53bf6e52dd5d7603e82"
+    },
+    {
+      "slug": "template-practice-codex",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-codex",
+      "asset": "generated_hello.py",
+      "sha256": "bef5d52082fc48aa45a460aec4ec5d98605ef1d35735b4729ea07bb100595e03"
+    },
+    {
+      "slug": "template-practice-codex",
+      "asset": "quickstart.py",
+      "sha256": "825e2eabec0659f054faaf03ede7fa15ca79243af9b37f8721694bb6f65df830"
+    },
+    {
+      "slug": "template-practice-codex",
+      "asset": "report.txt",
+      "sha256": "1c1f6bd36b4c77a5ebf78128e825a96f971a900ac2e3707971b76bd95f0221b1"
+    },
+    {
+      "slug": "template-practice-deepseek-harness",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-deepseek-harness",
+      "asset": "generated_hello.py",
+      "sha256": "7a0689976efe34d5e3fee54fda2de67593309ac7b0b59ffe495d5add168b7983"
+    },
+    {
+      "slug": "template-practice-deepseek-harness",
+      "asset": "quickstart.py",
+      "sha256": "0513688230d785e6ca0f014b3614a4da30124842305466fc5ec3bf3a75c357ec"
+    },
+    {
+      "slug": "template-practice-deepseek-harness",
+      "asset": "report.txt",
+      "sha256": "0bf1e4d6de4055d0cd8292aab104c3de10ee2f312cb82f12f4d38fa49227be19"
+    },
+    {
+      "slug": "template-practice-qwen-code",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-qwen-code",
+      "asset": "generated_hello.py",
+      "sha256": "a57a671fbdb7c8f01b4ca182c02d99d387f96282efff72fe4cc988069a0a1993"
+    },
+    {
+      "slug": "template-practice-qwen-code",
+      "asset": "quickstart.py",
+      "sha256": "77b5c399ed14b3b2668c8fc944841c052965f6ebd8f9fd22377f8410df56ec50"
+    },
+    {
+      "slug": "template-practice-qwen-code",
+      "asset": "report.txt",
+      "sha256": "893e7aedcb78870db44a2d3f3044182c4424982eb8c7db7dc5888eb6640c708a"
+    },
+    {
+      "slug": "template-practice-pi",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-pi",
+      "asset": "generated_hello.py",
+      "sha256": "aea08bd21ffc33f03c8dd4f838933d9986fc622854074754359015c2818fdc44"
+    },
+    {
+      "slug": "template-practice-pi",
+      "asset": "quickstart.py",
+      "sha256": "fc62ff0b21d5b2ef6260c436d638ee3171389351178d0eef94b12856d7a22328"
+    },
+    {
+      "slug": "template-practice-pi",
+      "asset": "report.txt",
+      "sha256": "e13f99611215dc2108452b39bf9d559f8fc9fcd19f806b08e0dff886b5212fbd"
+    },
+    {
+      "slug": "template-practice-crush",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-crush",
+      "asset": "generated_hello.py",
+      "sha256": "bef5d52082fc48aa45a460aec4ec5d98605ef1d35735b4729ea07bb100595e03"
+    },
+    {
+      "slug": "template-practice-crush",
+      "asset": "quickstart.py",
+      "sha256": "ef9cb71021cfd490b299c464576d1d409003a1c74b8a39d1d5da589900cdb8c4"
+    },
+    {
+      "slug": "template-practice-crush",
+      "asset": "report.txt",
+      "sha256": "17289fe41ff5baa8114adf7c0d84c3610f88947fd07e44be101873d4386e68e3"
+    },
+    {
+      "slug": "template-practice-kimi-code",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-kimi-code",
+      "asset": "generated_hello.py",
+      "sha256": "815d9663d2c7e2cd6758a57f6825d79eaeb64024d45d4f9df2b6d97893d4a68d"
+    },
+    {
+      "slug": "template-practice-kimi-code",
+      "asset": "quickstart.py",
+      "sha256": "feba6a1c01ea449b2884b307b73ba9bb47484a1c39fa99019dec01eab7110d3d"
+    },
+    {
+      "slug": "template-practice-kimi-code",
+      "asset": "report.txt",
+      "sha256": "572acf9206bdf99e20f54d838f68d6cadc35757e64d7d6a3e2d992e93375881e"
+    },
+    {
+      "slug": "template-practice-agents-cli",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-agents-cli",
+      "asset": "quickstart.py",
+      "sha256": "7196c4587fdf220409b18da054061f44877cb141c4ab631920e3d26842fd7b92"
+    },
+    {
+      "slug": "template-practice-agents-cli",
+      "asset": "qwen-generated.py",
+      "sha256": "136356763af4db0987b77757bd81320191aa249b3d3d267256721ba51ca35436"
+    },
+    {
+      "slug": "template-practice-agents-cli",
+      "asset": "codex-generated.py",
+      "sha256": "fd6f30481cd9ba4d83828ecc02dc76f7c653ac18b4029f1f848fdee361a06679"
+    },
+    {
+      "slug": "template-practice-openclaw",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-openclaw",
+      "asset": "expense-result.json",
+      "sha256": "0a19869e75d13659619eb48738a2f06563142bcd1232bfe3ef8643fb73d9f595"
+    },
+    {
+      "slug": "template-practice-openclaw",
+      "asset": "quickstart.py",
+      "sha256": "280ae88e57468a7fc28b369da7b15556de7bb78fbc679c4e6bd3038bc4eafd3f"
+    },
+    {
+      "slug": "template-practice-stagehand",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-stagehand",
+      "asset": "quickstart.py",
+      "sha256": "e6ed5c253e207c18ac5c8c2d3bf20a22ed1257f38b41d985c1db3d5208b20430"
+    },
+    {
+      "slug": "template-practice-stagehand",
+      "asset": "page.png",
+      "sha256": "25de238543aec6911f2bcbc7c2895dc1315b93adb711ee982711bf4daca11418"
+    },
+    {
+      "slug": "template-practice-chrome",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-chrome",
+      "asset": "quickstart.py",
+      "sha256": "7bd657fb0250e84d2fdc1662c851b7c83b4946e763ba2b43f8b4d7e5143d1255"
+    },
+    {
+      "slug": "template-practice-chrome",
+      "asset": "chrome.png",
+      "sha256": "a7bb19bee59fca4cbfd40cc8d29828bffcbbabc377471253d7f59bc5a95a7e48"
+    },
+    {
+      "slug": "template-practice-code-server",
+      "new_profile_rendered": true
+    },
+    {
+      "slug": "template-practice-code-server",
+      "asset": "browser-ide.png",
+      "sha256": "83293384739d6d109ddc0a06b6b825be77a67ddb0b94e636570e0c00eaf9e03a"
+    },
+    {
+      "slug": "template-practice-code-server",
+      "asset": "quickstart.py",
+      "sha256": "71c07ff3986437b4f88033612d9d147f0b22d898113f2479778c812be97f5362"
+    }
+  ],
+  "unfinished_plans_unpublished": 6,
+  "draft_slugs": [
+    "template-practice-amp",
+    "template-practice-devin",
+    "template-practice-qoder",
+    "template-practice-cursor-agent",
+    "template-practice-desktop",
+    "template-practice-opensandbox-code-interpreter"
+  ]
+}
