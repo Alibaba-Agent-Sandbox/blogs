@@ -1,0 +1,62 @@
+# Generated Report: `generated_hello.py`
+
+## Summary
+
+`generated_hello.py` is a minimal Python program whose only behavior is to write the
+exact line `Hello from the sandbox` to standard output, followed by a newline.
+
+## How to run
+
+```bash
+python3 generated_hello.py
+```
+
+The script is executable directly as well (it carries a `#!/usr/bin/env python3`
+shebang):
+
+```bash
+chmod +x generated_hello.py && ./generated_hello.py
+```
+
+## Expected output
+
+```text
+Hello from the sandbox
+```
+
+Exit status is `0` on success. The program takes no command-line arguments, reads
+no environment variables, and performs no file or network I/O.
+
+## Structure
+
+| Element      | Description                                                        |
+| ------------ | ------------------------------------------------------------------ |
+| `GREETING`   | Module-level constant holding the exact output string.             |
+| `main()`     | Entry point; prints `GREETING` and returns `None`.                 |
+| `__main__`   | Guard that runs `main()` only when the file is executed as a script. |
+
+## Design notes
+
+- **Single source of truth for the text.** The message lives in the `GREETING`
+  constant rather than inline in the `print` call, so the exact wording is defined
+  once and is easy to verify or change.
+- **No trailing whitespace or decoration.** `print` appends exactly one `\n`, so
+  the output is byte-for-byte `Hello from the sandbox\n`.
+- **Script guard.** The `if __name__ == "__main__":` block keeps the module safely
+  importable — importing it (for example, from a test) defines `main` without
+  producing output.
+- **Standard library only.** There are no dependencies to install.
+
+## Verification
+
+```bash
+python3 generated_hello.py | diff - <(printf 'Hello from the sandbox\n')
+```
+
+No output from `diff` confirms the program prints exactly the expected line.
+
+## Files touched
+
+- Created: `generated_hello.py`, `GENERATED_REPORT.md`
+- Unrelated pre-existing files (`commands.py`, `tools_smoke.mjs`, `__pycache__/`)
+  were left unmodified.

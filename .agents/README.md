@@ -107,3 +107,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [Crush practical delivery case](notes/proposed/feature/2026-10-27-crush-practice-case.md) · [verification](evidence/verify/2026-10-27-crush-practice-case.md).
 
 - [SWE Flask repair practical case](notes/proposed/feature/2026-10-27-swe-practice-case.md) · [verification](evidence/verify/2026-10-27-swe-practice-case.md).
+
+- [Seven native-agent practical cases](notes/proposed/feature/2026-10-27-seven-agent-cases.md) · [verification](evidence/verify/2026-10-27-seven-agent-cases.md).

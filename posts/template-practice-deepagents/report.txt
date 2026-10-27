@@ -1,0 +1,93 @@
+# Generated Report: `generated_hello.py`
+
+## Summary
+
+`generated_hello.py` is a small, dependency-free Python script that prints the
+fixed line `Hello from the sandbox` to standard output and exits successfully.
+It was created as requested and performs no other work.
+
+## File inventory
+
+| Path | Status |
+| --- | --- |
+| `generated_hello.py` | **Added** (new file, 183 bytes) |
+| `GENERATED_REPORT.md` | **Added** (this document) |
+
+Nothing else was added, renamed, or deleted. The pre-existing files
+`commands.py`, `worker.py`, `lifecycle.py`, `process.py`, and the `__pycache__/`
+directory are unrelated to this task and were left in place with their original
+contents and permissions (`-rw-------`, timestamps unchanged).
+
+## Source
+
+```python
+#!/usr/bin/env python3
+"""Print a single, fixed greeting line to standard output."""
+
+
+def main() -> None:
+    print("Hello from the sandbox")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+## How it works
+
+1. **Shebang** — `#!/usr/bin/env python3` lets the file be run directly as
+   `./generated_hello.py` on systems where it is executable, while remaining
+   runnable as `python3 generated_hello.py` everywhere.
+2. **`main()`** — all behaviour lives in one function so the logic is callable
+   and testable from elsewhere via `import generated_hello`, rather than
+   executing as a side effect of importing the module.
+3. **The print** — `print("Hello from the sandbox")` writes the message plus
+   the default line terminator. The string is a literal with no formatting,
+   interpolation, or runtime input, so the output cannot vary between runs.
+4. **`__name__` guard** — `if __name__ == "__main__":` ensures `main()` runs
+   only when the file is executed as a script, not when it is imported.
+5. **Exit status** — no value is returned or raised, so the interpreter exits
+   with status `0`.
+
+## Usage
+
+```console
+$ python3 generated_hello.py
+Hello from the sandbox
+```
+
+Requirements: CPython 3 only (verified on Python 3.13.13). No third-party
+packages, no imports from the standard library, no arguments, no environment
+variables, and no filesystem or network access.
+
+## Verified behaviour
+
+The output was checked byte-for-byte with `od -c` rather than by eye:
+
+```
+H   e   l   l   o       f   r   o   m       t   h   e       s   a   n   d   b   o   x  \n
+```
+
+| Check | Result |
+| --- | --- |
+| Standard output | `Hello from the sandbox` — exactly 23 bytes (22 characters + `\n`) |
+| Line count | 1, with a single trailing newline and no blank lines |
+| Standard error | empty (0 bytes) |
+| Exit code | `0` |
+| Stray characters | none — no leading/trailing spaces, no carriage return, so the output matches the requested text exactly |
+| Syntax | `python3 -m py_compile` succeeds |
+
+Behaviour is identical whether the script is invoked from its own directory or
+by absolute path, and repeated runs produce the same output, since nothing in
+the program depends on the working directory, time, or external state.
+
+## Notes
+
+- Verification produced a temporary bytecode file inside the existing
+  `__pycache__/` directory. That artifact belonged to this task, not to the
+  pre-existing project, so it was removed; `__pycache__/` now contains only its
+  original `commands`, `lifecycle`, and `process` bytecode files.
+- A note on paths: the file-editing tools in this environment address files
+  relative to a virtual root (`/generated_hello.py`) that maps onto the real
+  working directory `/home/user/app`. Both views refer to the same file, so the
+  script and this report are located alongside the existing project files.

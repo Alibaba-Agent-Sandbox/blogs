@@ -1,0 +1,34 @@
+# Generated Report: `generated_hello.py`
+
+## What it is
+
+`generated_hello.py` is a single-purpose Python program that writes one fixed line to
+standard output and exits.
+
+## Output
+
+```
+Hello from the sandbox
+```
+
+The program prints exactly that text — no leading or trailing whitespace beyond the
+single newline `print` appends, and no punctuation.
+
+## How to run
+
+```bash
+python3 generated_hello.py
+```
+
+## Structure
+
+| Element | Role |
+| --- | --- |
+| `main()` | Prints the greeting. |
+| `if __name__ == "__main__":` guard | Runs `main()` only when the file is executed directly, so importing the module has no side effects. |
+
+## Details
+
+- No third-party dependencies; only the built-in `print` is used.
+- Exit status is `0` on success.
+- Output goes to stdout, so it can be redirected or piped normally.

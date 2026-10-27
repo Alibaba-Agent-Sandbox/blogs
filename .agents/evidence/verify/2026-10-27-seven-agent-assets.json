@@ -1,0 +1,58 @@
+[
+  {
+    "template": "goose",
+    "assets": {
+      "generated_hello.py": "sha256:b27305e3f2220a2c051b21c0f53c35cf9c35fb7c6aa8f7d0bdade405c4fd5b6f",
+      "quickstart.py": "sha256:c29a40a8adbcda804743f698ffcd363415b0142719da5f4b5ed779a8c857db80",
+      "report.txt": "sha256:ef89ca1e36daff18b8b1c50980ded53be17f564fde30328bec7854417d987ad3"
+    }
+  },
+  {
+    "template": "pi",
+    "assets": {
+      "generated_hello.py": "sha256:aea08bd21ffc33f03c8dd4f838933d9986fc622854074754359015c2818fdc44",
+      "quickstart.py": "sha256:fc62ff0b21d5b2ef6260c436d638ee3171389351178d0eef94b12856d7a22328",
+      "report.txt": "sha256:e13f99611215dc2108452b39bf9d559f8fc9fcd19f806b08e0dff886b5212fbd"
+    }
+  },
+  {
+    "template": "deepagents",
+    "assets": {
+      "generated_hello.py": "sha256:f021707049f1546388a7aea26c72c959d3d1ee382534852ab54a2970e52c5bab",
+      "quickstart.py": "sha256:06cbd65ecc7eebf174baa0c3fec91489d6c490267a74fb5b5809bc620ddbd62f",
+      "report.txt": "sha256:0e097e73584b539d250412e0ddf71178e2754d2afeeb2325327c5f98cd566386"
+    }
+  },
+  {
+    "template": "kimi-code",
+    "assets": {
+      "generated_hello.py": "sha256:815d9663d2c7e2cd6758a57f6825d79eaeb64024d45d4f9df2b6d97893d4a68d",
+      "quickstart.py": "sha256:feba6a1c01ea449b2884b307b73ba9bb47484a1c39fa99019dec01eab7110d3d",
+      "report.txt": "sha256:572acf9206bdf99e20f54d838f68d6cadc35757e64d7d6a3e2d992e93375881e"
+    }
+  },
+  {
+    "template": "grok",
+    "assets": {
+      "generated_hello.py": "sha256:30143e288856a1b8cec44bb6d7e8a1b617a449c899606b3c7aaa69ef2409a79e",
+      "quickstart.py": "sha256:e6bcd3584ad277efbe3b352ca8c453184b73ad265463903d2379cf475025258c",
+      "report.txt": "sha256:8bad16b66de39e93c7d12b9e61a4b54a199beca98970c7e424608627b4ba4758"
+    }
+  },
+  {
+    "template": "cline",
+    "assets": {
+      "generated_hello.py": "sha256:e08d4afcd387e4ecde2414ae7c907ac1b1d57e78853019888dd3dad7a3b9baee",
+      "quickstart.py": "sha256:d28755de08641602080ff9b2843903742eb9ba218176b7042ad970eff29902f1",
+      "report.txt": "sha256:1e214e84029789186bfb8166184cf32593f9bc454bcb6b829381bbe920139bcd"
+    }
+  },
+  {
+    "template": "prime-agent",
+    "assets": {
+      "generated_hello.py": "sha256:bef5d52082fc48aa45a460aec4ec5d98605ef1d35735b4729ea07bb100595e03",
+      "quickstart.py": "sha256:b0f59f7dd984027ad7a879bc92842345492f0ab66bc9ebad7c6feb5426d6e2f8",
+      "report.txt": "sha256:1b5a17ba5609eb3b3dd91a154a988cd8632f4f86a32863be6ad61de1a29ac16e"
+    }
+  }
+]
