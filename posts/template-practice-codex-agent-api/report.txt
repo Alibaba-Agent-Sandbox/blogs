@@ -1,0 +1,43 @@
+# Generated Report
+
+## Overview
+`generated_hello.py` is a minimal Python program that writes a single fixed
+greeting to standard output. It exists to demonstrate that a script can be
+created and executed inside the sandbox workspace.
+
+## Files
+- `generated_hello.py` — the program itself.
+- `GENERATED_REPORT.md` — this document.
+
+## Behavior
+- Prints exactly `Hello from the sandbox` followed by a newline.
+- Produces no other output, reads no input, and touches no files or network.
+- Always exits with status `0`.
+
+## Structure
+- `main()` — calls `print()` once with the literal greeting.
+- `if __name__ == "__main__":` guard — runs `main()` only when the file is
+  executed directly, so importing the module has no side effects.
+
+## How To Run
+```bash
+python3 generated_hello.py
+```
+
+Expected output:
+```text
+Hello from the sandbox
+```
+
+## Verification
+```bash
+python3 generated_hello.py | diff - <(printf 'Hello from the sandbox\n')
+```
+An empty diff confirms the output matches byte for byte.
+
+## Requirements
+- Python 3 (no third-party dependencies; tested with Python 3.13).
+
+## Notes
+- Pre-existing workspace contents are left untouched; only the two files
+  listed above were added.
