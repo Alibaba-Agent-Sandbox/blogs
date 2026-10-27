@@ -113,3 +113,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [Seven native-agent practical cases](notes/proposed/feature/2026-10-27-seven-agent-cases.md) · [verification](evidence/verify/2026-10-27-seven-agent-cases.md).
 
 - [Nine additional practical cases](notes/proposed/feature/2026-10-27-nine-more-practices.md) · [verification](evidence/verify/2026-10-27-nine-more-practices.md). Actual per-template artifacts; overall series pending.
+
+- [Five service and benchmark cases](notes/proposed/feature/2026-10-27-five-service-benchmark-practices.md) · [verification](evidence/verify/2026-10-27-five-service-benchmark-practices.md). Actual workflows and assets; full series pending.
