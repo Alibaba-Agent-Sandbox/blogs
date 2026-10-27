@@ -111,3 +111,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [SWE Flask repair practical case](notes/proposed/feature/2026-10-27-swe-practice-case.md) · [verification](evidence/verify/2026-10-27-swe-practice-case.md).
 
 - [Seven native-agent practical cases](notes/proposed/feature/2026-10-27-seven-agent-cases.md) · [verification](evidence/verify/2026-10-27-seven-agent-cases.md).
+
+- [Nine additional practical cases](notes/proposed/feature/2026-10-27-nine-more-practices.md) · [verification](evidence/verify/2026-10-27-nine-more-practices.md). Actual per-template artifacts; overall series pending.

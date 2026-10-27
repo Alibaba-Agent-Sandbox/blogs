@@ -1,0 +1,45 @@
+# Generated Report: `generated_hello.py`
+
+## Overview
+`generated_hello.py` is a minimal Python program that writes a single line to
+standard output:
+
+```
+Hello from the sandbox
+```
+
+## Structure
+- `main()` — prints the greeting string. No arguments, no return value.
+- `if __name__ == "__main__":` guard — runs `main()` only when the file is
+  executed directly, so it can be imported by tests or other modules without
+  side effects.
+
+## Behavior
+- Input: none (ignores command-line arguments, environment variables, and stdin).
+- Output: the exact text `Hello from the sandbox` followed by a newline, on
+  stdout.
+- Exit status: `0` on success. Any non-zero exit would indicate an environment
+  problem such as a missing or broken interpreter.
+
+## Dependencies
+- Python 3 standard library only. `print` is a builtin, so there are no imports.
+- No filesystem, network, or third-party package access.
+
+## Usage
+```
+python3 generated_hello.py
+```
+
+## Verification
+```
+$ python3 generated_hello.py
+Hello from the sandbox
+```
+Compare byte-for-byte with `diff <(python3 generated_hello.py) <(printf 'Hello from the sandbox\n')`,
+which produces no output when the strings match.
+
+## Notes
+- The program is intentionally side-effect free beyond the single `print`, which
+  keeps it safe to run in restricted sandboxes.
+- No pre-existing files were modified when this program and this report were
+  generated.

@@ -1,0 +1,45 @@
+# Generated Report: `generated_hello.py`
+
+## Overview
+
+`generated_hello.py` is a minimal Python 3 program that prints a single
+greeting line to standard output:
+
+```
+Hello from the sandbox
+```
+
+## Usage
+
+Run it from the repository root:
+
+```bash
+python3 generated_hello.py
+```
+
+Expected output (exactly one line, no trailing whitespace):
+
+```
+Hello from the sandbox
+```
+
+## Structure
+
+| Component | Purpose |
+| --- | --- |
+| Module docstring | Describes the script's intent. |
+| `main()` | Prints the greeting message. |
+| `if __name__ == "__main__":` guard | Ensures `main()` runs only when the file is executed directly, not when imported. |
+
+## Behavior Notes
+
+- The program takes no arguments and reads no input.
+- It has no side effects other than writing one line to stdout.
+- It exits with status code `0` on success.
+- It requires only the Python 3 standard library (no third-party dependencies).
+
+## Relationship to Existing Files
+
+This script is self-contained and does not import or modify the other modules
+in the directory (`commands.py`, `lifecycle.py`, `process.py`). All
+pre-existing files are preserved unchanged.
