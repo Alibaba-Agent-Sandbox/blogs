@@ -24,3 +24,14 @@ Native vendor account commands remain unverified; both whole templates retain Be
   and current-head CI pending.
 Raw credential-bearing provider/model logs remain private. Source owns receipts:
 https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/e8d44eb5b1b8f656efdd1100036f9dcda146bee1/.agents/evidence/verify/2026-10-27-more-provider-practices.md.
+
+Droid actual native BYOK supplement:
+- Original0.241.1 customModels/generic-chat-completion-api path, no authored protocol
+  converter.17 native assertions,16 fresh docs checks including both actual read-only
+  setup methods, CLI/full SDK/HTTP programs/reports and independent exact stdout.
+- Core flash/docs max; matching input identities, all owned outer/prepared/local/
+  remote resources independently absent. Separate Factory-account droid remains
+  unverified; whole-template Beta retained. Original native-final failure preserved.
+- Actual SDK/source/report attachments contain no account keys or private endpoints.
+  New branch has47 posts; explicit blog sync/full website build PASS1255 pages;
+  three bilingual routes/nine exact assets PASS. Configured-secret/diff recheck below.
