@@ -1,0 +1,21 @@
+# GENERATED_REPORT.md
+
+## Program: generated_hello.py
+
+### Purpose
+A minimal generated program that demonstrates sandbox execution by printing a fixed greeting.
+
+### Behavior
+When run, it prints exactly one line to standard output:
+
+```
+Hello from the sandbox
+```
+
+### Usage
+```bash
+python generated_hello.py
+```
+
+### Implementation
+The program consists of a single `print` call with a string literal. It takes no arguments, reads no input, and produces no side effects other than the output line above. It always exits with status 0.
