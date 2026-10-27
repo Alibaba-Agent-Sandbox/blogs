@@ -1,0 +1,30 @@
+{
+  "snapshot": "chrome",
+  "config": [
+    {
+      "type": "chrome_open_tabs",
+      "parameters": {
+        "urls_to_open": [
+          "file:///home/user/app/owned-desktop-expense.html"
+        ]
+      }
+    }
+  ],
+  "evaluator": {
+    "func": "check_include_exclude",
+    "result": {
+      "type": "accessibility_tree"
+    },
+    "expected": {
+      "type": "rule",
+      "rules": {
+        "include": [
+          "Completed 51.30"
+        ],
+        "exclude": [
+          "Awaiting amount"
+        ]
+      }
+    }
+  }
+}

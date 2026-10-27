@@ -1,0 +1,357 @@
+{
+  "scope": "article source coverage, not provider qualification, public publication or all50 completion",
+  "templates": [
+    {
+      "template": "python-hello",
+      "article": "posts/template-practice-python-hello/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "browser-use",
+      "article": "posts/template-practice-browser-use/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "browser-automation",
+      "article": "posts/template-practice-browser-automation/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "claude-code",
+      "article": "posts/template-practice-claude-code/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "copilot-cli",
+      "article": "posts/template-practice-copilot-cli/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "codex",
+      "article": "posts/template-practice-codex/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "codex-agent-api",
+      "article": "posts/template-practice-codex-agent-api/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "qoder",
+      "article": "posts/template-practice-qoder/index.zh.md",
+      "state": "unpublished-practical-plan",
+      "actual_case_effects_recorded": false,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "agents-cli",
+      "article": "posts/template-practice-agents-cli/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "qwen-code",
+      "article": "posts/template-practice-qwen-code/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "deepagents",
+      "article": "posts/template-practice-deepagents/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "deepseek-harness",
+      "article": "posts/template-practice-deepseek-harness/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "hermes-agent",
+      "article": "posts/template-practice-hermes-agent/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "node-web",
+      "article": "posts/template-practice-node-web/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "openclaw",
+      "article": "posts/template-practice-openclaw/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "opencode",
+      "article": "posts/template-practice-opencode/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "amp",
+      "article": "posts/template-practice-amp/index.zh.md",
+      "state": "unpublished-practical-plan",
+      "actual_case_effects_recorded": false,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "droid",
+      "article": "posts/template-practice-droid/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "gemini",
+      "article": "posts/template-practice-gemini/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "document-tools",
+      "article": "posts/template-practice-document-tools/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "media-tools",
+      "article": "posts/template-practice-media-tools/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "pi",
+      "article": "posts/template-practice-pi/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "ocr",
+      "article": "posts/template-practice-ocr/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "aider",
+      "article": "posts/template-practice-aider/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "swe",
+      "article": "posts/template-practice-swe/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "osworld",
+      "article": "posts/template-practice-osworld/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "polyglot-toolchain",
+      "article": "posts/template-practice-polyglot-toolchain/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "kimi-code",
+      "article": "posts/template-practice-kimi-code/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "apply-patch",
+      "article": "posts/template-practice-apply-patch/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "goose",
+      "article": "posts/template-practice-goose/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "code-server",
+      "article": "posts/template-practice-code-server/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "dev-services",
+      "article": "posts/template-practice-dev-services/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "next-app",
+      "article": "posts/template-practice-next-app/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "crush",
+      "article": "posts/template-practice-crush/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "stagehand",
+      "article": "posts/template-practice-stagehand/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "grok",
+      "article": "posts/template-practice-grok/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "cline",
+      "article": "posts/template-practice-cline/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "tau2-bench",
+      "article": "posts/template-practice-tau2-bench/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "chrome",
+      "article": "posts/template-practice-chrome/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "prime-agent",
+      "article": "posts/template-practice-prime-agent/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "appworld",
+      "article": "posts/template-practice-appworld/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "qm-sandbox",
+      "article": "posts/template-practice-qm-sandbox/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "qm",
+      "article": "posts/template-practice-qm/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "muse",
+      "article": "posts/template-practice-muse/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "cursor-agent",
+      "article": "posts/template-practice-cursor-agent/index.zh.md",
+      "state": "unpublished-practical-plan",
+      "actual_case_effects_recorded": false,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "devin",
+      "article": "posts/template-practice-devin/index.zh.md",
+      "state": "unpublished-practical-plan",
+      "actual_case_effects_recorded": false,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "base",
+      "article": "posts/template-practice-base/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "code-interpreter-v1",
+      "article": "posts/template-practice-code-interpreter-v1/index.zh.md",
+      "state": "actual-practical-case-source",
+      "actual_case_effects_recorded": true,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "desktop",
+      "article": "posts/template-practice-desktop/index.zh.md",
+      "state": "unpublished-practical-plan",
+      "actual_case_effects_recorded": false,
+      "whole_template_qualification_claim": false
+    },
+    {
+      "template": "opensandbox-code-interpreter",
+      "article": "posts/template-practice-opensandbox-code-interpreter/index.zh.md",
+      "state": "unpublished-practical-plan",
+      "actual_case_effects_recorded": false,
+      "whole_template_qualification_claim": false
+    }
+  ],
+  "actual_case_sources": 44,
+  "unpublished_plans": 6
+}
