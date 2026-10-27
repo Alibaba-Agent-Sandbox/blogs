@@ -99,3 +99,5 @@ Developer journey cases: [decision](notes/implemented/feature/2026-10-24-develop
 Historical installation/source-pin decisions are superseded by the current public-installation and explicit SDK-entry guidance above. Their original assumptions and evidence are retained, not rewritten as current recommendations.
 
 - [Template practice series](notes/proposed/feature/2026-10-27-template-practice-series.md) · [verification](evidence/verify/2026-10-27-template-practice-series.md).
+
+- [More template practice cases](notes/proposed/feature/2026-10-27-template-practice-more.md) · [verification](evidence/verify/2026-10-27-template-practice-more.md).
