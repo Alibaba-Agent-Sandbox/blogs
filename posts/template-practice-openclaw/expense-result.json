@@ -1,0 +1,11 @@
+{
+  "first": {
+    "count": 3,
+    "total": "51.30"
+  },
+  "followup": {
+    "count": 2,
+    "total": "36.30"
+  },
+  "native_conversation_context": true
+}
