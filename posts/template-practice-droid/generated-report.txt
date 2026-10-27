@@ -1,0 +1,41 @@
+# Generated Report: `generated_hello.py`
+
+## Overview
+
+`generated_hello.py` is a minimal Python program that prints exactly one line to
+standard output:
+
+```
+Hello from the sandbox
+```
+
+## How it works
+
+The script defines a `main()` function that calls the built-in `print()` with the
+fixed string `Hello from the sandbox`. `print()` writes that string followed by a
+trailing newline. The standard `if __name__ == "__main__":` guard invokes
+`main()` when the file is executed as a script, and keeps the function importable
+without side effects when the module is imported elsewhere.
+
+There is no input, no configuration, no dependencies, and no error handling
+required: the behavior is deterministic and constant.
+
+## Usage
+
+Run it with any Python 3 interpreter:
+
+```
+python3 generated_hello.py
+```
+
+Expected output (a single line, plus the terminating newline):
+
+```
+Hello from the sandbox
+```
+
+## Notes
+
+- Exit status is `0` on success.
+- Output goes to stdout; nothing is written to stderr or to any file.
+- The program does not modify or depend on the other files in this project.

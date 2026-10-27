@@ -1,0 +1,159 @@
+# GENERATED_REPORT.md
+
+Report for the generated artifact `generated_hello.py` in the target project
+`/home/user/app`.
+
+## Summary
+
+`generated_hello.py` is a self-contained Python 3 command-line program whose
+sole behaviour is to print one fixed line to standard output:
+
+```
+Hello from the sandbox
+```
+
+It exists as a minimal, deterministic smoke test: if the interpreter, the
+working directory, and stdout redirection all function, the program prints that
+exact line and exits `0`.
+
+## Absolute paths
+
+| Artifact | Absolute path |
+| --- | --- |
+| Program | `/home/user/app/generated_hello.py` |
+| This report | `/home/user/app/GENERATED_REPORT.md` |
+
+## Source
+
+```python
+#!/usr/bin/env python3
+"""Minimal sandbox smoke-test program.
+
+Prints a single fixed line to standard output and exits successfully. It takes
+no arguments, reads no configuration, and never touches the filesystem or the
+network, so it behaves identically in every environment.
+"""
+
+GREETING = "Hello from the sandbox"
+
+
+def main() -> int:
+    """Write the greeting to stdout and report success."""
+    print(GREETING)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+```
+
+## How it works
+
+1. **Module-level constant** — `GREETING` holds the exact output string. Keeping
+   it in a named constant means the expected text appears once, so a test can
+   import the module and assert against `generated_hello.GREETING` rather than
+   duplicating a literal.
+2. **`main() -> int`** — writes `GREETING` to stdout via the built-in `print`
+   (which appends a single `\n`) and returns the process exit status `0`. The
+   return type annotation and the `int` return value follow the conventional
+   Python CLI shape, so `main()` is directly callable from a test harness.
+3. **Entry-point guard** — `if __name__ == "__main__":` ensures the program only
+   runs when executed as a script, not when imported.
+4. **`raise SystemExit(main())`** — propagates `main()`'s return value as the
+   process exit code. `SystemExit(0)` terminates cleanly with status `0`, and the
+   structure leaves an obvious place to return a non-zero status later if the
+   program grows.
+
+## Behaviour and contract
+
+- **stdout:** exactly `Hello from the sandbox\n` (23 bytes: 22 characters plus
+  the newline `print` appends).
+- **stderr:** nothing is written.
+- **Exit code:** `0` on every run; the program has no failure path.
+- **Arguments:** none are inspected (`sys` is never imported). Any arguments
+  supplied on the command line are simply ignored rather than rejected, keeping
+  invocation frictionless.
+- **Side effects:** none. The program performs no file, network, environment,
+  subprocess, or global-state access. Output depends on no inputs, so runs are
+  byte-for-byte reproducible.
+- **Encoding:** the message is pure ASCII, so it encodes correctly under any
+  locale or stdout encoding, including constrained CI environments.
+
+## Requirements
+
+- Python 3.6 or newer (function annotations are the only version-sensitive
+  feature used); tested with the `python3` interpreter on `PATH`.
+- No third-party packages and no standard-library imports.
+- No dependency on the current working directory, so it runs from any location.
+
+## How to run
+
+```sh
+python3 /home/user/app/generated_hello.py
+```
+
+Or, because the file carries a `#!/usr/bin/env python3` shebang:
+
+```sh
+chmod +x /home/user/app/generated_hello.py
+/home/user/app/generated_hello.py
+```
+
+## Verification performed
+
+The program was executed with the system Python 3 interpreter using its absolute
+path:
+
+```
+$ python3 /home/user/app/generated_hello.py
+Hello from the sandbox
+```
+
+Observed results:
+
+- stdout matched the required string exactly, with no leading or trailing
+  whitespace beyond `print`'s single newline.
+- stderr was empty; no warnings, deprecation notices, or tracebacks were emitted.
+- The process completed successfully (exit status `0`).
+
+A byte-exact assertion can be reproduced with:
+
+```sh
+python3 /home/user/app/generated_hello.py | od -c | head -2
+```
+
+## Relationship to the existing project
+
+`/home/user/app` already contained unrelated source files, which were left
+completely untouched:
+
+- `byok.py`
+- `commands.py`
+- `lifecycle.py`
+- `process.py`
+- `relay.py`
+- `upstream.json`
+- `__pycache__/`
+
+No existing file was read for modification, overwritten, renamed, or deleted,
+and no project-wide configuration (import paths, packaging metadata, or
+interpreter settings) was altered. `generated_hello.py` is deliberately
+standalone: it imports nothing from the surrounding modules and nothing imports
+it, so it cannot affect the behaviour of the rest of the project. Only the two
+new files named in the table above were created.
+
+## Design notes and limitations
+
+- The message is intentionally hard-coded. Parameterising it (via arguments or
+  environment variables) would contradict the requirement to print one exact
+  string and would introduce inputs that could vary between runs.
+- There is no error handling, because there is no operation that can fail.
+  Adding `try`/`except` around a `print` call would be defensive noise; the only
+  realistic failure (a closed or full stdout) is already surfaced by the
+  interpreter as a non-zero exit.
+- No test file was added. The project contains no test suite, test runner
+  configuration, or test directory to extend, and the requirement was limited to
+  the two artifacts above. Verification was therefore done by direct execution,
+  as recorded in the previous section. If a suite is introduced later, the
+  natural test is a `capsys`-style assertion that `main()` returns `0` and that
+  captured stdout equals `GREETING + "\n"`.

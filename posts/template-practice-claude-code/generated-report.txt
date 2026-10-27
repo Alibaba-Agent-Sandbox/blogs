@@ -1,0 +1,32 @@
+# Generated Report: generated_hello.py
+
+## Overview
+
+`generated_hello.py` is a minimal Python program that prints a fixed greeting
+message to standard output.
+
+## Source
+
+```python
+print("Hello from the sandbox")
+```
+
+## Behavior
+
+- When executed (e.g. `python3 generated_hello.py`), it writes exactly one
+  line to stdout: `Hello from the sandbox`
+- The program takes no input, performs no I/O other than the single print
+  statement, and exits with status code 0.
+
+## Requirements
+
+- Python 3 (uses only the built-in `print` function; no third-party or
+  standard library imports).
+
+## Verification
+
+Executed and confirmed to output:
+
+```
+Hello from the sandbox
+```
