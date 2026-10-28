@@ -85,6 +85,19 @@ python quickstart.py
 
 业务开发可把输入源码和原始测试上传到自己的目录，让会话选择这个已有 workspace_directory；要求保留原始测试、生成报告和目标文件，再从独立接口运行检查。原生会话请求只接受已发布的字段，不要把 SDK 内部 AgentSpec 的 permissions 等字段直接放入公共请求。全部命令、六个运行时/会话路由及边界见[模板说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/agents-cli/README.zh-CN.md)。
 
+## 在 OpenSandbox 中使用同一工作流
+
+这个案例也可以在 OpenSandbox 中完成。先按[OpenSandbox 提供方指南](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/blob/main/opensandbox/docs/README.md)准备服务地址、服务 API Key 和镜像仓库，然后在创建实例前选择平台：
+
+```bash
+export ABX_PROVIDER=opensandbox
+export ABX_OPENSANDBOX_USE_SERVER_PROXY=true
+```
+
+接着执行上面的 launch、业务命令和 SDK 示例；后续终端与 Python 继续使用同一个平台和实例 ID。沙箱 API Key 与应用令牌分别配置，原有业务输入、返回结果和结束实例的方法相同。
+
+这里使用 OpenSandbox1.1.1 的服务代理模式；CLI、完整 SDK 示例和直接 HTTP 都能完成文中的实际任务。代理模式要求客户端能访问服务地址。若部署环境改为直连模式，客户端还必须能访问提供方解析出的端点；更换配置后重新创建自己的实例，不复用另一平台的 ID。
+
 ## 导出与结束
 
 原生工具可能修改工作区，先保存所需源码和报告。此受限模板没有开放取消或删除会话路由，客户端断开不表示取消；结束当前拥有的实例可以停止其中工作：

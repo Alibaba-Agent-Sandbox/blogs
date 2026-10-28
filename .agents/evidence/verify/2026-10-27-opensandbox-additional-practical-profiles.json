@@ -1,0 +1,90 @@
+[
+  {
+    "template": "copilot-cli",
+    "profile": "repaired-opensandbox-01",
+    "model": "qwen3.8-flash",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "Independent Registry current-source review required"
+  },
+  {
+    "template": "qm",
+    "profile": "repaired-opensandbox-01",
+    "model": "qwen3.8-flash",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "Independent Registry current-source review required"
+  },
+  {
+    "template": "cline",
+    "profile": "repaired-opensandbox-01",
+    "model": "qwen3.8-flash",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "Independent Registry current-source review required"
+  },
+  {
+    "template": "prime-agent",
+    "profile": "repaired-opensandbox-01",
+    "model": "qwen3.8-flash",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "Independent Registry current-source review required"
+  },
+  {
+    "template": "grok",
+    "profile": "repaired-opensandbox-01",
+    "model": "qwen3.8-flash",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "Independent Registry current-source review required"
+  },
+  {
+    "template": "hermes-agent",
+    "profile": "repaired-opensandbox-01",
+    "model": "qwen3.8-flash",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "Independent Registry current-source review required"
+  },
+  {
+    "template": "deepagents",
+    "profile": "opensandbox-flash-04",
+    "model": "qwen3.8-flash",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "Independent Registry current-source review required"
+  },
+  {
+    "template": "muse",
+    "profile": "repaired-max-opensandbox-02",
+    "model": "qwen3.8-max",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "Independent Registry current-source review required"
+  },
+  {
+    "template": "claude-code",
+    "profile": "opensandbox-byok-business-06",
+    "model": "qwen3.8-max",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "PARTIAL; native vendor account method unverified"
+  },
+  {
+    "template": "gemini",
+    "profile": "opensandbox-byok-business-06",
+    "model": "qwen3.8-max",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "PARTIAL; native vendor account method unverified"
+  },
+  {
+    "template": "droid",
+    "profile": "opensandbox-byok-business-06",
+    "model": "qwen3.8-max",
+    "endpoint_mode": "direct",
+    "business_result": "PASS",
+    "whole_template_qualification": "PARTIAL; native vendor account method unverified"
+  }
+]

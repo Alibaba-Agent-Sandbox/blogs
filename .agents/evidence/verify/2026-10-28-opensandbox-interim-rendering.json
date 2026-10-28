@@ -1,0 +1,232 @@
+{
+  "result": "PASS",
+  "scope": "interim explicit58-post sync and actual local website rendering; no cloud qualification inferred",
+  "checked_at": "2026-10-28T01:39:11.311624+00:00",
+  "rendered_profiles": 21,
+  "byte_exact_attachments": 113,
+  "unpublished_draft_routes_absent": 6,
+  "pages_built": 1265,
+  "operator_inspection_correction": "Initial inspector incorrectly assumed dist and failed before page validation; corrected to configured Astro outDir build, with no product/source changes.",
+  "checks": [
+    {
+      "template": "python-hello",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "browser-use",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "browser-automation",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "claude-code",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "copilot-cli",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "codex",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "codex-agent-api",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "agents-cli",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "qwen-code",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "deepagents",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "deepseek-harness",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "hermes-agent",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "node-web",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "openclaw",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "opencode",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "droid",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "gemini",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "document-tools",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "media-tools",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "pi",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "ocr",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "aider",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "swe",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "osworld",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "polyglot-toolchain",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "kimi-code",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "apply-patch",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "goose",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "code-server",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "dev-services",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "next-app",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "crush",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "stagehand",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "grok",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "cline",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "tau2-bench",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "chrome",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "prime-agent",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "appworld",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "qm-sandbox",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "qm",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "muse",
+      "article_rendered": true,
+      "profile_rendered": true
+    },
+    {
+      "template": "base",
+      "article_rendered": true,
+      "profile_rendered": false
+    },
+    {
+      "template": "code-interpreter-v1",
+      "article_rendered": true,
+      "profile_rendered": false
+    }
+  ]
+}

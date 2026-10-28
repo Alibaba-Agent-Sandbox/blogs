@@ -71,6 +71,19 @@ CLI、Python、HTTP 是替代入口，选择一种即可；本文的三种入口
 
 `code_server_status` 查看当前服务，`code_server_stop` 停止本次拥有的进程并删除私有 IDE 配置、会话和日志。工作区文件仍保留到实例删除，先导出源码。全部五个命名入口包含版本、启动、状态、停止和带密码认证的原生 self-test。
 
+## 在 OpenSandbox 中使用同一工作流
+
+这个案例也可以在 OpenSandbox 中完成。先按[OpenSandbox 提供方指南](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/blob/main/opensandbox/docs/README.md)准备服务地址、服务 API Key 和镜像仓库，然后在创建实例前选择平台：
+
+```bash
+export ABX_PROVIDER=opensandbox
+export ABX_OPENSANDBOX_USE_SERVER_PROXY=false
+```
+
+接着执行上面的 launch、业务命令和 SDK 示例；后续终端与 Python 继续使用同一个平台和实例 ID。沙箱 API Key 与应用令牌分别配置，原有业务输入、返回结果和结束实例的方法相同。
+
+这里使用能从本机访问的直连端点，再通过 SDK 预览入口打开 IDE。OpenSandbox1.1.1 的服务代理会移除 Cookie，不能保持这个 IDE 的登录会话；不能仅凭出现登录页面或工作台外壳判断编辑器已连接。保留原生密码、会话 Cookie、网关头和 HTTPS 校验，按前面的步骤打开文件、修改并保存，再独立执行保存后的源码。CLI、完整 SDK 示例与直接 HTTP 都已完成同样的实际编辑器生命周期。
+
 ## 导出与结束
 
 需要的文件先取回，再停止服务并结束实例：

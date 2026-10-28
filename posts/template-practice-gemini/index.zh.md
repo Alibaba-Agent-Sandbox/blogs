@@ -67,3 +67,19 @@ abx kill "$SANDBOX_ID"
 ```
 
 先保存需要的源码和报告，SDK close 只关闭连接。模板与镜像按[清理指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md#导出文件与清理)只删除自己的资源。本例的实例、预备模板、本地和远端镜像均独立确认不存在。
+
+## 在 OpenSandbox 中使用同一工作流
+
+先按[OpenSandbox 提供方指南](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/blob/main/opensandbox/docs/README.md)准备服务地址、服务 API Key 和镜像仓库。在创建前保留上面的模型 Key 与 endpoint，并选择平台、直连模式和模型：
+
+```bash
+export ABX_PROVIDER=opensandbox
+export ABX_OPENSANDBOX_USE_SERVER_PROXY=false
+export GEMINI_BYOK_MODEL='qwen3.8-max'
+```
+
+这里的模型 ID 来自本例的模型服务，需与自己的 Key、endpoint 和授权匹配。接着执行前面的 launch、业务命令和完整 SDK 示例，后续调用继续使用同一平台和新实例 ID。CLI、SDK 与直接 HTTP 已分别完成本文的实际任务，并独立读取产物。
+
+直连要求客户端能访问提供方解析出的端点；保留网关头、URL 路径/查询和独立应用令牌。服务代理与直连是不同的部署配置，客户端的等待时间不会改变上游代理期限，也不会延长远端任务或实例寿命。更换平台或启动模型配置后重新创建实例，先导出旧实例中的文件。
+
+本节使用前面明确配置的 BYOK/兼容模型路径和原版 CLI。原生订阅账号入口 `gemini` 尚未完成实际账号使用验收，因此模板继续保留 Beta；这里的业务结果不表示已经登录对应厂商账号。

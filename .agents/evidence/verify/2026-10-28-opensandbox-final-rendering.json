@@ -1,0 +1,238 @@
+{
+  "result": "PASS",
+  "checked_at": "2026-10-28T03:34:33.515676+00:00",
+  "scope": "explicit58-post sync,current actual article/rendered configuration/byte-exact attachments/draft route absence; runtime acceptance separate",
+  "actual_template_articles": 44,
+  "rendered_OS_profiles": 24,
+  "byte_exact_attachments": 113,
+  "unpublished_draft_routes_absent": 6,
+  "pages_built": 1265,
+  "partial_vendor_profiles": [
+    "claude-code",
+    "gemini",
+    "droid"
+  ],
+  "operator_correction": "Validator was initially invoked from preview checkout where it does not exist; corrected owning blogs invocation validates58posts/0problems. No product change.",
+  "checks": [
+    {
+      "template": "python-hello",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "browser-use",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "browser-automation",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "claude-code",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "copilot-cli",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "codex",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "codex-agent-api",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "agents-cli",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "qwen-code",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "deepagents",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "deepseek-harness",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "hermes-agent",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "node-web",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "openclaw",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "opencode",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "droid",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "gemini",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "document-tools",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "media-tools",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "pi",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "ocr",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "aider",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "swe",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "osworld",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "polyglot-toolchain",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "kimi-code",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "apply-patch",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "goose",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "code-server",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "dev-services",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "next-app",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "crush",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "stagehand",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "grok",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "cline",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "tau2-bench",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "chrome",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "prime-agent",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "appworld",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "qm-sandbox",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "qm",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "muse",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": true
+    },
+    {
+      "template": "base",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    },
+    {
+      "template": "code-interpreter-v1",
+      "article_rendered": true,
+      "opensandbox_profile_rendered": false
+    }
+  ]
+}

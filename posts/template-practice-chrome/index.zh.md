@@ -79,6 +79,21 @@ chrome_start 返回本次会话的 VNC 密码。解析6080端口，通过保留�
 修改模板时从自己的源码副本开始，固定依赖和项目配置，保留上游许可证。
 自己的代码、数据和页面保存在沙箱工作区，先导出需要的结果再结束实例。
 
+## 在 OpenSandbox 中使用同一工作流
+
+这个案例也可以在 OpenSandbox 中完成。先按[OpenSandbox 提供方指南](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/blob/main/opensandbox/docs/README.md)准备服务地址、服务 API Key 和镜像仓库，然后在创建实例前选择平台：
+
+```bash
+export ABX_PROVIDER=opensandbox
+export ABX_OPENSANDBOX_USE_SERVER_PROXY=true
+```
+
+接着执行上面的 launch、业务命令和 SDK 示例；后续终端与 Python 继续使用同一个平台和实例 ID。沙箱 API Key 与应用令牌分别配置，原有业务输入、返回结果和结束实例的方法相同。
+
+这里使用 OpenSandbox1.1.1 的服务代理模式；CLI、完整 SDK 示例和直接 HTTP 都能完成文中的实际任务。代理模式要求客户端能访问服务地址。若部署环境改为直连模式，客户端还必须能访问提供方解析出的端点；更换配置后重新创建自己的实例，不复用另一平台的 ID。
+
+CDP 的 HTTP/WebSocket 连接使用应用令牌，与 noVNC 的会话密码分开。代理可能移除 Authorization；Chrome1.0.9 支持在没有收到 Authorization 时使用 `X-Access-Token`。保留提供方返回的网关头、URL 路径和查询，使用空闲的应用认证头，避免覆盖网关认证；如果没有空闲认证头，需要兼容的路由。到达 relay 的显式错误 Bearer 不会被正确 fallback 补救。6080端口继续输入 chrome_start 返回的原生 VNC 密码。
+
 ## 导出并结束
 
 业务完成后，按完整说明停止自己启动的服务，下载需要的文件，再执行：

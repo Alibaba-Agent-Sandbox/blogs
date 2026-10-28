@@ -78,6 +78,20 @@ HTTP 用户按[直接 HTTP 指南](https://github.com/Alibaba-Agent-Sandbox/awes
 保留原生程序的版本和授权。扩展权限或接入其他工具时，按自己的业务验证实际行为。
 全部参数、返回类型与上游边界见[模板说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/copilot-cli/README.zh-CN.md)。
 
+## 在 OpenSandbox 中使用同一工作流
+
+先按[OpenSandbox 提供方指南](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/blob/main/opensandbox/docs/README.md)准备服务地址、服务 API Key 和镜像仓库。在创建前保留上面的模型 Key 与 endpoint，并选择平台、直连模式和模型：
+
+```bash
+export ABX_PROVIDER=opensandbox
+export ABX_OPENSANDBOX_USE_SERVER_PROXY=false
+export COPILOT_MODEL='qwen3.8-flash'
+```
+
+这里的模型 ID 来自本例的模型服务，需与自己的 Key、endpoint 和授权匹配。接着执行前面的 launch、业务命令和完整 SDK 示例，后续调用继续使用同一平台和新实例 ID。CLI、SDK 与直接 HTTP 已分别完成本文的实际任务，并独立读取产物。
+
+直连要求客户端能访问提供方解析出的端点；保留网关头、URL 路径/查询和独立应用令牌。服务代理与直连是不同的部署配置，客户端的等待时间不会改变上游代理期限，也不会延长远端任务或实例寿命。更换平台或启动模型配置后重新创建实例，先导出旧实例中的文件。
+
 ## 更换模型与结束任务
 
 保存产物后 export 新的模型 ID，重新 launch 同一模板，使用新实例 ID；更换服务时同步更换

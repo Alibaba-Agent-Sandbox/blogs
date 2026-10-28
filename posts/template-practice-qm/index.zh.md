@@ -64,6 +64,20 @@ CLI、Python、HTTP 是替代入口，选择一种即可；本文的三种入口
 
 上传自己的源码和保留的原始测试，使用 `cwd` 选择 WORKSPACE 内已有目录，再描述目标、不可修改的文件和所需产物。独立下载结果后运行原始及边界测试。当前为原版 QM0.1.0 库/工具与固定源码构建的 SDK0.1.0 集成，不代表 SDK 已发布到 npm，也不包含原版多人协作、Slack、订阅和持久化服务。工具可能修改工作区，应保留自己的输入副本。
 
+## 在 OpenSandbox 中使用同一工作流
+
+先按[OpenSandbox 提供方指南](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/blob/main/opensandbox/docs/README.md)准备服务地址、服务 API Key 和镜像仓库。在创建前保留上面的模型 Key 与 endpoint，并选择平台、直连模式和模型：
+
+```bash
+export ABX_PROVIDER=opensandbox
+export ABX_OPENSANDBOX_USE_SERVER_PROXY=false
+export QM_MODEL='qwen3.8-flash'
+```
+
+这里的模型 ID 来自本例的模型服务，需与自己的 Key、endpoint 和授权匹配。接着执行前面的 launch、业务命令和完整 SDK 示例，后续调用继续使用同一平台和新实例 ID。CLI、SDK 与直接 HTTP 已分别完成本文的实际任务，并独立读取产物。
+
+直连要求客户端能访问提供方解析出的端点；保留网关头、URL 路径/查询和独立应用令牌。服务代理与直连是不同的部署配置，客户端的等待时间不会改变上游代理期限，也不会延长远端任务或实例寿命。更换平台或启动模型配置后重新创建实例，先导出旧实例中的文件。
+
 ## 导出与结束
 
 需要的文件先取回，再停止服务并结束实例：

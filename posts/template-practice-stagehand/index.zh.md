@@ -64,6 +64,19 @@ CLI、SDK、HTTP 是替代入口，选择一种即可。本例完整页面流程
 
 模型不会自动保证动作可重复。提交、支付或发布等操作需要自己的幂等设计，不能看到网络超时便盲目重复点击。调用后检查真实目标 URL、提取结果和业务状态，再决定是否继续。保持原版依赖与许可证，修改自己模板副本的封装参数即可接入自己的应用。
 
+## 在 OpenSandbox 中使用同一工作流
+
+这个案例也可以在 OpenSandbox 中完成。先按[OpenSandbox 提供方指南](https://github.com/Alibaba-Agent-Sandbox/awesome-providers/blob/main/opensandbox/docs/README.md)准备服务地址、服务 API Key 和镜像仓库，然后在创建实例前选择平台：
+
+```bash
+export ABX_PROVIDER=opensandbox
+export ABX_OPENSANDBOX_USE_SERVER_PROXY=true
+```
+
+接着执行上面的 launch、业务命令和 SDK 示例；后续终端与 Python 继续使用同一个平台和实例 ID。沙箱 API Key 与应用令牌分别配置，原有业务输入、返回结果和结束实例的方法相同。
+
+这里使用 OpenSandbox1.1.1 的服务代理模式；CLI、完整 SDK 示例和直接 HTTP 都能完成文中的实际任务。代理模式要求客户端能访问服务地址。若部署环境改为直连模式，客户端还必须能访问提供方解析出的端点；更换配置后重新创建自己的实例，不复用另一平台的 ID。
+
 ## 导出并结束
 
 截图可能包含业务数据，先保存需要的结果，再结束自己的实例：
