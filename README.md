@@ -6,9 +6,9 @@ The source of the Agent Sandbox blog: cases, tutorials, announcements and engine
 
 ## 当前用法与历史案例 · Current guidance and reproducible cases
 
-新项目从[开始使用](https://www.agent-sandbox.cn/start/)选择安装与调用入口。当前 CLI 为 [0.4.17](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.4.17)，Python client/server 为 [0.3.1a5 alpha](https://github.com/Alibaba-Agent-Sandbox/python-sdk/releases/tag/v0.3.1a5)。默认 `base` 案例通过文件与进程 API 执行脚本；命名应用命令、持久解释器与 PTY 按各自的实际接口说明使用。
+新项目从[开始使用](https://www.agent-sandbox.cn/start/)选择安装与调用入口。本轮模板实践固定使用 [CLI 0.5.7](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.7) 和 Python client/server `0.4.0a6`（显式选择的 PyPI alpha），各文章给出自己的安装版本与平台配置。默认 `base` 案例通过文件与进程 API 执行脚本；命名应用命令、持久解释器与 PTY 按各自的实际接口说明使用。
 
-For new projects, follow [Get started](https://www.agent-sandbox.cn/en/start/). Current releases are CLI 0.4.17 and Python client/server 0.3.1a5 alpha. The default `base` walkthrough uses file and process APIs; named application commands, persistent interpreters and PTY have separate interfaces and prerequisites.
+For new projects, follow [Get started](https://www.agent-sandbox.cn/en/start/). The template practice cases pin CLI 0.5.7 and Python client/server 0.4.0a6 (explicit PyPI alpha); follow each article’s installation and provider settings. The default `base` walkthrough uses file and process APIs; named application commands, persistent interpreters and PTY have separate interfaces and prerequisites.
 
 五篇 `developer-journey-*` 案例保留实际运行时使用的 CLI 0.4.12、Python 0.3.1a2 及各自固定的沙箱内依赖。升级当前安装指南不会改写旧脚本、生成结果或实验记录，也不表示它们已在新版重新运行。模板目录的后续默认启动矩阵另见 [46 个源码模板的双平台记录](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/78c30fbbd186cb59c3a0f0abd9fdf85b10c84b35/.agents/evidence/verify/2026-10-24-public-template-matrix.md)；不能替代案例中的具体模型或业务任务。
 

@@ -39,3 +39,9 @@ provider method/artifact/cleanup evidence, never replace it with prose checks.
 Only actually completed platform profiles are described as working. Producer fixes,
 current-head blog checks, website integration and final public readback must pass.
 Full50-template work remains open while external prerequisites are missing.
+
+Final delivery extends24 actual OpenSandbox practical profiles while preserving
+44 published real template case articles and6 unpublished plans. The3 compatible
+CLI profiles describe only actual BYOK business, with native vendor-account methods
+explicitly unverified andBeta retained. Source fixes/evidence are merged; the final
+rendering record checks every actual case,113 attachments and6 absent draft routes.

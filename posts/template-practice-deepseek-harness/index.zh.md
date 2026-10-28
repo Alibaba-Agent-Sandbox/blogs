@@ -105,9 +105,9 @@ SDK close 只关闭连接。预备模板和镜像按[清理指南](https://githu
 
 ```bash
 export ABX_PROVIDER=opensandbox
-export ABX_OPENSANDBOX_USE_SERVER_PROXY=true
+export ABX_OPENSANDBOX_USE_SERVER_PROXY=false
 ```
 
 接着执行上面的 launch、业务命令和 SDK 示例；后续终端与 Python 继续使用同一个平台和实例 ID。沙箱 API Key 与应用令牌分别配置，原有业务输入、返回结果和结束实例的方法相同。
 
-这里使用 OpenSandbox1.1.1 的服务代理模式；CLI、完整 SDK 示例和直接 HTTP 都能完成文中的实际任务。代理模式要求客户端能访问服务地址。若部署环境改为直连模式，客户端还必须能访问提供方解析出的端点；更换配置后重新创建自己的实例，不复用另一平台的 ID。
+这里使用 OpenSandbox1.1.1 的直连模式；CLI、完整 SDK 示例和直接 HTTP 分别完成文中的实际任务。客户端需要能访问提供方解析出的端点，并保留网关头、路径、查询和独立应用令牌。切换配置后重新创建自己的实例，不复用另一平台的 ID。
