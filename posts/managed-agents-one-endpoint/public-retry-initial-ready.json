@@ -3,7 +3,7 @@
   "template_commit": "a4d43370ff82e244c542412d0af0c68759d19fdb",
   "template_version": "0.1.3",
   "cli_distribution": "npm @agent-sandbox/cli@0.5.9",
-  "sdk_distribution": "public PyPI agent-sandbox/agent-sandbox-server 0.4.0a7",
+  "sdk_distribution": "public PyPI agent-sandbox-client[managed-agents]/agent-sandbox-server 0.4.0a7",
   "steps": [
     {
       "label": "public-retry-public-cli-build",

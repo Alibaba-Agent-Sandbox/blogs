@@ -398,3 +398,14 @@ Runtime's prior whole-reorder peer accepted the actual result split. Corrected
 Operation wording to succeeded plus result.stop_confirmed=true; replaced the
 unsupported cloud raw terminating-chunk observation with full normal EOF. The
 cloud SSE code did not retain raw framing; local SDK framing evidence is separate.
+
+Corrected an author-written distribution label in the unmerged readiness projection:
+actual Server Dockerfile installs agent-sandbox-client[managed-agents], not the
+agent-sandbox distribution shorthand used in its first label. The public source
+Dockerfile and client distribution contract independently establish the correct
+name; the guest uses agent-sandbox-server. No source/native response, byte hash,
+exit or pass/fail was changed. The earlier6617... projection hash remains the
+history of the initial label; corrected projection SHA is recorded with this
+change. The main article never instructed installing the incorrect distribution.
+Corrected projection1546 bytes/SHA
+f99d643a3ae7eb65f72c819f53e150bd373ee96f666b092a5d07f9802d60ebc9.
