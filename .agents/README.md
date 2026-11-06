@@ -1,5 +1,7 @@
 # Engineering records: blogs
 
+- Pending: [managed Agents single-endpoint practical article](notes/proposed/feature/2026-11-06-managed-agents-best-practice.md) · [preparation evidence](evidence/verify/2026-11-06-managed-agents-best-practice.md). Actual hosted outcomes and final article validation remain pending.
+
 Pending: [unified template launch tutorial](notes/proposed/process/2026-10-25-unified-template-launch.md) · [verification](evidence/verify/2026-10-25-unified-template-launch.md). Current publication guidance uses one startup without a workflow selector; pinned historical cases retain their original scope.
 
 Current documentation: [public installation and supported walkthrough](notes/implemented/process/2026-10-24-current-documentation-sync.md) · [verification](evidence/verify/2026-10-24-current-documentation-sync.md).
