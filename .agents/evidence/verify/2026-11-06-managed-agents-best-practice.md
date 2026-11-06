@@ -409,3 +409,37 @@ history of the initial label; corrected projection SHA is recorded with this
 change. The main article never instructed installing the incorrect distribution.
 Corrected projection1546 bytes/SHA
 f99d643a3ae7eb65f72c819f53e150bd373ee96f666b092a5d07f9802d60ebc9.
+
+## Unpublished draft rendering preflight
+
+Rendered blog revision5697c9d against an independent export of website
+f52b38691f1c503fef64957c2d44096f8162e5ce. Ran `npm ci --no-audit --no-fund`,
+`BLOGS_SOURCE=<BLOG_WORKTREE> node scripts/sync-blogs.mjs`, `npm run check`
+and `npm run build` inside that temporary export. Only the generated article
+copy changed draft:true to draft:false to exercise rendering; the source post
+remains draft:true and no website source or deployment changed.
+
+Installation exited0, with an npm tar EIO warning for one declaration file;
+the actual subsequent check exited0 with0 errors/0 warnings/8 existing hints.
+Build exited0 and generated123 pages including both language-route variants of
+this Chinese article. The resulting178,490-byte HTML contains32 H2 headings,
+15 tables and72 preformatted code blocks. All55 article attachment references
+exist, and all45 non-Markdown source attachments are byte-identical in the
+render output. This does not imply an English translation was authored.
+
+Actual headless Chrome observations at1440 desktop and390 mobile widths show
+the title, body and navigation;0 broken images and no uncontained article
+content overflow. Long code/table content retains its local scrolling. The
+shared site SVG gradient id occurs twice, and the existing fixed ambient
+background extends beyond the mobile client width; these are website-wide
+observations, not changes or blockers introduced by this article, and no
+unrelated UI code was modified. Parent review accepted this narrow preflight.
+
+This is draft rendering evidence only. Final CLI0.5.10/template0.1.4 identity,
+complete successful hosted upgrade and final publication are still pending;
+the final article must repeat render, attachment and desktop/mobile checks.
+
+The default host `python scripts/validate.py` exited1 because that interpreter
+has no PyYAML. Repeating the unchanged validator in the existing public SDK
+verification virtual environment exited0:59 posts checked/0 problems. This
+interpreter prerequisite failure did not change product or article assertions.
