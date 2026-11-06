@@ -334,3 +334,67 @@ Post-v0.1.3-Qwen export checks:59 posts/0 validator problems,41 local attachment
 links present,42 article files, all JSON/JSONL parse, CRLF-aware diff check exit0.
 New generated sources were not executed on the host. The earlier credential scan
 was repeated in memory before these seven asset writes with0 hits.
+
+New normal status/reconcile actually exited0/3.337s. The completed v0.1.3 SSE
+controller exited0/97.352s13:04:15 UTC, firstframe.292s/normalEOF20.340s,
+concurrent GET2.047s completed before EOF, public cleanuptrue/no uncertain mutation.
+Copied only the static no-model SSE result schema into a new public-retry-stream
+asset; Provider final absence remainsfalse. It establishes live FC event flush,
+not model intermediate deltas. No cloud call or new model turn was performed by
+the article author.
+
+## Public normal-flow mainline and v0.1.3 active cancellation
+
+Actual new active cancellation exited0/237.475s13:09:09 UTC: active stop,
+same-Session continuation, public/native cleanuptrue, empty uncertain mutations,
+Probe50 unchanged, observed original active32.264s after full durable intent
+backup. Unlike the previous window, the actual discovery observations now include
+0/page1/exhausted with public lifecycle ready, followed by1/page1/exhausted. This
+establishes the current bounded zero-observation path; it does not establish the
+unrecorded multiplicity or root cause of the previous87.644s failure. Per-backup
+observations6.475–9.354s are retained. This is the initial qwen-code stage, not an
+unexecuted Codex active-cancel qualification.
+
+Reorganized sections6–9 around the newest completed0.1.3 readiness/Qwen/SSE/active
+results. Moved the first PUBLIC0.1.2 unknown Codex failure and complete release
+text unchanged in meaning into appendix18, with its old positive results, raw
+safe traces and five generated-file links retained separately. Sections10/11
+explicitly await the current update/retirement/Codex39 and whole-app release;
+SOURCE success is still not substituted. Template version/14-file identity now
+points to a4d43370 for this mainline. No frozen controller or product code changed.
+
+## Published v0.1.3 stable-readiness failure and completed owned release
+
+The current public0.5.9 normal update actually failed E7000 at stable-readiness,
+exit1/198.470s13:18 UTC, after both candidate smoke reports passed. The captured
+CLI check was HTTP200/attempt1 without an exact target revision; its original
+body was not retained, so no alias/cache/propagation cause is asserted. New old-
+Session continuity, normal retirement and Codex39 remainfalse. The first public
+candidate-smoke failure remains unknown and is not reclassified by this finding.
+
+Recorded actual first Destroy exit1/3.920s while draining, Reconcile0/1.466s with
+zero activity, fresh destroy-plan0/.515s and normal Destroy retry0/8.634s. Exact
+native5 functions/2 templates were absent, shared Gateway parent absence covers
+4 recorded versions, and3 known Sandboxes plus exhausted revision inventory0
+were confirmed. RDS release0/25.201s was confirmed13:35:50.058 UTC before the
+unchanged14:35:16.044 deadline. Current/old guest groups52.173/56.035s each3/3
+absent; fresh old observation7.375s0 mutations. Two exact repo deletions36.887/
+37.778s each had one intent, native200 ACK and typed absence; fresh11.662s readback
+matched the same two repository keys13:51:45.821 UTC. Exporter validated original
+planSHA a6b05..., raw journals, reviewed correlation, helper hash and fresh proof
+without new native calls; private aggregate was fsynced and encrypted-backup
+confirmed. Safe result hash348e69742114e82b5f3b71e292b0ba0787be7d601094a049f70a4d01ff94c703.
+
+The unified scope-limited cleanup projection has SHA
+8bda7c0896c8d2e0338b105ab23edec743927683b0adb264f7a4d542535d5102.
+It preserves original failure/ready snapshots, all-step exits andfalse full
+upgrade/Codex39. Reversible completed tool cache archival passed27.779s, retains
+all bytes and original frozen digest before freeing expanded duplicates; no cloud
+resource was deleted by the article author. Current sections10/11 now state the
+real failure/completed release, not pending success. CLI0.5.10/recipe0.1.4 remain
+future published-readback/fresh-window requirements; no availability is invented.
+
+Runtime's prior whole-reorder peer accepted the actual result split. Corrected
+Operation wording to succeeded plus result.stop_confirmed=true; replaced the
+unsupported cloud raw terminating-chunk observation with full normal EOF. The
+cloud SSE code did not retain raw framing; local SDK framing evidence is separate.
