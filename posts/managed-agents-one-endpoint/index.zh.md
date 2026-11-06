@@ -12,9 +12,10 @@ draft: true
 下载结果。每个 Sandbox 的地址、创建凭据、工作区和回收流程，应由服务端管理。
 本文围绕这一目标，记录 `agents-api` 模板从本地验证到真实阿里云 FC 部署的操作。
 
-**草稿状态：已记录真实构建、失败部署、修复边界、本地 PostgreSQL 故障实验和真实模型
-工具回合。第四次部署、统一 Gateway 上的两轮编码任务、升级及最终全部资源释放，仍需
-补入本轮实测结果。本文当前不能作为“公开发行版已完整跑通”的证明。**
+**草稿状态：已记录真实构建、失败部署、两轮候选业务 hook、独立首轮产物下载、实时 SSE、
+本机 PostgreSQL 故障实验和真实模型工具回合。正式发布验证与独立模板身份检查仍有失败；
+完整39路由、源码 heldout、升级及最终全部资源释放尚未全部证实。本文当前不能作为
+“公开发行版已完整跑通”的证明。**
 
 所有结果都有明确的范围。命令中的本机路径、应用名称、账号及资源标识使用占位符；
 密钥和完整私有日志不公开。代码块标为“实际返回脱敏节选”的内容，只保留真实返回中的
@@ -193,7 +194,7 @@ totals[row["month"]] = Decimal(row["amount"])
 
 两轮任务的业务断言是：第一轮输出 `month,total`，两个月分别为30.00和10.00；第二轮
 继续修改同一文件，加入 `--with-share`，输出占比分别为0.750000和0.250000，同时保留
-默认模式及第一轮产物。这些数值目前是待验证的任务合同，不能当成本轮模型已生成结果。
+默认模式及第一轮产物。这些数值先作为任务合同；下文候选业务 hook 已检查实际结果，另一次独立验收也保存了首轮 CSV 原始字节。两者的验证范围分别记录。
 
 先执行本地模板检查：
 
@@ -484,20 +485,125 @@ node <VALIDATION_DIR>/recover_cleanup_dispatcher_image.mjs \
 这些探针证明了所测故障边界。它们不能替代生产 Sandbox 的原生停止证据；同 UID 的
 guest 文件、journal 和进程标记，也不是对敌对代码的防篡改证明。
 
-## 13. 统一 Gateway 上的两轮编码任务：待补本轮实际结果
+## 13. 两轮候选 hook 已通过，独立验收停在模板身份检查
 
-下一阶段需要从同一个公开业务 endpoint 上传 CSV、创建 Session，等待初次任务完成且
-产物发布完成，下载本轮源码、CSV 和说明。随后在 Session 空闲点，通过私有工程验证
-通道核对实际执行源码与下载源码哈希相等、原始测试未被修改，再运行原始与 heldout 测试。
-独立执行仍在该 Session 拥有的 Sandbox 内，控制器宿主不 import 或执行模型产物。
+第四次实际 Apply 运行294.151秒后退出1，停在 `stable-trigger` 的临时验证凭据拒绝检查。
+按冻结 CLI 的执行顺序，此阶段位于候选 `afterReady` hook、两轮真实 Agent、每轮下载与
+CSV 值检查、Close/Delete，以及移除验证认证、发布版本和 alias 之后。实际 hook 代码
+仍是本模板 `scripts/smoke.py`。因此可以记录“候选统一 Gateway 上的两轮文件业务与
+数值校验已通过”，不能把最终 Apply 的退出1改成部署成功。
 
-第二轮继续修改同一个 `aggregate.py`，保留默认模式，再增加占比列。需要再次检查源码
-及独立测试，最后关闭计算，并确认关闭后仍能下载第一轮不可变产物。
+这个通过结论来自实际执行阶段及冻结控制流，并没有保存那次 hook 下载的全部原始
+代码/CSV。完整39路由及独立源码测试另跑，不能靠 hook 推断。
 
-**待补：本轮实际创建返回、Submission/Turn 状态、源码/CSV/报告字节和哈希、独立检查
-结果、Close Operation 最终结果与 Sandbox 独立删除证明。本文尚未记录这些结果。**
+首次独立控制器明确使用 `source_requires_reconcile_manual_dispatch` 范围：应用仍非ready，
+业务调用只用业务 Key；另一个工程控制器通过既有私有签名调用驱动 outbox，没有开启 timer、
+新增公网控制路由、修改收据或给予公开资格。它开始和结束均检查固定 state identity 与
+三项活动计数，业务 finally 清理完成后才停止。
 
-## 14. Active cancel、升级与退役：待补本轮实际结果
+实际执行入口为：
+
+```bash
+<TEST_PYTHON> <VALIDATION_DIR>/run_candidate_acceptance.py \
+  --label <FRESH_SOURCE_ATTEMPT> --live-sse
+```
+
+本次整体退出1，20个路由取得正向返回，首轮实际下载了三个产物：
+
+| 产物 | 实际字节数 | SHA-256 |
+| --- | ---: | --- |
+| aggregate.py | 1588 | `17aaaab637422f01a5cdd8d6d8901ac24b6a54c62848b3ccfffe1789887263d9` |
+| summary.csv | 43 | `091a6cd799dc38f6a859ed4c0acc35ffb2032db42c10044a71642633235b02d6` |
+| report.md | 1067 | `43ada243c8a779d82364a2c64b2a8f7674a81952760656170675f36886919ac1` |
+
+实际下载的 CSV 如下，原文件保留CRLF换行：
+
+```csv
+month,total
+2026-01,30.00
+2026-02,10.00
+```
+
+下载源码的关键修改为按月累加，仍使用 Decimal：
+
+```python
+month = row["month"]
+amount = Decimal(row["amount"])
+if month in totals:
+    totals[month] += amount
+else:
+    totals[month] = amount
+```
+
+[完整首轮模型源码](./aggregate.first-turn.generated.py)、[实际 CSV](./summary.first-turn.csv)、
+[模型生成的说明](./report.first-turn.generated.txt)及[字节/哈希清单](./first-turn-artifacts.json)
+已做文本检查，没有在宿主机执行。说明中“原始测试全部通过”是 Agent 的自述，这次独立
+控制器尚未执行原始/heldout 测试，不能把报告的陈述当成独立结果。
+
+独立检查失败的静态标签是 `native_template_not_frozen`，在确认 native Sandbox metadata
+及 GetInfo 的同一实例ID后、授予执行权限之前被拦截，onOwned 尚未调用。实际进一步取证
+发现：兼容 GetInfo 的 `templateID` 投影返回管理 API 的模板 name，而创建收据保存管理 API
+的模板ID，两者非空但不相等。管理 API 按ID查询成功，按该name查询原生404。
+
+这暴露了工程验收器把两个接口表示当成同一种ID的假设失配，没有证据说明实际 Sandbox
+用了另一个模板，也不应写成 Agent 编码或模型调用失败。此处没有把name单向加入允许列表，
+没有放宽metadata/唯一性/GetInfo/ready门禁，也没有执行未完成身份确认的独立检查程序。
+
+截至本节，剩余路由、第二轮独立源码检查、heldout、主动取消及升级仍未全部运行完成。
+后续需要先通过原生完整模板清单证明 name 唯一对应原创建ID，再在新的受限验证窗口重跑。
+
+离线修正没有改变 SDK 的 `SandboxInfo.template`，也没有把任意名称当作模板身份。
+工程控制器读取明确指定的原收据，冻结其 SHA-256、账号、地域、revision 和唯一自建模板ID。
+随后按这个ID查询原生模板，穷尽同团队模板列表，要求原生名称仅对应这一ID，再按相同ID
+查询一次；创建时间、完整 runtimeConfig 及其中镜像必须保持一致。只有这些检查都通过，
+兼容 GetInfo 返回的原生名称才能与原始ID一样被接受。列表截断、重复ID/游标、同名模板、
+跨团队、缺少创建时间/镜像和二次读回变化都会失败。
+
+这份证据仅供工程验收。业务 HTTP 客户端仍只配置 Gateway endpoint 和业务 Key；
+读取云管理信息使用工程控制器显式传入、经账号核对的已有凭据，不能称其为 IAM 只读凭据。
+相同校验同时接入源码独立检查、主动取消、升级控制器，避免只修复其中一个入口。
+
+实际离线检查命令为：
+
+```bash
+node --test <VALIDATION_DIR>/test_collect_owned_template_identity_proof.mjs
+<TEST_PYTHON> -m unittest discover -s <VALIDATION_DIR> \
+  -p 'test_canonical_template*.py' -v
+<TEST_PYTHON> -I <VALIDATION_DIR>/verify_template_identity_bridge.py
+```
+
+实际结果为9项 Node、11项 Python 和一次 Node 收集器到 Python 消费者的合同验证全部通过；
+其中还实例化安装的官方原生 SDK 模型，检查字段的真实序列化。它们没有调用云 API、模型，
+也没有在宿主机执行模型源码。离线通过不等于已取得真实穷尽清单；新的完整业务验证仍待执行。
+
+## 14. 真实 FC SSE：首帧在连接结束之前到达
+
+同一阶段的独立 SSE 用例使用另一个空 Session，没有提交模型输入，也没有分配 Sandbox。
+它完整读取正常有限事件连接，同时在连接尚未结束时查询 Session，最后 Close/Delete。
+实际结果为：
+
+```json
+{
+  "scope": "actual_gateway_live_sse_idle_session_without_model",
+  "passed": true,
+  "model_turn_started": false,
+  "normal_eof": true,
+  "concurrent_session_read_passed": true,
+  "concurrent_read_completed_before_eof": true,
+  "concurrent_session_read_seconds": 1.663,
+  "first_frame_seconds": 0.192,
+  "stream_seconds": 20.188,
+  "frames_observed": 1,
+  "cleanup_public_confirmed": true,
+  "provider_absence_independently_verified": false
+}
+```
+
+[完整实际结果](./live-sse-idle-session.json)说明FC这条路径可以在连接结束前发送事件，且正常
+读到EOF。它没有靠收到第一帧就主动断开来推断完整传输；也没有把已结束任务的历史事件
+当成实时模型delta。这里没有启动模型，因此模型中间输出的实时性仍需独立业务证据。
+
+## 15. Active cancel、升级与退役：待补本轮实际结果
 
 取消已完成任务能验证接口的终态幂等性，不能证明正在执行的进程已停止。真实主动取消
 检查需要先观察到运行中 Turn 与固定合作进程的 started 标记，再检查普通输入409、显式
@@ -511,7 +617,7 @@ adapter。退役时需要观察 drain fence 和活动计数收敛，再确认旧
 **待补：本轮真实主动取消、同 Session 续轮、Qwen→Codex revision 更新、稳定 endpoint、
 旧 revision drain/retire 的实际输出。控制器已经准备并审查，不等于这些操作已经执行。**
 
-## 15. 最终清理：尚未完成，不提前写成功
+## 16. 原窗口计算资源和数据库已释放，镜像元数据单独处理
 
 本轮的清理顺序是先停止新增业务，再处理 Session、Sandbox、FC 函数及模板、拥有的
 镜像，最后释放临时数据库。每次使用精确收据和原生创建身份，已经确认不存在的资源
@@ -521,5 +627,32 @@ adapter。退役时需要观察 drain fence 和活动计数收敛，再确认旧
 使用，需要先写入构建引用保护，等旧函数独立确认不存在以后再按确切归属处理，不能为了
 让 clean-build 通过而删除 usedBy 记录。
 
-**待补：第三/第四应用最终销毁、所有本轮 Sandbox 与函数/模板的独立不存在证明、拥有的
-镜像及空仓库处理、临时 RDS 删除的最终结果。前两轮局部清理通过不代表本轮全部清理完成。**
+原资源窗口已停止新增部署和模型任务。第四、第五个应用分别使用各自冻结计划生成销毁计划，
+然后执行正常 `abx app destroy`；没有把失败收据改成 ready，也没有重放 Apply。实际结果为：
+
+| 操作 | 实际退出码 | 实际耗时/秒 | 核对结果 |
+| --- | ---: | ---: | --- |
+| 第五应用正常销毁 | 0 | 9.279 | destroyed / destroyed |
+| 第四应用正常销毁 | 0 | 7.171 | destroyed / destroyed |
+| 第五应用三个原生函数独立查询 | 0 | 1.330 | gateway、worker、dispatcher 均不存在 |
+| 第四应用三个原生函数独立查询 | 0 | 1.570 | gateway、worker、dispatcher 均不存在 |
+| 第五应用三个确切 guest 镜像目标清理 | 0 | 57.719 | 3个目标、3个独立不存在确认 |
+| 第四应用三个确切 guest 镜像目标清理 | 0 | 76.381 | 3个目标、3个独立不存在确认 |
+| 原窗口 RDS 删除及不存在确认 | 0 | 28.732 | deleted，保存 cleanupConfirmedAt |
+| 随后的原生 Sandbox 独立查询 | 0 | 8.046 | 穷尽列表0行，已知实例ID直接查询为 typed NotFound |
+
+[这些步骤的实际返回脱敏投影](./original-window-cleanup.json)只保留状态、数量、耗时和布尔值，
+省略函数名、账号、实例ID、网络和密钥。数据库清理收据记录07:07:40.599 UTC，早于该窗口
+07:19的清理期限。Sandbox 的最终独立查询发生在数据库删除之后，不能改写两步的顺序。
+
+原生函数查询与正常销毁收据共同确认了这两个应用的计算资源释放。最后一次诊断的私有
+driver 由于硬期限被终止，不能写成它成功退出；后续正常 drain/destroy 及独立不存在查询
+提供了另外的清理证据。前面保留的失败记录依旧是失败。
+
+镜像 tag 删除不一定删除空 ACR 仓库。空仓库必须继续使用确切仓库名、原生 repoId、创建
+时间、本轮创建意图和关联 journal 证明归属，再独立确认完整 tag 列表为空；不能按应用名
+前缀批量删除。历史镜像恢复也不能仅凭名称猜测。这些元数据清理单独记录，尚未在本文
+声称全任务资源清零。
+
+**待补：新的独立受限窗口的完整业务结果，以及所有拥有镜像/空仓库的最终处理结果。
+当前文章继续保持 draft，不把原窗口清理完成当成模板资格已经通过。**

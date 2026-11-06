@@ -1,0 +1,123 @@
+{
+  "scope": "actual_original_source_window_cleanup_allowlisted_projection",
+  "identifiers_and_credentials_omitted": true,
+  "all_task_metadata_cleanup_claimed": false,
+  "remaining_scope": "Exact task image/repository cleanup is recorded separately; these steps prove original-window compute and RDS release.",
+  "steps": [
+    {
+      "capture": "verified-cleanup-app-destroy",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 9.279,
+      "allowlisted_output": {
+        "status": "destroyed",
+        "phase": "destroyed"
+      }
+    },
+    {
+      "capture": "fourth-cleanup-app-destroy",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 7.171,
+      "allowlisted_output": {
+        "status": "destroyed",
+        "phase": "destroyed"
+      }
+    },
+    {
+      "capture": "verified-cleanup-native-absence",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 1.33,
+      "allowlisted_output": {
+        "function_count": 3,
+        "functions": [
+          {
+            "role": "worker",
+            "present": false
+          },
+          {
+            "role": "dispatcher",
+            "present": false
+          },
+          {
+            "role": "gateway",
+            "present": false
+          }
+        ]
+      }
+    },
+    {
+      "capture": "fourth-cleanup-native-absence",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 1.57,
+      "allowlisted_output": {
+        "function_count": 3,
+        "functions": [
+          {
+            "role": "worker",
+            "present": false
+          },
+          {
+            "role": "dispatcher",
+            "present": false
+          },
+          {
+            "role": "gateway",
+            "present": false
+          }
+        ]
+      }
+    },
+    {
+      "capture": "verified-cleanup-guest-apply",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 57.719,
+      "allowlisted_output": {
+        "action": "apply",
+        "exactTargets": 3,
+        "independentAbsence": 3,
+        "passed": true,
+        "encryptedBackup": true,
+        "originalRecordsChanged": false
+      }
+    },
+    {
+      "capture": "fourth-cleanup-guest-apply",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 76.381,
+      "allowlisted_output": {
+        "action": "apply",
+        "exactTargets": 3,
+        "independentAbsence": 3,
+        "passed": true,
+        "encryptedBackup": true,
+        "originalRecordsChanged": false
+      }
+    },
+    {
+      "capture": "source-native-compute-cleanup-independent",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 8.046,
+      "allowlisted_output": {
+        "scope": "readonly_task_native_compute_cleanup",
+        "native_mutations": 0,
+        "known_source_revisions": 2,
+        "inventory_exhausted": true,
+        "observed_inventory_rows": 0,
+        "matched_task_revision_resources": 0,
+        "matched_known_session_resources": 0,
+        "matched_unrecorded_session_resources": 0,
+        "direct_candidates_checked": 1,
+        "direct_candidates_typed_not_found": 1,
+        "task_compute_absence_confirmed": true
+      }
+    },
+    {
+      "capture": "source-database-final-cleanup",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 28.732,
+      "allowlisted_persistent_receipt": {
+        "phase": "deleted",
+        "cleanup_confirmed_at": "2026-11-06T07:07:40.599Z"
+      }
+    }
+  ]
+}

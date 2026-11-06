@@ -1,0 +1,16 @@
+{
+  "scope": "actual_gateway_live_sse_idle_session_without_model",
+  "passed": true,
+  "model_turn_started": false,
+  "provider_credentials_used": false,
+  "normal_eof": true,
+  "concurrent_session_read_passed": true,
+  "cleanup_public_confirmed": true,
+  "provider_absence_independently_verified": false,
+  "uncertain_mutation": false,
+  "concurrent_session_read_seconds": 1.663,
+  "concurrent_read_completed_before_eof": true,
+  "first_frame_seconds": 0.192,
+  "stream_seconds": 20.188,
+  "frames_observed": 1
+}

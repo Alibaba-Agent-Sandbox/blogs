@@ -61,3 +61,53 @@ The author reviewed the included public fields; private full logs, account/nativ
 resource identities, command headers and keys were not copied. Website rendering,
 article helper reproduction, actual final hosted results, commit/PR/publication
 and final review remain pending. The article has not been merged or published.
+
+## Actual first-turn, streaming and original-window cleanup additions
+
+Added the actual first-turn downloaded program, CSV and model-written report
+after text review. The program remains an explicitly model-generated attachment;
+it was not executed on the host. Its report's test claim is labeled self-report.
+The real business run reached 20 positive routes and then failed the independent
+native template identity gate before private helper execution. The article does
+not claim all39 operations, original/heldout execution or the second independent
+source check passed. It explains the observed native ID/name representation
+difference and preserves the original failure.
+
+Added the separate actual live-SSE summary: first frame0.192s, normal EOF20.188s,
+concurrent GET1.663s, public cleanup confirmed, no model turn. This does not claim
+model delta streaming or independently proven Provider absence.
+
+Added eight exact original-window cleanup projections from completed captures.
+Both failed applications' normal destroy, six exact function absence reads,
+two groups of three guest-image targets, independent zero-Sandbox inventory and
+known-ID typed NotFound passed. Original RDS receipt is deleted and records
+cleanupConfirmedAt07:07:40.599UTC. The article retains unknown historical/empty
+repository cleanup and complete-template qualification as separate pending gates.
+The first local export attempt rejected an incorrect expected boolean shape
+before writing a file: the actual independentAbsence field is an integer count3.
+The corrected export preserves that actual count. Neither attempt called a cloud
+API or changed the original private records.
+
+The canonical engineering patch now has actual offline results: 11 Python
+parser/consumer tests, 9 Node collector/model-projection tests and an actual
+Node-to-Python bridge pass. Both independent implementation reviewers read the
+collector, proof factory and all three consumers. Live proof is still unverified;
+these offline results do not relabel a failed hosted run. Public clients still
+use only the Gateway endpoint and business key.
+
+The generated report attachment uses `.txt` because the website's blog asset
+sync intentionally skips non-index Markdown files; bytes and hash are unchanged.
+All additions remain draft-only and have not been pushed or published.
+
+Actual checks after these additions:
+
+- Existing PyYAML-equipped verification venv, `python scripts/validate.py`:
+  exit0, 59 posts checked,0 problems.
+- Relative asset check: all11 article targets exist; all JSON attachments parse.
+- All three original downloaded artifact SHA-256 values match their attached
+  bytes exactly, including the CSV's CRLF newline convention.
+- `git -c core.fileMode=false diff --check`: exit0. Only this article's files and
+  this evidence file are staged; unrelated mode-only changes are excluded.
+
+Website rendering and a full public command-by-command reproduction remain
+pending. No article publication or complete template acceptance is claimed.
