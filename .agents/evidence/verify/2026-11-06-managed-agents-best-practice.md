@@ -155,3 +155,28 @@ preserved so their hashes remain truthful; the same check with the explicit
 `core.whitespace=cr-at-eol` setting passes without changing file contents. The first active
 failure had no preserved HTTP detail; only the second diagnostic localized
 proc-file download HTTP500. The article explicitly preserves that distinction.
+
+
+## Actual source upgrade and completed owned compute/image release
+
+Added a new sanitized `source-completion.json` from completed actual capture
+results, the source upgrade assertion JSON, independently reviewed native release
+proof and final owned Sandbox inventory. Its source artifact SHA is
+e52e28769ed2b36f5a5eb4fb39650791962fa2257da71c6f57acaa1cbf2b509f.
+The author verified raw native counts and typed codes:7 functions,3 templates,
+and7 recorded Sandboxes absent. Original private records remain unchanged.
+
+The successful second preparation took99.610s; normal v8 update240.669s and
+independent continuity/isolation267.293s passed. The article preserves the
+separate failed update, old idle-close and closed-history branch recovery. It does
+not claim the proposed during-apply old-session continuation was executed.
+Retirement's first draining result exit1/1.567s remains visible; normal retry
+exit0/4.524s and independent pre-fallback readback exit0/0.965s passed. Normal
+Destroy took7.078s, Provider absence7.476s, RDS release13.740s before the unchanged
+10:01 source deadline. Three exact guest groups each proved3/3 targets absent,
+with actual42.251/90.063/95.246s. Empty ACR repository metadata is deliberately
+not relabeled as removed by this snapshot; it uses its own later exact proof.
+
+Actual public npm0.5.9 and PyPIa7 release/independent installs are now identified
+separately, with no retroactive assignment to the source image. Complete public
+recipe FC acceptance and its cleanup remain pending; draft:true remains.

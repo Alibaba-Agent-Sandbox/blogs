@@ -14,7 +14,8 @@ draft: true
 
 **草稿状态：新窗口已正常部署到 ready，39个正向接口及38个受保护接口401验证通过；
 两轮真实文件任务、原始测试、4/8项 heldout、源码哈希、实时 SSE、主动取消及同会话续轮通过。
-当前结果使用固定候选包，升级、公开发行路径和新窗口最终清理仍在验证。本文当前不能作为
+源码阶段的Qwen到Codex升级、旧会话续轮、退役及计算/RDS/9项guest镜像清理也已完成。
+当前业务结果使用固定候选包；公开安装包已发行，独立公开recipe验收和空镜像仓库元数据清理继续进行。本文当前不能作为
 “公开发行版已完整跑通”的证明。早期失败及其实际修复边界保留在附录。**
 
 所有结果都有明确的范围。命令中的本机路径、应用名称、账号及资源标识使用占位符；
@@ -73,7 +74,10 @@ Codex0.162.1、Qwen Code0.23.0。模型实际可用性另行探测，不能由 C
 [Python runtime](https://github.com/Alibaba-Agent-Sandbox/python-sdk/pull/156)、
 [CLI 应用部署](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/pull/235)、
 [agents-api 模板](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/pull/296)。
-这些链接当前用于说明来源，不声明其已合并或发布。
+上述SDK与CLI随后正常合并并发行：公开PyPI client/server为0.4.0a7，npm CLI为0.5.9；
+实际公开下载摘要分别与发行metadata匹配。本文源码云运行使用的client wheel仍为前述固定
+候选身份，不能因为版本字符串相同就改写成后来公开a7字节。公开recipe另在全新项目重验，
+未完成前不把安装和版本查询当作云端业务通过。模板PR的最终状态还要以实际检查为准。
 
 ## 3. 准备凭据与私有配置
 
@@ -394,16 +398,91 @@ Submission和Turn为cancelled、原进程消失；等待超过原自然结束时
 没有证明业务取消失败，也没有被当作NotFound。固定观察器只把真实OS ENOENT
 视为不存在，未知HTTP、超时、非零退出仍然失败；修正后使用新标签获得上面的独立通过。
 
-## 10. 升级与退役仍在验证
+## 10. 在同一 endpoint 升级：新会话用 Codex，旧会话继续 Qwen
 
-旧Qwen Session的升级准备阶段实际退出0、耗时131.182秒：原生实例、工作区marker与
-捕获产物均已核对，故意保留该Session供更新/退役验证。新revision正常发布、Codex新会话、
-旧会话续轮、稳定endpoint和retire结果还需补入实际输出。
+第一次升级尝试未通过候选健康检查，其原收据、失败分支和自动idle关闭的旧Session均保留。
+该次131.182秒的准备不能当作升级连续性通过。清理失败的新分支后，重新准备了一个新的
+Qwen旧会话，实际退出0、耗时99.610秒；它包含核对过的原生实例、工作区marker及捕获产物。
 
-## 11. 本窗口最终清理仍待执行
+这一次仅将模型binding的adapter由`qwen-code`改为`codex`，模型仍为已验证的
+`qwen3.5-plus`。用现有Build收据生成带previous-receipt的新计划，然后正常Apply：
 
-本窗口尚未完成最终应用/镜像/仓库/RDS清理。清理时继续使用确切收据、原创建journal及
-独立查询，保留借用网络资源；历史窗口的已清理结果见后面的附录，不能替代本窗口释放。
+```bash
+<CANDIDATE_ABX> app plan template.yaml --build-receipt .abx/build.json \
+  --previous-receipt <OLD_READY_RECEIPT> --out .abx/plan-update-retry.json
+<CANDIDATE_ABX> app apply .abx/plan-update-retry.json \
+  --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+实际Plan退出0、耗时1.016秒；正常Update退出0、耗时240.669秒，在09:34:57 UTC
+成为ready。候选afterReady已由Codex实际完成两轮CSV任务，稳定入口健康检查及临时验证
+凭据撤销检查正常。随后再执行独立升级检查，耗时267.293秒，在09:40:16 UTC退出0。
+实际断言摘要为：
+
+```json
+{"passed": true, "stable_endpoint": true,
+ "new_session_new_revision": true, "old_session_pinned_and_continued": true,
+ "native_workspace_isolation": true, "old_session_retained": true,
+ "old_adapter": "qwen-code", "new_adapter": "codex",
+ "generated_code_executed_on_host": false}
+```
+
+新Session使用新revision/Codex及独立工作区，不能看见旧Session的marker；旧Session
+在原revision/Qwen和同一个原生Sandbox中继续运行，读取原marker，并发布字节一致的
+续轮产物。两个会话仍使用同一Gateway endpoint。此时保留旧会话，供CLI退役主动关闭，
+没有在retire前先调用客户端Close来制造已清空的状态。
+
+正常退役命令是：
+
+```bash
+<CANDIDATE_ABX> app retire <CURRENT_READY_RECEIPT> --revision <OLD_REVISION> \
+  --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+第一次请求在draining期间退出1、耗时1.567秒；保留这一受控未完成结果后重试同一
+退役命令，退出0、耗时4.524秒。独立只读检查又用0.965秒确认：旧公开Session仍可查询，
+`status=idle`、lifecycle为`closed`且revision保持原值；原生Sandbox返回明确的
+`SandboxNotFoundError`；当前收据已移除retained旧revision。这些检查在任何客户端
+fallback Close之前完成，所以证明的是CLI退役发起的释放。
+
+[升级、退役及最终清理的实际脱敏摘要](./source-completion.json)保留逐步骤退出码和耗时。
+这里没有声称在Apply尚未发布时并发提交了旧会话任务；该候选步骤没有执行，真正续轮发生在
+正常新revision发布之后。原生OpenAI账号及所有BYOK端点也不在这次模型兼容范围内。
+
+## 11. 释放计算、数据库和手工镜像，再处理仓库元数据
+
+最后根据确切当前收据生成销毁计划，执行正常Destroy：
+
+```bash
+<CANDIDATE_ABX> app plan --destroy <CURRENT_READY_RECEIPT> --out .abx/destroy-update-retry.json
+<CANDIDATE_ABX> app destroy .abx/destroy-update-retry.json \
+  --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+Destroy实际退出0、耗时7.078秒，在09:45:59 UTC完成，当前收据为destroyed、
+`drainConfirmed=true`、retained为空。独立管理查询覆盖成功链与失败分支：7个已记录FC函数、
+3个原生模板均返回其精确NotFound；7个工程owned账本中的Sandbox逐一明确不存在，
+按revision/Session筛选的完整原生inventory也没有遗留。该Provider检查退出0、耗时7.476秒。
+
+RDS在计算释放后独立删除并确认不存在，退出0、耗时13.740秒，09:49 UTC完成，早于本窗口
+10:01的绝对费用截止。09:41已停止新业务任务，没有为了继续发版而延长旧数据库的期限。
+已有VPC、交换机、安全组和执行角色保持借用，不加入删除集合。
+
+正常CLI不会把手工构建记录自动等价为可以删除的资源。当前revision、已退役旧revision和
+失败升级分支的guest镜像分别使用原创建journal、精确tag和原生digest/imageID核对。
+原来的ready或requires-reconcile收据不改写为destroyed；专用工程恢复依据完整最终释放链
+授权，普通destroyed guard保持原样。三组实际Apply结果为：
+
+| 精确guest镜像组 | 退出码 | 耗时/秒 | 独立确认不存在 |
+| --- | ---: | ---: | ---: |
+| 当前revision的3项记录 | 0 | 42.251 | 3/3 |
+| 已退役旧revision的3项记录 | 0 | 90.063 | 3/3 |
+| 失败升级分支的3项记录 | 0 | 95.246 | 3/3 |
+
+这不等于清空整个云账号；删除仅针对本次journal中的精确tag，本地不使用force，远端不按
+digest或名称前缀扩大范围。免费空ACR仓库的元数据还要单独证明repository归属及无引用，
+本摘要尚未把它们记为已删除。新公开包窗口使用另一个nonce、项目和空数据库，旧窗口的
+已释放记录不替代新窗口的最终清理。
 
 ## 附录1：第一次实际 Build：镜像构建成功
 
