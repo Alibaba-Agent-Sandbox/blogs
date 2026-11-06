@@ -509,3 +509,40 @@ boundary. No extra Docker image/template or database was created by this focused
 case, and no cloud call was performed by this article author. Formal CLI0.5.10
 publication/fresh installation and the final managed-template window remain
 pending; no future article PASS or installation identity has been added.
+
+## Final published dependency identity and pending mainline
+
+Formal CLI0.5.10 is now published and independently installed. Read the official
+fresh-install projection SHA604918ced52d6f5c0dfc0f17c8fb57e6bb7a3df462e70812a779face5505a246
+and complete release proof SHA6994a5a6ef437a351395b02ae4329941fa6161a9714e16464ca288524fe052ef:
+install/artifact check exit0,697 of697 dist bytes match the reviewed candidate,
+no changed/extra files. Independently executed the actual public executable's
+version and config-set help;0.5.10, acr_namespace and ACR_NAMESPACE are confirmed.
+Merge source2f84e3f802e5f6abd98a528c457b844a9307041d and public tarball
+c34ae3cb61cfeb94bdf5f766c4fc91c612dce3ab72e9edc0ce3e30e5eb4dac3e
+replace the recommended install identity, with earlier0.5.9 facts retained.
+
+Template0.1.4 is committed/pushed at4971598a5b14b62207076dd2da4264c139423628.
+Its exact14 Git-object files export proof SHA is
+b05aba5a5ad69647d7f542e2128b12f9f9f9f499c818eb9a676ac355b9f1eb25;
+archive SHA is f4017a58c18f42fee2809dbf65dc911614f30e0d3225aa94b23ce935f5136b38.
+Only the documented CLI prerequisite and manifest version differ in those14
+files; both a7 Dockerfiles, smoke, API and execution budgets are unchanged.
+New local20 smoke/52 specification/48 manifest/232 document checks pass; the
+separate prerequisite failure from using a runtime-only test environment is
+recorded by the template owner. No new hosted qualification follows from this.
+
+Moved the previous mainline's0.1.3 sections6–11 into historical appendix19,
+preserving all10,792 characters except heading nesting. Independent runtime
+review and a mechanical reverse-heading comparison confirmed exact historical
+content; no existing result, source or CSV attachment was changed. New sections
+6–11 contain only normal usage and explicit pending new deployment/business/
+stream/cancel/upgrade/release results. No future durations, response JSON or
+PASS were manufactured. The new release-014-identity attachment is explicitly
+installation/source evidence with hostedAcceptanceClaimed:false.
+
+Validator59/0,59 local asset references/0 missing,49 article files, all JSON and
+JSONL parse, and CRLF-aware diff check pass. The runtime reviewer accepted the
+pending mainline/identity split; its config-help suggestion was independently
+verified and applied to the current mainline only. Final real outcomes and
+final render/desktop/mobile checks remain pending; source draft:true remains.

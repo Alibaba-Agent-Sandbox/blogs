@@ -1,0 +1,21 @@
+{
+  "kind": "PublishedCliAndRecipeIdentity",
+  "scope": "release_installation_and_git_export_not_hosted_acceptance",
+  "cliVersion": "0.5.10",
+  "cliSourceMerge": "2f84e3f802e5f6abd98a528c457b844a9307041d",
+  "npmTarballSha256": "c34ae3cb61cfeb94bdf5f766c4fc91c612dce3ab72e9edc0ce3e30e5eb4dac3e",
+  "freshInstallExitCode": 0,
+  "artifactCheckExitCode": 0,
+  "publicDistFiles": 697,
+  "completeDistBytesEqual": true,
+  "npmReadinessSha256": "604918ced52d6f5c0dfc0f17c8fb57e6bb7a3df462e70812a779face5505a246",
+  "completeReleaseReadinessSha256": "6994a5a6ef437a351395b02ae4329941fa6161a9714e16464ca288524fe052ef",
+  "templateVersion": "0.1.4",
+  "templateCommit": "4971598a5b14b62207076dd2da4264c139423628",
+  "recipeFiles": 14,
+  "exportProvenanceSha256": "b05aba5a5ad69647d7f542e2128b12f9f9f9f499c818eb9a676ac355b9f1eb25",
+  "recipeArchiveSha256": "f4017a58c18f42fee2809dbf65dc911614f30e0d3225aa94b23ce935f5136b38",
+  "sdkVersion": "0.4.0a7",
+  "dockerfilesAndSmokeUnchangedFromV013": true,
+  "hostedAcceptanceClaimed": false
+}

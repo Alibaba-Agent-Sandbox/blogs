@@ -12,11 +12,10 @@ draft: true
 下载结果。每个 Sandbox 的地址、创建凭据、工作区和回收流程，应由服务端管理。
 本文围绕这一目标，记录 `agents-api` 模板从本地验证到真实阿里云 FC 部署的操作。
 
-**草稿状态：正式npm/PyPI的0.1.2公开recipe已完成正常ready、Qwen两轮源码/原测试与4/8项heldout、
-39个正向接口及38个401、实时SSE和主动取消/同会话续轮。其Qwen→Codex候选业务检查失败，
-原具体原因未保存，不宣称公版升级或Codex39通过。本窗口计算、RDS、6项guest镜像及2个空仓库均已独立确认释放。
-源码候选的成功升级另列；0.1.3新独立公开窗口已正常ready并通过Qwen39与两轮独立检查，
-SSE和Qwen主动取消也已通过，本轮升级在stable-readiness失败，已知资源已全部释放；新CLI/recipe完整重验仍待，本文继续保持草稿。**
+**草稿状态：正式CLI0.5.10已通过公开npm fresh安装与697文件字节核对；recipe0.1.4的14文件身份已冻结，
+本轮部署、两种adapter的39接口/源码检查、SSE、取消、正常升级与最终清理结果仍待补齐，不宣称通过。
+此前0.1.2和0.1.3公开窗口的正向结果、失败更新及各自全部已知资源释放保留在历史附录；
+源码候选成功升级不能替代本轮公版结果。**
 
 所有结果都有明确的范围。命令中的本机路径、应用名称、账号及资源标识使用占位符；
 密钥和完整私有日志不公开。代码块标为“实际返回脱敏节选”的内容，只保留真实返回中的
@@ -44,11 +43,11 @@ harness 的兼容声明。
 ## 2. 安装正式CLI，固定镜像中的公开SDK版本
 
 普通部署主机需要Node.js20+、Docker、可访问的镜像仓库，以及Python虚拟环境中的
-`httpx==0.28.1`。使用npm分发的正式CLI0.5.9；业务HTTP客户端只需httpx、Gateway和业务Key，
+`httpx==0.28.1`。使用npm分发的正式CLI0.5.10；业务HTTP客户端只需httpx、Gateway和业务Key，
 不要求安装Sandbox管理SDK。常规准备命令如下：
 
 ```bash
-npm install --global @agent-sandbox/cli@0.5.9
+npm install --global @agent-sandbox/cli@0.5.10
 git clone https://github.com/Alibaba-Agent-Sandbox/awesome-templates.git
 cd awesome-templates/agents-api
 python3 -m venv .abx/venv
@@ -61,7 +60,7 @@ abx --version
 没有用源码目录覆盖同名包。已安装正式CLI的实际版本输出为：
 
 ```text
-abx, version 0.5.9
+abx, version 0.5.10
 ```
 
 两个Dockerfile固定使用公开PyPI0.4.0a7，分别提供Sandbox的guest bridge与Server侧托管服务。
@@ -69,25 +68,27 @@ abx, version 0.5.9
 
 | 发行物 | 实际身份 |
 | --- | --- |
-| npm CLI | 0.5.9，合并源码`dbc0224474c556710569f9e72d3835f685a69597` |
-| 公开npm tarball SHA-256 | `ca3c750b119cc5106e71f883f54b3ae31c5122c562602c7082fd0bd0ffcf69f8` |
+| npm CLI | 0.5.10，合并源码`2f84e3f802e5f6abd98a528c457b844a9307041d` |
+| 公开npm tarball SHA-256 | `c34ae3cb61cfeb94bdf5f766c4fc91c612dce3ab72e9edc0ce3e30e5eb4dac3e` |
 | Python SDK合并源码 | `fa15efd7e679b1697e140363a395d998cde7f66a` |
 | client wheel SHA-256 | `c5f981545bb9266663f47e8ca3ce02a48a2259125b0ffd44c575973e3205482a` |
 | server wheel SHA-256 | `210db5e796f4fc63e84156d19076c946d261b48c47ec6c8c1db82b8b60691f08` |
 
-主线模板recipe版本0.1.3，Sandbox镜像固定Node.js24.16.0、Codex0.162.1和Qwen Code0.23.0。
+主线待完整公版验收的模板recipe版本0.1.4，Sandbox镜像固定Node.js24.16.0、Codex0.162.1和Qwen Code0.23.0。
 Host与Sandbox的Node版本是不同配置。模型实际可用性必须另测，CLI能查版本不代表工具回合可用。
 
-本轮公开recipe使用a4d43370的14文件快照，安全诊断属于模板host脚本，Dockerfile保持公开PyPI pin；
-应用名称和部署access按真实环境配置。首个0.1.2窗口的a6d37c32快照另在附录18保留。本篇前面的正常步骤使用公开包，源码候选及原失败的版本对照
-保留在附录12，不能把同样报告0.4.0a7的两个不同client wheel混为同一镜像。
+当前冻结recipe使用4971598a的14文件快照，导出证明SHA为
+`b05aba5a5ad69647d7f542e2128b12f9f9f9f499c818eb9a676ac355b9f1eb25`。
+[正式发行与recipe身份摘要](./release-014-identity.json)只证明安装和源码导出，尚不代表新云验证通过。
+0.1.4仅调整最低部署CLI，a7 Dockerfiles、smoke、API和执行预算保持不变。先前0.1.2/a6d37c32与
+0.1.3/a4d43370的实际窗口分别保留在附录18和19；源码候选与正式wheel差异在附录12，不能混为同一镜像。
 
 参考实现与实际发行来源：
 [SDK PR156](https://github.com/Alibaba-Agent-Sandbox/python-sdk/pull/156)、
-[CLI PR235](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/pull/235)、
-[CLI0.5.9发行](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.9)、
+[CLI PR238](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/pull/238)、
+[CLI0.5.10发行](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/releases/tag/v0.5.10)、
 [模板PR296](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/pull/296)。
-公开包可安装及初始ready已经实际验证，完整公开模板业务与最终清理仍需后文独立结果。
+公开包安装已经实际验证；本轮0.1.4初始部署、完整业务与最终清理仍需后文独立结果。
 
 ## 3. 准备凭据与私有配置
 
@@ -106,7 +107,7 @@ Host与Sandbox的Node版本是不同配置。模型实际可用性必须另测�
 应用令牌不是去云控制台申请的 API Key。普通用户使用模板时，应让 CLI 自动准备并
 保存缺省应用认证；不需要先手工生成一串随机令牌才能开始。
 
-Build前还要配置已经存在的ACR命名空间，确保部署身份能向其中推送镜像。正式CLI0.5.9
+Build前还要配置已经存在的ACR命名空间，确保部署身份能向其中推送镜像。正式CLI0.5.10
 的`abx config set --help`实际列出`acr_namespace`，对应环境变量`ACR_NAMESPACE`。
 下面是填写自己已有namespace的配置示例，不是本轮私有值：
 
@@ -259,7 +260,7 @@ totals[row["month"]] = Decimal(row["amount"])
 
 两轮任务的业务断言是：第一轮输出 `month,total`，两个月分别为30.00和10.00；第二轮
 继续修改同一文件，加入 `--with-share`，输出占比分别为0.750000和0.250000，同时保留
-默认模式及第一轮产物。这些数值先作为任务合同；第7节给出实际两轮CSV、源码与独立测试结果。
+默认模式及第一轮产物。这些数值先作为任务合同；第7节将记录本轮结果，历史实际CSV、源码及独立检查见附录19。
 
 先执行本地模板检查：
 
@@ -281,19 +282,20 @@ managed smoke regression: 7 passed
 seed program: unchanged original suite fails exactly 2 tests
 ```
 
-这里的7项属于0.1.2历史检查；0.1.3增加安全诊断后的smoke回归为20项，另见第10节。
+这里的7项属于0.1.2历史检查；0.1.3增加安全诊断后的20项回归另在附录19说明。
+当前0.1.4已重新执行20项smoke、52项规格测试、48目录和232文档检查，全部通过；这些是本机结果。
 
 本地还分别启动 managed 服务及既有 Python/Node 模板，检查新增启动入口与旧模板路径。
 这些结果证明模板检查、启动和 smoke 的错误处理成立，不替代真实模型的两轮任务。
 
 ## 6. 使用公开安装包正常部署：获得稳定 Gateway
 
-本次主线使用0.1.3的独立公开资源窗口：正式npm CLI0.5.9、公开PyPI client/server0.4.0a7，
-以及提交a4d43370导出的14个原文件。只按普通配置调整应用名称和accessRef；两个Dockerfile
-没有COPY本地wheel。数据库、项目、本机HOME、应用认证及状态均与旧窗口分开。
+当前最终验证使用正式npm CLI0.5.10、公开PyPI client/server0.4.0a7，以及4971598a提交的
+recipe0.1.4。仅按普通配置调整应用名称与accessRef，配置文件和CA保存在Docker context之外。
+先等待数据库Running及TLS真正on/success，再准备verify-full的DSN和CA引用。
 
-先等待数据库Running及TLS真正on/success，再准备verify-full的DSN和CA引用。原生读回与
-binding检查通过后，回到模板目录执行正式CLI命令：
+常规部署命令如下。本轮实际Build、Plan、Apply与Status/Reconcile结果尚未补入；
+附录19的历史ready不能作为0.1.4结果。
 
 ```bash
 cd <TEMPLATES_CHECKOUT>/agents-api
@@ -302,301 +304,70 @@ abx app plan template.yaml --build-receipt .abx/build.json --out .abx/plan.json
 abx app apply .abx/plan.json --bindings <PRIVATE_BINDINGS_FILE> --yes
 ```
 
-本次实际返回脱敏节选与耗时如下：
+新版host报告仍位于`.abx/agents-smoke-reports/`，每次有独立JSONL与latest快照。
+报告只含受限阶段、检查码、HTTP状态和known-cleanup布尔值，不能替代最终Provider独立absence。
 
-| 步骤 | 实际退出码 | 耗时/秒 | 实际返回状态 |
-| --- | ---: | ---: | --- |
-| Build | 0 | 26.758 | built |
-| Plan | 0 | 0.915 | planned，operation=apply |
-| Apply | 0 | 374.682 | ready，phase=ready |
+## 7. 同一个 Gateway 完成两轮代码修改与完整V1检查
 
-```json
-{"status":"ready","phase":"ready"}
-```
-
-实际Apply在12:51:54 UTC记录完成，ready来自正常候选业务检查和生产发布；没有手工驱动
-Dispatcher或改写收据。随后CLI Status与Reconcile也实际退出0，合计3.337秒。
-[初始部署的实际摘要](./public-retry-initial-ready.json)保留确切步骤。
-
-0.1.3的host报告还留下了[17条实际安全检查点](./public-retry-initial-smoke-report.jsonl)，
-从setup、health和上传，到两轮summary/share、close、保留产物读取、delete和cleanup，
-最后一条实际返回为：
-
-```json
-{"schemaVersion":1,"status":"passed","phase":"complete","code":"passed","cleanup_attempted":true,"cleanup_confirmed":true}
-```
-
-报告只记录受限阶段和检查码，不含资源ID、URL、密钥或模型正文。cleanup_confirmed只表示
-hook掌握的公开资源完成清理，不是全Provider inventory证明。报告写入失败保持失败，
-旧latest也不能当作这次成功。普通读者可以查看`.abx/agents-smoke-reports/latest.json`；
-附录18保留0.1.2丢失具体失败标签的负面例子。
-
-第7节另给实际源码与原测试/heldout证明；ready和hook输出不替代它们。此前公开a7模块的
-never-started镜像取证、私有空revision原生探针，以及首个公开窗口的TLS准备与创建不确定
-记录也保留在附录18，不移植为本次新镜像又执行了一遍同名检查。
-
-## 7. 公开Qwen路径：同一个 Gateway 完成两轮代码修改
-
-业务过程依次是上传 CSV、创建带附件的 Session、查询持久化 Submission/Turn、下载产物，
-再给同一个 Session 提交第二轮输入。工程验收控制器同时使用固定可信检查程序，在所属
-Sandbox 内执行原测试和未提前交给 Agent 的 heldout；业务 HTTP 客户端始终只有业务 Key。
-
-Apply的afterReady已经运行模板自带的`scripts/smoke.py`；它只经Gateway上传文件、驱动两轮
-并下载CSV/源码。普通业务机器只需`AGENTS_API_BASE_URL`和`AGENTS_API_KEY`，不需要云管理Key。
-部署者从本机凭据文件仅取出businessKey再分发，不把internalToken或整个凭据文件交给业务方。
-已将这两项放入业务客户端自己的环境配置后，可在公开模板目录直接复现两轮：
+普通业务调用方只需要`AGENTS_API_BASE_URL`和`AGENTS_API_KEY`。部署者只分发businessKey，
+不分发internalToken、整个凭据文件或Provider管理权限。配置环境后，可以在模板目录运行：
 
 ```bash
 python scripts/smoke.py
 ```
 
-这条普通调用不需要`<VALIDATION_DIR>`或Provider管理权限；脚本通过`/v1/models`发现默认模型，
-也可用`AGENTS_API_MODEL`指定已发布的模型ID。正常Apply已实际运行同一脚本，成功输出固定为：
+这条模板自带调用只经Gateway上传CSV、驱动两轮、下载结果并Close/Delete，不需要私有工程脚本。
+它通过`/v1/models`发现默认模型，也可用`AGENTS_API_MODEL`指定已发布的模型ID。
+工程验收另外遍历39个V1操作/38个受保护操作的401，并在所属Sandbox内运行原测试与heldout，
+核对实际执行源码、捕获源码和下载artifact哈希。工程观察器的Provider凭据不是业务客户端要求。
 
-```text
-PASS: Gateway input, two real Agent turns, independent CSV results and owned compute close
-```
+本轮0.1.4的实际HTTP轨迹、模型源码、CSV、报告和独立检查结果尚待执行后补入；
+之前0.1.3的509条真实轨迹及4/8项heldout保留在附录19，不能回填为新身份的通过。
 
-它验证输入、两轮结果及Close/Delete；下面额外的39接口和Sandbox内原测试/heldout属于独立
-工程验收，不把私有工程控制器作为业务用户的安装前提。
+## 8. 实时SSE：首帧先到，正常读完再关闭
 
-本次额外的工程独立验收实际入口为：
+工程检查使用无输入的空Session，不运行模型，观察首个data帧是否明显早于正常EOF，
+并在stream持续期间并发GET同一Session，最后Close/Delete。完整读取至正常EOF与
+模型中间delta验证是不同范围，不能把终态后的历史事件下载当作实时flush证明。
 
-```bash
-<PUBLIC_PYTHON> <VALIDATION_DIR>/run_acceptance.py public public-retry-qwen-public-39
-```
-
-这个工程组合控制器显式持有Provider管理凭据，用于所属Sandbox内的独立测试，因此结果中的
-`provider_credentials_used=true`。其中业务HTTP客户端的
-`business_client_provider_credentials_used=false`、`private_provider_inspection_used=true`；
-两者分工明确，没有把“只使用Gateway”的业务要求误写成整个工程进程没有管理权限。
-
-本次实际退出0，耗时475.680秒。它遍历39个 V1 operation 的正向响应；除公开健康检查外，
-另外38个受保护 operation 实际使用无效 Bearer 验证返回401。输入、输出和清理也全部经过
-同一个 Gateway。完整[实际结果脱敏摘要](./public-retry-qwen-acceptance.json)及
-[509次实际HTTP观察的逐步脱敏记录](./public-retry-qwen-http.jsonl)可下载；后者保留
-method、路径稳定占位符、状态码及允许的返回字段，没有复制请求正文、提示词或认证头。
-
-关键业务顺序和实际状态码为：
-
-| 实际操作 | HTTP 状态 | 结果判定 |
-| --- | ---: | --- |
-| 上传 sales.csv，purpose=user_data | 200 | 返回 File ID，作为 Session 附件 |
-| 创建带初始任务的 Session | 201 | 返回 Session 及 Submission 收据头 |
-| 查询 Submission 与保存的 Turn | 200 | completed，产物发布完整 |
-| 下载首轮源码、CSV、报告 | 200 | 核对字节、金额及源码哈希 |
-| 向相同 Session 提交第二轮输入 | 202 | 响应头提供新的 Submission；继续查询终态 |
-| 下载第二轮源码及带占比 CSV | 200 | 占比与独立测试通过 |
-| Close | 202 | 查询 Operation，确认 succeeded/compute released |
-| Delete 后查询 Session | 200 / 404 | 公开资源已删除 |
-
-第一轮实际 CSV 是：
-
-```csv
-month,total
-2026-01,30.00
-2026-02,10.00
-```
-
-第二轮实际 CSV 是：
-
-```csv
-month,total,share
-2026-01,30.00,0.750000
-2026-02,10.00,0.250000
-```
-
-独立检查不是阅读 Agent 的“完成”文字。每轮先确认 Session、revision、唯一原生实例、
-原始创建模板的 ID/name 归属与 Turn 发布状态，再在这个 Sandbox 内运行固定可信检查程序。
-原测试文件哈希在执行前后保持不变；从 Gateway 下载的源码、Sandbox 中真正执行的源码
-和捕获为产物的源码哈希一致。检查程序结束且原生 PID 已消失后才发起下一轮输入。
-
-实际独立断言摘要为：
-
-| 轮次 | 原始测试 | heldout | 原测试未变 | 下载源码=执行源码 | 检查进程退出 |
-| --- | --- | ---: | --- | --- | --- |
-| summary | 通过 | 4项通过 | true | true | true |
-| share | 通过 | 8项通过 | true | true | true |
-
-首轮源码1588字节，SHA-256为 `17aaaab637422f01a5cdd8d6d8901ac24b6a54c62848b3ccfffe1789887263d9`；
-第二轮源码2134字节，SHA-256为 `159bd258030eb75927ed26e43ea733e8d282033d1699600a18289ac412975d9c`。
-可下载[首轮源码](./public-retry-qwen-summary.generated.py)、[首轮CSV](./public-retry-qwen-summary.csv)、
-[该轮模型报告](./public-retry-qwen-report.generated.txt)、[第二轮源码](./public-retry-qwen-share.generated.py)
-和[第二轮CSV](./public-retry-qwen-share.csv)。这些模型生成文本经过人工阅读和已知凭据字节检查，
-没有在宿主机执行；报告自述与独立测试结果仍分开记载。
-
-这里验证的是当前固定 V1 operation 和实际业务。终态取消接口返回202，不等于正在执行
-的进程已经被停止；list接口一次成功，也不能扩大为所有分页边界都经过真实云端验证。
-同 UID 的合作进程、文件与哈希检查不构成对敌对 Agent 的防篡改证明；本轮未从宿主直连
-私网PG做所有权证明。独立 Provider 最终不存在证明在应用全部关闭后另做，当前业务摘要
-中的该字段仍为 false，不能提前修改成 true。
-
-## 8. 公开Gateway实时SSE：首帧先到，正常读完再关闭
-
-历史Turn结束后GETevents成功，不能独立证明实时flush。因此另建一个没有input的空Session，
-确认其idle/unallocated、Submission为空，没有创建模型任务。开始GETevents after0后，
-在连接期间另发一次GETSession，读取SSE直到服务正常结束，不提前断开制造FC499。
-
-实际入口为公开安装环境中的`live_sse_acceptance.py --label public-retry-live-sse`；
-控制器实际退出0、总耗时97.352秒，其中SSE连接的真实观测为：
-
-```json
-{"passed":true,"model_turn_started":false,
- "first_frame_seconds":0.292,"stream_seconds":20.340,
- "normal_eof":true,"concurrent_session_read_passed":true,
- "concurrent_read_completed_before_eof":true,"cleanup_public_confirmed":true}
-```
-
-首帧在0.292秒到达，连接在20.340秒后正常EOF，并发GET用时2.047秒并在EOF之前成功。
-这个时间差能排除“结束后才一次性返回全部帧”的情况；它证明空会话事件的实时流式路径，
-不冒称观测到了真实模型的中间delta。控制器随后查询Close到compute released，
-Delete后再GET返回404，公开清理通过。Provider最终不存在确认由应用最终清理另做，
-原结果中的该字段仍保持false，没有拿公开tombstone替代原生absence。
-
-[本轮SSE实际摘要](./public-retry-stream.json)保留确切结果。20秒正常EOF是一个有限slice
-的结束，不代表某个Agent任务已完成；有任务时继续查询Submission/Turn，并按事件cursor
-重连。首个公开窗口与源码窗口的对照分别保留在附录18和附录13。
+本轮0.1.4的首帧时间、EOF时间、并发读取及清理结果尚待实际执行。
 
 ## 9. 先证明活动任务停止，再继续同一工作区
 
-本项在初始qwen-code阶段执行，独立于后续Codex39里的终态取消接口。先让Agent前台
-执行一个固定合作程序：保存nonce、PID、kernel startticks和工作区marker，等待50秒后才
-写完成文件。50秒低于模板保持不变的60秒单工具预算。工程观察器用固定可信命令读取真实
-`/proc`身份，不在宿主机执行Agent源码，也不新增业务exec接口；每次观察者必须退出0且
-确认其PID消失，才继续公开操作。
+工程用例会等待受控工具进程确实开始，再验证普通输入409、显式queue和queued cancel、
+定向active cancel。查询Operation至succeeded且result.stop_confirmed=true，还须独立检查
+原PID/start ticks已经消失、自然期限之后没有finished副作用，最后同一Session继续新任务。
+固定探针50秒，保留公开单工具60秒预算；时序窗口不满足时记录inconclusive，不能取消终态后冒充active停止。
 
-实际入口与断言摘要如下：
+本轮0.1.4的实际观测、取消、续轮和独立清理结果尚待补入。
 
-```bash
-<PUBLIC_PYTHON> <VALIDATION_DIR>/run_acceptance.py active public-retry-active-cancel
-```
+## 10. Qwen→Codex正常更新：验证稳定入口与旧会话延续
 
-```json
-{"passed":true,"active_cancel_stop_passed":true,
- "same_session_continuation_passed":true,"cleanup_public_confirmed":true,
- "cleanup_native_confirmed":true,"probe_sleep_seconds":50,
- "observed_active_seconds_before_cancel":32.264,"uncertain_mutations":[]}
-```
+更新使用新的冻结计划和上一份ready收据，不重放原Apply。复用已有Server build receipt，
+保持Endpoint，先建立真实旧Qwen Session，再仅修改外置模型binding中的adapter为codex。
+新revision应使用新adapter并隔离工作区，旧Session仍须回到原revision和同一个Sandbox读取原marker，
+随后通过正常Retire发起旧revision drain并独立确认释放。
 
-实际退出0、耗时237.475秒，在13:09:09 UTC记录。取消意图完成持久化及加密备份之后，
-再次确认原Turn仍为`in_progress`、原PID/startticks匹配且进程存活，再发送取消请求。
-本次这一观测距首次看到started标记为32.264秒。完整备份可能跨过自然结束时间，
-届时必须记为时序不确定，不能用终态cancel的202冒充活动进程被停止。
+本轮完整更新、旧会话延续、Retire与Codex39结果尚未产生。CLI0.5.10已通过真实本机HTTP组件的
+wrong/malformed HTTP200→exact revision等待检查，但该组件不是FC联合部署；不能替代本节的实际云验证。
+之前0.1.3的stable-readiness失败与源码候选成功对照分别保留在附录19和16。
 
-本次实际依次通过：普通输入返回409且无新增Submission；显式排队为queued且未生成Turn；
-定向取消queued输入；取消原活动Turn并查询Operation至`status=succeeded`且`result.stop_confirmed=true`；原Submission和Turn
-变成cancelled、原进程消失；等待超过原自然结束时刻后完成文件仍不存在。随后同Session
-读取原工作区marker，产物字节一致；回放旧取消key得到原Operation，没有取消后继Turn。
-最后Close/Delete和原生Sandbox不存在确认均通过。
+## 11. 清理应用与外置临时资源，并独立确认不存在
 
-本次预启动发现实际记录了一个0候选观测，然后才确认唯一实例：
-
-```json
-[{"candidate_count":0,"page_count":1,"exhausted":true,"public_lifecycle":"ready"},
- {"candidate_count":1,"page_count":1,"exhausted":true}]
-```
-
-0候选只表示该次只读查询尚未观察到实例，不授予任何访问权限。观察器仅在身份相同、
-未终态时最多等待30秒；大于1、未知HTTP、截断或重复inventory、身份/模板/状态不匹配
-立即失败。单例仍需原strict GetInfo、running、模板归属和PID门禁。完成后的39接口检查
-没有放宽。Submission真实wire状态是`running`，不能用Session/Turn的`in_progress`替代。
-
-[本轮实际结果及备份耗时](./public-retry-active-cancel.json)保留原观测：每次完整备份耗时
-约6.475至9.354秒。这里是同UID合作进程实测，不扩大为敌对代码隔离；业务HTTP仍只用
-Gateway/business Key，私有管理观察另属于工程验证。当前0→1的事实也不能反推首个
-公开窗口未记录候选数的87.644秒失败原因；完整负面对照见附录18，源码文件观察失败见附录15。
-
-## 10. Qwen→Codex候选业务通过，稳定入口检查仍失败
-
-本轮重新准备旧Qwen Session，核对其原生实例、随机工作区marker及已捕获产物，实际退出0、
-耗时110.681秒。只把模型binding的adapter切为codex并保存原配置，步骤退出0、耗时13.734秒。
-模型仍是已验证工具回合的qwen3.5-plus；其他binding保持不变。使用同一Build和旧收据计划：
+应用清理使用正常CLI销毁计划，不手工修改旧ready或失败收据：
 
 ```bash
-abx app plan template.yaml --build-receipt .abx/build.json \
-  --previous-receipt <OLD_READY_RECEIPT> --out .abx/plan-update.json
-abx app apply .abx/plan-update.json --bindings <PRIVATE_BINDINGS_FILE> --yes
+abx app plan --destroy <CURRENT_RECEIPT> --out .abx/destroy.json
+abx app destroy .abx/destroy.json --bindings <PRIVATE_BINDINGS_FILE> --yes
 ```
 
-Plan实际退出0、耗时1.016秒。Apply实际退出1、耗时198.470秒，在13:18:00 UTC记录；
-错误码E7000，真实收据为requires_reconcile、phase为stable-readiness，保留一个旧revision。
-0.1.3的两份候选smoke报告都已complete/passed；新Codex候选实际完成两轮CSV业务，
-这次失败发生在随后CLI的稳定入口就绪检查，不能把它描述成smoke失败或SDK业务缺陷。
+若drain未完成，保留失败和收据，正常Reconcile后使用新的销毁计划；不把一次ACK当成不存在。
+`abx app destroy`不会自动创建或删除PostgreSQL。这里的临时RDS由独立工程流程释放；
+自建临时数据库须另行清理，借用或共享数据库、VPC、交换机、安全组、执行角色不能随应用删除。
+构建中保留的manual镜像仅按原journal中的本次精确tag处理；空仓库也要先证明本次所有权和无引用。
 
-当时留下的检查信息是第一次GET返回HTTP200，但没有匹配冻结的目标revision；原响应正文
-没有保存，所以不能确定底层原因，更不能断言是旧alias、缓存或传播延迟。正常ready没有
-达成，本轮没有运行独立旧会话续轮/新工作区隔离检查、成功retire或Codex39。
-
-源码审查发现CLI0.5.9对这种200但revision不匹配的响应会立即失败。后续CLI修补只拟在
-原有30秒预算内继续只读GET，仍要求最终精确匹配revision；401等认证失败规则不变，
-不重发模型输入、部署或其他mutation。CLI0.5.10的发布、独立安装及新的完整实测尚待完成，
-不能在这里将未达成的更新改成ready。首个0.1.2窗口失败在candidate-smoke，其具体原因
-仍未知，也不能由本次不同阶段的发现解释。
-
-[本轮更新及最终释放的实际摘要](./public-retry-failed-stable-cleanup.json)保留原失败和后续
-每一步退出码。Source候选的成功升级仍在附录16；它不能代替当前公开CLI的负面结果。
-
-## 11. 本轮已知临时资源全部释放，失败收据保留
-
-先原样保存失败更新和原ready快照，再用正常CLI销毁失败更新及完整previous历史：
-
-```bash
-abx app plan --destroy <FAILED_UPDATE_RECEIPT> --out .abx/destroy-update.json
-abx app destroy .abx/destroy-update.json --bindings <PRIVATE_BINDINGS_FILE> --yes
-```
-
-第一次Destroy退出1、耗时3.920秒，处于drain尚未收敛阶段。保留原结果后执行正常Reconcile：
-
-```bash
-abx app reconcile <FAILED_UPDATE_RECEIPT> --bindings <PRIVATE_BINDINGS_FILE> --yes
-```
-
-Reconcile实际退出0、耗时1.466秒，观察到draining=true且三项活动计数归零；它没有把
-失败更新改成ready，也没有重放部署。随后生成新的销毁计划文件再执行正常Destroy：
-
-```bash
-abx app plan --destroy <FAILED_UPDATE_RECEIPT> --out .abx/destroy-update-retry.json
-abx app destroy .abx/destroy-update-retry.json --bindings <PRIVATE_BINDINGS_FILE> --yes
-```
-
-两次Destroy-plan均退出0、各0.515秒；正常Destroy重试退出0、耗时8.634秒，在13:33:32 UTC
-完成。真正当前收据为destroyed、drain confirmed、retained为空。原旧ready没有伪改，
-原stable-readiness失败快照也保留。独立原生检查确认5个已记录FC函数和2个模板不存在；
-共享Gateway父Function明确不存在，覆盖保存的4个发布版本，不捏造版本专用NotFound返回。
-
-3个已记录Sandbox逐一typed NotFound，两个revision的穷尽inventory为0，独立步骤退出0、
-耗时9.080秒。RDS另由独立工程控制器删除，退出0、耗时25.201秒，cleanupConfirmedAt为
-13:35:50.058 UTC；本轮绝对截止14:35:16.044 UTC保持原值，提前约59分26秒释放。
-`abx app destroy`不会自动创建或删除PostgreSQL；自建临时数据库须另行管理，借用或共享
-数据库、VPC、交换机、安全组、执行角色均不因为这个应用销毁而删除。
-
-构建资源也分开核对，只处理原journal中的精确tag：
-
-| 本轮实际步骤 | 退出码 | 耗时/秒 | 独立结果 |
-| --- | ---: | ---: | --- |
-| 当前guest镜像3项 | 0 | 52.173 | 3/3不存在 |
-| 旧guest镜像3项，独立失败整图authority | 0 | 56.035 | 3/3不存在 |
-| 旧3项fresh只读复核 | 0 | 7.375 | 3/3不存在，0 mutation |
-| 精确server空仓库 | 0 | 36.887 | 单次Delete及typed absence |
-| 精确guest空仓库 | 0 | 37.778 | 单次Delete及typed absence |
-| 两仓库fresh独立复核 | 0 | 11.662 | 两项均REPO_NOT_EXIST，0 mutation |
-
-旧3项的authority要求真实整图destroyed、两个原快照、完整2收据链、当前peer journal、
-全部计算/Sandbox和已删RDS证据；原snapshot SHA、state及模板创建身份都必须匹配。
-它不把未发生的retire当成已发生，普通destroyed guard也没有放宽。两组exact tag不得重叠，
-共用digest不扩大选择范围；未知删除结果只observe，不改计划名再次删除。
-
-[两空仓库的实际摘要](./public-retry-repository-completion.json)绑定原计划、两个原4行journal
-及fresh GetRepo文件哈希，确认2次原生删除、0个未知结果。最新独立absence观测时间为
-13:51:45.821 UTC；范围只含本次known graph及可见模板引用，不是全账号或隐藏copy目标清空。
-
-最后把本机旧工具缓存逐条核对SHA、mode、entryset和冻结toolDigest，完整归档并完成
-加密备份后才去掉展开副本，实际退出0、耗时27.779秒；历史文件和全部可恢复字节保留。
-这属于本次工程恢复材料管理，不是业务客户端的依赖。新CLI/recipe的下一独立实测必须
-等本轮全部旧资源释放和发行门禁完成，另用新nonce、新空库及独立期限，不能延长本轮。
-
-因此本轮Qwen39、SSE、主动取消、Codex候选两轮和已知资源释放都有实际证据；
-公开完整升级/Codex39仍为false，文章继续保持草稿。
+本轮计算、模板、Sandbox、数据库、镜像和空仓库的独立absence尚未完成，本文保持草稿。
+此前两个公开窗口各自的全部已知临时资源已释放，其真实证据仍在附录18和19。
 
 ## 附录1：第一次实际 Build：镜像构建成功
 
@@ -1520,3 +1291,324 @@ absence共同授权，绝不把旧ready改成destroyed，也不要求从未发�
 因此首个公开窗口的本次已知临时资源已经释放，公版完整升级/Codex39仍没有通过。
 下一次实测将使用新nonce、新空库、独立绝对截止和0.1.3安全报告，不复用已删除数据库，
 不覆盖旧失败记录，也不把下一阶段的结果回填成这次更新成功。
+
+
+## 附录19：公开0.1.3窗口的完整原记录
+
+本附录保留此前CLI0.5.9、recipe0.1.3/a4d43370的实际部署、Qwen39、SSE、取消、失败升级与完整清理。
+其中“本轮”均指12:35–13:55 UTC的历史窗口，不是当前CLI0.5.10/recipe0.1.4验收。
+下列第6–11小节沿用当时编号，原文内部的节号均指本附录相应历史小节。
+其CLI源码为`dbc0224474c556710569f9e72d3835f685a69597`，npm tarball SHA为
+`ca3c750b119cc5106e71f883f54b3ae31c5122c562602c7082fd0bd0ffcf69f8`；既有附件原字节保留。
+
+### 6. 使用公开安装包正常部署：获得稳定 Gateway
+
+本次主线使用0.1.3的独立公开资源窗口：正式npm CLI0.5.9、公开PyPI client/server0.4.0a7，
+以及提交a4d43370导出的14个原文件。只按普通配置调整应用名称和accessRef；两个Dockerfile
+没有COPY本地wheel。数据库、项目、本机HOME、应用认证及状态均与旧窗口分开。
+
+先等待数据库Running及TLS真正on/success，再准备verify-full的DSN和CA引用。原生读回与
+binding检查通过后，回到模板目录执行正式CLI命令：
+
+```bash
+cd <TEMPLATES_CHECKOUT>/agents-api
+abx app build template.yaml --out .abx/build.json --yes
+abx app plan template.yaml --build-receipt .abx/build.json --out .abx/plan.json
+abx app apply .abx/plan.json --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+本次实际返回脱敏节选与耗时如下：
+
+| 步骤 | 实际退出码 | 耗时/秒 | 实际返回状态 |
+| --- | ---: | ---: | --- |
+| Build | 0 | 26.758 | built |
+| Plan | 0 | 0.915 | planned，operation=apply |
+| Apply | 0 | 374.682 | ready，phase=ready |
+
+```json
+{"status":"ready","phase":"ready"}
+```
+
+实际Apply在12:51:54 UTC记录完成，ready来自正常候选业务检查和生产发布；没有手工驱动
+Dispatcher或改写收据。随后CLI Status与Reconcile也实际退出0，合计3.337秒。
+[初始部署的实际摘要](./public-retry-initial-ready.json)保留确切步骤。
+
+0.1.3的host报告还留下了[17条实际安全检查点](./public-retry-initial-smoke-report.jsonl)，
+从setup、health和上传，到两轮summary/share、close、保留产物读取、delete和cleanup，
+最后一条实际返回为：
+
+```json
+{"schemaVersion":1,"status":"passed","phase":"complete","code":"passed","cleanup_attempted":true,"cleanup_confirmed":true}
+```
+
+报告只记录受限阶段和检查码，不含资源ID、URL、密钥或模型正文。cleanup_confirmed只表示
+hook掌握的公开资源完成清理，不是全Provider inventory证明。报告写入失败保持失败，
+旧latest也不能当作这次成功。普通读者可以查看`.abx/agents-smoke-reports/latest.json`；
+附录18保留0.1.2丢失具体失败标签的负面例子。
+
+第7节另给实际源码与原测试/heldout证明；ready和hook输出不替代它们。此前公开a7模块的
+never-started镜像取证、私有空revision原生探针，以及首个公开窗口的TLS准备与创建不确定
+记录也保留在附录18，不移植为本次新镜像又执行了一遍同名检查。
+
+### 7. 公开Qwen路径：同一个 Gateway 完成两轮代码修改
+
+业务过程依次是上传 CSV、创建带附件的 Session、查询持久化 Submission/Turn、下载产物，
+再给同一个 Session 提交第二轮输入。工程验收控制器同时使用固定可信检查程序，在所属
+Sandbox 内执行原测试和未提前交给 Agent 的 heldout；业务 HTTP 客户端始终只有业务 Key。
+
+Apply的afterReady已经运行模板自带的`scripts/smoke.py`；它只经Gateway上传文件、驱动两轮
+并下载CSV/源码。普通业务机器只需`AGENTS_API_BASE_URL`和`AGENTS_API_KEY`，不需要云管理Key。
+部署者从本机凭据文件仅取出businessKey再分发，不把internalToken或整个凭据文件交给业务方。
+已将这两项放入业务客户端自己的环境配置后，可在公开模板目录直接复现两轮：
+
+```bash
+python scripts/smoke.py
+```
+
+这条普通调用不需要`<VALIDATION_DIR>`或Provider管理权限；脚本通过`/v1/models`发现默认模型，
+也可用`AGENTS_API_MODEL`指定已发布的模型ID。正常Apply已实际运行同一脚本，成功输出固定为：
+
+```text
+PASS: Gateway input, two real Agent turns, independent CSV results and owned compute close
+```
+
+它验证输入、两轮结果及Close/Delete；下面额外的39接口和Sandbox内原测试/heldout属于独立
+工程验收，不把私有工程控制器作为业务用户的安装前提。
+
+本次额外的工程独立验收实际入口为：
+
+```bash
+<PUBLIC_PYTHON> <VALIDATION_DIR>/run_acceptance.py public public-retry-qwen-public-39
+```
+
+这个工程组合控制器显式持有Provider管理凭据，用于所属Sandbox内的独立测试，因此结果中的
+`provider_credentials_used=true`。其中业务HTTP客户端的
+`business_client_provider_credentials_used=false`、`private_provider_inspection_used=true`；
+两者分工明确，没有把“只使用Gateway”的业务要求误写成整个工程进程没有管理权限。
+
+本次实际退出0，耗时475.680秒。它遍历39个 V1 operation 的正向响应；除公开健康检查外，
+另外38个受保护 operation 实际使用无效 Bearer 验证返回401。输入、输出和清理也全部经过
+同一个 Gateway。完整[实际结果脱敏摘要](./public-retry-qwen-acceptance.json)及
+[509次实际HTTP观察的逐步脱敏记录](./public-retry-qwen-http.jsonl)可下载；后者保留
+method、路径稳定占位符、状态码及允许的返回字段，没有复制请求正文、提示词或认证头。
+
+关键业务顺序和实际状态码为：
+
+| 实际操作 | HTTP 状态 | 结果判定 |
+| --- | ---: | --- |
+| 上传 sales.csv，purpose=user_data | 200 | 返回 File ID，作为 Session 附件 |
+| 创建带初始任务的 Session | 201 | 返回 Session 及 Submission 收据头 |
+| 查询 Submission 与保存的 Turn | 200 | completed，产物发布完整 |
+| 下载首轮源码、CSV、报告 | 200 | 核对字节、金额及源码哈希 |
+| 向相同 Session 提交第二轮输入 | 202 | 响应头提供新的 Submission；继续查询终态 |
+| 下载第二轮源码及带占比 CSV | 200 | 占比与独立测试通过 |
+| Close | 202 | 查询 Operation，确认 succeeded/compute released |
+| Delete 后查询 Session | 200 / 404 | 公开资源已删除 |
+
+第一轮实际 CSV 是：
+
+```csv
+month,total
+2026-01,30.00
+2026-02,10.00
+```
+
+第二轮实际 CSV 是：
+
+```csv
+month,total,share
+2026-01,30.00,0.750000
+2026-02,10.00,0.250000
+```
+
+独立检查不是阅读 Agent 的“完成”文字。每轮先确认 Session、revision、唯一原生实例、
+原始创建模板的 ID/name 归属与 Turn 发布状态，再在这个 Sandbox 内运行固定可信检查程序。
+原测试文件哈希在执行前后保持不变；从 Gateway 下载的源码、Sandbox 中真正执行的源码
+和捕获为产物的源码哈希一致。检查程序结束且原生 PID 已消失后才发起下一轮输入。
+
+实际独立断言摘要为：
+
+| 轮次 | 原始测试 | heldout | 原测试未变 | 下载源码=执行源码 | 检查进程退出 |
+| --- | --- | ---: | --- | --- | --- |
+| summary | 通过 | 4项通过 | true | true | true |
+| share | 通过 | 8项通过 | true | true | true |
+
+首轮源码1588字节，SHA-256为 `17aaaab637422f01a5cdd8d6d8901ac24b6a54c62848b3ccfffe1789887263d9`；
+第二轮源码2134字节，SHA-256为 `159bd258030eb75927ed26e43ea733e8d282033d1699600a18289ac412975d9c`。
+可下载[首轮源码](./public-retry-qwen-summary.generated.py)、[首轮CSV](./public-retry-qwen-summary.csv)、
+[该轮模型报告](./public-retry-qwen-report.generated.txt)、[第二轮源码](./public-retry-qwen-share.generated.py)
+和[第二轮CSV](./public-retry-qwen-share.csv)。这些模型生成文本经过人工阅读和已知凭据字节检查，
+没有在宿主机执行；报告自述与独立测试结果仍分开记载。
+
+这里验证的是当前固定 V1 operation 和实际业务。终态取消接口返回202，不等于正在执行
+的进程已经被停止；list接口一次成功，也不能扩大为所有分页边界都经过真实云端验证。
+同 UID 的合作进程、文件与哈希检查不构成对敌对 Agent 的防篡改证明；本轮未从宿主直连
+私网PG做所有权证明。独立 Provider 最终不存在证明在应用全部关闭后另做，当前业务摘要
+中的该字段仍为 false，不能提前修改成 true。
+
+### 8. 公开Gateway实时SSE：首帧先到，正常读完再关闭
+
+历史Turn结束后GETevents成功，不能独立证明实时flush。因此另建一个没有input的空Session，
+确认其idle/unallocated、Submission为空，没有创建模型任务。开始GETevents after0后，
+在连接期间另发一次GETSession，读取SSE直到服务正常结束，不提前断开制造FC499。
+
+实际入口为公开安装环境中的`live_sse_acceptance.py --label public-retry-live-sse`；
+控制器实际退出0、总耗时97.352秒，其中SSE连接的真实观测为：
+
+```json
+{"passed":true,"model_turn_started":false,
+ "first_frame_seconds":0.292,"stream_seconds":20.340,
+ "normal_eof":true,"concurrent_session_read_passed":true,
+ "concurrent_read_completed_before_eof":true,"cleanup_public_confirmed":true}
+```
+
+首帧在0.292秒到达，连接在20.340秒后正常EOF，并发GET用时2.047秒并在EOF之前成功。
+这个时间差能排除“结束后才一次性返回全部帧”的情况；它证明空会话事件的实时流式路径，
+不冒称观测到了真实模型的中间delta。控制器随后查询Close到compute released，
+Delete后再GET返回404，公开清理通过。Provider最终不存在确认由应用最终清理另做，
+原结果中的该字段仍保持false，没有拿公开tombstone替代原生absence。
+
+[本轮SSE实际摘要](./public-retry-stream.json)保留确切结果。20秒正常EOF是一个有限slice
+的结束，不代表某个Agent任务已完成；有任务时继续查询Submission/Turn，并按事件cursor
+重连。首个公开窗口与源码窗口的对照分别保留在附录18和附录13。
+
+### 9. 先证明活动任务停止，再继续同一工作区
+
+本项在初始qwen-code阶段执行，独立于后续Codex39里的终态取消接口。先让Agent前台
+执行一个固定合作程序：保存nonce、PID、kernel startticks和工作区marker，等待50秒后才
+写完成文件。50秒低于模板保持不变的60秒单工具预算。工程观察器用固定可信命令读取真实
+`/proc`身份，不在宿主机执行Agent源码，也不新增业务exec接口；每次观察者必须退出0且
+确认其PID消失，才继续公开操作。
+
+实际入口与断言摘要如下：
+
+```bash
+<PUBLIC_PYTHON> <VALIDATION_DIR>/run_acceptance.py active public-retry-active-cancel
+```
+
+```json
+{"passed":true,"active_cancel_stop_passed":true,
+ "same_session_continuation_passed":true,"cleanup_public_confirmed":true,
+ "cleanup_native_confirmed":true,"probe_sleep_seconds":50,
+ "observed_active_seconds_before_cancel":32.264,"uncertain_mutations":[]}
+```
+
+实际退出0、耗时237.475秒，在13:09:09 UTC记录。取消意图完成持久化及加密备份之后，
+再次确认原Turn仍为`in_progress`、原PID/startticks匹配且进程存活，再发送取消请求。
+本次这一观测距首次看到started标记为32.264秒。完整备份可能跨过自然结束时间，
+届时必须记为时序不确定，不能用终态cancel的202冒充活动进程被停止。
+
+本次实际依次通过：普通输入返回409且无新增Submission；显式排队为queued且未生成Turn；
+定向取消queued输入；取消原活动Turn并查询Operation至`status=succeeded`且`result.stop_confirmed=true`；原Submission和Turn
+变成cancelled、原进程消失；等待超过原自然结束时刻后完成文件仍不存在。随后同Session
+读取原工作区marker，产物字节一致；回放旧取消key得到原Operation，没有取消后继Turn。
+最后Close/Delete和原生Sandbox不存在确认均通过。
+
+本次预启动发现实际记录了一个0候选观测，然后才确认唯一实例：
+
+```json
+[{"candidate_count":0,"page_count":1,"exhausted":true,"public_lifecycle":"ready"},
+ {"candidate_count":1,"page_count":1,"exhausted":true}]
+```
+
+0候选只表示该次只读查询尚未观察到实例，不授予任何访问权限。观察器仅在身份相同、
+未终态时最多等待30秒；大于1、未知HTTP、截断或重复inventory、身份/模板/状态不匹配
+立即失败。单例仍需原strict GetInfo、running、模板归属和PID门禁。完成后的39接口检查
+没有放宽。Submission真实wire状态是`running`，不能用Session/Turn的`in_progress`替代。
+
+[本轮实际结果及备份耗时](./public-retry-active-cancel.json)保留原观测：每次完整备份耗时
+约6.475至9.354秒。这里是同UID合作进程实测，不扩大为敌对代码隔离；业务HTTP仍只用
+Gateway/business Key，私有管理观察另属于工程验证。当前0→1的事实也不能反推首个
+公开窗口未记录候选数的87.644秒失败原因；完整负面对照见附录18，源码文件观察失败见附录15。
+
+### 10. Qwen→Codex候选业务通过，稳定入口检查仍失败
+
+本轮重新准备旧Qwen Session，核对其原生实例、随机工作区marker及已捕获产物，实际退出0、
+耗时110.681秒。只把模型binding的adapter切为codex并保存原配置，步骤退出0、耗时13.734秒。
+模型仍是已验证工具回合的qwen3.5-plus；其他binding保持不变。使用同一Build和旧收据计划：
+
+```bash
+abx app plan template.yaml --build-receipt .abx/build.json \
+  --previous-receipt <OLD_READY_RECEIPT> --out .abx/plan-update.json
+abx app apply .abx/plan-update.json --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+Plan实际退出0、耗时1.016秒。Apply实际退出1、耗时198.470秒，在13:18:00 UTC记录；
+错误码E7000，真实收据为requires_reconcile、phase为stable-readiness，保留一个旧revision。
+0.1.3的两份候选smoke报告都已complete/passed；新Codex候选实际完成两轮CSV业务，
+这次失败发生在随后CLI的稳定入口就绪检查，不能把它描述成smoke失败或SDK业务缺陷。
+
+当时留下的检查信息是第一次GET返回HTTP200，但没有匹配冻结的目标revision；原响应正文
+没有保存，所以不能确定底层原因，更不能断言是旧alias、缓存或传播延迟。正常ready没有
+达成，本轮没有运行独立旧会话续轮/新工作区隔离检查、成功retire或Codex39。
+
+源码审查发现CLI0.5.9对这种200但revision不匹配的响应会立即失败。后续CLI修补只拟在
+原有30秒预算内继续只读GET，仍要求最终精确匹配revision；401等认证失败规则不变，
+不重发模型输入、部署或其他mutation。CLI0.5.10的发布、独立安装及新的完整实测尚待完成，
+不能在这里将未达成的更新改成ready。首个0.1.2窗口失败在candidate-smoke，其具体原因
+仍未知，也不能由本次不同阶段的发现解释。
+
+[本轮更新及最终释放的实际摘要](./public-retry-failed-stable-cleanup.json)保留原失败和后续
+每一步退出码。Source候选的成功升级仍在附录16；它不能代替当前公开CLI的负面结果。
+
+### 11. 本轮已知临时资源全部释放，失败收据保留
+
+先原样保存失败更新和原ready快照，再用正常CLI销毁失败更新及完整previous历史：
+
+```bash
+abx app plan --destroy <FAILED_UPDATE_RECEIPT> --out .abx/destroy-update.json
+abx app destroy .abx/destroy-update.json --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+第一次Destroy退出1、耗时3.920秒，处于drain尚未收敛阶段。保留原结果后执行正常Reconcile：
+
+```bash
+abx app reconcile <FAILED_UPDATE_RECEIPT> --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+Reconcile实际退出0、耗时1.466秒，观察到draining=true且三项活动计数归零；它没有把
+失败更新改成ready，也没有重放部署。随后生成新的销毁计划文件再执行正常Destroy：
+
+```bash
+abx app plan --destroy <FAILED_UPDATE_RECEIPT> --out .abx/destroy-update-retry.json
+abx app destroy .abx/destroy-update-retry.json --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+两次Destroy-plan均退出0、各0.515秒；正常Destroy重试退出0、耗时8.634秒，在13:33:32 UTC
+完成。真正当前收据为destroyed、drain confirmed、retained为空。原旧ready没有伪改，
+原stable-readiness失败快照也保留。独立原生检查确认5个已记录FC函数和2个模板不存在；
+共享Gateway父Function明确不存在，覆盖保存的4个发布版本，不捏造版本专用NotFound返回。
+
+3个已记录Sandbox逐一typed NotFound，两个revision的穷尽inventory为0，独立步骤退出0、
+耗时9.080秒。RDS另由独立工程控制器删除，退出0、耗时25.201秒，cleanupConfirmedAt为
+13:35:50.058 UTC；本轮绝对截止14:35:16.044 UTC保持原值，提前约59分26秒释放。
+`abx app destroy`不会自动创建或删除PostgreSQL；自建临时数据库须另行管理，借用或共享
+数据库、VPC、交换机、安全组、执行角色均不因为这个应用销毁而删除。
+
+构建资源也分开核对，只处理原journal中的精确tag：
+
+| 本轮实际步骤 | 退出码 | 耗时/秒 | 独立结果 |
+| --- | ---: | ---: | --- |
+| 当前guest镜像3项 | 0 | 52.173 | 3/3不存在 |
+| 旧guest镜像3项，独立失败整图authority | 0 | 56.035 | 3/3不存在 |
+| 旧3项fresh只读复核 | 0 | 7.375 | 3/3不存在，0 mutation |
+| 精确server空仓库 | 0 | 36.887 | 单次Delete及typed absence |
+| 精确guest空仓库 | 0 | 37.778 | 单次Delete及typed absence |
+| 两仓库fresh独立复核 | 0 | 11.662 | 两项均REPO_NOT_EXIST，0 mutation |
+
+旧3项的authority要求真实整图destroyed、两个原快照、完整2收据链、当前peer journal、
+全部计算/Sandbox和已删RDS证据；原snapshot SHA、state及模板创建身份都必须匹配。
+它不把未发生的retire当成已发生，普通destroyed guard也没有放宽。两组exact tag不得重叠，
+共用digest不扩大选择范围；未知删除结果只observe，不改计划名再次删除。
+
+[两空仓库的实际摘要](./public-retry-repository-completion.json)绑定原计划、两个原4行journal
+及fresh GetRepo文件哈希，确认2次原生删除、0个未知结果。最新独立absence观测时间为
+13:51:45.821 UTC；范围只含本次known graph及可见模板引用，不是全账号或隐藏copy目标清空。
+
+最后把本机旧工具缓存逐条核对SHA、mode、entryset和冻结toolDigest，完整归档并完成
+加密备份后才去掉展开副本，实际退出0、耗时27.779秒；历史文件和全部可恢复字节保留。
+这属于本次工程恢复材料管理，不是业务客户端的依赖。新CLI/recipe的下一独立实测必须
+等本轮全部旧资源释放和发行门禁完成，另用新nonce、新空库及独立期限，不能延长本轮。
+
+因此本轮Qwen39、SSE、主动取消、Codex候选两轮和已知资源释放都有实际证据；
+公开完整升级/Codex39仍为false，文章继续保持草稿。
