@@ -1,0 +1,50 @@
+{
+  "scope": "actual_normal_ready_gateway_active_cancel_with_private_fixed_observer",
+  "actual_exit_code": 0,
+  "elapsed_seconds": 224.219,
+  "business_client_provider_credentials_used": false,
+  "private_provider_inspection_used": true,
+  "actual_controller_result": {
+    "scope": "actual_gateway_active_cancel_and_cooperative_native_observation",
+    "passed": true,
+    "active_cancel_stop_passed": true,
+    "same_session_continuation_passed": true,
+    "cleanup_public_confirmed": true,
+    "cleanup_native_confirmed": true,
+    "database_ownership_verified": false,
+    "generated_code_executed_on_host": false,
+    "probe_sleep_seconds": 50,
+    "uncertain_mutations": [],
+    "checks": [
+      {
+        "name": "active_standard_input_409_without_side_effect",
+        "passed": true
+      },
+      {
+        "name": "queued_cancel_and_active_process_stop_past_original_sleep",
+        "passed": true
+      }
+    ],
+    "observed_active_seconds_before_cancel": 41.045,
+    "backup_seconds": [
+      10.461,
+      9.835,
+      8.081,
+      9.435,
+      8.544,
+      10.403,
+      10.108,
+      9.347,
+      10.843,
+      10.935,
+      5.226,
+      5.173,
+      5.823
+    ]
+  },
+  "limits": [
+    "Same-UID cooperative observation, not hostile guest attestation.",
+    "Original file-observation failures are preserved separately.",
+    "Fixed source-controlled observer executes only in the owned Sandbox; no Agent artifacts execute on host."
+  ]
+}

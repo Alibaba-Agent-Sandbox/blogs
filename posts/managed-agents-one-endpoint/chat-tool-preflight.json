@@ -1,0 +1,14 @@
+{
+  "models_status": 200,
+  "candidate_count": 2,
+  "tests": [
+    {
+      "model": "qwen3.5-plus",
+      "first_status": 200,
+      "tool_call": true,
+      "roundtrip_pass": true,
+      "second_status": 200,
+      "elapsed_seconds": 4.53
+    }
+  ]
+}

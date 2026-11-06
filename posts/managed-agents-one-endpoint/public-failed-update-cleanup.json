@@ -1,0 +1,112 @@
+{
+  "scope": "first_public_recipe_failed_codex_update_and_owned_graph_release",
+  "complete_public_upgrade_passed": false,
+  "codex_39_run_claimed": false,
+  "original_failure_detail_known": false,
+  "failed_phase": "candidate-smoke",
+  "error_code": "E7000",
+  "steps": [
+    {
+      "step": "public-final-upgrade-prepare",
+      "exit_code": 0,
+      "elapsed_seconds": 82.46,
+      "timed_out": false
+    },
+    {
+      "step": "public-final-codex-update-plan",
+      "exit_code": 0,
+      "elapsed_seconds": 0.965,
+      "timed_out": false
+    },
+    {
+      "step": "public-final-codex-update-apply",
+      "exit_code": 1,
+      "elapsed_seconds": 144.29,
+      "timed_out": false
+    },
+    {
+      "step": "public-final-failed-update-destroy-plan",
+      "exit_code": 0,
+      "elapsed_seconds": 0.515,
+      "timed_out": false
+    },
+    {
+      "step": "public-final-failed-update-destroy",
+      "exit_code": 0,
+      "elapsed_seconds": 10.68,
+      "timed_out": false
+    },
+    {
+      "step": "public-final-owned-native-compute-absence",
+      "exit_code": 0,
+      "elapsed_seconds": 6.925,
+      "timed_out": false
+    },
+    {
+      "step": "public-final-rds-destroy",
+      "exit_code": 0,
+      "elapsed_seconds": 25.088,
+      "timed_out": false
+    },
+    {
+      "step": "public-final-current-guest-image-cleanup",
+      "exit_code": 0,
+      "elapsed_seconds": 64.379,
+      "timed_out": false
+    },
+    {
+      "step": "public-failed-update-old-guest-native-release-cleanup-proof",
+      "exit_code": 0,
+      "elapsed_seconds": 8.777,
+      "timed_out": false
+    },
+    {
+      "step": "public-failed-update-old-guest-sandbox-release-cleanup-proof",
+      "exit_code": 1,
+      "elapsed_seconds": 6.699,
+      "timed_out": false
+    },
+    {
+      "step": "public-failed-update-old-guest-native-release-cleanup-proof-v2",
+      "exit_code": 0,
+      "elapsed_seconds": 8.199,
+      "timed_out": false
+    },
+    {
+      "step": "public-failed-update-old-guest-sandbox-release-cleanup-proof-v2",
+      "exit_code": 0,
+      "elapsed_seconds": 7.231,
+      "timed_out": false
+    },
+    {
+      "step": "public-failed-update-old-guest-image-cleanup",
+      "exit_code": 0,
+      "elapsed_seconds": 54.295,
+      "timed_out": false
+    },
+    {
+      "step": "public-failed-update-old-guest-final-cleanup-observation",
+      "exit_code": 0,
+      "elapsed_seconds": 7.081,
+      "timed_out": false
+    },
+    {
+      "step": "public-offline-owned-exact-local-image-cleanup",
+      "exit_code": 0,
+      "elapsed_seconds": 21.536,
+      "timed_out": false
+    }
+  ],
+  "whole_graph_functions_typed_absent": 5,
+  "whole_graph_templates_typed_absent": 2,
+  "known_sandboxes_typed_absent": 3,
+  "native_inventory_exhausted": true,
+  "matched_owned_sandboxes": 0,
+  "owned_rds_phase": "deleted",
+  "owned_rds_cleanup_confirmed_at": "2026-11-06T11:58:14.045Z",
+  "owned_guest_exact_targets_independently_absent": 6,
+  "offline_owned_local_image_tag_absence_confirmed": true,
+  "empty_repository_release_in_this_record": false,
+  "old_ready_receipt_rewritten": false,
+  "all_account_resource_absence_claimed": false
+}

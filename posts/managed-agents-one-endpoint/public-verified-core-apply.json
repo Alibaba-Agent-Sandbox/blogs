@@ -1,0 +1,107 @@
+{
+  "kind": "PublishedRecipeCoreApplyObserved",
+  "scope": "actual_normal_apply_and_gateway_only_two_turn_smoke",
+  "templateVersion": "0.1.4",
+  "templateCommit": "4971598a5b14b62207076dd2da4264c139423628",
+  "cliVersion": "0.5.10",
+  "apply": {
+    "exitCode": 0,
+    "elapsedSeconds": 372.713,
+    "recordedAt": "2026-11-06T17:30:15.554483+00:00",
+    "status": "ready",
+    "phase": "ready",
+    "timedOut": false,
+    "resultSha256": "3f1e91d4f34b43878576e62206b03ef44112d7e511dd00f44efb9f5cb8336430",
+    "stdoutSha256": "dca8e996a9a329337362fb07f122ff0a126e90476bb34d6da264a239faad2a4c",
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "normalCliUsed": true,
+  "manualDispatcherDriverUsed": false,
+  "functionsRecorded": 3,
+  "guestTemplatesRecorded": 1,
+  "businessClientGatewayOnly": true,
+  "verificationEndpointScope": "normal Apply candidate Gateway; stable publication confirmed by ready",
+  "smokeReport": {
+    "rows": 17,
+    "sha256": "b1fab8f01af8dc3cff65b73a1a528ca1d1593396e6a37985e8669fb0fb49d1e1",
+    "lastCheckpoint": {
+      "schemaVersion": 1,
+      "status": "passed",
+      "phase": "complete",
+      "code": "passed",
+      "cleanup_attempted": true,
+      "cleanup_confirmed": true
+    },
+    "cleanupScope": "known public resources; final cloud absence is separate"
+  },
+  "modelTurns": 2,
+  "inputAndCsvDownloadAssertionsPassed": true,
+  "generatedSourceBytesPreserved": false,
+  "oldSourceAttachmentsReusedAsNew": false,
+  "hostExecutedGeneratedCode": false,
+  "additionalApiOrUpgradeMatrixClaimed": false,
+  "finalCloudCleanupIncluded": true,
+  "cleanup": {
+    "scope": "known_owned_temporary_resources_for_this_run",
+    "ordinaryDestroy": {
+      "exitCode": 0,
+      "elapsedSeconds": 6.374,
+      "recordedAt": "2026-11-06T17:37:26Z",
+      "drainConfirmed": true,
+      "retainedRevisions": 0,
+      "serverImageCleanupConfirmed": true
+    },
+    "freshNative": {
+      "passed": true,
+      "functions": 3,
+      "functionLookup": "exact_saved_function_name",
+      "templates": 1,
+      "originalTeamTemplateLookup": true,
+      "sandboxInventoryExhausted": true,
+      "matchedOwnedScope": 0,
+      "knownNativeIdsRecorded": 0,
+      "directKnownIdChecks": 0,
+      "proofSha256": "f144f4b4f440b8f1f4675ed58f8fd3f83e54d52a64d78b5684d62f453a7c5d7c"
+    },
+    "temporaryDatabase": {
+      "deletedConfirmed": true,
+      "confirmedAt": "2026-11-06T17:43:12.301Z",
+      "commandSeconds": 17.992,
+      "strictNativeZeroInventory": true
+    },
+    "guestImageTags": {
+      "count": 3,
+      "alreadyAbsent": 1,
+      "deleted": 2,
+      "independentAbsenceConfirmed": true,
+      "commandSeconds": 54.656,
+      "recordedAt": "2026-11-06T17:46:33.732353Z",
+      "journalRows": 7,
+      "journalSha256": "b7fb4ef581b56e7e380c28ff62640c598921ad2aabceebf834aa1766986b1963"
+    },
+    "emptyRepositories": {
+      "server": {
+        "commandExitCode": 0,
+        "commandSeconds": 42.149,
+        "recordedAt": "2026-11-06T18:01:36.308392Z",
+        "singleDelete": true,
+        "independentTypedAbsence": true,
+        "journalRows": 4,
+        "journalSha256": "b6e18e648217be4ac041d50aa247d58b07187bd0eefc21567f7bceaa56bdc14c"
+      },
+      "guest": {
+        "commandExitCode": 0,
+        "commandSeconds": 39.724,
+        "recordedAt": "2026-11-06T18:02:31.672104Z",
+        "singleDelete": true,
+        "independentTypedAbsence": true,
+        "journalRows": 4,
+        "journalSha256": "3b85ff425e557b519313a95b459c21e4bbe4c1ceab67ab6b6ca9bb8cdbee5d5b"
+      }
+    },
+    "knownTaskCleanupConfirmed": true,
+    "allAccountAbsenceClaimed": false,
+    "borrowedDatabaseOrNetworkDeleted": false,
+    "additionalBusinessTestsStarted": false
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "scope": "published_v013_failed_stable_readiness_update_and_completed_known_owned_release",
+  "template_commit": "a4d43370ff82e244c542412d0af0c68759d19fdb",
+  "cli_version": "0.5.9",
+  "complete_public_upgrade_passed": false,
+  "independent_old_session_continuity_passed": false,
+  "normal_retirement_claimed": false,
+  "codex_39_run_claimed": false,
+  "codex_candidate_two_turn_business_smoke_passed": true,
+  "failed_phase": "stable-readiness",
+  "error_code": "E7000",
+  "health_observation": {
+    "http_status": 200,
+    "attempts": 1,
+    "revision_match": false,
+    "response_body_retained": false,
+    "underlying_platform_cause_established": false
+  },
+  "previous_v012_failure_cause_reclassified": false,
+  "steps": [
+    {
+      "label": "public-retry-upgrade-prepare",
+      "recorded_at": "2026-11-06T13:12:37.917213+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 110.681,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-binding-switch-codex",
+      "recorded_at": "2026-11-06T13:13:27.638503+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 13.734,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-codex-update-plan",
+      "recorded_at": "2026-11-06T13:14:26.204574+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 1.016,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-codex-update-apply",
+      "recorded_at": "2026-11-06T13:18:00.570806+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 198.47,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-destroy-plan",
+      "recorded_at": "2026-11-06T13:24:29.539886+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 0.515,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-destroy",
+      "recorded_at": "2026-11-06T13:26:18.888463+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 3.92,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-drain-cleanup-observation",
+      "recorded_at": "2026-11-06T13:30:17.904223+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 1.466,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-destroy-retry-plan",
+      "recorded_at": "2026-11-06T13:31:41.066224+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 0.515,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-destroy-retry",
+      "recorded_at": "2026-11-06T13:33:32.908521+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 8.634,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-native-compute-cleanup-absence",
+      "recorded_at": "2026-11-06T13:34:08.657568+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 9.08,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-rds-destroy",
+      "recorded_at": "2026-11-06T13:35:56.637851+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 25.201,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-current-guest-image-cleanup",
+      "recorded_at": "2026-11-06T13:38:15.740656+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 52.173,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-native-release-cleanup-proof",
+      "recorded_at": "2026-11-06T13:38:34.039209+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 9.084,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-sandbox-release-cleanup-proof",
+      "recorded_at": "2026-11-06T13:39:45.624351+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 7.68,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-old-guest-image-cleanup",
+      "recorded_at": "2026-11-06T13:42:12.953990+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 56.035,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-old-guest-final-cleanup-observation",
+      "recorded_at": "2026-11-06T13:43:06.523397+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 7.375,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-server-empty-repository-cleanup",
+      "recorded_at": "2026-11-06T13:49:09.837716+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 36.887,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-guest-empty-repository-cleanup",
+      "recorded_at": "2026-11-06T13:50:39.160603+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 37.778,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-failed-stable-final-empty-repository-cleanup-absence",
+      "recorded_at": "2026-11-06T13:51:52.910701+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 11.662,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-completed-tool-cache-clean-build-archive",
+      "recorded_at": "2026-11-06T13:55:59.325950+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 27.779,
+      "timed_out": false
+    }
+  ],
+  "functions_typed_absent": 5,
+  "templates_typed_absent": 2,
+  "saved_versions_covered_by_parent_function_absence": 4,
+  "known_sandboxes_typed_absent": 3,
+  "native_inventory_exhausted": true,
+  "matched_owned_sandboxes": 0,
+  "owned_rds_phase": "deleted",
+  "owned_rds_cleanup_confirmed_at": "2026-11-06T13:35:50.058Z",
+  "owned_rds_absolute_deadline": "2026-11-06T14:35:16.044Z",
+  "owned_guest_exact_targets_independently_absent": 6,
+  "old_ready_or_failed_original_snapshots_rewritten": false,
+  "native_release_proof_sha256": "c1ab411dece27763f35d89ef60ccb04019dfdb72019e0edda6398606f7c0d687",
+  "empty_repository_delete_calls": 2,
+  "empty_repository_unknown_outcomes": 0,
+  "empty_repository_independent_absence_at": "2026-11-06T13:51:45.821Z",
+  "empty_repository_safe_result_sha256": "348e69742114e82b5f3b71e292b0ba0787be7d601094a049f70a4d01ff94c703",
+  "tool_cache_all_bytes_preserved_in_archive": true,
+  "all_account_resource_absence_claimed": false
+}

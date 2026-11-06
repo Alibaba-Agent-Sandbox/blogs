@@ -1,0 +1,45 @@
+{
+  "kind": "ExactPublicRetryFailedStableRepositoryCleanupResult",
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-06T13:57:50.354996+00:00",
+  "planSha256": "a6b05fd10ec48e7883b56a52ea0145d27cbb2623e3bd8e1492535805eb8bf420",
+  "planId": "92b39c3b1fa404d7c5d45ba6c1d38bed14c8f6e681438fbfb018b9cd9975f12e",
+  "reviewedCorrelationSha256": "fbe747a251c9b307a26bce5dc3538e74fdf81ce472f260b1765ebd10df4997f7",
+  "helperSha256": "efc154e97a94f43e9c3bfd81f8ac10780be9c37e6d732a65235ccc1943fa1697",
+  "deletions": [
+    {
+      "alias": "server",
+      "repositoryKey": "211bf6250280d43578e244447e2d65f06ae1f3e8ff0f871fbfa1dbe2c640f1de",
+      "journalSha256": "ec3e0608ba0b0c8b59c9f79416ba4750411bd8759443043cb4bd0c384b0b4930",
+      "deleteIntentCount": 1,
+      "nativeAckStatus": 200,
+      "typedAbsenceCode": "REPO_NOT_EXIST",
+      "confirmedAt": "2026-11-06T13:49:03.687Z"
+    },
+    {
+      "alias": "guest",
+      "repositoryKey": "a45d21c690dafd30e0f636c9e9f25d1fbbb2c38a0a8b3807e9cb78140077c836",
+      "journalSha256": "79e20c56ece82feedfdbfb00472135a8574caac40221f860ba7e7b689635f793",
+      "deleteIntentCount": 1,
+      "nativeAckStatus": 200,
+      "typedAbsenceCode": "REPO_NOT_EXIST",
+      "confirmedAt": "2026-11-06T13:50:32.862Z"
+    }
+  ],
+  "nativeDeleteCalls": 2,
+  "unknownOutcomes": 0,
+  "independentAbsence": {
+    "sha256": "6598418878ca925b190c8c10155ce4b414a082312f13fdbdef3af82c5525e9fe",
+    "recordedAt": "2026-11-06T13:51:45.821Z",
+    "repositoryKeys": [
+      "211bf6250280d43578e244447e2d65f06ae1f3e8ff0f871fbfa1dbe2c640f1de",
+      "a45d21c690dafd30e0f636c9e9f25d1fbbb2c38a0a8b3807e9cb78140077c836"
+    ],
+    "typedCode": "REPO_NOT_EXIST",
+    "nativeMutations": 0
+  },
+  "scope": "known_task_reference_graph_and_visible_original_team_images",
+  "allAccountReferencesProvenAbsent": false,
+  "hiddenCopyTargetsProvenAbsent": false,
+  "privateResultSha256": "4b8416b061641b76e4d33d2e1e94f5e4bb982f8e264dcd05aceee278af30905f"
+}

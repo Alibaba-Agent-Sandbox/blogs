@@ -1,0 +1,46 @@
+{
+  "scope": "published_v013_initial_normal_cli_readiness_not_complete_cloud_acceptance",
+  "template_commit": "a4d43370ff82e244c542412d0af0c68759d19fdb",
+  "template_version": "0.1.3",
+  "cli_distribution": "npm @agent-sandbox/cli@0.5.9",
+  "sdk_distribution": "public PyPI agent-sandbox-client[managed-agents]/agent-sandbox-server 0.4.0a7",
+  "steps": [
+    {
+      "label": "public-retry-public-cli-build",
+      "recorded_at": "2026-11-06T12:43:40.693581+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 26.758,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-public-cli-plan",
+      "recorded_at": "2026-11-06T12:45:18.631508+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 0.915,
+      "timed_out": false
+    },
+    {
+      "label": "public-retry-public-cli-apply",
+      "recorded_at": "2026-11-06T12:51:54.062012+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 374.682,
+      "timed_out": false
+    }
+  ],
+  "actual_apply_status": "ready",
+  "actual_apply_phase": "ready",
+  "smoke_report_rows": 17,
+  "smoke_report_sha256": "b1fab8f01af8dc3cff65b73a1a528ca1d1593396e6a37985e8669fb0fb49d1e1",
+  "smoke_latest": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "phase": "complete",
+    "code": "passed",
+    "cleanup_attempted": true,
+    "cleanup_confirmed": true
+  },
+  "cleanup_scope": "known_public_resources_from_hook_only",
+  "independent_original_and_heldout_checks_in_this_record": false,
+  "provider_absence_in_this_record": false,
+  "complete_public_cloud_acceptance_claimed": false
+}

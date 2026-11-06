@@ -1,0 +1,638 @@
+# Verification: managed Agents single-Gateway practical guide
+
+Date: 2026-11-06
+Result: PASS for the scoped article content, executed core workflow, known-owned cleanup and related local checks; normal PR merge/publication is not claimed.
+
+## Scope and source identity
+
+The task branch starts at blogs main
+`aedabd4dfcf54db6c45f35a4dd82e01aba06bcda`. The existing primary checkout's
+unrelated changes were preserved. The dated preparation entries below retain
+their original scope and outcomes. The final core-workflow section records the
+actual public0.1.4 deployment, two real Agent file turns and owned cleanup.
+Normal PR merge and website publication are separate states, not inferred from
+content verification.
+
+## Executed preparation
+
+- Read the workspace owner instructions, blogs contributor instructions, current
+  bilingual READMEs, CONTRIBUTING.md, engineering record conventions, article
+  template and validation workflow.
+- `git fetch origin main` through the existing child-only credential loader:
+  exit0; remote main advanced from7926e3f to aedabd4.
+- `git -c core.filemode=false merge --ff-only origin/main`: exit0; only the new
+  task branch advanced. No forced history or dirty-checkout reset.
+- Task worktree status before these scoped records: clean with executable-mode
+  differences excluded; the shared filesystem reports text files executable.
+
+## Initial preparation boundary
+
+At initial preparation, the article intentionally contained no unexecuted
+outputs. Hosted application/model and resource results remained with the task
+owner controllers; broader probes in this historical plan were later removed
+from the core delivery scope at the user's direction. Source-only previous results and local protocol fixtures will
+not be relabeled as final hosted acceptance.
+
+Blog validation, link/record checks, content/secret review and applicable rendering
+preview will be added with their actual results after article content is ready.
+This preparation created no cloud resources and published no article or PR.
+
+## Actual evidence draft added at 05:54 UTC
+
+Root authorized drafting completed steps while hosted business acceptance is
+still pending. Added `posts/managed-agents-one-endpoint/index.zh.md`, explicitly
+`draft: true`, and four reviewed sanitized JSON assets: first-attempt step
+projections, actual Chat/Responses tool-round preflights and the local PostgreSQL
+stop/restart summary. Source inputs were read before inclusion. The article marks
+projections and assertion summaries, preserves failed hosted attempts, and leaves
+fourth deployment, model coding results, active cancel, upgrade and final cleanup
+explicitly unverified. Unpublished candidates are not presented as public installs.
+
+Executed checks:
+
+- Default `python scripts/validate.py`: failed before validation with missing
+  PyYAML. No dependency installation or product change was performed for this.
+- Existing template verification venv, with installed PyYAML:
+  `python scripts/validate.py`: exit0, 59 posts checked,0 problems.
+- Local article asset/link check: all relative asset targets exist, all four JSON
+  files parse, `draft: true` remains set, no obvious credential/native-ID pattern
+  appears in article text.
+- `git -c core.filemode=false diff --check`: exit0.
+
+The author reviewed the included public fields; private full logs, account/native
+resource identities, command headers and keys were not copied. Website rendering,
+article helper reproduction, actual final hosted results, commit/PR/publication
+and final review remain pending. The article has not been merged or published.
+
+## Actual first-turn, streaming and original-window cleanup additions
+
+Added the actual first-turn downloaded program, CSV and model-written report
+after text review. The program remains an explicitly model-generated attachment;
+it was not executed on the host. Its report's test claim is labeled self-report.
+The real business run reached 20 positive routes and then failed the independent
+native template identity gate before private helper execution. The article does
+not claim all39 operations, original/heldout execution or the second independent
+source check passed. It explains the observed native ID/name representation
+difference and preserves the original failure.
+
+Added the separate actual live-SSE summary: first frame0.192s, normal EOF20.188s,
+concurrent GET1.663s, public cleanup confirmed, no model turn. This does not claim
+model delta streaming or independently proven Provider absence.
+
+Added eight exact original-window cleanup projections from completed captures.
+Both failed applications' normal destroy, six exact function absence reads,
+two groups of three guest-image targets, independent zero-Sandbox inventory and
+known-ID typed NotFound passed. Original RDS receipt is deleted and records
+cleanupConfirmedAt07:07:40.599UTC. The article retains unknown historical/empty
+repository cleanup and complete-template qualification as separate pending gates.
+The first local export attempt rejected an incorrect expected boolean shape
+before writing a file: the actual independentAbsence field is an integer count3.
+The corrected export preserves that actual count. Neither attempt called a cloud
+API or changed the original private records.
+
+The canonical engineering patch now has actual offline results: 11 Python
+parser/consumer tests, 9 Node collector/model-projection tests and an actual
+Node-to-Python bridge pass. Both independent implementation reviewers read the
+collector, proof factory and all three consumers. Live proof is still unverified;
+these offline results do not relabel a failed hosted run. Public clients still
+use only the Gateway endpoint and business key.
+
+The generated report attachment uses `.txt` because the website's blog asset
+sync intentionally skips non-index Markdown files; bytes and hash are unchanged.
+All additions remain draft-only and have not been pushed or published.
+
+Actual checks after these additions:
+
+- Existing PyYAML-equipped verification venv, `python scripts/validate.py`:
+  exit0, 59 posts checked,0 problems.
+- Relative asset check: all11 article targets exist; all JSON attachments parse.
+- All three original downloaded artifact SHA-256 values match their attached
+  bytes exactly, including the CSV's CRLF newline convention.
+- `git -c core.fileMode=false diff --check`: exit0. Only this article's files and
+  this evidence file are staged; unrelated mode-only changes are excluded.
+
+Website rendering and a full public command-by-command reproduction remain
+pending. No article publication or complete template acceptance is claimed.
+
+## Actual normal source window results
+
+The separately owned new source window now completed normal v7 Apply with
+exit0/351.767s and ready/ready. The deployed CI wheel pair is the cd43e9e SDK
+source identity: client1ac32d50... and server210db5e7.... The later private empty
+revision patch and forthcoming public package identity are not retroactively
+assigned to this run.
+
+The actual source-final-public-39 controller returned exit0/412.514s: all39
+positive operations and38 protected401 checks; summary original tests plus4
+heldout, share original tests plus8 heldout; unchanged original test hash,
+downloaded/captured/executed source hash equality and independent helper PID exit.
+The article includes the actual five source/CSV/report attachments, their hashes,
+the safe result projection and548 actual HTTP observations with preexisting
+allowlisted placeholders. It does not execute any model artifact on the host.
+
+Normal ready live SSE passed with first frame0.169s and normal EOF20.369s,
+concurrent GET before EOF and public cleanup. The earlier0.192s/20.188s run stays
+in the original-window appendix rather than being overwritten.
+
+Active cancellation then passed exit0/224.219s using the fixed source-controlled
+native proc observer: observed original active target41.045s after the started
+marker, under the unchanged50s probe/public60s tool limit. Busy409 without
+submission side effects, queued cancellation, active stop beyond natural finish,
+old cancel replay, same-Session workspace continuation and public/native cleanup
+passed. The two previous file-observer failures remain failures; neither was
+reclassified as native absence or a business cancellation defect. Business HTTP
+requires only endpoint/key; engineering Provider inspection is separate.
+
+Reorganized the article so normal configuration/deployment/business/results come
+before10 historical diagnostic appendices. The old failure outputs and assets
+remain intact. Upgrade, final new-window cleanup and published-recipe acceptance
+are still pending, so draft:true remains and this branch is not published.
+
+Post-update checks:59 posts/0 validator problems, all19 relative attachment
+targets present, all five new normal-run artifact hashes match,548 HTTP JSONL
+records parse with the expected redaction scope, known credential byte scan of
+all20 article files clear. The default staged whitespace check flags the actual
+CSV CRLF line endings as trailing whitespace. Those artifact bytes are deliberately
+preserved so their hashes remain truthful; the same check with the explicit
+`core.whitespace=cr-at-eol` setting passes without changing file contents. The first active
+failure had no preserved HTTP detail; only the second diagnostic localized
+proc-file download HTTP500. The article explicitly preserves that distinction.
+
+
+## Actual source upgrade and completed owned compute/image release
+
+Added a new sanitized `source-completion.json` from completed actual capture
+results, the source upgrade assertion JSON, independently reviewed native release
+proof and final owned Sandbox inventory. Its source artifact SHA is
+e52e28769ed2b36f5a5eb4fb39650791962fa2257da71c6f57acaa1cbf2b509f.
+The author verified raw native counts and typed codes:7 functions,3 templates,
+and7 recorded Sandboxes absent. Original private records remain unchanged.
+
+The successful second preparation took99.610s; normal v8 update240.669s and
+independent continuity/isolation267.293s passed. The article preserves the
+separate failed update, old idle-close and closed-history branch recovery. It does
+not claim the proposed during-apply old-session continuation was executed.
+Retirement's first draining result exit1/1.567s remains visible; normal retry
+exit0/4.524s and independent pre-fallback readback exit0/0.965s passed. Normal
+Destroy took7.078s, Provider absence7.476s, RDS release13.740s before the unchanged
+10:01 source deadline. Three exact guest groups each proved3/3 targets absent,
+with actual42.251/90.063/95.246s. Empty ACR repository metadata is deliberately
+not relabeled as removed by this snapshot; it uses its own later exact proof.
+
+Actual public npm0.5.9 and PyPIa7 release/independent installs are now identified
+separately, with no retroactive assignment to the source image. Complete public
+recipe FC acceptance and its cleanup remain pending; draft:true remains.
+
+
+Runtime reviewer independently read sections9–11 and the source-completion asset
+against actual active/source safe results; no must-fix. Clarified that the failed
+branch's82.467s limited recovery is separate from normal successful-chain Destroy,
+and recorded the final public client c5f981.../fa15... identity explicitly rather
+than relying on the shared0.4.0a7 version string. No new cloud operation or public
+recipe pass is inferred by these wording additions.
+
+
+## Actual published-package normal readiness and Qwen business
+
+The new independent PUBLIC phase used formal npm0.5.9 and public PyPIa7 with
+exported a6d37 recipe Dockerfile bytes unchanged. Build/Plan/Apply actually passed
+19.999/.915/451.161s; status+reconcile3.068s passed. The never-started image
+inspection took32.366s and confirmed dispatch8689B/SHA9a23... plus exact container
+absence without image-code execution. Native empty-revision signed probes took
+73.294s: four outer FC200 statuses, two application invalid_invocation codes,
+control state unchanged; no listener400 claim is made. Live idle SSE passed
+96.022s overall, firstframe.175s/normalEOF20.174s/concurrentGET/publiccleanup.
+
+Actual public Qwen39 completed exit0/455.761s:39 positive operations/38 invalid
+Bearer401; original tests and4/8 heldout; all source/artifact hashes/helper exits
+and public cleanup passed. The combined engineering controller used private
+Provider credentials, while its business HTTP client did not. Original Provider
+absence=false remains until separate final proof. Five generated assets were
+fully read by the author, known-credential byte checked and copied without host
+execution; the source program hashes are f6a9... and c2f4....534 actual redacted
+HTTP rows are included. A local export first asserted a mistaken generic scope
+label and stopped before writing the trace/result asset; the corrected export
+requires the actual static actual_response_allowlisted_redacted_projection scope.
+This was local export validation only, not a new model/cloud invocation.
+
+The main article now starts with official installation and published-package
+readiness, while full SOURCE deployment/version/SSE/business paragraphs remain
+as appendices11–14. Public active cancellation, update/Codex39 and final cleanup
+are still pending at this checkpoint, and draft:true remains. The earlier active
+prestart failure retains its unknown candidate multiplicity; no history is
+reclassified by its later read-only engineering-discovery enhancement.
+
+
+Public active fresh retry subsequently passed267.264s with observed active27.538s,
+Probe50 unchanged, active stop/same-Session continuation/public+native cleanuptrue,
+uncertain[]. The actual discovery list contains only count1/page1/exhaustedtrue;
+it did not exercise the zero-candidate wait branch. The original87.644s failure's
+count remains unknown, and its native cleanup=false is retained. The read-only
+post-cleanup zero inventory is not retroactively a measurement of failure-time
+multiplicity. The new eight discovery negatives and old ten active checks passed
+locally with the strict completed-Turn inspector unchanged. Main section9 now
+uses this public result; complete SOURCE active/file-observer history is appendix15.
+
+Runtime independently read current public main sections2/6–9 against original
+reports/provenance and accepted the scoped wording, no must-fix. Corrected the
+Session/Turn literal to in_progress while Submission remains running. No cloud
+operation was performed by the article author. Published-package upgrade,
+Codex39 and final resource release are still pending, so draft:true remains.
+
+## First published-recipe update failure and completed release
+
+The first PUBLIC0.1.2 window's Codex update actually failed E7000 at
+candidate-smoke after144.290s; its0.1.2 smoke did not preserve the specific
+check label. The cause remains unknown. No public Codex39, successful old-session
+continuity or normal retirement is claimed for that window. The prior successful
+SOURCE update is preserved in appendix16 rather than replacing this negative.
+
+Added sanitized public-failed-update-cleanup.json and
+public-repository-completion.json, based on reviewed actual safe projections.
+Normal CLI whole-graph Destroy really took10.680s and confirmed5 functions and
+2 templates;3 known Sandboxes were typed absent with exhausted owned inventory0.
+The RDS deletion was independently confirmed11:58:14.045 UTC before the unchanged
+12:22:19.743 deadline. Two guest groups each confirmed3/3 exact targets absent;
+old-group authority binds the real final destroyed receipt, untouched old ready
+receipt, original failed snapshot and exact native release evidence. The initial
+incomplete peer-journal proof failed without deletion and remains separate from
+the fresh validated v2. Two owned empty repositories then received2 exact native
+deletes/0 unknown and fresh typed REPO_NOT_EXIST confirmation12:22:40.779 UTC.
+No all-account or hidden-copy absence is asserted. Borrowed resources are excluded.
+
+Template0.1.3 adds safe host-smoke diagnostics only; its exact head is
+a4d43370ff82e244c542412d0af0c68759d19fdb. All20 smoke regressions passed locally,
+and actual remote readback confirms e2e42218272539, L1 images42218272529 and
+Canonical42218272453 success. The original update cause is not relabeled fixed.
+The independent new public retry window uses a fresh nonce/database and the
+unchanged14 exported files. Its12:35:16.044 start,14:15:16.044 stop and14:35:16.044
+absolute cleanup deadline are separate from previous paid windows; new hosted
+business/update/cleanup results remain pending. No cloud action was performed by
+the article author, and the post stays draft:true/unpublished.
+
+Checkpoint validation: public-a7 venv `python scripts/validate.py` checked59 posts
+with0 problems;32 relative attachment targets exist; all article JSON/JSONL files
+parse. `git -c core.fileMode=false -c core.whitespace=cr-at-eol diff --check`
+passed; the actual CSV CRLF bytes remain unchanged. Known secret values from the
+existing credential loader were compared in memory against all33 article files:
+0 hits; no credential values were printed or written. The two new JSON hashes
+are57684747781da4d03daf7b8a694f16c765fc544e398e00261a7d3897f656554a
+and6b6b1632556ad99fbde42ddbbdeba2c923602d85beb57f7dfa8746c087c19b89.
+Canonical workflow job127893629207 was separately read: only authorization and
+non-cloud evidence gates ran, so the article explicitly does not label its
+workflow success as another native cloud test. Website rendering remains pending.
+
+## Reader reproducibility review and first v0.1.3 hosted readiness
+
+Runtime's independent whole-article/asset review found no factual or secret-scope
+must-fix, and raised three reader requirements: restore the agents-api working
+directory before app build after repository-level tests, provide the real existing
+ACR namespace/accessRef setup, and distinguish application Destroy from independent
+PostgreSQL release. All three are now explicit. Actual public npm0.5.9
+`abx config set --help` exited0 and names acr_namespace/ACR_NAMESPACE; source
+fc.ts confirms env uses existing cloud AK/SK plus optional STS, separate from
+Sandbox Key. No config value was changed by the help check. The7 smoke count is
+now explicitly0.1.2 history,20 belongs to0.1.3, and appendix12's candidate claim is
+limited to its original SOURCE window.
+
+Read completed new capture results without cloud operations: public-retry normal
+Build26.758s, Plan.915s and Apply374.682s all exit0; Apply stdout status/phase are
+ready/ready, recorded12:51:54 UTC. Exported the single actual17-row smoke report
+only after strict field allowlist and final passed/complete equality checks. Its
+2180 bytes/SHA b1fab8f01af8dc3cff65b73a1a528ca1d1593396e6a37985e8669fb0fb49d1e1
+are copied unchanged; the1523-byte readiness projection has SHA
+6617ac3133f0d7ce839554975c98d6cbbf6a11bca4faf36d140a05576fb0b7b5.
+The appendix records only completed readiness, not39/heldout/active/upgrade or
+Provider absence. The new report's cleanup scope remains known public hook
+resources. New full hosted acceptance and final resource release remain pending.
+
+Post-review checks:59 posts/0 validator problems,34 local attachment targets
+present, all JSON/JSONL parse, known-secret in-memory check across35 article files
+0 hits, and CRLF-aware diff check exit0. Actual generated source was only read,
+not imported or executed on the host. No publication or complete v0.1.3 result is
+claimed.
+
+## Actual v0.1.3 Qwen independent business result
+
+The completed new public Qwen controller returned exit0/475.680s13:02:09 UTC.
+The actual final HTTP trace has509 rows (not the previous window's534); SHA
+41a9cb5109bdfb88b83de182569000c7a889baed2b30566c00f3b96b556e5aaa.
+Exported only the known structured report schema and validated39 operation keys,
+38 exact401 keys, empty uncertain mutations, true original/4+8 heldout assertions,
+source/captured/artifact hash equality and helper exit. Kept Provider absencefalse
+and overallfalse until separate later steps. Combined controller Provider credentials
+are distinguished from its business HTTP client's false flag.
+
+All five actual model artifacts were read in full without host execution, matched
+against their per-stage manifests and independent test output. Summary source1588B
+17aaa..., share2134B159bd..., report932Ba6e8..., and unchanged43/67B CSV downloads
+are attached under new public-retry names. Known-secret values were compared in
+memory before writing the new assets, no hits. Sanitized result projection SHA
+185670a4448901e0349a4c941243e6fa48875956a67afb0792d9c9a48ab252c8.
+Original first-PUBLIC files remain unchanged. SSE/active/upgrade/final new resource
+release remain pending at this timestamp; article remains draft/unpublished.
+
+Post-v0.1.3-Qwen export checks:59 posts/0 validator problems,41 local attachment
+links present,42 article files, all JSON/JSONL parse, CRLF-aware diff check exit0.
+New generated sources were not executed on the host. The earlier credential scan
+was repeated in memory before these seven asset writes with0 hits.
+
+New normal status/reconcile actually exited0/3.337s. The completed v0.1.3 SSE
+controller exited0/97.352s13:04:15 UTC, firstframe.292s/normalEOF20.340s,
+concurrent GET2.047s completed before EOF, public cleanuptrue/no uncertain mutation.
+Copied only the static no-model SSE result schema into a new public-retry-stream
+asset; Provider final absence remainsfalse. It establishes live FC event flush,
+not model intermediate deltas. No cloud call or new model turn was performed by
+the article author.
+
+## Public normal-flow mainline and v0.1.3 active cancellation
+
+Actual new active cancellation exited0/237.475s13:09:09 UTC: active stop,
+same-Session continuation, public/native cleanuptrue, empty uncertain mutations,
+Probe50 unchanged, observed original active32.264s after full durable intent
+backup. Unlike the previous window, the actual discovery observations now include
+0/page1/exhausted with public lifecycle ready, followed by1/page1/exhausted. This
+establishes the current bounded zero-observation path; it does not establish the
+unrecorded multiplicity or root cause of the previous87.644s failure. Per-backup
+observations6.475–9.354s are retained. This is the initial qwen-code stage, not an
+unexecuted Codex active-cancel qualification.
+
+Reorganized sections6–9 around the newest completed0.1.3 readiness/Qwen/SSE/active
+results. Moved the first PUBLIC0.1.2 unknown Codex failure and complete release
+text unchanged in meaning into appendix18, with its old positive results, raw
+safe traces and five generated-file links retained separately. Sections10/11
+explicitly await the current update/retirement/Codex39 and whole-app release;
+SOURCE success is still not substituted. Template version/14-file identity now
+points to a4d43370 for this mainline. No frozen controller or product code changed.
+
+## Published v0.1.3 stable-readiness failure and completed owned release
+
+The current public0.5.9 normal update actually failed E7000 at stable-readiness,
+exit1/198.470s13:18 UTC, after both candidate smoke reports passed. The captured
+CLI check was HTTP200/attempt1 without an exact target revision; its original
+body was not retained, so no alias/cache/propagation cause is asserted. New old-
+Session continuity, normal retirement and Codex39 remainfalse. The first public
+candidate-smoke failure remains unknown and is not reclassified by this finding.
+
+Recorded actual first Destroy exit1/3.920s while draining, Reconcile0/1.466s with
+zero activity, fresh destroy-plan0/.515s and normal Destroy retry0/8.634s. Exact
+native5 functions/2 templates were absent, shared Gateway parent absence covers
+4 recorded versions, and3 known Sandboxes plus exhausted revision inventory0
+were confirmed. RDS release0/25.201s was confirmed13:35:50.058 UTC before the
+unchanged14:35:16.044 deadline. Current/old guest groups52.173/56.035s each3/3
+absent; fresh old observation7.375s0 mutations. Two exact repo deletions36.887/
+37.778s each had one intent, native200 ACK and typed absence; fresh11.662s readback
+matched the same two repository keys13:51:45.821 UTC. Exporter validated original
+planSHA a6b05..., raw journals, reviewed correlation, helper hash and fresh proof
+without new native calls; private aggregate was fsynced and encrypted-backup
+confirmed. Safe result hash348e69742114e82b5f3b71e292b0ba0787be7d601094a049f70a4d01ff94c703.
+
+The unified scope-limited cleanup projection has SHA
+8bda7c0896c8d2e0338b105ab23edec743927683b0adb264f7a4d542535d5102.
+It preserves original failure/ready snapshots, all-step exits andfalse full
+upgrade/Codex39. Reversible completed tool cache archival passed27.779s, retains
+all bytes and original frozen digest before freeing expanded duplicates; no cloud
+resource was deleted by the article author. Current sections10/11 now state the
+real failure/completed release, not pending success. CLI0.5.10/recipe0.1.4 remain
+future published-readback/fresh-window requirements; no availability is invented.
+
+Runtime's prior whole-reorder peer accepted the actual result split. Corrected
+Operation wording to succeeded plus result.stop_confirmed=true; replaced the
+unsupported cloud raw terminating-chunk observation with full normal EOF. The
+cloud SSE code did not retain raw framing; local SDK framing evidence is separate.
+
+Corrected an author-written distribution label in the unmerged readiness projection:
+actual Server Dockerfile installs agent-sandbox-client[managed-agents], not the
+agent-sandbox distribution shorthand used in its first label. The public source
+Dockerfile and client distribution contract independently establish the correct
+name; the guest uses agent-sandbox-server. No source/native response, byte hash,
+exit or pass/fail was changed. The earlier6617... projection hash remains the
+history of the initial label; corrected projection SHA is recorded with this
+change. The main article never instructed installing the incorrect distribution.
+Corrected projection1546 bytes/SHA
+f99d643a3ae7eb65f72c819f53e150bd373ee96f666b092a5d07f9802d60ebc9.
+
+## Unpublished draft rendering preflight
+
+Rendered blog revision5697c9d against an independent export of website
+f52b38691f1c503fef64957c2d44096f8162e5ce. Ran `npm ci --no-audit --no-fund`,
+`BLOGS_SOURCE=<BLOG_WORKTREE> node scripts/sync-blogs.mjs`, `npm run check`
+and `npm run build` inside that temporary export. Only the generated article
+copy changed draft:true to draft:false to exercise rendering; the source post
+remains draft:true and no website source or deployment changed.
+
+Installation exited0, with an npm tar EIO warning for one declaration file;
+the actual subsequent check exited0 with0 errors/0 warnings/8 existing hints.
+Build exited0 and generated123 pages including both language-route variants of
+this Chinese article. The resulting178,490-byte HTML contains32 H2 headings,
+15 tables and72 preformatted code blocks. All55 article attachment references
+exist, and all45 non-Markdown source attachments are byte-identical in the
+render output. This does not imply an English translation was authored.
+
+Actual headless Chrome observations at1440 desktop and390 mobile widths show
+the title, body and navigation;0 broken images and no uncontained article
+content overflow. Long code/table content retains its local scrolling. The
+shared site SVG gradient id occurs twice, and the existing fixed ambient
+background extends beyond the mobile client width; these are website-wide
+observations, not changes or blockers introduced by this article, and no
+unrelated UI code was modified. Parent review accepted this narrow preflight.
+
+This is draft rendering evidence only. Final CLI0.5.10/template0.1.4 identity,
+complete successful hosted upgrade and final publication are still pending;
+the final article must repeat render, attachment and desktop/mobile checks.
+
+The default host `python scripts/validate.py` exited1 because that interpreter
+has no PyYAML. Repeating the unchanged validator in the existing public SDK
+verification virtual environment exited0:59 posts checked/0 problems. This
+interpreter prerequisite failure did not change product or article assertions.
+
+## Visible architecture asset
+
+The website preflight rendered the first Mermaid block as source text. Following
+parent and independent runtime design review, replaced that block with a local
+SVG and kept the original Mermaid content unchanged as a downloadable .mmd
+attachment. The graphic depicts the existing logical responsibilities only:
+three Server-side roles, shared PostgreSQL state, business requests exclusively
+to Gateway, and a separate execution Sandbox for each Session. Model use is
+explicitly an API call. It does not assert additional availability or isolation
+guarantees, and does not add an engineering inspector to the business flow.
+
+SVG5111 bytes/SHA
+f732ce930ba9f4646ef53d2770cab891ef0069922aaabaf235c48a241d11d2ce;
+original Mermaid attachment SHA
+bfdd15db0cbf4bdb0def7209ea272c22d8c8ad602dea3b44c36e75d4491e0bf1.
+XML checks confirm title/description,4 unique ids, no script, foreignObject,
+event attributes, external resources or linked fonts. Actual native Chrome PNG
+was independently reviewed by parent and runtime reviewer with no must-fix.
+
+Repeated validator59/0, static website build exit0, generated HTML175,950 bytes,
+32 H2/15 tables/71 code blocks,58 local article asset references with0 missing,
+and47 byte-identical non-Markdown attachments. Chrome desktop1440/mobile390
+screenshots retain0 broken images and no uncontained article overflow. Only
+the draft render copy was made visible; source draft, website source, runtime,
+public recipe identity and hosted pass/fail claims remain unchanged.
+
+## Separate CLI terminal-lifecycle qualification
+
+Before a future public CLI0.5.10/template0.1.4 window, independently reviewed the
+CLI owner's test-only terminal-expiry observer. The original90-GET policy mixed
+native lease time with variable transport latency. Two original full runs remain
+failures; the most recent broader run recorded177 passes/1 failure/8 skips.
+The approved replacement keeps actual PTY behavior, a shortened lease bound and
+mandatory natural typed NotFound, while using a once-frozen native Date/endAt
+mapping plus a declared90-second engineering observation allowance. This is not
+an official provider SLA. Internal210-second observation and bounded exact-ID
+cleanup reserve protect against the outer runner's240-second SIGKILL.
+
+Parent review caught two defects before the first proposed implementation ran:
+optional ledger failure could skip an unsubmitted delete, and an insufficient
+PTY parent budget could interrupt the Python owner before its own finally.
+The revised main uses the actual tested cleanup helper and complete60-second
+PTY admission guard. Independently ran37 pure tests/0 failures/0 skips, with
+real local HTTP response-body timeout coverage. Product src/package/lock were
+unchanged from321eb75; parent independently froze the full dist identity.
+
+The subsequent actual complete standard case exited0/103.915s without timeout.
+Read and cross-checked its result,86-row ledger and new native absence proof:
+2 owned IDs,79 observations ending in404, initial lease59 seconds, unchanged
+endAt, natural expiry confirmed, independent typed absence true, unresolved
+ownership empty and encrypted backup confirmed. Original full report was not
+rewritten. Raw result SHA
+0b245efcfe3149480319a92d770cc1c444a5df45d568ccc7f6412c7573bcf784;
+ledger SHA8e14695960e065da1419ea1210df96e78f7b9a110eb64c60e924d14b558ff00b;
+independent absence SHA
+f188494c61b017a4ef2cc4e24f1f4b82e3a18a3e35d04af580dd133c7d4e9a6e.
+
+This is honest incremental coverage across separate runs, not a synthesized
+single178-pass suite or proof that8 skipped cases passed. Because the new run
+expired by observation79, it does not demonstrate a live case requiring more
+than the old90 observations; the controlled-clock tests establish that policy
+boundary. No extra Docker image/template or database was created by this focused
+case, and no cloud call was performed by this article author. Formal CLI0.5.10
+publication/fresh installation and the final managed-template window remain
+pending; no future article PASS or installation identity has been added.
+
+## Final published dependency identity and pending mainline
+
+Formal CLI0.5.10 is now published and independently installed. Read the official
+fresh-install projection SHA604918ced52d6f5c0dfc0f17c8fb57e6bb7a3df462e70812a779face5505a246
+and complete release proof SHA6994a5a6ef437a351395b02ae4329941fa6161a9714e16464ca288524fe052ef:
+install/artifact check exit0,697 of697 dist bytes match the reviewed candidate,
+no changed/extra files. Independently executed the actual public executable's
+version and config-set help;0.5.10, acr_namespace and ACR_NAMESPACE are confirmed.
+Merge source2f84e3f802e5f6abd98a528c457b844a9307041d and public tarball
+c34ae3cb61cfeb94bdf5f766c4fc91c612dce3ab72e9edc0ce3e30e5eb4dac3e
+replace the recommended install identity, with earlier0.5.9 facts retained.
+
+Template0.1.4 is committed/pushed at4971598a5b14b62207076dd2da4264c139423628.
+Its exact14 Git-object files export proof SHA is
+b05aba5a5ad69647d7f542e2128b12f9f9f9f499c818eb9a676ac355b9f1eb25;
+archive SHA is f4017a58c18f42fee2809dbf65dc911614f30e0d3225aa94b23ce935f5136b38.
+Only the documented CLI prerequisite and manifest version differ in those14
+files; both a7 Dockerfiles, smoke, API and execution budgets are unchanged.
+New local20 smoke/52 specification/48 manifest/232 document checks pass; the
+separate prerequisite failure from using a runtime-only test environment is
+recorded by the template owner. No new hosted qualification follows from this.
+
+Moved the previous mainline's0.1.3 sections6–11 into historical appendix19,
+preserving all10,792 characters except heading nesting. Independent runtime
+review and a mechanical reverse-heading comparison confirmed exact historical
+content; no existing result, source or CSV attachment was changed. New sections
+6–11 contain only normal usage and explicit pending new deployment/business/
+stream/cancel/upgrade/release results. No future durations, response JSON or
+PASS were manufactured. The new release-014-identity attachment is explicitly
+installation/source evidence with hostedAcceptanceClaimed:false.
+
+Validator59/0,59 local asset references/0 missing,49 article files, all JSON and
+JSONL parse, and CRLF-aware diff check pass. The runtime reviewer accepted the
+pending mainline/identity split; its config-help suggestion was independently
+verified and applied to the current mainline only. Final real outcomes and
+final render/desktop/mobile checks remain pending; source draft:true remains.
+
+
+## Core reader workflow scope and actual public0.1.4 execution
+
+At the user's explicit correction, final delivery is the single Gateway /
+Sandbox Agent template, its related real workflow, detailed practical article
+and owned resource cleanup. A further API/upgrade qualification matrix, new
+version, SDK/CLI/Registry documentation PR or additional cloud test is not a
+prerequisite. The public article now contains only11 reader sections. All19
+older appendices are retained in the linked historical supplement, including
+actual versions, failures and unchanged assets. The original1243-line appendix
+text SHA is ba0eae513ca4d98072cbc240c05d76fed0a3fa4ce2b9d405d5e7d3c545293211;
+only53 relative asset targets were rebased. Additional private-preparation and
+release-audit paragraphs moved there rather than being deleted or reclassified.
+
+Current public CLI0.5.10 / SDK0.4.0a7 / recipe0.1.4 ordinary Build0/30.949s,
+Plan0/1.316s and Apply0/372.713s reached ready at17:30:15.554483UTC. The
+actual template afterReady check completed two real Qwen file turns through
+the candidate Gateway, downloaded summary/share CSV and source, asserted
+30.00/10.00 and0.750000/0.250000, then Close/Delete. The current safe17-row
+report ends passed/complete with known cleanup true. No generated source
+original was retained for public attachments; old source/CSV/heldout files
+are not substituted and no new task is run just to obtain them.
+
+Normal Destroy0/6.374s at17:37:26UTC confirms drain, retained0 and three FC
+roles/one template/Server-image cleanup. Fresh native queries at17:50:42UTC
+confirm supported typed NotFound for all3 Function names and the exact original-team
+Template ID, plus an exhausted Sandbox inventory with0 run-scoped matches.
+The hook saved no native Sandbox ID, so directKnownIdChecks is0, not claimed
+as a stronger direct-ID proof. Strict RDS native zero inventory confirms
+deleted17:43:12.301UTC/17.992s. Guest cleanup54.656s at17:46:33.732353UTC
+confirms all3 exact tag absences (1 already absent,2 deleted), preserving
+original receipts/journals. The final two exact owned empty repositories subsequently completed one-shot
+delete and independent typed NotFound: Server0/42.149s at18:01:36.308392UTC,
+Guest0/39.724s at18:02:31.672104UTC. Both four-row journals retain intent/ack/
+typed-native-repository-absence confirmedtrue. Their SHA-256 values are
+b6e18e648217be4ac041d50aa247d58b07187bd0eefc21567f7bceaa56bdc14c and
+3b85ff425e557b519313a95b459c21e4bbe4c1ceab67ab6b6ca9bb8cdbee5d5b.
+All currently known owned temporary resources are released; no extra GET or
+new business test was run for the article. This is not account-wide absence.
+
+Reader clone instructions fix the actual4971598 full SHA while the template
+PR is not merged. Manual smoke maps Apply.endpoint to AGENTS_API_BASE_URL and
+credentials_file.businessKey to AGENTS_API_KEY in a child process without printing
+the key; normal Apply already runs it, so no manual rerun is required. Internal
+unshipped preflight commands, full-repository maintainer check commands, private
+RDS windows/nonce/quote, publication hashes, shared-filesystem mode diagnostics
+and report-byte coincidence explanations have been moved out of the mainline.
+
+Actual blog validator:59 posts/0 problems; CRLF-aware diff whitespace check0.
+Final attachment/link/secret and render checks will use the final cleanup text.
+
+
+Final core-only draft validation:59 posts/0 problems;64 local article/history
+references/0 missing; all post JSON/JSONL parse; current changed text has0
+secret-pattern matches; CRLF-aware diff check passes. The nineteen historical
+appendices reverse-rebase to the exact recorded original SHA. Independent
+website export check exits0 (0 errors/0 warnings/8 pre-existing hints), build
+exits0 with123 pages. The core article HTML is46,976 bytes and contains no
+historical appendix text. Native Chrome desktop1440 and mobile390 each show0
+broken images and0 horizontal page overflow; screenshots were visually reviewed.
+Only the generated temporary draft copy was made visible. Website source and
+deployment were unchanged. The article remains draft until template PR296 is
+normally merged; then remove the temporary unmerged-state sentence and validate
+the final publication commit. No new cloud request was performed.
+
+
+## Final publication source prepared behind the Draft PR gate
+
+The final source sets draft:false and removes only the temporary unmerged-state
+sentence. It adds the existing public smoke.py and Chinese managed API guide
+links pinned to the actually tested4971598 commit. It does not claim template
+PR296 or blog PR33 is merged. Root retains PR33 as Draft until the template
+is actually merged, then checks and normally merges the exact final head.
+No new preview, cloud request, business test, version or asset was added.
+
+The prior a18c481 content head passed remote Validate posts42267990823. Final
+source validator, relative links/JSON/secret review and whitespace checks are
+rerun below; the final-head remote CI is awaited as the ordinary contribution
+gate. The existing successful preview remains applicable to the unchanged
+reader structure; only two text links, one temporary sentence and the source
+draft flag differ. All preview HTTP/browser processes were independently
+observed stopped, with0 owned process matches; screenshots/evidence are retained.
+
+Final source actual checks:59 posts/0 problems,64 local references/0 missing,
+all post JSON/JSONL valid,0 credential-pattern matches in the changed article,
+and CRLF-aware diff check0. Both new absolute links target files verified in
+the tested4971598 Git tree. No final-head CI result is preclaimed.

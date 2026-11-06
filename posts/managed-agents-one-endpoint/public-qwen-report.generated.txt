@@ -1,0 +1,40 @@
+# Repair Report
+
+## The Bug
+
+The original `summarize` function in `aggregate.py` overwrote the total for each month instead of accumulating:
+
+```python
+# Bug: overwrites instead of accumulating
+totals[row["month"]] = Decimal(row["amount"])
+```
+
+## The Fix
+
+Changed to accumulate amounts per month using `Decimal` arithmetic:
+
+```python
+# Fix: initialize to zero if new month, then add
+month = row["month"]
+if month not in totals:
+    totals[month] = Decimal("0")
+totals[month] += Decimal(row["amount"])
+```
+
+## Monthly Totals
+
+| Month   | Total  |
+|---------|--------|
+| 2026-01 | 30.00  |
+| 2026-02 | 10.00  |
+
+**Calculation:**
+- 2026-01: 19.90 + 10.10 = 30.00
+- 2026-02: 2.50 + 7.50 = 10.00
+
+## Verification
+
+All three original tests pass:
+- `test_repeated_months_use_decimal_arithmetic`
+- `test_negative_amounts_and_month_order`
+- `test_empty_input_keeps_the_schema`

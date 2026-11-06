@@ -1,0 +1,59 @@
+{
+  "scope": "actual_gateway_active_cancel_and_cooperative_native_observation",
+  "passed": true,
+  "active_cancel_stop_passed": true,
+  "same_session_continuation_passed": true,
+  "cleanup_public_confirmed": true,
+  "cleanup_native_confirmed": true,
+  "database_ownership_verified": false,
+  "generated_code_executed_on_host": false,
+  "probe_sleep_seconds": 50,
+  "uncertain_mutations": [],
+  "checks": [
+    {
+      "name": "active_standard_input_409_without_side_effect",
+      "passed": true
+    },
+    {
+      "name": "queued_cancel_and_active_process_stop_past_original_sleep",
+      "passed": true
+    }
+  ],
+  "native_discovery_observations": [
+    {
+      "candidate_count": 0,
+      "page_count": 1,
+      "exhausted": true,
+      "public_lifecycle": "ready"
+    },
+    {
+      "candidate_count": 1,
+      "page_count": 1,
+      "exhausted": true
+    }
+  ],
+  "observed_active_seconds_before_cancel": 32.264,
+  "backup_seconds": [
+    8.94,
+    9.354,
+    7.083,
+    6.732,
+    8.077,
+    7.426,
+    6.725,
+    7.375,
+    7.176,
+    7.401,
+    6.524,
+    7.493,
+    6.475
+  ],
+  "template_commit": "a4d43370ff82e244c542412d0af0c68759d19fdb",
+  "adapter_stage": "qwen-code_before_update",
+  "actual_exit_code": 0,
+  "elapsed_seconds": 237.475,
+  "recorded_at": "2026-11-06T13:09:09.136816+00:00",
+  "business_client_provider_credentials_used": false,
+  "private_provider_inspection_used": true,
+  "earlier_failed_run_cause_confirmed": false
+}

@@ -1,0 +1,68 @@
+{
+  "scope": "actual_published_recipe_active_cancel_and_same_session_continuation",
+  "actual_exit_code": 0,
+  "elapsed_seconds": 267.264,
+  "result": {
+    "scope": "actual_gateway_active_cancel_and_cooperative_native_observation",
+    "passed": true,
+    "active_cancel_stop_passed": true,
+    "same_session_continuation_passed": true,
+    "cleanup_public_confirmed": true,
+    "cleanup_native_confirmed": true,
+    "database_ownership_verified": false,
+    "generated_code_executed_on_host": false,
+    "probe_sleep_seconds": 50,
+    "uncertain_mutations": [],
+    "checks": [
+      {
+        "name": "active_standard_input_409_without_side_effect",
+        "passed": true
+      },
+      {
+        "name": "queued_cancel_and_active_process_stop_past_original_sleep",
+        "passed": true
+      }
+    ],
+    "native_discovery_observations": [
+      {
+        "candidate_count": 1,
+        "page_count": 1,
+        "exhausted": true
+      }
+    ],
+    "observed_active_seconds_before_cancel": 27.538,
+    "backup_seconds": [
+      6.327,
+      9.228,
+      7.983,
+      6.575,
+      6.301,
+      6.479,
+      5.583,
+      6.706,
+      5.878,
+      6.126,
+      6.124,
+      5.823,
+      5.781
+    ]
+  },
+  "zero_candidate_live_poll_exercised": false,
+  "original_failure": {
+    "actual_exit_code": 1,
+    "elapsed_seconds": 87.644,
+    "failure": {
+      "type": "InspectionFailure",
+      "label": "controlled_active_scenario_failure",
+      "stage": "locate_owned_sandbox",
+      "path_kind": "gateway",
+      "operation": "gateway_get"
+    },
+    "checks": [],
+    "cleanup_public_confirmed": true,
+    "cleanup_native_confirmed": false,
+    "original_candidate_count_known": false,
+    "root_cause_proven": false
+  },
+  "public_upgrade_codex39_and_final_cleanup_pending": true
+}

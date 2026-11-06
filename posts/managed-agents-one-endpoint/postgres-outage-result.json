@@ -1,0 +1,27 @@
+{
+  "scope": "real_local_pg_stop_restart_before_admission",
+  "passed": true,
+  "cloud_resources": false,
+  "model_provider_executed": false,
+  "checks": [
+    {
+      "name": "store_readiness_reads_replay_and_fresh_admission_fail_closed",
+      "statuses": [
+        503,
+        503,
+        503,
+        503
+      ],
+      "passed": true
+    },
+    {
+      "name": "same_persistent_state_and_warm_gateway_recover_without_new_acceptance",
+      "counts_unchanged": true,
+      "same_session": true,
+      "same_state_id": true,
+      "passed": true
+    }
+  ],
+  "cleanup_confirmed": true,
+  "elapsed_seconds": 1.543
+}

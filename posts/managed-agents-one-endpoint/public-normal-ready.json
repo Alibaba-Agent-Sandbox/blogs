@@ -1,0 +1,44 @@
+{
+  "scope": "actual_published_recipe_normal_ready_only",
+  "full_public_business_qualification_claimed": false,
+  "template_recipe_commit": "a6d37c32f2401e5404bb285bc3c5883da51197d8",
+  "cli_version": "0.5.9",
+  "client_version": "0.4.0a7",
+  "client_wheel_sha256": "c5f981545bb9266663f47e8ca3ce02a48a2259125b0ffd44c575973e3205482a",
+  "server_wheel_sha256": "210db5e796f4fc63e84156d19076c946d261b48c47ec6c8c1db82b8b60691f08",
+  "dockerfiles_match_unmodified_public_export": true,
+  "local_wheels_copied": false,
+  "steps": [
+    {
+      "step": "public-final-public-cli-build",
+      "exit_code": 0,
+      "elapsed_seconds": 19.999,
+      "status": "built"
+    },
+    {
+      "step": "public-final-public-cli-plan",
+      "exit_code": 0,
+      "elapsed_seconds": 0.915,
+      "status": "planned",
+      "operation": "apply"
+    },
+    {
+      "step": "public-final-public-cli-apply",
+      "exit_code": 0,
+      "elapsed_seconds": 451.161,
+      "status": "ready",
+      "phase": "ready"
+    }
+  ],
+  "image_code_proof": {
+    "kind": "PublicA7ImageCodeProof",
+    "schemaVersion": 1,
+    "dispatchSha256": "9a23fd1e621f6666e8027bae0423e656cf70ee8679e4596435959e8be349d032",
+    "dispatchBytes": 8689,
+    "source": "docker_never_started_archive",
+    "imageCodeExecuted": false,
+    "containerAbsenceConfirmed": true
+  },
+  "model_business_results_pending": true,
+  "final_resource_cleanup_pending": true
+}

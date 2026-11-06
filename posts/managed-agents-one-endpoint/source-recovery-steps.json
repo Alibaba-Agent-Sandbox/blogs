@@ -1,0 +1,61 @@
+{
+  "scope": "actual_captures_allowlisted_projection",
+  "original_identifiers_and_private_paths_replaced": true,
+  "steps": [
+    {
+      "label": "source-next-app-build-manifest",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 32.504,
+      "output_projection": {
+        "status": "built",
+        "image": "<OWNED_ACR_REPOSITORY>@sha256:<IMAGE_DIGEST>",
+        "build_receipt": ".abx/<NEW_BUILD_RECEIPT>.json"
+      }
+    },
+    {
+      "label": "source-next-app-plan",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 0.865,
+      "output_projection": {
+        "status": "planned",
+        "plan_file": ".abx/<PLAN>.json"
+      }
+    },
+    {
+      "label": "third-cleanup-complete-admission",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 60.305,
+      "output_projection": {
+        "scope": "exact_failed_dispatcher_cleanup_image_only",
+        "readback_confirmed": true,
+        "native_identity_preserved": true,
+        "full_environment_preserved": true,
+        "build_consumer_protection_retained": true,
+        "application_apply_replayed": false,
+        "public_control_trigger_created": false,
+        "ledger_activated": false,
+        "image_delete_performed": false,
+        "update_calls_permitted": 1
+      }
+    },
+    {
+      "label": "third-cleanup-destroy-plan",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 0.465,
+      "output_projection": {
+        "status": "planned",
+        "plan_file": ".abx/<PLAN>.json"
+      }
+    },
+    {
+      "label": "third-cleanup-app-destroy",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 15.025,
+      "output_projection": {
+        "status": "destroyed",
+        "phase": "destroyed",
+        "retained_build_artifact_count": 3
+      }
+    }
+  ]
+}

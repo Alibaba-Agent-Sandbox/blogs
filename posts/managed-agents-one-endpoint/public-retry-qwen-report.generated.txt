@@ -1,0 +1,43 @@
+# Repair Report
+
+## Bug Fixed
+
+The original `aggregate.py` had a bug in the `summarize` function where repeated months were overwritten instead of accumulated:
+
+```python
+# Bug: overwrites previous month's total
+totals[row["month"]] = Decimal(row["amount"])
+```
+
+## Repair Applied
+
+Changed the logic to accumulate `Decimal` amounts for repeated months:
+
+```python
+# Fix: accumulate amounts for repeated months
+month = row["month"]
+amount = Decimal(row["amount"])
+if month in totals:
+    totals[month] += amount
+else:
+    totals[month] = amount
+```
+
+## Monthly Totals
+
+From `/workspace/input/sales.csv`:
+
+| Month   | Total  |
+|---------|--------|
+| 2026-01 | 30.00  |
+| 2026-02 | 10.00  |
+
+- **2026-01**: 19.90 + 10.10 = 30.00
+- **2026-02**: 2.50 + 7.50 = 10.00
+
+## Verification
+
+All original tests pass:
+- `test_repeated_months_use_decimal_arithmetic`
+- `test_negative_amounts_and_month_order`
+- `test_empty_input_keeps_the_schema`

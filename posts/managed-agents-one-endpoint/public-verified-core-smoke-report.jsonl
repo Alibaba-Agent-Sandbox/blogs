@@ -1,0 +1,17 @@
+{"schemaVersion":1,"status":"running","phase":"setup","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"health","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"capabilities","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"models","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"upload","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"session_create","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"summary_turn","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"summary_results","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"share_turn","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"share_results","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"close","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"retained_artifact","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"session_delete","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"cleanup","code":"running","cleanup_attempted":false,"cleanup_confirmed":false}
+{"schemaVersion":1,"status":"running","phase":"cleanup","code":"running","cleanup_attempted":true,"cleanup_confirmed":true}
+{"schemaVersion":1,"status":"running","phase":"complete","code":"running","cleanup_attempted":true,"cleanup_confirmed":true}
+{"schemaVersion":1,"status":"passed","phase":"complete","code":"passed","cleanup_attempted":true,"cleanup_confirmed":true}

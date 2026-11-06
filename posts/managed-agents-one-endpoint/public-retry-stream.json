@@ -1,0 +1,20 @@
+{
+  "scope": "actual_gateway_live_sse_idle_session_without_model",
+  "passed": true,
+  "model_turn_started": false,
+  "provider_credentials_used": false,
+  "normal_eof": true,
+  "concurrent_session_read_passed": true,
+  "cleanup_public_confirmed": true,
+  "provider_absence_independently_verified": false,
+  "uncertain_mutation": false,
+  "concurrent_session_read_seconds": 2.047,
+  "concurrent_read_completed_before_eof": true,
+  "first_frame_seconds": 0.292,
+  "stream_seconds": 20.34,
+  "frames_observed": 1,
+  "template_commit": "a4d43370ff82e244c542412d0af0c68759d19fdb",
+  "actual_exit_code": 0,
+  "overall_elapsed_seconds": 97.352,
+  "recorded_at": "2026-11-06T13:04:15.464063+00:00"
+}

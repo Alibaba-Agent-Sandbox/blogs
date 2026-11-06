@@ -1,0 +1,119 @@
+{
+  "scope": "actual_source_candidate_upgrade_retirement_and_owned_resource_release",
+  "public_recipe_qualified": false,
+  "steps": [
+    {
+      "step": "source-final-v8-update-plan",
+      "exit_code": 0,
+      "elapsed_seconds": 1.016,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-v8-update-apply",
+      "exit_code": 0,
+      "elapsed_seconds": 240.669,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-v8-upgrade-verify",
+      "exit_code": 0,
+      "elapsed_seconds": 267.293,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-retire-old-cleanup",
+      "exit_code": 1,
+      "elapsed_seconds": 1.567,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-retire-old-retry-cleanup",
+      "exit_code": 0,
+      "elapsed_seconds": 4.524,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-retire-independent-absence",
+      "exit_code": 0,
+      "elapsed_seconds": 0.965,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-provider-independent-absence",
+      "exit_code": 0,
+      "elapsed_seconds": 7.476,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-rds-destroy-cleanup",
+      "exit_code": 0,
+      "elapsed_seconds": 13.74,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-current-guest-cleanup-apply",
+      "exit_code": 0,
+      "elapsed_seconds": 42.251,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-retired-guest-cleanup-apply",
+      "exit_code": 0,
+      "elapsed_seconds": 90.063,
+      "timed_out": false
+    },
+    {
+      "step": "source-final-failed-guest-cleanup-apply",
+      "exit_code": 0,
+      "elapsed_seconds": 95.246,
+      "timed_out": false
+    }
+  ],
+  "upgrade": {
+    "stage": "verify-new",
+    "passed": true,
+    "generated_code_executed_on_host": false,
+    "database_ownership_verified": false,
+    "cleanup_confirmed": true,
+    "stable_endpoint": true,
+    "new_session_new_revision": true,
+    "old_session_pinned_and_continued": true,
+    "native_workspace_isolation": true,
+    "old_session_retained": true,
+    "old_adapter": "qwen-code",
+    "new_adapter": "codex"
+  },
+  "independent_retirement": {
+    "scope": "actual_cli_retire_independent_old_session_state",
+    "old_public_session_closed_before_explicit_close_fallback": true,
+    "old_native_typed_absent": true,
+    "retained_revision_removed": true,
+    "cloud_mutations": 0
+  },
+  "final_native_provider_absence": {
+    "scope": "explicit_final_source_public_owned_provider_absence",
+    "native_mutations": 0,
+    "receipt_count": 1,
+    "revision_count": 2,
+    "inventory_exhausted": true,
+    "observed_inventory_rows": 0,
+    "matched_owned_revision_or_session_resources": 0,
+    "known_native_ids_checked": 7,
+    "known_native_ids_typed_not_found": 7,
+    "provider_absence_independently_verified": true,
+    "all_account_resource_absence_claimed": false,
+    "passed": true
+  },
+  "source_rds_phase": "deleted",
+  "known_source_compute_graph": {
+    "functions_typed_absent": 7,
+    "templates_typed_absent": 3,
+    "sandboxes_typed_absent": 7
+  },
+  "manual_guest_exact_targets": 9,
+  "manual_guest_exact_targets_independently_absent": 9,
+  "empty_repository_release_by_this_record": false,
+  "all_account_resource_absence_claimed": false,
+  "source_receipts_rewritten": false,
+  "generated_code_executed_on_host": false
+}

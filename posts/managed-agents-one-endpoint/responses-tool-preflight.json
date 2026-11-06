@@ -1,0 +1,9 @@
+{
+  "model": "qwen3.5-plus",
+  "first_status": 200,
+  "tool_call_valid": true,
+  "function_call_output_accepted": true,
+  "roundtrip_passed": true,
+  "second_status": 200,
+  "elapsed_seconds": 4.963
+}

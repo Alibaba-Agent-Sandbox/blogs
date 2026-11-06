@@ -1,0 +1,7 @@
+flowchart LR
+  Client[业务客户端<br/>Gateway URL + Business Key] --> Gateway[Server / Gateway]
+  Gateway --> State[(PostgreSQL<br/>会话、提交、事件、产物)]
+  Gateway --> Dispatcher[Dispatcher]
+  Dispatcher --> Worker[Worker]
+  Worker --> SandboxA[Session A 的 Sandbox<br/>Agent CLI、模型、工具、工作区]
+  Worker --> SandboxB[Session B 的 Sandbox<br/>Agent CLI、模型、工具、工作区]
