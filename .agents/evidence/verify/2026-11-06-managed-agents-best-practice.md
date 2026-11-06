@@ -443,3 +443,29 @@ The default host `python scripts/validate.py` exited1 because that interpreter
 has no PyYAML. Repeating the unchanged validator in the existing public SDK
 verification virtual environment exited0:59 posts checked/0 problems. This
 interpreter prerequisite failure did not change product or article assertions.
+
+## Visible architecture asset
+
+The website preflight rendered the first Mermaid block as source text. Following
+parent and independent runtime design review, replaced that block with a local
+SVG and kept the original Mermaid content unchanged as a downloadable .mmd
+attachment. The graphic depicts the existing logical responsibilities only:
+three Server-side roles, shared PostgreSQL state, business requests exclusively
+to Gateway, and a separate execution Sandbox for each Session. Model use is
+explicitly an API call. It does not assert additional availability or isolation
+guarantees, and does not add an engineering inspector to the business flow.
+
+SVG5111 bytes/SHA
+f732ce930ba9f4646ef53d2770cab891ef0069922aaabaf235c48a241d11d2ce;
+original Mermaid attachment SHA
+bfdd15db0cbf4bdb0def7209ea272c22d8c8ad602dea3b44c36e75d4491e0bf1.
+XML checks confirm title/description,4 unique ids, no script, foreignObject,
+event attributes, external resources or linked fonts. Actual native Chrome PNG
+was independently reviewed by parent and runtime reviewer with no must-fix.
+
+Repeated validator59/0, static website build exit0, generated HTML175,950 bytes,
+32 H2/15 tables/71 code blocks,58 local article asset references with0 missing,
+and47 byte-identical non-Markdown attachments. Chrome desktop1440/mobile390
+screenshots retain0 broken images and no uncontained article overflow. Only
+the draft render copy was made visible; source draft, website source, runtime,
+public recipe identity and hosted pass/fail claims remain unchanged.

@@ -24,15 +24,9 @@ SSE和Qwen主动取消也已通过，本轮升级在stable-readiness失败，已
 
 ## 1. 先把部署者与业务调用方的入口分开
 
-```mermaid
-flowchart LR
-  Client[业务客户端<br/>Gateway URL + Business Key] --> Gateway[Server / Gateway]
-  Gateway --> State[(PostgreSQL<br/>会话、提交、事件、产物)]
-  Gateway --> Dispatcher[Dispatcher]
-  Dispatcher --> Worker[Worker]
-  Worker --> SandboxA[Session A 的 Sandbox<br/>Agent CLI、模型、工具、工作区]
-  Worker --> SandboxB[Session B 的 Sandbox<br/>Agent CLI、模型、工具、工作区]
-```
+![统一 Gateway、Server 控制面与每个 Session 的独占 Sandbox](./architecture.svg)
+
+[打开架构图](./architecture.svg) · [下载原 Mermaid 源码](./architecture.mmd)
 
 Server 维护稳定的业务入口，首次输入才按需分配 Sandbox。同一个 Session 的后续轮次
 继续使用原有工作区；不同 Session 各自独占 Sandbox。CLI 部署应用时配置云访问、镜像
