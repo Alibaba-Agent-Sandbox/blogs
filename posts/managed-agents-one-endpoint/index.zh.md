@@ -12,10 +12,10 @@ draft: true
 下载结果。每个 Sandbox 的地址、创建凭据、工作区和回收流程，应由服务端管理。
 本文围绕这一目标，记录 `agents-api` 模板从本地验证到真实阿里云 FC 部署的操作。
 
-**草稿状态：已记录真实构建、失败部署、两轮候选业务 hook、独立首轮产物下载、实时 SSE、
-本机 PostgreSQL 故障实验和真实模型工具回合。正式发布验证与独立模板身份检查仍有失败；
-完整39路由、源码 heldout、升级及最终全部资源释放尚未全部证实。本文当前不能作为
-“公开发行版已完整跑通”的证明。**
+**草稿状态：新窗口已正常部署到 ready，39个正向接口及38个受保护接口401验证通过；
+两轮真实文件任务、原始测试、4/8项 heldout、源码哈希、实时 SSE、主动取消及同会话续轮通过。
+当前结果使用固定候选包，升级、公开发行路径和新窗口最终清理仍在验证。本文当前不能作为
+“公开发行版已完整跑通”的证明。早期失败及其实际修复边界保留在附录。**
 
 所有结果都有明确的范围。命令中的本机路径、应用名称、账号及资源标识使用占位符；
 密钥和完整私有日志不公开。代码块标为“实际返回脱敏节选”的内容，只保留真实返回中的
@@ -152,8 +152,8 @@ Agent 编码任务通常包含“模型要求调用工具→执行工具→把�
 ```
 
 [Chat 实际结果](./chat-tool-preflight.json)与[Responses 实际结果](./responses-tool-preflight.json)
-保留了探测摘要。这证明本轮账号、端点和模型能够完成所测协议回合，还没有证明 Codex
-或 Qwen Code 在最终 FC 应用里完成了文件任务，也不能推广为所有 BYOK 端点都兼容。
+保留了探测摘要。这证明本轮账号、端点和模型能够完成所测协议回合。仅凭这两个探针
+不能证明最终 FC 文件任务；后文另给完整业务证据，也不能推广为所有 BYOK 端点都兼容。
 
 ## 5. 用有缺陷的现有工程作为业务练习
 
@@ -194,7 +194,7 @@ totals[row["month"]] = Decimal(row["amount"])
 
 两轮任务的业务断言是：第一轮输出 `month,total`，两个月分别为30.00和10.00；第二轮
 继续修改同一文件，加入 `--with-share`，输出占比分别为0.750000和0.250000，同时保留
-默认模式及第一轮产物。这些数值先作为任务合同；下文候选业务 hook 已检查实际结果，另一次独立验收也保存了首轮 CSV 原始字节。两者的验证范围分别记录。
+默认模式及第一轮产物。这些数值先作为任务合同；第7节给出实际两轮CSV、源码与独立测试结果。
 
 先执行本地模板检查：
 
@@ -219,7 +219,193 @@ seed program: unchanged original suite fails exactly 2 tests
 本地还分别启动 managed 服务及既有 Python/Node 模板，检查新增启动入口与旧模板路径。
 这些结果证明模板检查、启动和 smoke 的错误处理成立，不替代真实模型的两轮任务。
 
-## 6. 第一次实际 Build：镜像构建成功
+## 6. 正常 Build、Plan、Apply：获得稳定 Gateway
+
+新的独立资源窗口使用另一个应用名称、空数据库和源码目录，原窗口的数据库已经删除，
+其截止时间没有被改写。新窗口配置经过验证的 PostgreSQL CA，连接保持 `sslmode=verify-full`。
+本次使用 CLI v7 候选制品、SDK 固定源码 `cd43e9e` 的 CI 原始 wheel；后续 SDK 修补和
+公开发布是另外的步骤，不能把之后的新 hash 倒贴到这次成功结果上。
+
+在准备好的模板目录中，实际 Build/Plan/Apply 命令为：
+
+```bash
+<CANDIDATE_ABX> app build template.yaml --out .abx/build.json --yes
+<CANDIDATE_ABX> app plan template.yaml --build-receipt .abx/build.json --out .abx/plan.json
+<CANDIDATE_ABX> app apply .abx/plan.json --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+真实执行结果如下：
+
+| 步骤 | 实际退出码 | 耗时/秒 | 实际状态 |
+| --- | ---: | ---: | --- |
+| Build | 0 | 15.587 | built |
+| Plan | 0 | 0.915 | planned，operation=apply |
+| Apply | 0 | 351.767 | ready，phase=ready |
+
+Plan 实际列出的执行步骤为：
+
+```json
+["sandbox-template", "worker", "dispatcher", "gateway", "candidate-verification", "publish"]
+```
+
+Apply 的实际返回脱敏节选为：
+
+```json
+{"status": "ready", "phase": "ready"}
+```
+
+此处的 ready 来自正常 CLI 发布流程，包含候选业务检查和最终生产入口检查；没有手工
+驱动 Dispatcher、开启额外公网控制入口，或把 requires-reconcile 收据修改为 ready。
+保存 Apply 返回的 endpoint、receipt_file 和 credentials_file，后续业务只使用这个
+endpoint 及凭据文件中的 businessKey。
+
+实际镜像使用的两个 CI wheel 字节身份是：
+
+```text
+client 1ac32d508980297ec80629b6c9e2fb5fd0b268db354d13d39120dfbaada8d4e0
+server 210db5e796f4fc63e84156d19076c946d261b48c47ec6c8c1db82b8b60691f08
+```
+
+## 7. 同一个 Gateway 完成两轮代码修改与独立验收
+
+业务过程依次是上传 CSV、创建带附件的 Session、查询持久化 Submission/Turn、下载产物，
+再给同一个 Session 提交第二轮输入。工程验收控制器同时使用固定可信检查程序，在所属
+Sandbox 内执行原测试和未提前交给 Agent 的 heldout；业务 HTTP 客户端始终只有业务 Key。
+
+实际正常验收入口为：
+
+```bash
+<TEST_PYTHON> <VALIDATION_DIR>/run_acceptance.py public source-final-public-39
+```
+
+本次实际退出0，耗时412.514秒。它遍历39个 V1 operation 的正向响应；除公开健康检查外，
+另外38个受保护 operation 实际使用无效 Bearer 验证返回401。输入、输出和清理也全部经过
+同一个 Gateway。完整[实际结果脱敏摘要](./source-normal-acceptance.json)及
+[548次实际HTTP观察的逐步脱敏记录](./source-normal-http-transcript.jsonl)可下载；后者保留
+method、路径稳定占位符、状态码及允许的返回字段，没有复制请求正文、提示词或认证头。
+
+关键业务顺序和实际状态码为：
+
+| 实际操作 | HTTP 状态 | 结果判定 |
+| --- | ---: | --- |
+| 上传 sales.csv，purpose=user_data | 200 | 返回 File ID，作为 Session 附件 |
+| 创建带初始任务的 Session | 201 | 返回 Session 及 Submission 收据头 |
+| 查询 Submission 与保存的 Turn | 200 | completed，产物发布完整 |
+| 下载首轮源码、CSV、报告 | 200 | 核对字节、金额及源码哈希 |
+| 向相同 Session 提交第二轮输入 | 202 | 响应头提供新的 Submission；继续查询终态 |
+| 下载第二轮源码及带占比 CSV | 200 | 占比与独立测试通过 |
+| Close | 202 | 查询 Operation，确认 succeeded/compute released |
+| Delete 后查询 Session | 200 / 404 | 公开资源已删除 |
+
+第一轮实际 CSV 是：
+
+```csv
+month,total
+2026-01,30.00
+2026-02,10.00
+```
+
+第二轮实际 CSV 是：
+
+```csv
+month,total,share
+2026-01,30.00,0.750000
+2026-02,10.00,0.250000
+```
+
+独立检查不是阅读 Agent 的“完成”文字。每轮先确认 Session、revision、唯一原生实例、
+原始创建模板的 ID/name 归属与 Turn 发布状态，再在这个 Sandbox 内运行固定可信检查程序。
+原测试文件哈希在执行前后保持不变；从 Gateway 下载的源码、Sandbox 中真正执行的源码
+和捕获为产物的源码哈希一致。检查程序结束且原生 PID 已消失后才发起下一轮输入。
+
+实际独立断言摘要为：
+
+| 轮次 | 原始测试 | heldout | 原测试未变 | 下载源码=执行源码 | 检查进程退出 |
+| --- | --- | ---: | --- | --- | --- |
+| summary | 通过 | 4项通过 | true | true | true |
+| share | 通过 | 8项通过 | true | true | true |
+
+首轮源码1588字节，SHA-256为 `17aaaab637422f01a5cdd8d6d8901ac24b6a54c62848b3ccfffe1789887263d9`；
+第二轮源码2018字节，SHA-256为 `2dfde99d935353c58ba91f343057690b5725aefb11a6c683266eb49ca2845d48`。
+可下载[首轮源码](./source-normal-summary.generated.py)、[首轮CSV](./source-normal-summary.csv)、
+[该轮模型报告](./source-normal-report.generated.txt)、[第二轮源码](./source-normal-share.generated.py)
+和[第二轮CSV](./source-normal-share.csv)。这些模型生成文本经过人工阅读和已知凭据字节检查，
+没有在宿主机执行；报告自述与独立测试结果仍分开记载。
+
+这里验证的是当前固定 V1 operation 和实际业务。终态取消接口返回202，不等于正在执行
+的进程已经被停止；list接口一次成功，也不能扩大为所有分页边界都经过真实云端验证。
+同 UID 的合作进程、文件与哈希检查不构成对敌对 Agent 的防篡改证明；本轮未从宿主直连
+私网PG做所有权证明。独立 Provider 最终不存在证明在应用全部关闭后另做，当前业务摘要
+中的该字段仍为 false，不能提前修改成 true。
+
+## 8. 正常入口的实时 SSE 与并发读取
+
+在正常 ready endpoint 上，用独立空 Session 完整读取20秒事件连接，没有模型输入或
+Sandbox 分配；同时另一个请求查询该 Session。实际首帧0.169秒到达，正常EOF20.369秒，
+并发GET在EOF之前完成，Close/Delete通过。
+
+```json
+{"passed": true, "first_frame_seconds": 0.169, "stream_seconds": 20.369,
+ "normal_eof": true, "concurrent_read_completed_before_eof": true,
+ "cleanup_public_confirmed": true, "model_turn_started": false}
+```
+
+这证明这条FC HTTP路径能在连接结束前flush，并完整读到正常终止。已完成Turn后的历史
+事件读取和此实时空Session检查分别记录；本段没有把空Session结果说成模型delta实时性。
+
+## 9. 主动取消：先证明仍在执行，再证明停止与工作区续用
+
+取消测试先让 Agent 前台执行一个固定合作程序。该程序保存 nonce、PID、kernel startticks，
+写入工作区marker，再等待50秒才会写完成文件。50秒低于模板保持不变的60秒单工具预算。
+工程观察器使用固定可信命令读取真实`/proc`身份，不在宿主机执行 Agent 源码，也不开放
+新的业务exec接口。每次私有观察命令必须退出0且确认观察者PID已消失，再继续公共操作。
+
+本次实际执行入口和结果是：
+
+```bash
+<TEST_PYTHON> <VALIDATION_DIR>/run_acceptance.py active source-final-active-fixed-proc
+```
+
+```json
+{"passed": true, "active_cancel_stop_passed": true,
+ "same_session_continuation_passed": true,
+ "cleanup_public_confirmed": true, "cleanup_native_confirmed": true,
+ "probe_sleep_seconds": 50, "observed_active_seconds_before_cancel": 41.045,
+ "uncertain_mutations": []}
+```
+
+实际退出0，耗时224.219秒。取消意图完成持久化及加密备份之后，再次确认原Turn仍为
+in_progress且原PID/startticks仍匹配、进程存活；本次这一观测距首次看到started标记为41.045秒。
+这一步不能省略：网络或完整备份可能跨过程序自然结束时间，届时应该记为时序不确定，不能
+把对终态任务调用cancel成功当作正在执行的任务被停止。
+
+本次实际断言依次通过：普通输入返回409且没有新增Submission；显式排队返回queued且未
+生成Turn；定向取消queued输入；取消原活动Turn并查询Operation到stop-confirmed；原
+Submission和Turn为cancelled、原进程消失；等待超过原自然结束时间后完成文件仍不存在。
+随后在同Session读取原工作区marker，产物字节一致；回放旧取消key得到原Operation，
+没有取消后继Turn。最后Close/Delete和原生Sandbox不存在确认通过。
+
+[实际控制器结果及每次备份耗时](./source-normal-active-cancel.json)完整保留。业务HTTP仍只
+使用Gateway和业务Key；原生进程观察是单独的工程验证步骤，不能把其管理凭据写成业务
+调用方要求。此处是同UID合作进程的实测，不能扩大为对敌对代码的隔离证明。
+
+前两次真实观察失败均保留。第一次只记录FileOperationError，无法还原其HTTP细节；第二次
+私有诊断定位到Files HTTP读取`/proc`伪文件返回500。两次都发生在busy/queue/cancel之前，
+没有证明业务取消失败，也没有被当作NotFound。固定观察器只把真实OS ENOENT
+视为不存在，未知HTTP、超时、非零退出仍然失败；修正后使用新标签获得上面的独立通过。
+
+## 10. 升级与退役仍在验证
+
+旧Qwen Session的升级准备阶段实际退出0、耗时131.182秒：原生实例、工作区marker与
+捕获产物均已核对，故意保留该Session供更新/退役验证。新revision正常发布、Codex新会话、
+旧会话续轮、稳定endpoint和retire结果还需补入实际输出。
+
+## 11. 本窗口最终清理仍待执行
+
+本窗口尚未完成最终应用/镜像/仓库/RDS清理。清理时继续使用确切收据、原创建journal及
+独立查询，保留借用网络资源；历史窗口的已清理结果见后面的附录，不能替代本窗口释放。
+
+## 附录1：第一次实际 Build：镜像构建成功
 
 构建与部署是两个操作。本轮从模板源码快照构建 Server 镜像，输出独立构建收据：
 
@@ -241,7 +427,7 @@ seed program: unchanged original suite fails exactly 2 tests
 构建收据保存本次拥有的唯一镜像 tag 与 digest。后续不会按仓库名前缀猜测“哪些镜像
 看起来像本次资源”，也不会把同名的既有镜像收养成本次可删资源。
 
-## 7. 创建冻结部署计划
+## 附录2：创建冻结部署计划
 
 ```bash
 <CANDIDATE_ABX> app plan template.yaml \
@@ -267,7 +453,7 @@ seed program: unchanged original suite fails exactly 2 tests
 计划固定了将执行的输入及资源身份。Apply 出现不确定结果后，应查询、协调和清理已保存
 的收据；换一个输出文件名并不能让重放同一创建请求变得安全。
 
-## 8. 第一次 Apply：保留失败，查明镜像输入限制
+## 附录3：第一次 Apply：保留失败，查明镜像输入限制
 
 ```bash
 <CANDIDATE_ABX> app apply .abx/plan.json \
@@ -296,7 +482,7 @@ Gateway endpoint。独立原生查询先确认精确函数不存在，再用同�
 即使镜像输入修好，这个配置也不能被宣传为可部署。后续把公开 CA 通过严格校验的启动
 参数传入，角色秘密继续放环境变量；不能把 Key 或数据库密码放进启动参数。
 
-## 9. 先释放第一次失败尝试的资源
+## 附录4：先释放第一次失败尝试的资源
 
 协调查询的实际命令为：
 
@@ -352,7 +538,7 @@ apply:   exit 0, elapsed 30.09s, independentAbsence 3, passed true
 
 首轮10项已执行步骤的[脱敏返回汇总](./first-attempt-steps.json)可逐项核对。
 
-## 10. 第二次实际 Build 与 Apply：验证参数长度限制
+## 附录5：第二次实际 Build 与 Apply：验证参数长度限制
 
 修订 CA 传递后，重新构建新镜像并生成新的计划，没有重放第一次 Apply。
 第二次构建实际退出码0，耗时31.664秒，仍返回 `status=built` 和 `fc3@0.1.26`。
@@ -366,7 +552,7 @@ CA/X.509 校验。环境变量4096字节限制与单个参数2048字符限制是
 不能推导另一项也符合。这里只报告本轮实际 CA 链和实际 FC 返回，不承诺所有大小的 CA
 bundle 都能部署。
 
-## 11. 真实私有调用与流式传输还需要单独验证
+## 附录6：真实私有调用与流式传输还需要单独验证
 
 后续实际部署已创建三角色，但私有调用暴露了其他协议适配问题，尚未据此发布业务入口：
 
@@ -431,7 +617,7 @@ node <VALIDATION_DIR>/recover_cleanup_dispatcher_image.mjs \
 确认和本轮数据库仍需独立记录，不能把恢复清理通道当成两轮 Agent 编码业务已经通过。
 [这五步的实际脱敏返回](./source-recovery-steps.json)单独保存，没有改写前两次失败记录。
 
-## 12. 在本机真实 PostgreSQL 上检查故障语义
+## 附录7：在本机真实 PostgreSQL 上检查故障语义
 
 本轮也运行了真实本机 PostgreSQL、独立 HTTP/子进程测试。扩展用例实际结果为：
 
@@ -485,7 +671,7 @@ node <VALIDATION_DIR>/recover_cleanup_dispatcher_image.mjs \
 这些探针证明了所测故障边界。它们不能替代生产 Sandbox 的原生停止证据；同 UID 的
 guest 文件、journal 和进程标记，也不是对敌对代码的防篡改证明。
 
-## 13. 两轮候选 hook 已通过，独立验收停在模板身份检查
+## 附录8：两轮候选 hook 已通过，独立验收停在模板身份检查
 
 第四次实际 Apply 运行294.151秒后退出1，停在 `stable-trigger` 的临时验证凭据拒绝检查。
 按冻结 CLI 的执行顺序，此阶段位于候选 `afterReady` hook、两轮真实 Agent、每轮下载与
@@ -576,7 +762,7 @@ node --test <VALIDATION_DIR>/test_collect_owned_template_identity_proof.mjs
 其中还实例化安装的官方原生 SDK 模型，检查字段的真实序列化。它们没有调用云 API、模型，
 也没有在宿主机执行模型源码。离线通过不等于已取得真实穷尽清单；新的完整业务验证仍待执行。
 
-## 14. 真实 FC SSE：首帧在连接结束之前到达
+## 附录9：真实 FC SSE：首帧在连接结束之前到达
 
 同一阶段的独立 SSE 用例使用另一个空 Session，没有提交模型输入，也没有分配 Sandbox。
 它完整读取正常有限事件连接，同时在连接尚未结束时查询 Session，最后 Close/Delete。
@@ -603,21 +789,7 @@ node --test <VALIDATION_DIR>/test_collect_owned_template_identity_proof.mjs
 读到EOF。它没有靠收到第一帧就主动断开来推断完整传输；也没有把已结束任务的历史事件
 当成实时模型delta。这里没有启动模型，因此模型中间输出的实时性仍需独立业务证据。
 
-## 15. Active cancel、升级与退役：待补本轮实际结果
-
-取消已完成任务能验证接口的终态幂等性，不能证明正在执行的进程已停止。真实主动取消
-检查需要先观察到运行中 Turn 与固定合作进程的 started 标记，再检查普通输入409、显式
-排队、定向取消、最终 stop-confirmed，以及跨过原预计执行时刻后没有发生后续文件副作用。
-若运行时选择销毁整个 Sandbox 确认停止，就不能同时声称同 Session 原工作区复用成功。
-
-升级检查需要保留一个旧 Session，重新 Build/Plan/Apply 更新应用，确认同一 endpoint 下
-旧 Session 仍使用旧 revision、原 Sandbox 和工作区，新 Session 使用新 revision 及其模型
-adapter。退役时需要观察 drain fence 和活动计数收敛，再确认旧计算与旧部署资源不存在。
-
-**待补：本轮真实主动取消、同 Session 续轮、Qwen→Codex revision 更新、稳定 endpoint、
-旧 revision drain/retire 的实际输出。控制器已经准备并审查，不等于这些操作已经执行。**
-
-## 16. 原窗口计算资源和数据库已释放，镜像元数据单独处理
+## 附录10：原窗口计算资源和数据库已释放，镜像元数据单独处理
 
 本轮的清理顺序是先停止新增业务，再处理 Session、Sandbox、FC 函数及模板、拥有的
 镜像，最后释放临时数据库。每次使用精确收据和原生创建身份，已经确认不存在的资源

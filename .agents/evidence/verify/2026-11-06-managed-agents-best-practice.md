@@ -111,3 +111,47 @@ Actual checks after these additions:
 
 Website rendering and a full public command-by-command reproduction remain
 pending. No article publication or complete template acceptance is claimed.
+
+## Actual normal source window results
+
+The separately owned new source window now completed normal v7 Apply with
+exit0/351.767s and ready/ready. The deployed CI wheel pair is the cd43e9e SDK
+source identity: client1ac32d50... and server210db5e7.... The later private empty
+revision patch and forthcoming public package identity are not retroactively
+assigned to this run.
+
+The actual source-final-public-39 controller returned exit0/412.514s: all39
+positive operations and38 protected401 checks; summary original tests plus4
+heldout, share original tests plus8 heldout; unchanged original test hash,
+downloaded/captured/executed source hash equality and independent helper PID exit.
+The article includes the actual five source/CSV/report attachments, their hashes,
+the safe result projection and548 actual HTTP observations with preexisting
+allowlisted placeholders. It does not execute any model artifact on the host.
+
+Normal ready live SSE passed with first frame0.169s and normal EOF20.369s,
+concurrent GET before EOF and public cleanup. The earlier0.192s/20.188s run stays
+in the original-window appendix rather than being overwritten.
+
+Active cancellation then passed exit0/224.219s using the fixed source-controlled
+native proc observer: observed original active target41.045s after the started
+marker, under the unchanged50s probe/public60s tool limit. Busy409 without
+submission side effects, queued cancellation, active stop beyond natural finish,
+old cancel replay, same-Session workspace continuation and public/native cleanup
+passed. The two previous file-observer failures remain failures; neither was
+reclassified as native absence or a business cancellation defect. Business HTTP
+requires only endpoint/key; engineering Provider inspection is separate.
+
+Reorganized the article so normal configuration/deployment/business/results come
+before10 historical diagnostic appendices. The old failure outputs and assets
+remain intact. Upgrade, final new-window cleanup and published-recipe acceptance
+are still pending, so draft:true remains and this branch is not published.
+
+Post-update checks:59 posts/0 validator problems, all19 relative attachment
+targets present, all five new normal-run artifact hashes match,548 HTTP JSONL
+records parse with the expected redaction scope, known credential byte scan of
+all20 article files clear. The default staged whitespace check flags the actual
+CSV CRLF line endings as trailing whitespace. Those artifact bytes are deliberately
+preserved so their hashes remain truthful; the same check with the explicit
+`core.whitespace=cr-at-eol` setting passes without changing file contents. The first active
+failure had no preserved HTTP detail; only the second diagnostic localized
+proc-file download HTTP500. The article explicitly preserves that distinction.
