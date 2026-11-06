@@ -279,3 +279,33 @@ and6b6b1632556ad99fbde42ddbbdeba2c923602d85beb57f7dfa8746c087c19b89.
 Canonical workflow job127893629207 was separately read: only authorization and
 non-cloud evidence gates ran, so the article explicitly does not label its
 workflow success as another native cloud test. Website rendering remains pending.
+
+## Reader reproducibility review and first v0.1.3 hosted readiness
+
+Runtime's independent whole-article/asset review found no factual or secret-scope
+must-fix, and raised three reader requirements: restore the agents-api working
+directory before app build after repository-level tests, provide the real existing
+ACR namespace/accessRef setup, and distinguish application Destroy from independent
+PostgreSQL release. All three are now explicit. Actual public npm0.5.9
+`abx config set --help` exited0 and names acr_namespace/ACR_NAMESPACE; source
+fc.ts confirms env uses existing cloud AK/SK plus optional STS, separate from
+Sandbox Key. No config value was changed by the help check. The7 smoke count is
+now explicitly0.1.2 history,20 belongs to0.1.3, and appendix12's candidate claim is
+limited to its original SOURCE window.
+
+Read completed new capture results without cloud operations: public-retry normal
+Build26.758s, Plan.915s and Apply374.682s all exit0; Apply stdout status/phase are
+ready/ready, recorded12:51:54 UTC. Exported the single actual17-row smoke report
+only after strict field allowlist and final passed/complete equality checks. Its
+2180 bytes/SHA b1fab8f01af8dc3cff65b73a1a528ca1d1593396e6a37985e8669fb0fb49d1e1
+are copied unchanged; the1523-byte readiness projection has SHA
+6617ac3133f0d7ce839554975c98d6cbbf6a11bca4faf36d140a05576fb0b7b5.
+The appendix records only completed readiness, not39/heldout/active/upgrade or
+Provider absence. The new report's cleanup scope remains known public hook
+resources. New full hosted acceptance and final resource release remain pending.
+
+Post-review checks:59 posts/0 validator problems,34 local attachment targets
+present, all JSON/JSONL parse, known-secret in-memory check across35 article files
+0 hits, and CRLF-aware diff check exit0. Actual generated source was only read,
+not imported or executed on the host. No publication or complete v0.1.3 result is
+claimed.

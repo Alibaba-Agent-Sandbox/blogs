@@ -112,6 +112,21 @@ Host与Sandbox的Node版本是不同配置。模型实际可用性必须另测�
 应用令牌不是去云控制台申请的 API Key。普通用户使用模板时，应让 CLI 自动准备并
 保存缺省应用认证；不需要先手工生成一串随机令牌才能开始。
 
+Build前还要配置已经存在的ACR命名空间，确保部署身份能向其中推送镜像。正式CLI0.5.9
+的`abx config set --help`实际列出`acr_namespace`，对应环境变量`ACR_NAMESPACE`。
+下面是填写自己已有namespace的配置示例，不是本轮私有值：
+
+```bash
+abx config set acr_namespace YOUR_EXISTING_ACR_NAMESPACE
+```
+
+按[模板安装配置指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/a4d43370ff82e244c542412d0af0c68759d19fdb/docs/using-templates.md#installation)
+准备Sandbox配置与镜像仓库。清单的`application.deployment.accessRef`选择已经配置好的
+Serverless Devs access名称；模板默认是`default`，它不会把Sandbox Key当成云部署身份。
+本轮显式选择`env`，由部署子进程提供已有的`ALIBABA_CLOUD_ACCESS_KEY_ID`和
+`ALIBABA_CLOUD_ACCESS_KEY_SECRET`（使用STS时再提供对应Security Token），没有新建管理Key。
+云AK/SK用于部署和镜像操作，与Server binding中的Sandbox管理Key用途不同。
+
 从模板的受支持示例复制私有binding，保持它在被忽略的`.abx/`内：
 
 ```bash
@@ -262,7 +277,7 @@ cd <TEMPLATES_CHECKOUT>
 <TEST_PYTHON> -m pytest agents-api/test_smoke.py
 ```
 
-实际断言摘要：
+0.1.2阶段的实际断言摘要：
 
 ```text
 spec tools: 52 passed
@@ -271,6 +286,8 @@ document checks: 232 documents, no failures
 managed smoke regression: 7 passed
 seed program: unchanged original suite fails exactly 2 tests
 ```
+
+这里的7项属于0.1.2历史检查；0.1.3增加安全诊断后的smoke回归为20项，另见第10节。
 
 本地还分别启动 managed 服务及既有 Python/Node 模板，检查新增启动入口与旧模板路径。
 这些结果证明模板检查、启动和 smoke 的错误处理成立，不替代真实模型的两轮任务。
@@ -290,6 +307,7 @@ Host使用正式npm CLI0.5.9及公开PyPI client/server0.4.0a7，Python依赖在
 正常公开CLI命令为：
 
 ```bash
+cd <TEMPLATES_CHECKOUT>/agents-api
 abx app build template.yaml --out .abx/build.json --yes
 abx app plan template.yaml --build-receipt .abx/build.json --out .abx/plan.json
 abx app apply .abx/plan.json --bindings <PRIVATE_BINDINGS_FILE> --yes
@@ -559,6 +577,11 @@ Sandbox逐个typed NotFound，两个revision的完整inventory没有匹配残留
 本轮RDS删除退出0、耗时25.088秒，原生独立确认不存在，cleanupConfirmedAt为
 11:58:14.045 UTC。其绝对截止为12:22:19.743 UTC，提前约24分05秒释放，没有延长旧窗口。
 已有VPC、交换机、安全组和执行角色均属借用，不删除。后续免费元数据查询不需要RDS继续运行。
+
+`abx app destroy`负责应用收据中的计算和镜像资源，不会自动创建或删除PostgreSQL。
+这里的临时RDS由独立工程控制器创建、删除并再次查询确认；普通部署者自建的临时数据库
+也要通过自己的数据库管理流程另行释放。使用已有或共享数据库时，它属于借用资源，不能
+因为销毁这个应用而删除整个数据库实例。
 
 当前revision的3项guest镜像记录经普通destroyed guard处理，退出0、耗时64.379秒，
 3/3独立不存在；其中1项已不存在、2项实际删除。旧ready的3项记录使用单独的受限authority：
@@ -1056,7 +1079,7 @@ server 210db5e796f4fc63e84156d19076c946d261b48c47ec6c8c1db82b8b60691f08
 
 ## 附录12：源码候选与正式发行的身份对照
 
-本文验证的是独立安装的 CLI 候选制品和固定源码构建的 Python wheel，未将未发布的新
+本附录对应当时源码窗口，验证的是独立安装的 CLI 候选制品和固定源码构建的 Python wheel，未将未发布的新
 模块冒称为已有安装命令。实际候选 CLI 版本查询为：
 
 ```bash
@@ -1324,7 +1347,27 @@ digest或名称前缀扩大范围。免费空ACR仓库的元数据还要单独�
 不确定且未拿到ID，之后只读按确切nonce和描述核对，发现唯一owned Creating实例，
 没有重复Create，也不把不确定结果归因为已经证明的网络故障。
 
-12:37:42 UTC已准备新项目；此检查点仍在等数据库Running及TLS/DSN准备。
-计划按原方向重验Qwen初始部署、两轮源码任务、SSE、主动取消，再准备新的旧会话并
+12:37:42 UTC已准备新项目。等数据库Running及TLS确认后，私有binding准备实际退出0、
+耗时0.214秒，再执行同样的正式CLI Build、Plan和Apply：
+
+| 0.1.3新窗口步骤 | 实际退出码 | 耗时/秒 | 实际状态 |
+| --- | ---: | ---: | --- |
+| Build | 0 | 26.758 | built |
+| Plan | 0 | 0.915 | planned |
+| Apply | 0 | 374.682 | ready，phase=ready |
+
+实际Apply在12:51:54 UTC记录完成，使用正常发布流程；新版本的安全smoke报告首次保留了
+17条检查点，从setup到两轮summary/share、close、保留产物读取、delete和cleanup，最后一条为：
+
+```json
+{"schemaVersion":1,"status":"passed","phase":"complete","code":"passed","cleanup_attempted":true,"cleanup_confirmed":true}
+```
+
+[新窗口初始部署摘要](./public-retry-initial-ready.json)和
+[17条原样安全smoke记录](./public-retry-initial-smoke-report.jsonl)保留实际输出。
+报告中的cleanup仅确认hook掌握的公开资源，不代表独立Provider absence，也不能替代
+原测试/heldout和源码hash检查。此时尚未把新0.1.3的39、主动取消、升级或最终清理记为通过。
+
+接下来按原方向重验两轮源码任务、SSE、主动取消，再准备新的旧会话并
 正常更新到Codex，独立核对旧工作区续轮、新会话隔离、退役、Codex接口与业务，最后释放。
 以上是冻结输入和待执行顺序，不是未来结果；本文在这些结果及清理实际记录前继续保持草稿。
