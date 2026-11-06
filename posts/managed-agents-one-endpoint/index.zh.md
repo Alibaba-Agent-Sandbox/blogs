@@ -5,7 +5,7 @@ date: 2026-11-06
 category: engineering
 tags: [agents, sandbox, python, serverless, best-practice]
 authors: [Alibaba-Agent-Sandbox]
-draft: true
+draft: false
 ---
 
 业务调用方希望配置一个 URL 和一把业务 Key，然后创建会话、上传文件、运行 Agent、
@@ -58,8 +58,8 @@ abx --version
 ```
 
 本次为独立验证公开发行物，实际使用fresh安装目录下载、核对npm公开tarball后安装，
-没有用源码目录覆盖同名包。模板PR尚未合并时，以上checkout固定到本次实际运行的提交；
-该提交的14个recipe文件已经逐字核对。已安装正式CLI的实际版本输出为：
+没有用源码目录覆盖同名包。以上checkout固定到本次实际运行的提交，
+其14个recipe文件已经逐字核对。已安装正式CLI的实际版本输出为：
 
 ```text
 abx, version 0.5.10
@@ -270,6 +270,9 @@ env["AGENTS_API_KEY"] = json.loads(
 subprocess.run([sys.executable, "scripts/smoke.py"], env=env, check=True)
 PYTHON
 ```
+
+两轮具体HTTP步骤可以直接查看公开的[模板smoke脚本](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/4971598a5b14b62207076dd2da4264c139423628/agents-api/scripts/smoke.py)和
+[中文托管API说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/4971598a5b14b62207076dd2da4264c139423628/docs/managed-agents-api.zh-CN.md)。
 
 正常Apply的afterReady会执行模板自带的同一脚本：只经Gateway上传CSV、创建Session、
 驱动两轮Agent、下载CSV与源码，然后Close/Delete。它通过`/v1/models`发现默认模型，

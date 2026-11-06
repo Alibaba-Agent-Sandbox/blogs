@@ -1,15 +1,17 @@
-# Managed Agents best-practice article preparation
+# Verification: managed Agents single-Gateway practical guide
 
 Date: 2026-11-06
-Result: PARTIAL
+Result: PASS for the scoped article content, executed core workflow, known-owned cleanup and related local checks; normal PR merge/publication is not claimed.
 
 ## Scope and source identity
 
 The task branch starts at blogs main
 `aedabd4dfcf54db6c45f35a4dd82e01aba06bcda`. The existing primary checkout's
-unrelated changes were preserved. This record currently covers preparation and
-the article's scoped engineering decision; no hosted success or publication is
-claimed here.
+unrelated changes were preserved. The dated preparation entries below retain
+their original scope and outcomes. The final core-workflow section records the
+actual public0.1.4 deployment, two real Agent file turns and owned cleanup.
+Normal PR merge and website publication are separate states, not inferred from
+content verification.
 
 ## Executed preparation
 
@@ -23,12 +25,12 @@ claimed here.
 - Task worktree status before these scoped records: clean with executable-mode
   differences excluded; the shared filesystem reports text files executable.
 
-## Pending validation
+## Initial preparation boundary
 
-The article is intentionally not populated with unexecuted outputs. The current
-hosted application run, model business results, active-cancel probe, upgrade and
-drain/retire checks, and final independent resource cleanup remain with the task's
-owner controllers. Source-only previous results and local protocol fixtures will
+At initial preparation, the article intentionally contained no unexecuted
+outputs. Hosted application/model and resource results remained with the task
+owner controllers; broader probes in this historical plan were later removed
+from the core delivery scope at the user's direction. Source-only previous results and local protocol fixtures will
 not be relabeled as final hosted acceptance.
 
 Blog validation, link/record checks, content/secret review and applicable rendering
@@ -611,3 +613,26 @@ Only the generated temporary draft copy was made visible. Website source and
 deployment were unchanged. The article remains draft until template PR296 is
 normally merged; then remove the temporary unmerged-state sentence and validate
 the final publication commit. No new cloud request was performed.
+
+
+## Final publication source prepared behind the Draft PR gate
+
+The final source sets draft:false and removes only the temporary unmerged-state
+sentence. It adds the existing public smoke.py and Chinese managed API guide
+links pinned to the actually tested4971598 commit. It does not claim template
+PR296 or blog PR33 is merged. Root retains PR33 as Draft until the template
+is actually merged, then checks and normally merges the exact final head.
+No new preview, cloud request, business test, version or asset was added.
+
+The prior a18c481 content head passed remote Validate posts42267990823. Final
+source validator, relative links/JSON/secret review and whitespace checks are
+rerun below; the final-head remote CI is awaited as the ordinary contribution
+gate. The existing successful preview remains applicable to the unchanged
+reader structure; only two text links, one temporary sentence and the source
+draft flag differ. All preview HTTP/browser processes were independently
+observed stopped, with0 owned process matches; screenshots/evidence are retained.
+
+Final source actual checks:59 posts/0 problems,64 local references/0 missing,
+all post JSON/JSONL valid,0 credential-pattern matches in the changed article,
+and CRLF-aware diff check0. Both new absolute links target files verified in
+the tested4971598 Git tree. No final-head CI result is preclaimed.
