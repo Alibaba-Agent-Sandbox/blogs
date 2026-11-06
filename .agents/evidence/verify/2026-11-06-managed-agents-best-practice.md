@@ -469,3 +469,43 @@ and47 byte-identical non-Markdown attachments. Chrome desktop1440/mobile390
 screenshots retain0 broken images and no uncontained article overflow. Only
 the draft render copy was made visible; source draft, website source, runtime,
 public recipe identity and hosted pass/fail claims remain unchanged.
+
+## Separate CLI terminal-lifecycle qualification
+
+Before a future public CLI0.5.10/template0.1.4 window, independently reviewed the
+CLI owner's test-only terminal-expiry observer. The original90-GET policy mixed
+native lease time with variable transport latency. Two original full runs remain
+failures; the most recent broader run recorded177 passes/1 failure/8 skips.
+The approved replacement keeps actual PTY behavior, a shortened lease bound and
+mandatory natural typed NotFound, while using a once-frozen native Date/endAt
+mapping plus a declared90-second engineering observation allowance. This is not
+an official provider SLA. Internal210-second observation and bounded exact-ID
+cleanup reserve protect against the outer runner's240-second SIGKILL.
+
+Parent review caught two defects before the first proposed implementation ran:
+optional ledger failure could skip an unsubmitted delete, and an insufficient
+PTY parent budget could interrupt the Python owner before its own finally.
+The revised main uses the actual tested cleanup helper and complete60-second
+PTY admission guard. Independently ran37 pure tests/0 failures/0 skips, with
+real local HTTP response-body timeout coverage. Product src/package/lock were
+unchanged from321eb75; parent independently froze the full dist identity.
+
+The subsequent actual complete standard case exited0/103.915s without timeout.
+Read and cross-checked its result,86-row ledger and new native absence proof:
+2 owned IDs,79 observations ending in404, initial lease59 seconds, unchanged
+endAt, natural expiry confirmed, independent typed absence true, unresolved
+ownership empty and encrypted backup confirmed. Original full report was not
+rewritten. Raw result SHA
+0b245efcfe3149480319a92d770cc1c444a5df45d568ccc7f6412c7573bcf784;
+ledger SHA8e14695960e065da1419ea1210df96e78f7b9a110eb64c60e924d14b558ff00b;
+independent absence SHA
+f188494c61b017a4ef2cc4e24f1f4b82e3a18a3e35d04af580dd133c7d4e9a6e.
+
+This is honest incremental coverage across separate runs, not a synthesized
+single178-pass suite or proof that8 skipped cases passed. Because the new run
+expired by observation79, it does not demonstrate a live case requiring more
+than the old90 observations; the controlled-clock tests establish that policy
+boundary. No extra Docker image/template or database was created by this focused
+case, and no cloud call was performed by this article author. Formal CLI0.5.10
+publication/fresh installation and the final managed-template window remain
+pending; no future article PASS or installation identity has been added.
