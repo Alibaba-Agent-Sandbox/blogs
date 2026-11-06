@@ -546,3 +546,68 @@ JSONL parse, and CRLF-aware diff check pass. The runtime reviewer accepted the
 pending mainline/identity split; its config-help suggestion was independently
 verified and applied to the current mainline only. Final real outcomes and
 final render/desktop/mobile checks remain pending; source draft:true remains.
+
+
+## Core reader workflow scope and actual public0.1.4 execution
+
+At the user's explicit correction, final delivery is the single Gateway /
+Sandbox Agent template, its related real workflow, detailed practical article
+and owned resource cleanup. A further API/upgrade qualification matrix, new
+version, SDK/CLI/Registry documentation PR or additional cloud test is not a
+prerequisite. The public article now contains only11 reader sections. All19
+older appendices are retained in the linked historical supplement, including
+actual versions, failures and unchanged assets. The original1243-line appendix
+text SHA is ba0eae513ca4d98072cbc240c05d76fed0a3fa4ce2b9d405d5e7d3c545293211;
+only53 relative asset targets were rebased. Additional private-preparation and
+release-audit paragraphs moved there rather than being deleted or reclassified.
+
+Current public CLI0.5.10 / SDK0.4.0a7 / recipe0.1.4 ordinary Build0/30.949s,
+Plan0/1.316s and Apply0/372.713s reached ready at17:30:15.554483UTC. The
+actual template afterReady check completed two real Qwen file turns through
+the candidate Gateway, downloaded summary/share CSV and source, asserted
+30.00/10.00 and0.750000/0.250000, then Close/Delete. The current safe17-row
+report ends passed/complete with known cleanup true. No generated source
+original was retained for public attachments; old source/CSV/heldout files
+are not substituted and no new task is run just to obtain them.
+
+Normal Destroy0/6.374s at17:37:26UTC confirms drain, retained0 and three FC
+roles/one template/Server-image cleanup. Fresh native queries at17:50:42UTC
+confirm supported typed NotFound for all3 Function names and the exact original-team
+Template ID, plus an exhausted Sandbox inventory with0 run-scoped matches.
+The hook saved no native Sandbox ID, so directKnownIdChecks is0, not claimed
+as a stronger direct-ID proof. Strict RDS native zero inventory confirms
+deleted17:43:12.301UTC/17.992s. Guest cleanup54.656s at17:46:33.732353UTC
+confirms all3 exact tag absences (1 already absent,2 deleted), preserving
+original receipts/journals. The final two exact owned empty repositories subsequently completed one-shot
+delete and independent typed NotFound: Server0/42.149s at18:01:36.308392UTC,
+Guest0/39.724s at18:02:31.672104UTC. Both four-row journals retain intent/ack/
+typed-native-repository-absence confirmedtrue. Their SHA-256 values are
+b6e18e648217be4ac041d50aa247d58b07187bd0eefc21567f7bceaa56bdc14c and
+3b85ff425e557b519313a95b459c21e4bbe4c1ceab67ab6b6ca9bb8cdbee5d5b.
+All currently known owned temporary resources are released; no extra GET or
+new business test was run for the article. This is not account-wide absence.
+
+Reader clone instructions fix the actual4971598 full SHA while the template
+PR is not merged. Manual smoke maps Apply.endpoint to AGENTS_API_BASE_URL and
+credentials_file.businessKey to AGENTS_API_KEY in a child process without printing
+the key; normal Apply already runs it, so no manual rerun is required. Internal
+unshipped preflight commands, full-repository maintainer check commands, private
+RDS windows/nonce/quote, publication hashes, shared-filesystem mode diagnostics
+and report-byte coincidence explanations have been moved out of the mainline.
+
+Actual blog validator:59 posts/0 problems; CRLF-aware diff whitespace check0.
+Final attachment/link/secret and render checks will use the final cleanup text.
+
+
+Final core-only draft validation:59 posts/0 problems;64 local article/history
+references/0 missing; all post JSON/JSONL parse; current changed text has0
+secret-pattern matches; CRLF-aware diff check passes. The nineteen historical
+appendices reverse-rebase to the exact recorded original SHA. Independent
+website export check exits0 (0 errors/0 warnings/8 pre-existing hints), build
+exits0 with123 pages. The core article HTML is46,976 bytes and contains no
+historical appendix text. Native Chrome desktop1440 and mobile390 each show0
+broken images and0 horizontal page overflow; screenshots were visually reviewed.
+Only the generated temporary draft copy was made visible. Website source and
+deployment were unchanged. The article remains draft until template PR296 is
+normally merged; then remove the temporary unmerged-state sentence and validate
+the final publication commit. No new cloud request was performed.

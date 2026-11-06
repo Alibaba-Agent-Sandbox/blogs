@@ -1,6 +1,6 @@
 # Engineering records: blogs
 
-- Pending: [managed Agents single-endpoint practical article](notes/proposed/feature/2026-11-06-managed-agents-best-practice.md) · [preparation evidence](evidence/verify/2026-11-06-managed-agents-best-practice.md). Actual hosted outcomes and final article validation remain pending.
+- Pending: [managed Agents single-endpoint practical article](notes/proposed/feature/2026-11-06-managed-agents-best-practice.md) · [preparation evidence](evidence/verify/2026-11-06-managed-agents-best-practice.md). Normal public0.1.4 deployment and two real Qwen file turns pass; known temporary resources are independently released; final article review remains pending. Historical matrices are retained in the [engineering supplement](evidence/verify/2026-11-06-managed-agents-history-supplement.md).
 
 Pending: [unified template launch tutorial](notes/proposed/process/2026-10-25-unified-template-launch.md) · [verification](evidence/verify/2026-10-25-unified-template-launch.md). Current publication guidance uses one startup without a workflow selector; pinned historical cases retain their original scope.
 

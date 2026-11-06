@@ -1,0 +1,163 @@
+{
+  "kind": "PublishedRecipePreparationObserved",
+  "scope": "actual_allowed_command_fields_and_assertions_not_raw_responses",
+  "templateVersion": "0.1.4",
+  "templateCommit": "4971598a5b14b62207076dd2da4264c139423628",
+  "cliVersion": "0.5.10",
+  "phaseSha256": "3f1fa06b30924192fd584536dd0af6660ec8a5377d304fff4b726585815f5caa",
+  "rdsQuote": {
+    "currency": "CNY",
+    "hourlyTradePrice": 0.172,
+    "windowSeconds": 7200,
+    "estimatedRdsWindowCny": 0.344
+  },
+  "window": {
+    "createdAt": "2026-11-06T17:10:09.273Z",
+    "deadline": "2026-11-06T19:10:09.273Z",
+    "stopNewWorkAt": "2026-11-06T18:50:09.273Z",
+    "automaticExtensionAllowed": false
+  },
+  "databaseCreateOnceThenInspect": {
+    "createOutcome": "uncertain",
+    "createReplayed": false,
+    "exactOwnedMatches": 1,
+    "ownershipVerified": true,
+    "laterInstanceRunning": true,
+    "tlsEnabled": "on",
+    "tlsStatus": "success",
+    "privateEndpointUsed": true
+  },
+  "modelProtocolPreflights": {
+    "chat": {
+      "model": "qwen3.5-plus",
+      "first_status": 200,
+      "tool_call": true,
+      "roundtrip_pass": true,
+      "second_status": 200,
+      "elapsed_seconds": 3.94
+    },
+    "responses": {
+      "model": "qwen3.5-plus",
+      "first_status": 200,
+      "tool_call_valid": true,
+      "function_call_output_accepted": true,
+      "roundtrip_passed": true,
+      "second_status": 200,
+      "elapsed_seconds": 14.363
+    }
+  },
+  "commands": [
+    {
+      "step": "independent-initialize",
+      "exitCode": 0,
+      "elapsedSeconds": 4.074,
+      "recordedAt": "2026-11-06T17:06:51.158695+00:00",
+      "timedOut": false,
+      "resultSha256": "73ca47e2050f799f201416a8e70daddbf65b519e746b9f1f809002c45335d7bc",
+      "stdoutSha256": "bfdddb1ec0661ac61646ac64cfcc720aa09fd2c4a965c8909cac4b6928913c50",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "fresh-rds-quote",
+      "exitCode": 0,
+      "elapsedSeconds": 5.372,
+      "recordedAt": "2026-11-06T17:08:29.030217+00:00",
+      "timedOut": false,
+      "resultSha256": "cb8aff3c98913dc8b54d60f1f3961cd5ef50b41b707761c27b7428ec53038c69",
+      "stdoutSha256": "7083f313691be65e145c482361ffd8f9aee8e60529a9a703464d94b268f9df73",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "rds-create-once",
+      "exitCode": 1,
+      "elapsedSeconds": 28.967,
+      "recordedAt": "2026-11-06T17:10:37.770050+00:00",
+      "timedOut": false,
+      "resultSha256": "9bba850738d98494210b2a23a25aa4c861e15e8d9e13291d2eafe9c14ab36520",
+      "stdoutSha256": "3584232335ca2abe417b265842c875fcbbf70428f2a0f5c4958296c4f1d80ac4",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "rds-inspect-uncertain",
+      "exitCode": 0,
+      "elapsedSeconds": 4.421,
+      "recordedAt": "2026-11-06T17:11:03.712316+00:00",
+      "timedOut": false,
+      "resultSha256": "7c10b4c76e25095be3da75d47a69c6dbc1004de3f4533999f848988098c85d11",
+      "stdoutSha256": "ff5aff9daf2fa2ea72ca3fdb347468acead5488ea3e915f145d0d8735d5ded31",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "rds-configure-once",
+      "exitCode": 0,
+      "elapsedSeconds": 28.244,
+      "recordedAt": "2026-11-06T17:17:27.809199+00:00",
+      "timedOut": false,
+      "resultSha256": "2ece1cc94e4666819bb6525e3451efbcb57e203d0f9e6610cab3689ce7038b62",
+      "stdoutSha256": "0779d133f344e0277a9892754118ed851660e955e43bebf1052ea022db833ada",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "rds-tls-observe-first",
+      "exitCode": 0,
+      "elapsedSeconds": 11.875,
+      "recordedAt": "2026-11-06T17:19:57.838868+00:00",
+      "timedOut": false,
+      "resultSha256": "7b9b9482ec04200d040138b332e6ca6d1626449f0d00623aa66a3f7f5fd01571",
+      "stdoutSha256": "ed34ec24ca0e9b85a5f77efc728258ffc77c7aa1d5856d3de2cbb91f58665cca",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "prepare-private-bindings",
+      "exitCode": 0,
+      "elapsedSeconds": 0.364,
+      "recordedAt": "2026-11-06T17:21:48.451181+00:00",
+      "timedOut": false,
+      "resultSha256": "e82a8a1d3234d40fd8c9adb2e6bf01a460ea713a5d97726bb6c3c32671907b2c",
+      "stdoutSha256": "cbb7325438b80774542d7ea9f34d9d7ce5c835f71e1ca22afa831236468b1bca",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "model-chat-preflight",
+      "exitCode": 0,
+      "elapsedSeconds": 4.496,
+      "recordedAt": "2026-11-06T17:08:28.161634+00:00",
+      "timedOut": false,
+      "resultSha256": "6480f80a17af0edd7ea43236f8859cd32fa7ac4e36af9eaa85bd4c2c501a41c9",
+      "stdoutSha256": "6a131a7cc89a4eadb40210679cba67aab9020884c01159118a547e11f380db8f",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "model-responses-preflight",
+      "exitCode": 0,
+      "elapsedSeconds": 14.441,
+      "recordedAt": "2026-11-06T17:08:38.103249+00:00",
+      "timedOut": false,
+      "resultSha256": "25071bfdd59798414cbb80ec08e1ef535f05ff354444a4c664f6e0ba321bf076",
+      "stdoutSha256": "ce239a0c9f9ebc5412361b4a1f4833db557e3cc1fe80e6d6962dd0d5c5b3ac7d",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "public-cli-build",
+      "exitCode": 0,
+      "elapsedSeconds": 30.949,
+      "recordedAt": "2026-11-06T17:20:16.918718+00:00",
+      "timedOut": false,
+      "resultSha256": "67cb2dc21fa355ebd3731ddc200544c280a772322cb2e3e6643bdec26a8444e1",
+      "stdoutSha256": "aeebe830109f7810b0da3a2ca4fcd0f888c0db36c19c2e29c471a9168baeac54",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "public-cli-plan",
+      "exitCode": 0,
+      "elapsedSeconds": 1.316,
+      "recordedAt": "2026-11-06T17:22:26.965547+00:00",
+      "timedOut": false,
+      "resultSha256": "ef5b605969259ff0b8d4d53c7097e92d248c4bd2f36e2e4b42941e2c0e209fea",
+      "stdoutSha256": "5dc956e9d8d856c3c25dbee39fb4e6902d3280025fd3c15e747382ab7ddf7b7d",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "applyResultIncluded": false,
+  "newBusinessAcceptanceClaimed": false
+}
