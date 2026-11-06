@@ -309,3 +309,28 @@ present, all JSON/JSONL parse, known-secret in-memory check across35 article fil
 0 hits, and CRLF-aware diff check exit0. Actual generated source was only read,
 not imported or executed on the host. No publication or complete v0.1.3 result is
 claimed.
+
+## Actual v0.1.3 Qwen independent business result
+
+The completed new public Qwen controller returned exit0/475.680s13:02:09 UTC.
+The actual final HTTP trace has509 rows (not the previous window's534); SHA
+41a9cb5109bdfb88b83de182569000c7a889baed2b30566c00f3b96b556e5aaa.
+Exported only the known structured report schema and validated39 operation keys,
+38 exact401 keys, empty uncertain mutations, true original/4+8 heldout assertions,
+source/captured/artifact hash equality and helper exit. Kept Provider absencefalse
+and overallfalse until separate later steps. Combined controller Provider credentials
+are distinguished from its business HTTP client's false flag.
+
+All five actual model artifacts were read in full without host execution, matched
+against their per-stage manifests and independent test output. Summary source1588B
+17aaa..., share2134B159bd..., report932Ba6e8..., and unchanged43/67B CSV downloads
+are attached under new public-retry names. Known-secret values were compared in
+memory before writing the new assets, no hits. Sanitized result projection SHA
+185670a4448901e0349a4c941243e6fa48875956a67afb0792d9c9a48ab252c8.
+Original first-PUBLIC files remain unchanged. SSE/active/upgrade/final new resource
+release remain pending at this timestamp; article remains draft/unpublished.
+
+Post-v0.1.3-Qwen export checks:59 posts/0 validator problems,41 local attachment
+links present,42 article files, all JSON/JSONL parse, CRLF-aware diff check exit0.
+New generated sources were not executed on the host. The earlier credential scan
+was repeated in memory before these seven asset writes with0 hits.

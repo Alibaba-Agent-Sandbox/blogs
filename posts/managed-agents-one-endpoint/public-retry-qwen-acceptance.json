@@ -1,0 +1,280 @@
+{
+  "scope": "actual_published_v013_recipe_qwen_gateway_v1_and_real_source_checks",
+  "template_commit": "a4d43370ff82e244c542412d0af0c68759d19fdb",
+  "public_recipe_overall_complete": false,
+  "cli_version": "0.5.9",
+  "client_wheel_sha256": "c5f981545bb9266663f47e8ca3ce02a48a2259125b0ffd44c575973e3205482a",
+  "business": {
+    "scope": "actual_business_gateway_http_v1_and_real_template_smoke",
+    "provider_credentials_used": true,
+    "generated_code_executed_on_host": false,
+    "provider_absence_independently_verified": false,
+    "private_turn_inspector_supplied": true,
+    "uncertain_mutations": [],
+    "passed": true,
+    "checks": [
+      {
+        "name": "actual_committed_sse",
+        "events_observed": 95
+      },
+      {
+        "name": "terminal_target_cancel_positive",
+        "passed": true,
+        "active_cancel_semantics_claimed": false
+      },
+      {
+        "name": "explicit_queue_and_cancel",
+        "before": "dispatching",
+        "after": "cancelled",
+        "passed": true
+      },
+      {
+        "name": "real_two_turn_business_and_v1_surface",
+        "passed": true
+      }
+    ],
+    "observed_owned_resources_confirmed": true,
+    "unobserved_resources_may_exist": false,
+    "cleanup_public_confirmed": true,
+    "positive_operations": {
+      "agents_create": [
+        201
+      ],
+      "agents_delete": [
+        200
+      ],
+      "agents_get": [
+        200
+      ],
+      "agents_list": [
+        200
+      ],
+      "agents_update": [
+        200
+      ],
+      "artifacts_content": [
+        200
+      ],
+      "artifacts_delete": [
+        200
+      ],
+      "artifacts_get": [
+        200
+      ],
+      "artifacts_list": [
+        200
+      ],
+      "capabilities_get": [
+        200
+      ],
+      "environments_get": [
+        200
+      ],
+      "environments_list": [
+        200
+      ],
+      "files_content": [
+        200
+      ],
+      "files_create": [
+        200
+      ],
+      "files_delete": [
+        200
+      ],
+      "files_get": [
+        200
+      ],
+      "files_list": [
+        200
+      ],
+      "health_get": [
+        200
+      ],
+      "models_get": [
+        200
+      ],
+      "models_list": [
+        200
+      ],
+      "operations_get": [
+        200
+      ],
+      "runtimes_list": [
+        200
+      ],
+      "session_events_create": [
+        202
+      ],
+      "session_events_stream": [
+        200
+      ],
+      "session_items_list": [
+        200
+      ],
+      "sessions_close": [
+        202
+      ],
+      "sessions_create": [
+        201
+      ],
+      "sessions_delete": [
+        200
+      ],
+      "sessions_get": [
+        200
+      ],
+      "sessions_list": [
+        200
+      ],
+      "sessions_update": [
+        200
+      ],
+      "submissions_cancel": [
+        202
+      ],
+      "submissions_enqueue": [
+        202
+      ],
+      "submissions_get": [
+        200
+      ],
+      "submissions_list": [
+        200
+      ],
+      "turn_items_list": [
+        200
+      ],
+      "turns_cancel": [
+        202
+      ],
+      "turns_get": [
+        200
+      ],
+      "turns_list": [
+        200
+      ]
+    },
+    "authentication_401": {
+      "agents_create": 401,
+      "agents_delete": 401,
+      "agents_get": 401,
+      "agents_list": 401,
+      "agents_update": 401,
+      "artifacts_content": 401,
+      "artifacts_delete": 401,
+      "artifacts_get": 401,
+      "artifacts_list": 401,
+      "capabilities_get": 401,
+      "environments_get": 401,
+      "environments_list": 401,
+      "files_content": 401,
+      "files_create": 401,
+      "files_delete": 401,
+      "files_get": 401,
+      "files_list": 401,
+      "models_get": 401,
+      "models_list": 401,
+      "operations_get": 401,
+      "runtimes_list": 401,
+      "session_events_create": 401,
+      "session_events_stream": 401,
+      "session_items_list": 401,
+      "sessions_close": 401,
+      "sessions_create": 401,
+      "sessions_delete": 401,
+      "sessions_get": 401,
+      "sessions_list": 401,
+      "sessions_update": 401,
+      "submissions_cancel": 401,
+      "submissions_enqueue": 401,
+      "submissions_get": 401,
+      "submissions_list": 401,
+      "turn_items_list": 401,
+      "turns_cancel": 401,
+      "turns_get": 401,
+      "turns_list": 401
+    },
+    "all_inventory_positive": true,
+    "all_protected_authentication": true,
+    "http_trace_enabled": true,
+    "http_trace_complete": true,
+    "independent_source_checks": [
+      {
+        "artifact_matches_executed_source": true,
+        "heldout_cases_passed": 4,
+        "original_tests_passed": true,
+        "original_tests_sha256": "6572f0585e3be203aa51a624834b4da96cf0ccc7532de3c00bdf2638e3d81270",
+        "original_tests_unchanged": true,
+        "passed": true,
+        "program_sha256": "17aaaab637422f01a5cdd8d6d8901ac24b6a54c62848b3ccfffe1789887263d9",
+        "stage": "summary",
+        "binding_evidence": "owned_run_public_session_and_unique_native_metadata",
+        "database_ownership_verified": false,
+        "generated_code_executed_on_host": false,
+        "native_identity_readback": true,
+        "helper_process_exit_confirmed": true
+      },
+      {
+        "artifact_matches_executed_source": true,
+        "heldout_cases_passed": 8,
+        "original_tests_passed": true,
+        "original_tests_sha256": "6572f0585e3be203aa51a624834b4da96cf0ccc7532de3c00bdf2638e3d81270",
+        "original_tests_unchanged": true,
+        "passed": true,
+        "program_sha256": "159bd258030eb75927ed26e43ea733e8d282033d1699600a18289ac412975d9c",
+        "stage": "share",
+        "binding_evidence": "owned_run_public_session_and_unique_native_metadata",
+        "database_ownership_verified": false,
+        "generated_code_executed_on_host": false,
+        "native_identity_readback": true,
+        "helper_process_exit_confirmed": true
+      }
+    ],
+    "business_client_provider_credentials_used": false,
+    "private_provider_inspection_used": true,
+    "independent_source_checks_passed": true
+  },
+  "actual_exit_code": 0,
+  "elapsed_seconds": 475.68,
+  "http_observation_count": 509,
+  "http_trace_sha256": "41a9cb5109bdfb88b83de182569000c7a889baed2b30566c00f3b96b556e5aaa",
+  "model_artifacts": [
+    {
+      "stage": "summary",
+      "name": "aggregate.py",
+      "article_attachment": "public-retry-qwen-summary.generated.py",
+      "bytes": 1588,
+      "sha256": "17aaaab637422f01a5cdd8d6d8901ac24b6a54c62848b3ccfffe1789887263d9"
+    },
+    {
+      "stage": "summary",
+      "name": "summary.csv",
+      "article_attachment": "public-retry-qwen-summary.csv",
+      "bytes": 43,
+      "sha256": "091a6cd799dc38f6a859ed4c0acc35ffb2032db42c10044a71642633235b02d6"
+    },
+    {
+      "stage": "summary",
+      "name": "report.md",
+      "article_attachment": "public-retry-qwen-report.generated.txt",
+      "bytes": 932,
+      "sha256": "a6e8c3a11378d852c5574980c21322e323f2f359ba1139138805187b399f7a40"
+    },
+    {
+      "stage": "share",
+      "name": "aggregate.py",
+      "article_attachment": "public-retry-qwen-share.generated.py",
+      "bytes": 2134,
+      "sha256": "159bd258030eb75927ed26e43ea733e8d282033d1699600a18289ac412975d9c"
+    },
+    {
+      "stage": "share",
+      "name": "summary-with-share.csv",
+      "article_attachment": "public-retry-qwen-share.csv",
+      "bytes": 67,
+      "sha256": "b7f35fa0defeec633e02cd8b7752af83c5b4b9ce1408c84f462557278cc98b27"
+    }
+  ],
+  "active_upgrade_codex_and_final_cleanup_pending": true
+}

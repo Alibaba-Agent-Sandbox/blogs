@@ -15,8 +15,8 @@ draft: true
 **草稿状态：正式npm/PyPI的0.1.2公开recipe已完成正常ready、Qwen两轮源码/原测试与4/8项heldout、
 39个正向接口及38个401、实时SSE和主动取消/同会话续轮。其Qwen→Codex候选业务检查失败，
 原具体原因未保存，不宣称公版升级或Codex39通过。本窗口计算、RDS、6项guest镜像及2个空仓库均已独立确认释放。
-源码候选的成功升级另列；0.1.3安全诊断已通过本地及远端CI，下一独立公开实测尚未完成，
-本文继续保持草稿。**
+源码候选的成功升级另列；0.1.3新独立公开窗口已正常ready并通过Qwen39与两轮独立检查，
+SSE、主动取消、升级/Codex39和最终清理尚待各自结果，本文继续保持草稿。**
 
 所有结果都有明确的范围。命令中的本机路径、应用名称、账号及资源标识使用占位符；
 密钥和完整私有日志不公开。代码块标为“实际返回脱敏节选”的内容，只保留真实返回中的
@@ -1371,3 +1371,29 @@ digest或名称前缀扩大范围。免费空ACR仓库的元数据还要单独�
 接下来按原方向重验两轮源码任务、SSE、主动取消，再准备新的旧会话并
 正常更新到Codex，独立核对旧工作区续轮、新会话隔离、退役、Codex接口与业务，最后释放。
 以上是冻结输入和待执行顺序，不是未来结果；本文在这些结果及清理实际记录前继续保持草稿。
+
+### 13:02 UTC：0.1.3的Qwen完整两轮与39个接口已经通过
+
+随后完成的新Qwen工程检查实际退出0、耗时475.680秒，在13:02:09 UTC记录。
+39个正向操作、38个无效Bearer的401，以及两轮业务全部通过。第一轮原测试及4个heldout、
+第二轮原测试及8个heldout都由owned Sandbox里的固定独立检查执行；两轮原tests哈希保持
+不变，真正运行的源码与下载产物逐字节一致，检查进程确认退出。普通业务HTTP仍然只使用
+Gateway/business Key；这一额外工程检查中的私有观察器另用管理凭据，不是业务客户端的新要求。
+
+[新Qwen完整实际摘要](./public-retry-qwen-acceptance.json)和
+[最终509条实际HTTP脱敏记录](./public-retry-qwen-http.jsonl)保留精确结果。
+HTTP记录SHA-256为`41a9cb5109bdfb88b83de182569000c7a889baed2b30566c00f3b96b556e5aaa`，
+没有把上一个窗口的534条套用到新窗口。新生成产物分别是：
+
+| 实际下载 | 字节数 | SHA-256 |
+| --- | ---: | --- |
+| [第一轮源码](./public-retry-qwen-summary.generated.py) | 1588 | `17aaaab637422f01a5cdd8d6d8901ac24b6a54c62848b3ccfffe1789887263d9` |
+| [第一轮CSV](./public-retry-qwen-summary.csv) | 43 | `091a6cd799dc38f6a859ed4c0acc35ffb2032db42c10044a71642633235b02d6` |
+| [模型生成说明](./public-retry-qwen-report.generated.txt) | 932 | `a6e8c3a11378d852c5574980c21322e323f2f359ba1139138805187b399f7a40` |
+| [第二轮源码](./public-retry-qwen-share.generated.py) | 2134 | `159bd258030eb75927ed26e43ea733e8d282033d1699600a18289ac412975d9c` |
+| [第二轮CSV](./public-retry-qwen-share.csv) | 67 | `b7f35fa0defeec633e02cd8b7752af83c5b4b9ce1408c84f462557278cc98b27` |
+
+这些源码和说明已经逐份阅读后作为模型生成附件保存；宿主机没有import或执行它们。
+两份CSV保持原来的CRLF和下载字节，不能为了排版改写后继续沿用旧哈希。新流程的公开
+Close/Delete确认成功、未知mutation为空；此步骤不冒称最终Provider inventory或整应用清理。
+新窗口SSE、主动取消、Qwen→Codex更新与最后释放继续分别等待实际结果。
