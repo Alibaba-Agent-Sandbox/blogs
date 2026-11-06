@@ -12,12 +12,11 @@ draft: true
 下载结果。每个 Sandbox 的地址、创建凭据、工作区和回收流程，应由服务端管理。
 本文围绕这一目标，记录 `agents-api` 模板从本地验证到真实阿里云 FC 部署的操作。
 
-**草稿状态：正式npm/PyPI公开recipe已正常ready，实时SSE及私有空revision拒绝检查通过；
-其Qwen两轮原测试/4与8项heldout、39个正向接口及38个401也已通过；
-公开主动取消及同会话续轮也已通过；双adapter升级/Codex39及最终清理仍在运行，
-尚不宣称公开模板完整通过。
-另一个源码候选窗口已完成39个正向接口/38个401、两轮原始测试和4/8项heldout、主动取消、
-Qwen到Codex升级及所属计算/RDS/9项guest镜像清理。两类结果分别标明来源，早期失败保留在附录。**
+**草稿状态：正式npm/PyPI的0.1.2公开recipe已完成正常ready、Qwen两轮源码/原测试与4/8项heldout、
+39个正向接口及38个401、实时SSE和主动取消/同会话续轮。其Qwen→Codex候选业务检查失败，
+原具体原因未保存，不宣称公版升级或Codex39通过。本窗口计算、RDS、6项guest镜像及2个空仓库均已独立确认释放。
+源码候选的成功升级另列；0.1.3安全诊断已通过本地及远端CI，下一独立公开实测尚未完成，
+本文继续保持草稿。**
 
 所有结果都有明确的范围。命令中的本机路径、应用名称、账号及资源标识使用占位符；
 密钥和完整私有日志不公开。代码块标为“实际返回脱敏节选”的内容，只保留真实返回中的
@@ -510,93 +509,78 @@ inventory为0、确切SID匹配为0，仅证明清理后没有残留，不反推
 因此本次没有在真实云中走0候选等待分支，也没有证明原失败原因。旧失败、新通过和独立
 事后absence记录分别保留。源码窗口此前的文件观察失败及停止证明对照见附录15。
 
-## 10. 源码升级对照：新Codex与旧Qwen继续同一endpoint
+## 10. 首个公开窗口的Codex更新失败：保留负面证据
 
-第一次升级尝试未通过候选健康检查，其原收据、失败分支和自动idle关闭的旧Session均保留。
-该次131.182秒的准备不能当作升级连续性通过。清理失败的新分支后，重新准备了一个新的
-Qwen旧会话，实际退出0、耗时99.610秒；它包含核对过的原生实例、工作区marker及捕获产物。
-
-这一次仅将模型binding的adapter由`qwen-code`改为`codex`，模型仍为已验证的
-`qwen3.5-plus`。用现有Build收据生成带previous-receipt的新计划，然后正常Apply：
+本次先准备一个新的Qwen旧Session，核对其原生实例、随机工作区marker及已捕获产物，
+实际退出0、耗时82.460秒。随后只把模型binding中的adapter切为codex，原配置先保存，
+使用同一Build和确切旧收据生成更新计划：
 
 ```bash
-<CANDIDATE_ABX> app plan template.yaml --build-receipt .abx/build.json \
-  --previous-receipt <OLD_READY_RECEIPT> --out .abx/plan-update-retry.json
-<CANDIDATE_ABX> app apply .abx/plan-update-retry.json \
-  --bindings <PRIVATE_BINDINGS_FILE> --yes
+abx app plan template.yaml --build-receipt .abx/build.json \
+  --previous-receipt <OLD_READY_RECEIPT> --out .abx/plan-update.json
+abx app apply .abx/plan-update.json --bindings <PRIVATE_BINDINGS_FILE> --yes
 ```
 
-实际Plan退出0、耗时1.016秒；正常Update退出0、耗时240.669秒，在09:34:57 UTC
-成为ready。候选afterReady已由Codex实际完成两轮CSV任务，稳定入口健康检查及临时验证
-凭据撤销检查正常。随后再执行独立升级检查，耗时267.293秒，在09:40:16 UTC退出0。
-实际断言摘要为：
+Plan实际退出0、耗时0.965秒；Apply退出1、耗时144.290秒，错误码E7000，收据为
+requires_reconcile、phase为candidate-smoke，保留1个旧revision。该次候选业务没有通过，
+没有把失败改成ready，也没有继续声称公版Codex39接口、旧会话续轮或成功retire已经验证。
 
-```json
-{"passed": true, "stable_endpoint": true,
- "new_session_new_revision": true, "old_session_pinned_and_continued": true,
- "native_workspace_isolation": true, "old_session_retained": true,
- "old_adapter": "qwen-code", "new_adapter": "codex",
- "generated_code_executed_on_host": false}
-```
+0.1.2的smoke只打印泛化失败，临时hook结果后来由CLI移除，所以原失败的具体检查标签
+没有留下。不能从耗时、后续成功或源码窗口的Codex通过反推其根因；本篇保留“原因未知”。
+源码候选曾成功完成Qwen→Codex升级，其完整记录在附录16，不能替代这个公版负面结果。
 
-新Session使用新revision/Codex及独立工作区，不能看见旧Session的marker；旧Session
-在原revision/Qwen和同一个原生Sandbox中继续运行，读取原marker，并发布字节一致的
-续轮产物。两个会话仍使用同一Gateway endpoint。此时保留旧会话，供CLI退役主动关闭，
-没有在retire前先调用客户端Close来制造已清空的状态。
+为后续独立重验，模板0.1.3仅增加host侧的安全进度报告，不改模型提示、业务断言、执行
+预算、Gateway协议或已发行的SDK/CLI。报告位于固定模板根的
+`.abx/agents-smoke-reports/latest.json`及每次独立JSONL；只记录有限阶段、固定检查码、
+实际HTTP整数、终态枚举和已知资源清理布尔值，不写URL、资源ID、模型正文或异常字符串。
 
-正常退役命令是：
+20项本地回归包括真实本机HTTP错误、SIGKILL留下running检查点、报告IO失败保持失败，
+以及primary失败不被cleanup覆盖。报告写入失败打印静态report_io，旧latest不能被当成
+本次成功。这是可观测性修补，不是对原未知根因的修复声明；新recipe仍需独立窗口实测。
+0.1.3对应模板提交为`a4d43370ff82e244c542412d0af0c68759d19fdb`，
+本地20项smoke回归及远端e2e、模板镜像L1均已通过。Canonical工作流只验证授权和证据门禁，
+没有执行额外云调用。这些检查不替代下一轮真实公开包的升级、业务产物和最终资源释放。
+
+## 11. 首个公开窗口已经完整释放本次已知临时资源
+
+为避免继续占用费用，选择正常CLI销毁失败更新收据及其完整retained历史。销毁前逐字保存
+原requires-reconcile快照和原ready快照，不伪造任何状态。实际命令仍使用公开CLI：
 
 ```bash
-<CANDIDATE_ABX> app retire <CURRENT_READY_RECEIPT> --revision <OLD_REVISION> \
-  --bindings <PRIVATE_BINDINGS_FILE> --yes
+abx app plan --destroy <FAILED_UPDATE_RECEIPT> --out .abx/destroy-update.json
+abx app destroy .abx/destroy-update.json --bindings <PRIVATE_BINDINGS_FILE> --yes
 ```
 
-第一次请求在draining期间退出1、耗时1.567秒；保留这一受控未完成结果后重试同一
-退役命令，退出0、耗时4.524秒。独立只读检查又用0.965秒确认：旧公开Session仍可查询，
-`status=idle`、lifecycle为`closed`且revision保持原值；原生Sandbox返回明确的
-`SandboxNotFoundError`；当前收据已移除retained旧revision。这些检查在任何客户端
-fallback Close之前完成，所以证明的是CLI退役发起的释放。
+Destroy-plan退出0、耗时0.515秒；Destroy退出0、耗时10.680秒。真正的当前收据随后进入
+destroyed、drain confirmed，所有已记录cleanup确认，retained为空。原旧ready历史仍保持原字节，
+失败快照另存。独立查询确认完整图中的5个FC函数、2个原生模板均明确不存在；3个已记录
+Sandbox逐个typed NotFound，两个revision的完整inventory没有匹配残留。
 
-[升级、退役及最终清理的实际脱敏摘要](./source-completion.json)保留逐步骤退出码和耗时。
-这里没有声称在Apply尚未发布时并发提交了旧会话任务；该候选步骤没有执行，真正续轮发生在
-正常新revision发布之后。原生OpenAI账号及所有BYOK端点也不在这次模型兼容范围内。
+本轮RDS删除退出0、耗时25.088秒，原生独立确认不存在，cleanupConfirmedAt为
+11:58:14.045 UTC。其绝对截止为12:22:19.743 UTC，提前约24分05秒释放，没有延长旧窗口。
+已有VPC、交换机、安全组和执行角色均属借用，不删除。后续免费元数据查询不需要RDS继续运行。
 
-## 11. 源码清理已完成的范围，公开窗口仍待最终清理
+当前revision的3项guest镜像记录经普通destroyed guard处理，退出0、耗时64.379秒，
+3/3独立不存在；其中1项已不存在、2项实际删除。旧ready的3项记录使用单独的受限authority：
+真实整图destroyed收据、完整previousReceipt链、销毁前两个原快照、原journal和全图原生
+absence共同授权，绝不把旧ready改成destroyed，也不要求从未发生的retire条目。
+旧3项实际清理退出0、耗时54.295秒；fresh只读复核7.081秒再次确认3项全部不存在。
+两组只删各自精确tag，共享digest不扩大选择范围，原journal和收据不被手工改写。
 
-最后根据确切当前收据生成销毁计划，执行正常Destroy：
+第一次组合proof因尚未纳入最终current-peer-journal字段而正确失败，耗时6.699秒，没有删除。
+冻结最终实现后，用fresh v2重新查询、组合并验证，原失败文件保留，没有给旧proof补字段后冒充原结果。
+[失败更新及整图释放的实际摘要](./public-failed-update-cleanup.json)保留这些操作的退出码和耗时。
+单独离线预构建的本次owned本地image tag也经精确identity核对删除，未使用force/prune或删除借用镜像。
 
-```bash
-<CANDIDATE_ABX> app plan --destroy <CURRENT_READY_RECEIPT> --out .abx/destroy-update-retry.json
-<CANDIDATE_ABX> app destroy .abx/destroy-update-retry.json \
-  --bindings <PRIVATE_BINDINGS_FILE> --yes
-```
+最后检查两个本次自动创建的空ACR仓库：其name、nonce、原创建意图、原生repo ID及创建时间
+都与最早实际Build/Apply窗口匹配；全图函数/模板及可见镜像引用重新查询为空，tags total=0。
+每个仓库只发一次精确DeleteRepo，之后由fresh进程再次查询明确REPO_NOT_EXIST。
+[空仓库释放摘要](./public-repository-completion.json)记录2次删除、0个未知结果及
+12:22:40.779 UTC的独立确认。不删除Namespace，不宣称全账号或不可见历史copy目标都被清空。
 
-Destroy实际退出0、耗时7.078秒，在09:45:59 UTC完成，当前收据为destroyed、
-`drainConfirmed=true`、retained为空。这条正常Destroy释放成功部署链；此前失败升级的额外
-分支已经由单独的受限恢复控制器清理，实际退出0、耗时82.467秒，原失败收据没有改写，
-旧Gateway发布及共享镜像保持原归属。随后独立管理查询同时覆盖成功链与该已恢复失败分支：7个已记录FC函数、
-3个原生模板均返回其精确NotFound；7个工程owned账本中的Sandbox逐一明确不存在，
-按revision/Session筛选的完整原生inventory也没有遗留。该Provider检查退出0、耗时7.476秒。
-
-RDS在计算释放后独立删除并确认不存在，退出0、耗时13.740秒，09:49 UTC完成，早于本窗口
-10:01的绝对费用截止。09:41已停止新业务任务，没有为了继续发版而延长旧数据库的期限。
-已有VPC、交换机、安全组和执行角色保持借用，不加入删除集合。
-
-正常CLI不会把手工构建记录自动等价为可以删除的资源。当前revision、已退役旧revision和
-失败升级分支的guest镜像分别使用原创建journal、精确tag和原生digest/imageID核对。
-原来的ready或requires-reconcile收据不改写为destroyed；专用工程恢复依据完整最终释放链
-授权，普通destroyed guard保持原样。三组实际Apply结果为：
-
-| 精确guest镜像组 | 退出码 | 耗时/秒 | 独立确认不存在 |
-| --- | ---: | ---: | ---: |
-| 当前revision的3项记录 | 0 | 42.251 | 3/3 |
-| 已退役旧revision的3项记录 | 0 | 90.063 | 3/3 |
-| 失败升级分支的3项记录 | 0 | 95.246 | 3/3 |
-
-这不等于清空整个云账号；删除仅针对本次journal中的精确tag，本地不使用force，远端不按
-digest或名称前缀扩大范围。免费空ACR仓库的元数据还要单独证明repository归属及无引用，
-本摘要尚未把它们记为已删除。新公开包窗口使用另一个nonce、项目和空数据库，旧窗口的
-已释放记录不替代新窗口的最终清理。
+因此首个公开窗口的本次已知临时资源已经释放，公版完整升级/Codex39仍没有通过。
+下一次实测将使用新nonce、新空库、独立绝对截止和0.1.3安全报告，不复用已删除数据库，
+不覆盖旧失败记录，也不把下一阶段的结果回填成这次更新成功。
 
 ## 附录1：第一次实际 Build：镜像构建成功
 
@@ -1238,3 +1222,109 @@ Submission和Turn为cancelled、原进程消失；等待超过原自然结束时
 私有诊断定位到Files HTTP读取`/proc`伪文件返回500。两次都发生在busy/queue/cancel之前，
 没有证明业务取消失败，也没有被当作NotFound。固定观察器只把真实OS ENOENT
 视为不存在，未知HTTP、超时、非零退出仍然失败；修正后使用新标签获得上面的独立通过。
+
+## 附录16：源码候选窗口的成功升级与清理对照
+
+第一次升级尝试未通过候选健康检查，其原收据、失败分支和自动idle关闭的旧Session均保留。
+该次131.182秒的准备不能当作升级连续性通过。清理失败的新分支后，重新准备了一个新的
+Qwen旧会话，实际退出0、耗时99.610秒；它包含核对过的原生实例、工作区marker及捕获产物。
+
+这一次仅将模型binding的adapter由`qwen-code`改为`codex`，模型仍为已验证的
+`qwen3.5-plus`。用现有Build收据生成带previous-receipt的新计划，然后正常Apply：
+
+```bash
+<CANDIDATE_ABX> app plan template.yaml --build-receipt .abx/build.json \
+  --previous-receipt <OLD_READY_RECEIPT> --out .abx/plan-update-retry.json
+<CANDIDATE_ABX> app apply .abx/plan-update-retry.json \
+  --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+实际Plan退出0、耗时1.016秒；正常Update退出0、耗时240.669秒，在09:34:57 UTC
+成为ready。候选afterReady已由Codex实际完成两轮CSV任务，稳定入口健康检查及临时验证
+凭据撤销检查正常。随后再执行独立升级检查，耗时267.293秒，在09:40:16 UTC退出0。
+实际断言摘要为：
+
+```json
+{"passed": true, "stable_endpoint": true,
+ "new_session_new_revision": true, "old_session_pinned_and_continued": true,
+ "native_workspace_isolation": true, "old_session_retained": true,
+ "old_adapter": "qwen-code", "new_adapter": "codex",
+ "generated_code_executed_on_host": false}
+```
+
+新Session使用新revision/Codex及独立工作区，不能看见旧Session的marker；旧Session
+在原revision/Qwen和同一个原生Sandbox中继续运行，读取原marker，并发布字节一致的
+续轮产物。两个会话仍使用同一Gateway endpoint。此时保留旧会话，供CLI退役主动关闭，
+没有在retire前先调用客户端Close来制造已清空的状态。
+
+正常退役命令是：
+
+```bash
+<CANDIDATE_ABX> app retire <CURRENT_READY_RECEIPT> --revision <OLD_REVISION> \
+  --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+第一次请求在draining期间退出1、耗时1.567秒；保留这一受控未完成结果后重试同一
+退役命令，退出0、耗时4.524秒。独立只读检查又用0.965秒确认：旧公开Session仍可查询，
+`status=idle`、lifecycle为`closed`且revision保持原值；原生Sandbox返回明确的
+`SandboxNotFoundError`；当前收据已移除retained旧revision。这些检查在任何客户端
+fallback Close之前完成，所以证明的是CLI退役发起的释放。
+
+[升级、退役及最终清理的实际脱敏摘要](./source-completion.json)保留逐步骤退出码和耗时。
+这里没有声称在Apply尚未发布时并发提交了旧会话任务；该候选步骤没有执行，真正续轮发生在
+正常新revision发布之后。原生OpenAI账号及所有BYOK端点也不在这次模型兼容范围内。
+
+### 源码窗口最终释放范围
+
+最后根据确切当前收据生成销毁计划，执行正常Destroy：
+
+```bash
+<CANDIDATE_ABX> app plan --destroy <CURRENT_READY_RECEIPT> --out .abx/destroy-update-retry.json
+<CANDIDATE_ABX> app destroy .abx/destroy-update-retry.json \
+  --bindings <PRIVATE_BINDINGS_FILE> --yes
+```
+
+Destroy实际退出0、耗时7.078秒，在09:45:59 UTC完成，当前收据为destroyed、
+`drainConfirmed=true`、retained为空。这条正常Destroy释放成功部署链；此前失败升级的额外
+分支已经由单独的受限恢复控制器清理，实际退出0、耗时82.467秒，原失败收据没有改写，
+旧Gateway发布及共享镜像保持原归属。随后独立管理查询同时覆盖成功链与该已恢复失败分支：7个已记录FC函数、
+3个原生模板均返回其精确NotFound；7个工程owned账本中的Sandbox逐一明确不存在，
+按revision/Session筛选的完整原生inventory也没有遗留。该Provider检查退出0、耗时7.476秒。
+
+RDS在计算释放后独立删除并确认不存在，退出0、耗时13.740秒，09:49 UTC完成，早于本窗口
+10:01的绝对费用截止。09:41已停止新业务任务，没有为了继续发版而延长旧数据库的期限。
+已有VPC、交换机、安全组和执行角色保持借用，不加入删除集合。
+
+正常CLI不会把手工构建记录自动等价为可以删除的资源。当前revision、已退役旧revision和
+失败升级分支的guest镜像分别使用原创建journal、精确tag和原生digest/imageID核对。
+原来的ready或requires-reconcile收据不改写为destroyed；专用工程恢复依据完整最终释放链
+授权，普通destroyed guard保持原样。三组实际Apply结果为：
+
+| 精确guest镜像组 | 退出码 | 耗时/秒 | 独立确认不存在 |
+| --- | ---: | ---: | ---: |
+| 当前revision的3项记录 | 0 | 42.251 | 3/3 |
+| 已退役旧revision的3项记录 | 0 | 90.063 | 3/3 |
+| 失败升级分支的3项记录 | 0 | 95.246 | 3/3 |
+
+这不等于清空整个云账号；删除仅针对本次journal中的精确tag，本地不使用force，远端不按
+digest或名称前缀扩大范围。免费空ACR仓库的元数据还要单独证明repository归属及无引用，
+本摘要尚未把它们记为已删除。新公开包窗口使用另一个nonce、项目和空数据库，旧窗口的
+已释放记录不替代新窗口的最终清理。
+
+## 附录17：0.1.3的新独立公开实测窗口已开始
+
+前一个公开窗口的付费资源、6项guest镜像和两个空仓库全部释放后，才启动下一窗口。
+本次使用相同的正式npm0.5.9和PyPI0.4.0a7、上文0.1.3提交导出的14个原文件；
+部署项目只调整本次应用name和本机accessRef，两个Dockerfile字节保持导出原样。
+新项目、新认证范围和新空数据库不与旧窗口共用状态。
+
+新的RDS创建时间为12:35:16.044 UTC，停止新任务时间为14:15:16.044 UTC，
+绝对清理截止为14:35:16.044 UTC，没有重置或延长旧窗口。实际RDS报价为0.172元/小时，
+两小时约0.344元；该估算不含FC、模型及其他实际用量费用。单次Create等待25秒后结果
+不确定且未拿到ID，之后只读按确切nonce和描述核对，发现唯一owned Creating实例，
+没有重复Create，也不把不确定结果归因为已经证明的网络故障。
+
+12:37:42 UTC已准备新项目；此检查点仍在等数据库Running及TLS/DSN准备。
+计划按原方向重验Qwen初始部署、两轮源码任务、SSE、主动取消，再准备新的旧会话并
+正常更新到Codex，独立核对旧工作区续轮、新会话隔离、退役、Codex接口与业务，最后释放。
+以上是冻结输入和待执行顺序，不是未来结果；本文在这些结果及清理实际记录前继续保持草稿。

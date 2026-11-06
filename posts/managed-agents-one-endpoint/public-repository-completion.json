@@ -1,0 +1,29 @@
+{
+  "scope": "known_task_reference_graph_and_visible_original_team_images",
+  "native_delete_calls": 2,
+  "unknown_outcomes": 0,
+  "all_account_references_proven_absent": false,
+  "hidden_copy_targets_proven_absent": false,
+  "deletions": [
+    {
+      "alias": "server",
+      "deleteIntentCount": 1,
+      "nativeAckStatus": 200,
+      "typedAbsenceCode": "REPO_NOT_EXIST",
+      "confirmedAt": "2026-11-06T12:20:23.111Z"
+    },
+    {
+      "alias": "guest",
+      "deleteIntentCount": 1,
+      "nativeAckStatus": 200,
+      "typedAbsenceCode": "REPO_NOT_EXIST",
+      "confirmedAt": "2026-11-06T12:21:38.155Z"
+    }
+  ],
+  "independent_absence": {
+    "recorded_at": "2026-11-06T12:22:40.779Z",
+    "typed_code": "REPO_NOT_EXIST",
+    "exact_repositories_checked": 2,
+    "native_mutations": 0
+  }
+}

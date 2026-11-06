@@ -236,3 +236,46 @@ reports/provenance and accepted the scoped wording, no must-fix. Corrected the
 Session/Turn literal to in_progress while Submission remains running. No cloud
 operation was performed by the article author. Published-package upgrade,
 Codex39 and final resource release are still pending, so draft:true remains.
+
+## First published-recipe update failure and completed release
+
+The first PUBLIC0.1.2 window's Codex update actually failed E7000 at
+candidate-smoke after144.290s; its0.1.2 smoke did not preserve the specific
+check label. The cause remains unknown. No public Codex39, successful old-session
+continuity or normal retirement is claimed for that window. The prior successful
+SOURCE update is preserved in appendix16 rather than replacing this negative.
+
+Added sanitized public-failed-update-cleanup.json and
+public-repository-completion.json, based on reviewed actual safe projections.
+Normal CLI whole-graph Destroy really took10.680s and confirmed5 functions and
+2 templates;3 known Sandboxes were typed absent with exhausted owned inventory0.
+The RDS deletion was independently confirmed11:58:14.045 UTC before the unchanged
+12:22:19.743 deadline. Two guest groups each confirmed3/3 exact targets absent;
+old-group authority binds the real final destroyed receipt, untouched old ready
+receipt, original failed snapshot and exact native release evidence. The initial
+incomplete peer-journal proof failed without deletion and remains separate from
+the fresh validated v2. Two owned empty repositories then received2 exact native
+deletes/0 unknown and fresh typed REPO_NOT_EXIST confirmation12:22:40.779 UTC.
+No all-account or hidden-copy absence is asserted. Borrowed resources are excluded.
+
+Template0.1.3 adds safe host-smoke diagnostics only; its exact head is
+a4d43370ff82e244c542412d0af0c68759d19fdb. All20 smoke regressions passed locally,
+and actual remote readback confirms e2e42218272539, L1 images42218272529 and
+Canonical42218272453 success. The original update cause is not relabeled fixed.
+The independent new public retry window uses a fresh nonce/database and the
+unchanged14 exported files. Its12:35:16.044 start,14:15:16.044 stop and14:35:16.044
+absolute cleanup deadline are separate from previous paid windows; new hosted
+business/update/cleanup results remain pending. No cloud action was performed by
+the article author, and the post stays draft:true/unpublished.
+
+Checkpoint validation: public-a7 venv `python scripts/validate.py` checked59 posts
+with0 problems;32 relative attachment targets exist; all article JSON/JSONL files
+parse. `git -c core.fileMode=false -c core.whitespace=cr-at-eol diff --check`
+passed; the actual CSV CRLF bytes remain unchanged. Known secret values from the
+existing credential loader were compared in memory against all33 article files:
+0 hits; no credential values were printed or written. The two new JSON hashes
+are57684747781da4d03daf7b8a694f16c765fc544e398e00261a7d3897f656554a
+and6b6b1632556ad99fbde42ddbbdeba2c923602d85beb57f7dfa8746c087c19b89.
+Canonical workflow job127893629207 was separately read: only authorization and
+non-cloud evidence gates ran, so the article explicitly does not label its
+workflow success as another native cloud test. Website rendering remains pending.
