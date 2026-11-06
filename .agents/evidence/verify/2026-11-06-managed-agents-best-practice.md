@@ -180,3 +180,59 @@ not relabeled as removed by this snapshot; it uses its own later exact proof.
 Actual public npm0.5.9 and PyPIa7 release/independent installs are now identified
 separately, with no retroactive assignment to the source image. Complete public
 recipe FC acceptance and its cleanup remain pending; draft:true remains.
+
+
+Runtime reviewer independently read sections9–11 and the source-completion asset
+against actual active/source safe results; no must-fix. Clarified that the failed
+branch's82.467s limited recovery is separate from normal successful-chain Destroy,
+and recorded the final public client c5f981.../fa15... identity explicitly rather
+than relying on the shared0.4.0a7 version string. No new cloud operation or public
+recipe pass is inferred by these wording additions.
+
+
+## Actual published-package normal readiness and Qwen business
+
+The new independent PUBLIC phase used formal npm0.5.9 and public PyPIa7 with
+exported a6d37 recipe Dockerfile bytes unchanged. Build/Plan/Apply actually passed
+19.999/.915/451.161s; status+reconcile3.068s passed. The never-started image
+inspection took32.366s and confirmed dispatch8689B/SHA9a23... plus exact container
+absence without image-code execution. Native empty-revision signed probes took
+73.294s: four outer FC200 statuses, two application invalid_invocation codes,
+control state unchanged; no listener400 claim is made. Live idle SSE passed
+96.022s overall, firstframe.175s/normalEOF20.174s/concurrentGET/publiccleanup.
+
+Actual public Qwen39 completed exit0/455.761s:39 positive operations/38 invalid
+Bearer401; original tests and4/8 heldout; all source/artifact hashes/helper exits
+and public cleanup passed. The combined engineering controller used private
+Provider credentials, while its business HTTP client did not. Original Provider
+absence=false remains until separate final proof. Five generated assets were
+fully read by the author, known-credential byte checked and copied without host
+execution; the source program hashes are f6a9... and c2f4....534 actual redacted
+HTTP rows are included. A local export first asserted a mistaken generic scope
+label and stopped before writing the trace/result asset; the corrected export
+requires the actual static actual_response_allowlisted_redacted_projection scope.
+This was local export validation only, not a new model/cloud invocation.
+
+The main article now starts with official installation and published-package
+readiness, while full SOURCE deployment/version/SSE/business paragraphs remain
+as appendices11–14. Public active cancellation, update/Codex39 and final cleanup
+are still pending at this checkpoint, and draft:true remains. The earlier active
+prestart failure retains its unknown candidate multiplicity; no history is
+reclassified by its later read-only engineering-discovery enhancement.
+
+
+Public active fresh retry subsequently passed267.264s with observed active27.538s,
+Probe50 unchanged, active stop/same-Session continuation/public+native cleanuptrue,
+uncertain[]. The actual discovery list contains only count1/page1/exhaustedtrue;
+it did not exercise the zero-candidate wait branch. The original87.644s failure's
+count remains unknown, and its native cleanup=false is retained. The read-only
+post-cleanup zero inventory is not retroactively a measurement of failure-time
+multiplicity. The new eight discovery negatives and old ten active checks passed
+locally with the strict completed-Turn inspector unchanged. Main section9 now
+uses this public result; complete SOURCE active/file-observer history is appendix15.
+
+Runtime independently read current public main sections2/6–9 against original
+reports/provenance and accepted the scoped wording, no must-fix. Corrected the
+Session/Turn literal to in_progress while Submission remains running. No cloud
+operation was performed by the article author. Published-package upgrade,
+Codex39 and final resource release are still pending, so draft:true remains.

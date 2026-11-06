@@ -1,0 +1,57 @@
+{
+  "scope": "actual_public_gateway_control_guard_and_idle_live_stream",
+  "full_public_model_business_qualification_claimed": false,
+  "private_empty_revision_probe": {
+    "passed": true,
+    "native_statuses": [
+      200,
+      200,
+      200,
+      200
+    ],
+    "control_state_unchanged": true,
+    "listener_http_400_claimed": false,
+    "cloud_resource_mutations": 0,
+    "operator_signed_private_invocations": true,
+    "application_rejections": [
+      "invalid_invocation",
+      "invalid_invocation"
+    ]
+  },
+  "live_sse": {
+    "scope": "actual_gateway_live_sse_idle_session_without_model",
+    "passed": true,
+    "model_turn_started": false,
+    "provider_credentials_used": false,
+    "normal_eof": true,
+    "concurrent_session_read_passed": true,
+    "cleanup_public_confirmed": true,
+    "provider_absence_independently_verified": false,
+    "uncertain_mutation": false,
+    "concurrent_session_read_seconds": 1.974,
+    "concurrent_read_completed_before_eof": true,
+    "first_frame_seconds": 0.175,
+    "stream_seconds": 20.174,
+    "frames_observed": 1
+  },
+  "steps": [
+    {
+      "step": "public-final-status-and-reconcile",
+      "exit_code": 0,
+      "elapsed_seconds": 3.068,
+      "timed_out": false
+    },
+    {
+      "step": "public-final-empty-revision-native-probe",
+      "exit_code": 0,
+      "elapsed_seconds": 73.294,
+      "timed_out": false
+    },
+    {
+      "step": "public-final-live-sse",
+      "exit_code": 0,
+      "elapsed_seconds": 96.022,
+      "timed_out": false
+    }
+  ]
+}
