@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[cline](https://registry.agent-sandbox.cn/templates/cline/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/cline)。
+
 通过 Cline CLI，可以把明确的源代码修改任务放到临时工作区中处理，再用自己的程序检查结果。这里修复一个已有函数，并用另一次生成任务交付脚本和解释文档。
 
 本例使用 Cline CLI `3.0.73`、CLI `0.5.7`、Python client/server

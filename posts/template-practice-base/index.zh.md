@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[base](https://registry.agent-sandbox.cn/templates/base/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/base/README.zh-CN.md)。
+
 只是处理一份 CSV 时，可以直接使用托管 `base`。这里把三笔费用上传到临时工作区，
 运行 Python 汇总脚本，再把 JSON 交给后续程序。不需要自己构建镜像，也不需要先启动
 模板应用服务。

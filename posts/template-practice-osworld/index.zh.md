@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[osworld](https://registry.agent-sandbox.cn/templates/osworld/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/osworld)。
+
 把总额51.30填入远端报销表单并保存，是桌面自动化中一个完整的小任务：打开自己的页面、定位输入区域、修改内容、点击保存，再取回实际结果。本例使用 OSWorld 模板的 Linux 浏览器切片，通过真实鼠标、键盘和原生可访问性接口完成这条路径。
 
 实际保存后的界面如下，输入值为51.30，页面显示 Completed 51.30。截图来自原始桌面，没有替换或编辑图像。

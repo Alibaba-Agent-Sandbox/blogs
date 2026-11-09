@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[pi](https://registry.agent-sandbox.cn/templates/pi/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/pi)。
+
 Pi 的单次任务模式适合把小范围代码工作放到独立环境中处理。这个案例要求它修复已有函数、保持原有检查文件不变，并补上说明；随后取回一个可以独立运行的生成程序。
 
 本例使用 Pi `1.3.0`、CLI `0.5.7`、Python client/server

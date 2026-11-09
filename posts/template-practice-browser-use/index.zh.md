@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[browser-use](https://registry.agent-sandbox.cn/templates/browser-use/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/browser-use)。
+
 需要从网页提取一个字段时，可以先从明确的页面和小任务开始。本例让原版 browser-use0.13.11 在本地 Chromium 中读取 [IANA 的 Example Domains 页面](https://www.iana.org/help/example-domains)，返回实际标题并保存那一次浏览器的 PNG。
 
 实际返回的标题为 Example Domains。CLI、完整 SDK 与直接 HTTP 三种入口都打开了相同公开页面，返回原生完成/成功状态，并分别下载截图。PNG 解码后的画面如下，保留实际字节，没有重新绘制。

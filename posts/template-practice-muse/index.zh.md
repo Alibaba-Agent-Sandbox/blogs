@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[muse](https://registry.agent-sandbox.cn/templates/muse/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/muse)。
+
 已有 calc.py 的加法缺陷先由原生工具修复；原有三个检查保持不变，独立进程还运行了额外输入。另一次任务生成 hello.py，并下载到本机独立运行。
 
 本例使用 Meta Muse Code 1.4.11-R6667.1、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

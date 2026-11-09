@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[goose](https://registry.agent-sandbox.cn/templates/goose/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/goose)。
+
 把一个修复任务交给 Goose 时，可以同时约定源文件与说明文档。这里从一个加法函数的缺陷出发，保留已有约束，让原生代理修改代码，再把产物从独立工作区取回。
 
 本例使用 Goose `1.54.0`、CLI `0.5.7`、Python client/server

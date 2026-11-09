@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: true
 ---
 
+本文模板：[opensandbox-code-interpreter](https://registry.agent-sandbox.cn/templates/opensandbox-code-interpreter/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/opensandbox-code-interpreter/README.zh-CN.md)。
+
 目标是在持久 Python 上下文中读入开销数据、计算汇总并导出图表。本文为未发布草稿：原生 SDK 已按锁文件安装；原生镜像实际拉取触发本机磁盘下限，尚未创建原生解释器实例。暂无真实业务输出，不把预期效果当作已完成的效果。
 
 ## 平台和实例准备

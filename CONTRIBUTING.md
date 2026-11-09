@@ -54,9 +54,13 @@ python -m pip install pyyaml && python scripts/validate.py
 ### 写作规范 · Style
 
 - 先说读者会得到什么，再讲步骤。一篇文章解决一件事。
+- 文章使用具体模板时，在正文开头提供对应 Registry 详情页和源码或托管使用说明的快速链接；自定义案例写清所用基础模板，不把基础环境描述成现成应用。草稿同样保留链接，通用文章不强行关联模板。
+- For a template-based article, place quick links to its Registry detail page and source or managed usage guide at the start of the body. Label the base template in custom examples, preserve draft status, and do not force a template association onto a general article.
 - 用二级标题（`##`）分节，官网会据此生成目录。
 - 代码块标注语言。命令必须能直接复制运行，密钥写成 `<YOUR_API_KEY>`，不要提交真实密钥。
 - 写你验证过的事实。没有在真实后端上跑过的，要明说。
+- 实践文章保留可复用的操作、业务结果和必要限制。内部验收统计、原件哈希、收据/journal 排查与逐资源删除时间线留在工程记录，不写进读者操作流程。
+- Keep reusable instructions, business results and actionable limits in practical articles. Put internal acceptance totals, artifact hashes, receipt/journal investigations and resource-deletion timelines in engineering records.
 - 图片和文件放在文章目录里，用相对路径引用，例如 `![流程](./pipeline.png)`。
 - 链接到官网或 Registry 的页面时，中文用不带语言前缀的路径（`/start/`），英文用 `/en/start/`。
 

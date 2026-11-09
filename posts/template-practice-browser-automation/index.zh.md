@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[browser-automation](https://registry.agent-sandbox.cn/templates/browser-automation/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/browser-automation)。
+
 浏览器页面里的业务信息可以直接变成结构化结果。这里让远端 Chromium 打开一段发票页面，取回标题和金额；同一个模板还可以连接截图、链接、表单和 PDF 工作。
 
 真实浏览器返回 title: Invoice，正文含 Total: 51.30。三个入口分别导航并提取了这个页面；金额来自本例提供的 HTML。 

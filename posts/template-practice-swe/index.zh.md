@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[swe](https://registry.agent-sandbox.cn/templates/swe/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/swe)。
+
 给已有项目修复缺陷时，交付的不只是代理的一句“完成了”，还需要源代码差异和能复查的
 结果。这个案例处理 Flask Blueprint 的空名称问题：先复现原来的失败，再让原生
 mini-SWE-agent 修改代码，最后在另一个工作副本中应用补丁并运行原有检查。

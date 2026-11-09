@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: true
 ---
 
+本文模板：[desktop](https://registry.agent-sandbox.cn/templates/desktop/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/desktop/README.zh-CN.md)。
+
 目标是用平台文件接口准备数据，再通过原版 Desktop SDK 在同一个实例完成截图与键鼠操作。本文为未发布草稿：缺少有权使用 E2B desktop 的账号凭据，原生桌面业务尚未运行。暂无真实业务输出，不把预期效果当作已完成的效果。
 
 ## 平台和实例准备

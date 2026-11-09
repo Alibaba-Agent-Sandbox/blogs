@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[code-server](https://registry.agent-sandbox.cn/templates/code-server/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/code-server)。
+
 临时开发工作区可以把编辑器和代码放在同一个沙箱。这里通过 code-server 打开真实 VS Code 界面，将 practice.py 改为一行 Python，保存后从独立文件与进程接口核对结果。
 
 ## 准备平台与配置

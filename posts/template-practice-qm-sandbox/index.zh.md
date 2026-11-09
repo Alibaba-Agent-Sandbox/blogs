@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[qm-sandbox](https://registry.agent-sandbox.cn/templates/qm-sandbox/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/qm-sandbox)。
+
 QM 工具可以连接已有沙箱工作区，避免为每个文件操作创建新的云实例。这里通过原生工具写入 note.txt，再用独立文件接口取回精确内容。
 
 CLI、完整 SDK 和 HTTP 分别写入新文件，下载后均为 Hello from QM tools 加一个换行。每次替代调用前，自己的旧文件均独立确认不存在。

@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[grok](https://registry.agent-sandbox.cn/templates/grok/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/grok)。
+
 原生 Grok Build 可以使用显式配置的兼容模型。这个案例用自选模型修复现有计算函数，再生成一份可以下载运行的脚本和说明，把任务返回值与真实文件交付结合起来。
 
 本例使用 Grok Build `1.0.62`、CLI `0.5.7`、Python client/server

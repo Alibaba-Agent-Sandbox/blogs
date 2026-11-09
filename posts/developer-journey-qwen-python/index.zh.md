@@ -9,6 +9,8 @@ cover: ./cover.svg
 draft: false
 ---
 
+示例基础模板：[base](https://registry.agent-sandbox.cn/templates/base/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/base/README.zh-CN.md)。
+
 让代码助手修改文件时，一个独立的临时工作区很实用：源文件和工具装在沙箱里，任务完成后把需要的产物取回，再释放环境。
 
 这篇用 Python SDK 自己搭一个 Qwen Code 沙箱。让它修复计算器里的错误，并给同一个应用增加 `invoice_total` 命令。这样，代码助手负责修改程序，普通业务计算则可以直接通过 Python、CLI 或 HTTP 调用。

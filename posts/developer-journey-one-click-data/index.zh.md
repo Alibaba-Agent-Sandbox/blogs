@@ -9,6 +9,8 @@ cover: ./cover.svg
 draft: false
 ---
 
+本文模板：[code-interpreter-v1](https://registry.agent-sandbox.cn/templates/code-interpreter-v1/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/code-interpreter-v1/README.zh-CN.md)。
+
 收到一份订单 CSV，想知道各地区的订单数、商品数量和销售额。数据里还有重复行、大小写不一致的地区名称，以及缺失或错误的数量，需要先清洗再汇总。
 
 这类一次性任务可以交给临时沙箱：本地读取 CSV，把内容传给远端 Pandas，拿到汇总结果后结束任务。下面用 `@sandbox` 装饰器把这个过程放进一次 Python 函数调用。

@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[aider](https://registry.agent-sandbox.cn/templates/aider/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/aider)。
+
 代码修改流程可以拆成两步：先让助手解释问题，再明确允许它修改哪些文件。
 `aider` 模板默认使用只读 ask 模式；设置 `allow_write=true` 并列出文件后，才把
 选定的修改写回项目。它不自动提交 Git。

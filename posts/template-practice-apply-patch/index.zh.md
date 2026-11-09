@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[apply-patch](https://registry.agent-sandbox.cn/templates/apply-patch/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/apply-patch)。
+
 流程已经生成了一份补丁，下一步是把它应用到工作区，并把变更后的文件交出去。
 `apply-patch` 提供原生 Codex 补丁工具，支持新增、更新、移动和删除文件；执行补丁
 本身不需要调用模型。

@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[dev-services](https://registry.agent-sandbox.cn/templates/dev-services/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/dev-services)。
+
 开发应用时，可以把数据库和业务程序一起放在可丢弃的工作区。这里启动固定版本 PostgreSQL 和 Redis，写入一笔5130分的金额，查询总额，再由已有接口管理状态与停止。
 
 三种调用方式都执行真实 PostgreSQL SQL，返回总额5130分，对应51.30。每种方式使用自己的新表状态，上一轮表在下一轮之前移除。

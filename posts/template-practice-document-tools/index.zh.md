@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[document-tools](https://registry.agent-sandbox.cn/templates/document-tools/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/document-tools)。
+
 季度简报往往从 Markdown 开始，交付时却需要 Word。这里把一份包含标题和收入金额的简报上传到独立工作区，用固定版本的转换程序生成 DOCX，再把可编辑文档交回本机。
 
 下载的 DOCX 是真实 ZIP 文档，word/document.xml 中保留 Quarterly report 与 51.30。CLI、Python 和 HTTP 分别生成了新文件。 实际附件：[report.docx](./report.docx)。输入附件：[report-input.txt](./report-input.txt)。

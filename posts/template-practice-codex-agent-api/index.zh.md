@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[codex-agent-api](https://registry.agent-sandbox.cn/templates/codex-agent-api/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/codex-agent-api)。
+
 一个后台轮次修复已有 normalizer.py，并生成 normalization-report.json。任务返回后，独立进程重新运行六项固定检查；随后通过 SSE 在同一线程继续，生成原报告的真实 SHA256 与输出项数。续接保持第一次的源文件和报告不变，最后再次运行原检查。
 
 本例使用 Codex CLI 0.162.1 与项目会话 API、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

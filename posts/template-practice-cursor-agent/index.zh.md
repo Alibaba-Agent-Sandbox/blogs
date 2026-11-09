@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: true
 ---
 
+本文模板：[cursor-agent](https://registry.agent-sandbox.cn/templates/cursor-agent/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/cursor-agent)。
+
 目标是把工程修改交付为代码文件和说明，从一个可以独立运行的小程序建立完整路径，再扩展到自己的项目。本篇为未发布草稿：目前缺少对应厂商账号的真实业务产物，不能把下面的目标结果当作已经完成的效果。
 
 ## 准备账号与应用

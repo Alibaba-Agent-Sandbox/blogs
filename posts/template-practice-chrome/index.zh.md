@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[chrome](https://registry.agent-sandbox.cn/templates/chrome/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/chrome)。
+
 当浏览器工作需要可见屏幕时，可以让自动化和远端桌面操作同一个 Chrome。这里启动私有 Xvfb/Openbox 桌面，打开 Example Domain，再把同一会话的屏幕导出。
 
 真实有界面 Chrome 返回 Example Domain 标题；CLI 与 SDK 截图均从远端下载后独立解码为 PNG。三种文档调用均完成导航，并停止本次桌面会话。

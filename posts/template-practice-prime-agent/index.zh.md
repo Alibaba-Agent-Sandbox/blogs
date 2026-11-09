@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[prime-agent](https://registry.agent-sandbox.cn/templates/prime-agent/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/prime-agent)。
+
 Prime Agent 的原生 Python REPL 工具可以用于小范围代码修复。这个案例让它纠正已有计算函数、保留原有检查，再生成脚本和说明，最后把文件带回本机。
 
 本例使用 Prime Agent `0.10.0`、CLI `0.5.7`、Python client/server

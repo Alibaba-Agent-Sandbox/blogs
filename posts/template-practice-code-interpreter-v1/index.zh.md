@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[code-interpreter-v1](https://registry.agent-sandbox.cn/templates/code-interpreter-v1/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/code-interpreter-v1/README.zh-CN.md)。
+
 月度费用报表通常需要两份产物：给程序读取的汇总 JSON，以及可以放进周报的图表。
 `code-interpreter-v1` 已经提供 pandas、numpy 和 matplotlib，可以把计算放到临时工作区，
 只把结果下载回来。本例输入三个月的金额，得到
