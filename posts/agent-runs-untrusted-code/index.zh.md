@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 featured: true
 ---
 
+示例基础模板：[base](https://registry.agent-sandbox.cn/templates/base/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/base/README.zh-CN.md)。
+
 Coding Agent 的日常是：读需求，写一段脚本，然后立刻想执行它。
 
 脚本是模型刚生成的，你没有逐行看过。它可能读了不该读的目录，装了一个不认识的依赖，或者只是写了一个死循环。放在自己的机器上跑，出问题时要收拾的是你的环境。

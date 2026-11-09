@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[deepagents](https://registry.agent-sandbox.cn/templates/deepagents/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/deepagents)。
+
 文件和 shell 工具可以帮助代理完成现有代码的修改。这个案例给 DeepAgents 一个明确的小缺陷，要求它保留已有检查、修改源文件并生成说明，再通过三个调用入口取回真实文件。
 
 本例使用 DeepAgents `0.7.25`、CLI `0.5.7`、Python client/server

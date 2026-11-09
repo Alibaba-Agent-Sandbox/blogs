@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[opencode](https://registry.agent-sandbox.cn/templates/opencode/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/opencode)。
+
 让代码助手做完工作，需要拿到真正能运行的文件。这个案例先让 OpenCode 生成一个
 Python 脚本并下载到本机，再把同一工作方式用于修复已有函数、保留原有用例和续接会话。
 最后为下一次任务选择第二个模型，工作区和调用接口都可以继续使用。

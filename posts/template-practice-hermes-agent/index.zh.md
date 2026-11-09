@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[hermes-agent](https://registry.agent-sandbox.cn/templates/hermes-agent/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/hermes-agent)。
+
 原生 Hermes 修复已有 calculator.py，保留三个原始检查并写出报告。实际源文件、说明和额外输入在任务完成后独立核对，随后在另一实例生成脚本与说明，接到文件交付流程。
 
 本例使用 Hermes Agent 0.22.1、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

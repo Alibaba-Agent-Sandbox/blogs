@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[qwen-code](https://registry.agent-sandbox.cn/templates/qwen-code/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/qwen-code)。
+
 已有 calculator.py 把加法写成减法。原生 Qwen 工具修复了源文件，保留原有三个检查，并生成说明；独立进程重新运行原检查及额外输入后，再取回另外生成的 Python 脚本。
 
 本例使用 Qwen Code 0.23.0、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

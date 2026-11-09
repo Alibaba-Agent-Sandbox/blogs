@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[next-app](https://registry.agent-sandbox.cn/templates/next-app/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/next-app)。
+
 从一个能运行的前端项目开始，比先处理依赖安装更适合短期页面工作。`next-app` 模板
 预装了固定版本的 Next、React 和 Vite，提供项目创建、预览、日志与停止入口。
 这个案例把默认页面改成一个费用展示页，打开浏览器后直接看到内容随着编辑更新。

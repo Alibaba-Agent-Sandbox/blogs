@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[media-tools](https://registry.agent-sandbox.cn/templates/media-tools/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/media-tools)。
+
 录音处理可以先完成格式统一，再交给后续业务。这里准备一秒单声道 WAV，上传后调用 FFmpeg 转为 FLAC，下载到本机解码，确认音频内容完整。
 
 实际 FLAC 下载后解码为 16000 个单声道、16 位零值采样，共 32000 字节；这是文档中一秒静音输入的精确结果。三个调用入口生成的 FLAC 字节一致。 实际附件：[sample.flac](./sample.flac)。输入附件：[sample.wav](./sample.wav)。

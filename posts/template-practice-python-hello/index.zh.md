@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[python-hello](https://registry.agent-sandbox.cn/templates/python-hello/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/python-hello)。
+
 有一个小任务：把 `12.50`、`18.80` 和 `20.00` 三笔费用合计，并把结果交给后续流程。
 `python-hello` 可以把这段 Python 放到独立工作区执行，返回标准输出，同时留下可下载的文件。
 不需要先搭 Web 框架，也不需要模型账号。

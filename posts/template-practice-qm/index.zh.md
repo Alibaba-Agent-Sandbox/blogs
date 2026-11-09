@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[qm](https://registry.agent-sandbox.cn/templates/qm/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/qm)。
+
 一个编码代理需要能把模型决策落实为真实文件和进程。这里使用原版 QM 的 Pi harness、工具上下文和 Node SDK 连接当前极速版沙箱，生成 hello.py 并实际运行，再从另一条文件接口取回代码。
 
 ## 准备平台与配置

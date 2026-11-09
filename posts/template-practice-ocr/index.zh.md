@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[ocr](https://registry.agent-sandbox.cn/templates/ocr/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/ocr)。
+
 扫描件进入检索系统之前，需要先从像素中提取文字。这里从模板附带的英文图片开始，取得正文和位置数据，再说明如何替换成自己的扫描文件。
 
 下载的识别文本包含 SANDBOX、OCR、314159、ALPHA 和 BETA。CLI、完整 Python 程序和 HTTP 都从实际图片得到这些词句。 实际附件：[recognized.txt](./recognized.txt)。

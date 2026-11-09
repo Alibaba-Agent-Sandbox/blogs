@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[tau2-bench](https://registry.agent-sandbox.cn/templates/tau2-bench/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/tau2-bench)。
+
 一次客服工具任务是否完成，可以同时查看模型对话、实际领域工具调用和原生评估。这里运行 Tau2 的零售任务0，让原版代理和用户模拟器使用明确配置的模型，再复核保存轨迹。
 
 CLI、完整 SDK 和 HTTP 的三次独立任务均完成，原生 reward 为1.0；各自下载的轨迹与返回的长度、SHA256一致，独立无模型回放再次得到1.0。

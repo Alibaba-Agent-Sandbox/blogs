@@ -8,6 +8,8 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
+本文模板：[copilot-cli](https://registry.agent-sandbox.cn/templates/copilot-cli/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/copilot-cli)。
+
 先处理已有 calc.py 的缺陷：add(a,b) 原来执行减法，原生代理改为加法并写出 report.txt。原有三个检查文件保持原样，独立进程运行原检查和额外输入均通过。
 
 本例使用 Copilot CLI 1.0.100、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

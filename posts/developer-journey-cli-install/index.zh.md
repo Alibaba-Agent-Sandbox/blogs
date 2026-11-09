@@ -9,6 +9,8 @@ cover: ./cover.svg
 draft: false
 ---
 
+示例基础模板：[base](https://registry.agent-sandbox.cn/templates/base/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/base/README.zh-CN.md)。
+
 想试运行一段代码，又不想把依赖装进日常使用的电脑，可以先开一个临时云端环境。任务结束后删除环境，下次需要时再创建。
 
 这篇从安装 `abx` 开始，创建一个 `base` 沙箱，运行第一条命令，再介绍查看和释放这个环境的方法。后面的 [Qwen Code 案例](/blog/developer-journey-qwen-python/)和 [Python 模板案例](/blog/developer-journey-registry-template/)都会用到这些操作。
