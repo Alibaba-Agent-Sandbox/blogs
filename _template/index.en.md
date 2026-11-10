@@ -6,7 +6,8 @@ category: case        # case | tutorial | announcement | engineering
 tags: [python]        # lowercase, hyphenated, at most 5
 authors: [your-github-handle]
 # cover: ./cover.svg  # optional. Without it a gradient cover is generated from the slug
-# featured: true      # optional. Pins the post as the large card on the blog home
+# featured: true      # optional, default false. Adds a Featured label without changing order or styling
+# pinned: true        # optional, default false. Pins the post on the blog index; newest pinned post first
 # draft: true         # optional. Drafts do not appear on the website
 ---
 

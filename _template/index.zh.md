@@ -6,7 +6,8 @@ category: case        # case | tutorial | announcement | engineering
 tags: [python]        # 小写，用连字符，最多 5 个
 authors: [your-github-handle]
 # cover: ./cover.svg  # 可选。不写则按文章名生成渐变封面
-# featured: true      # 可选。置顶到博客首页的大卡片
+# featured: true      # 可选，默认 false。只显示“精选”标签，不改变排序或样式
+# pinned: true        # 可选，默认 false。在博客列表中置顶；多篇置顶按日期从新到旧排列
 # draft: true         # 可选。草稿不会出现在网站上
 ---
 

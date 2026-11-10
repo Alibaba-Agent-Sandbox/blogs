@@ -43,8 +43,16 @@ python -m pip install pyyaml && python scripts/validate.py
 | `tags` | 是 | 1 到 5 个，小写加连字符，例如 `[python, security]` |
 | `authors` | 是 | GitHub 用户名列表 |
 | `cover` | 否 | `./cover.svg`。不写则按 slug 生成渐变封面 |
-| `featured` | 否 | `true` 时作为博客首页的大卡片。多篇都设时取最新的一篇 |
+| `featured` | 否 | 默认 `false`。`true` 时显示“精选”标签，不改变排序或文章样式 |
+| `pinned` | 否 | 默认 `false`。`true` 时在博客列表中置顶并显示“置顶”标签；多篇置顶文章按日期从新到旧排列 |
 | `draft` | 否 | `true` 时不会出现在网站上 |
+
+`featured` adds a Featured label without changing order or article styling.
+`pinned` adds a Pinned label and places the article above unpinned articles on the
+blog index. Both flags default to `false`; pinned articles are ordered newest first.
+Pinning does not reorder the homepage's latest posts, RSS feeds or related articles.
+
+“精选”和“置顶”可以分别设置，也可以同时设置。置顶只影响博客列表，官网首页的最新文章、RSS 和相关文章仍使用各自的排序。
 
 ### 语言 · Languages
 

@@ -134,3 +134,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [Final OpenSandbox practical rendering](evidence/verify/2026-10-28-opensandbox-final-rendering.json).44 actual cases,24 platform profiles,113 byte-exact attachments and6 unpublished plans.
 
 - [README audience review](notes/proposed/process/2026-10-28-readme-audience-review.md) · [verification](evidence/verify/2026-10-28-readme-audience-review.md).
+
+- [Independent post pinning](notes/proposed/feature/2026-11-10-independent-post-pinning.md) · [verification](evidence/verify/2026-11-10-independent-post-pinning.md).
