@@ -6,6 +6,8 @@ Tutorials, practical cases and engineering articles about building AI agents wit
 
 [Read the blog](https://www.agent-sandbox.cn/en/blog/) · [Browse source posts](posts/) · [Get started with Agent Sandbox](https://www.agent-sandbox.cn/en/start/)
 
+> **Preview release:** Agent Sandbox is currently in preview and may introduce breaking changes. The stable **1.0.0** release is expected on **November 15, 2026**. Stay tuned!
+
 ## Find an article
 
 Each article lives in `posts/<slug>/`, with `index.en.md`, `index.zh.md`, or both. Images, runnable examples and other attachments stay alongside the article. Follow each post's stated versions and provider requirements when reproducing an example.
@@ -30,6 +32,14 @@ Open a pull request when ready. Set `draft: true` while the article is unfinishe
 ## Publication
 
 The [website repository](https://github.com/Alibaba-Agent-Sandbox/website) imports posts during its build. Non-draft articles are published after the website deploys. A post may be written in one language; the site identifies when only the original language is available.
+
+## Community
+
+Join the **Agent Sandbox 开发者工具交流群** on DingTalk to discuss usage and share feedback. [Join the group](https://qr.dingtalk.com/action/joingroup?code=v1,k1,kIZr4Ai7sYm4U0xoz1p1QSlgoBHeoi/kE5TkIXeFCR4=&_dt_no_comment=1&origin=11) or search for group number **213605001586**.
+
+Scan the QR code with DingTalk:
+
+<a href="https://qr.dingtalk.com/action/joingroup?code=v1,k1,kIZr4Ai7sYm4U0xoz1p1QSlgoBHeoi/kE5TkIXeFCR4=&amp;_dt_no_comment=1&amp;origin=11"><img src="assets/dingtalk-group.png" alt="DingTalk group QR code" width="235" /></a>
 
 ## Contributing
 

@@ -136,3 +136,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [README audience review](notes/proposed/process/2026-10-28-readme-audience-review.md) · [verification](evidence/verify/2026-10-28-readme-audience-review.md).
 
 - [Independent post pinning](notes/proposed/feature/2026-11-10-independent-post-pinning.md) · [verification](evidence/verify/2026-11-10-independent-post-pinning.md).
+
+- [Preview release notice and community](notes/proposed/process/2026-11-10-preview-release-community.md) · [verification](evidence/verify/2026-11-10-preview-release-community.md).
