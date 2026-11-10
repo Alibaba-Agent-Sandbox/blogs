@@ -63,7 +63,7 @@ def check_file(path: Path, slug: str) -> dict | None:
     authors = meta.get("authors")
     if not isinstance(authors, list) or not authors or not all(isinstance(a, str) and HANDLE.match(a) for a in authors):
         fail(path, "`authors` must list GitHub handles")
-    for flag in ("featured", "draft"):
+    for flag in ("featured", "pinned", "draft"):
         if flag in meta and not isinstance(meta[flag], bool):
             fail(path, f"`{flag}` must be true or false")
     cover = meta.get("cover")
