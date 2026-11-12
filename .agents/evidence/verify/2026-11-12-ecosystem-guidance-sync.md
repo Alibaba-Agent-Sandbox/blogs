@@ -26,3 +26,12 @@ The root dotenv's configured GitHub credential returned HTTP401, no alternate pr
 - Article Python attachments and historical business results are unchanged. No article business program or model task was rerun, and no new business result is claimed.
 
 A global-selector-aware pass added the same explicit historical version boundary to the Base, Desktop and OpenSandbox interpreter cases. There are 54 version-note article files; current general tutorials retain supported source-CLI examples. All 59 post directories still pass validation.
+
+## Authentication and delivery follow-up
+
+The initial API Bearer request returned HTTP401, but the credential was not
+invalid. Git push/fetch and the API's Basic authentication succeeded with the
+same existing credential; no credential was changed or created. Public
+producer source branches can now be pushed. Private Registry/Website main was
+fetched successfully, and the prior coordinating PRs were confirmed merged.
+This supersedes the initial delivery-authentication limitation above.
