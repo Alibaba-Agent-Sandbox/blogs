@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[agents-cli](https://registry.agent-sandbox.cn/templates/agents-cli/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/agents-cli)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 同一个工作区可以用不同的编码代理处理任务。本例在极速版沙箱里运行固定版本 Qwen Code 和 Codex，向原生会话提交生成程序的请求，再向同一会话追问。最终从独立文件接口取回代码，运行结果精确为 `Hello from the sandbox`。
 
 这是本地 Agents API：实际执行的是已安装的 CLI，不是 OpenAI 托管 Agents 服务。接口只开放版本、显式 Codex 配置准备和六个会话/运行时入口；原生 CLI 仍有沙箱用户的工作区工具权限。

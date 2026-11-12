@@ -9,6 +9,8 @@ cover: ./cover.svg
 draft: false
 ---
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 想试一个小接口时，业务逻辑往往只有几行，准备应用服务和运行环境却要做不少工作。`abx create --prompt` 可以把需求交给代码生成工具，让它一并生成应用代码和沙箱模板。
 
 这篇从一个最小例子开始：提供 `add` 命令，接收两个整数，返回它们的和。完成后，它既能在终端里调用，也能作为 HTTP API 被其他程序使用。

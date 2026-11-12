@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[polyglot-toolchain](https://registry.agent-sandbox.cn/templates/polyglot-toolchain/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/polyglot-toolchain)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 多语言项目常常需要为小任务临时准备编译器。这里用一个固定工具链工作区编译并运行 Go、Rust 和 Java 三个程序，再把同样的入口接到自己的代码流程。
 
 三个调用入口均返回 go: GO_OK、rust: RUST_OK、java: JAVA_OK，以及 cleanup_verified: true。结果来自实际编译与执行，工作区里的本次临时源文件、二进制和 Go 缓存随后被移除。 

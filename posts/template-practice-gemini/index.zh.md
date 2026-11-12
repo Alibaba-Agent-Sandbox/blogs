@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[gemini](https://registry.agent-sandbox.cn/templates/gemini/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/gemini)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 已有兼容模型服务时，可以通过模板明确提供的接入层使用原版编码 CLI。本例运行原版 Gemini CLI0.64.0，通过项目自编的 GenerateContent-to-Chat 文本/工具协议适配层接入 Chat Completions，生成一个 Python 程序和报告，再取回代码独立运行。
 
 实际下载的 [generated_hello.py](./generated_hello.py) 输出 `Hello from the sandbox`。CLI、完整 SDK 与直接 HTTP 三种替代入口分别生成了新文件和报告；每份 Python 文件在独立、只读、无网络的有界容器中执行。模型结束不等于文件正确，业务结果以实际文件与运行输出为准。

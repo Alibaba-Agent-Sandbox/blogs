@@ -10,6 +10,8 @@ draft: true
 
 本文模板：[amp](https://registry.agent-sandbox.cn/templates/amp/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/amp)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 目标是把工程修改交付为代码文件和说明，从一个可以独立运行的小程序建立完整路径，再扩展到自己的项目。本篇为未发布草稿：目前缺少对应厂商账号的真实业务产物，不能把下面的目标结果当作已经完成的效果。
 
 ## 准备账号与应用

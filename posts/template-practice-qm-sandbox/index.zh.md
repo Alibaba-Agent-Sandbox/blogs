@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[qm-sandbox](https://registry.agent-sandbox.cn/templates/qm-sandbox/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/qm-sandbox)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 QM 工具可以连接已有沙箱工作区，避免为每个文件操作创建新的云实例。这里通过原生工具写入 note.txt，再用独立文件接口取回精确内容。
 
 CLI、完整 SDK 和 HTTP 分别写入新文件，下载后均为 Hello from QM tools 加一个换行。每次替代调用前，自己的旧文件均独立确认不存在。

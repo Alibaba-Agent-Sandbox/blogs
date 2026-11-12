@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[aider](https://registry.agent-sandbox.cn/templates/aider/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/aider)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 代码修改流程可以拆成两步：先让助手解释问题，再明确允许它修改哪些文件。
 `aider` 模板默认使用只读 ask 模式；设置 `allow_write=true` 并列出文件后，才把
 选定的修改写回项目。它不自动提交 Git。

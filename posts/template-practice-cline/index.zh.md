@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[cline](https://registry.agent-sandbox.cn/templates/cline/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/cline)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 通过 Cline CLI，可以把明确的源代码修改任务放到临时工作区中处理，再用自己的程序检查结果。这里修复一个已有函数，并用另一次生成任务交付脚本和解释文档。
 
 本例使用 Cline CLI `3.0.73`、CLI `0.5.7`、Python client/server

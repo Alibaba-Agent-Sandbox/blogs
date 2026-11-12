@@ -33,11 +33,16 @@ Coding Agent 的日常是：读需求，写一段脚本，然后立刻想执行�
 默认提供方是阿里云智能体沙箱极速版（`alicloud-express`），需要一个 API Key。
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.sh | sh
+git clone https://github.com/Alibaba-Agent-Sandbox/agent-sandbox.git
+cd agent-sandbox
+npm ci
+npm run build
+npm link
+cd ..
 export ABX_SANDBOX_API_KEY="<YOUR_API_KEY>"
 ```
 
-Windows 用户在 PowerShell 使用 `irm https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.ps1 | iex` 安装二进制。请按安装脚本提示设置 PATH；Windows 安装后新开终端。继续前先运行 `abx --version`。
+上述 CLI 构建需要 Node.js 20+，以下命令对应当前源码版本。其他平台的安装见[安装指南](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox#installation)，继续前运行 `abx --version`。
 
 PowerShell 中请使用 `abx config set sandbox_api_key <YOUR_API_KEY>` 配置密钥，替代上面的 Bash `export` 命令。
 
@@ -110,14 +115,14 @@ beijing    110
 同样的流程，用 `abx` 手动走一遍：
 
 ```bash
-abx create base --detach
-abx upload <sandbox-id> ./sales.csv /home/user/sales.csv
-abx upload <sandbox-id> ./analyze.py /home/user/analyze.py
-abx exec <sandbox-id> -- python /home/user/analyze.py
-abx kill <sandbox-id>
+abx deploy --template-id base --name analysis
+abx sandbox upload analysis ./sales.csv /home/user/sales.csv
+abx sandbox upload analysis ./analyze.py /home/user/analyze.py
+abx sandbox exec analysis -- python /home/user/analyze.py
+abx delete analysis --yes
 ```
 
-`analyze.py` 就是上面 `AGENT_CODE` 里那段脚本，`<sandbox-id>` 换成 `abx create` 打印出来的值，结果直接打印在终端。需要拿回文件时用 `abx download`。用完一定要 `abx kill`：沙箱按存活时间占用额度，`abx list` 可以看到所有还在运行的沙箱。
+`analyze.py` 就是上面 `AGENT_CODE` 中的脚本。本机部署名 `analysis` 在上传、执行与清理时指向同一个沙箱；结果打印在终端。取回文件使用 `abx sandbox download analysis REMOTE LOCAL`，使用后运行 `abx delete analysis --yes`；`abx list` 可查询部署与可见沙箱。
 
 ## 让 Agent 自己调用
 

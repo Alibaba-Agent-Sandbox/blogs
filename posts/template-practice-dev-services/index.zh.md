@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[dev-services](https://registry.agent-sandbox.cn/templates/dev-services/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/dev-services)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 开发应用时，可以把数据库和业务程序一起放在可丢弃的工作区。这里启动固定版本 PostgreSQL 和 Redis，写入一笔5130分的金额，查询总额，再由已有接口管理状态与停止。
 
 三种调用方式都执行真实 PostgreSQL SQL，返回总额5130分，对应51.30。每种方式使用自己的新表状态，上一轮表在下一轮之前移除。

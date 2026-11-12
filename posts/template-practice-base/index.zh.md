@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[base](https://registry.agent-sandbox.cn/templates/base/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/base/README.zh-CN.md)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 只是处理一份 CSV 时，可以直接使用托管 `base`。这里把三笔费用上传到临时工作区，
 运行 Python 汇总脚本，再把 JSON 交给后续程序。不需要自己构建镜像，也不需要先启动
 模板应用服务。

@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[deepseek-harness](https://registry.agent-sandbox.cn/templates/deepseek-harness/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/deepseek-harness)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 从现有 calculator.py 的算术缺陷开始，harness 调用真实文件与进程工具修复代码，保持原有三个检查不变，并生成报告；后续通过三种入口生成和取回可运行脚本。
 
 本例使用 DeepSeek-compatible harness 1.2.0、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

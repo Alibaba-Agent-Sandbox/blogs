@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[codex](https://registry.agent-sandbox.cn/templates/codex/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/codex)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 案例先修复现有 Fibonacci 实现，要求负数输入抛出 ValueError，保留原有检查，并补写 REPORT.md 与新的检查。原始检查、实际修改后的源文件和独立的额外输入均在任务返回后核对；随后在另一实例生成可下载脚本。
 
 本例使用 Codex CLI 0.162.1、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

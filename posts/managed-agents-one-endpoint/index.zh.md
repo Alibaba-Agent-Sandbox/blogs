@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[agents-api 应用模板](https://registry.agent-sandbox.cn/templates/agents-api/) · [源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/agents-api)
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 如果你希望把 Agent 接入自己的产品，通常不希望每个客户都先创建 Sandbox、查找实例地址、
 配置云凭据，再处理工作区和回收。业务应用更需要一个固定入口：上传文件、发起任务、
 追问修改、下载结果。

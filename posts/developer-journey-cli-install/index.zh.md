@@ -9,6 +9,8 @@ cover: ./cover.svg
 draft: false
 ---
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 示例基础模板：[base](https://registry.agent-sandbox.cn/templates/base/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/base/README.zh-CN.md)。
 
 想试运行一段代码，又不想把依赖装进日常使用的电脑，可以先开一个临时云端环境。任务结束后删除环境，下次需要时再创建。

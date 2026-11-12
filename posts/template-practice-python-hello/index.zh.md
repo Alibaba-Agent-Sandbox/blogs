@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[python-hello](https://registry.agent-sandbox.cn/templates/python-hello/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/python-hello)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 有一个小任务：把 `12.50`、`18.80` 和 `20.00` 三笔费用合计，并把结果交给后续流程。
 `python-hello` 可以把这段 Python 放到独立工作区执行，返回标准输出，同时留下可下载的文件。
 不需要先搭 Web 框架，也不需要模型账号。

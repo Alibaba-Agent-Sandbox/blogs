@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[crush](https://registry.agent-sandbox.cn/templates/crush/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/crush)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 接手一段有问题的代码时，交付物应该包含能运行的源文件和说明。这个案例把任务放到
 Crush 工作区：修复一个把加法写成减法的函数，保留已有检查，再取回修改结果。
 另一个从零生成的小程序给出了可以直接下载运行的交付物：

@@ -7,6 +7,8 @@ tags: [templates, registry]
 authors: [Alibaba-Agent-Sandbox]
 ---
 
+以下 CLI 命令对应[当前源码版本](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox#installation)，请先按该仓库说明安装并配置所选 Provider。
+
 Registry 收录两类内容：模板和提供方。这篇只讲源码模板，提供方的流程见[发布指南](https://registry.agent-sandbox.cn/publish/)。
 
 模板放在 [awesome-templates](https://github.com/Alibaba-Agent-Sandbox/awesome-templates) 仓库。发布就是向这个仓库提一个 PR。
@@ -51,7 +53,7 @@ python3 scripts/run_local_e2e.py
 
 ```bash
 export ABX_SERVER_TOKEN="<YOUR_APPLICATION_TOKEN>"
-abx --provider alicloud-express template launch ./my-template
+abx --provider alicloud-express deploy ./my-template --name my-template
 ```
 
 模板声明启动、就绪命令和 `provides` 中的全部服务，一次启动即可使用，不需要选择工作流。需要提示词、密码或工作目录的命令，在启动后按文档参数调用。
