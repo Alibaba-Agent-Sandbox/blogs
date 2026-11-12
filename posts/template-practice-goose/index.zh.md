@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[goose](https://registry.agent-sandbox.cn/templates/goose/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/goose)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 把一个修复任务交给 Goose 时，可以同时约定源文件与说明文档。这里从一个加法函数的缺陷出发，保留已有约束，让原生代理修改代码，再把产物从独立工作区取回。
 
 本例使用 Goose `1.54.0`、CLI `0.5.7`、Python client/server

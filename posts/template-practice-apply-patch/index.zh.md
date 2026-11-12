@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[apply-patch](https://registry.agent-sandbox.cn/templates/apply-patch/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/apply-patch)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 流程已经生成了一份补丁，下一步是把它应用到工作区，并把变更后的文件交出去。
 `apply-patch` 提供原生 Codex 补丁工具，支持新增、更新、移动和删除文件；执行补丁
 本身不需要调用模型。

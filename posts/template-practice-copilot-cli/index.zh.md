@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[copilot-cli](https://registry.agent-sandbox.cn/templates/copilot-cli/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/copilot-cli)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 先处理已有 calc.py 的缺陷：add(a,b) 原来执行减法，原生代理改为加法并写出 report.txt。原有三个检查文件保持原样，独立进程运行原检查和额外输入均通过。
 
 本例使用 Copilot CLI 1.0.100、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

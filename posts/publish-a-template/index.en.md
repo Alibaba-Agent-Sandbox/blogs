@@ -7,6 +7,8 @@ tags: [templates, registry]
 authors: [Alibaba-Agent-Sandbox]
 ---
 
+The CLI commands below require the [current source version](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox#installation). Install it and configure the selected Provider before running them.
+
 The Registry lists two kinds of entries: templates and providers. This post covers source templates only; for providers see the [publish guide](https://registry.agent-sandbox.cn/en/publish/).
 
 Templates live in [awesome-templates](https://github.com/Alibaba-Agent-Sandbox/awesome-templates). Publishing means opening a pull request there.
@@ -53,7 +55,7 @@ Explain the required configuration, how to launch and call the application, and 
 
 ```bash
 export ABX_SERVER_TOKEN="<YOUR_APPLICATION_TOKEN>"
-abx --provider alicloud-express template launch ./my-template
+abx --provider alicloud-express deploy ./my-template --name my-template
 ```
 
 The template declares its startup/readiness commands and all services in `provides`. Launch starts that environment once; readers do not choose a workflow. Commands that need a prompt, password or workspace are invoked afterward with their documented arguments.

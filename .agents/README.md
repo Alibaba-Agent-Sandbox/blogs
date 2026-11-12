@@ -140,3 +140,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [Preview release notice and community](notes/proposed/process/2026-11-10-preview-release-community.md) · [verification](evidence/verify/2026-11-10-preview-release-community.md).
 
 - [Community QR replacement](notes/proposed/process/2026-11-10-refresh-community-qr.md) · [verification](evidence/verify/2026-11-10-refresh-community-qr.md).
+
+- [Versioned article entry points](notes/proposed/process/2026-11-12-ecosystem-guidance-sync.md) · [verification](evidence/verify/2026-11-12-ecosystem-guidance-sync.md).

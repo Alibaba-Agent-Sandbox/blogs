@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[qwen-code](https://registry.agent-sandbox.cn/templates/qwen-code/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/qwen-code)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 已有 calculator.py 把加法写成减法。原生 Qwen 工具修复了源文件，保留原有三个检查，并生成说明；独立进程重新运行原检查及额外输入后，再取回另外生成的 Python 脚本。
 
 本例使用 Qwen Code 0.23.0、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

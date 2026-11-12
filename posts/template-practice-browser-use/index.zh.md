@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[browser-use](https://registry.agent-sandbox.cn/templates/browser-use/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/browser-use)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 需要从网页提取一个字段时，可以先从明确的页面和小任务开始。本例让原版 browser-use0.13.11 在本地 Chromium 中读取 [IANA 的 Example Domains 页面](https://www.iana.org/help/example-domains)，返回实际标题并保存那一次浏览器的 PNG。
 
 实际返回的标题为 Example Domains。CLI、完整 SDK 与直接 HTTP 三种入口都打开了相同公开页面，返回原生完成/成功状态，并分别下载截图。PNG 解码后的画面如下，保留实际字节，没有重新绘制。

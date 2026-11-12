@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[stagehand](https://registry.agent-sandbox.cn/templates/stagehand/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/stagehand)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 在页面操作后读取结果，可以把“点击什么”和“取回什么”分别表达。本例让原版 Stagehand4.3.0 的本地浏览器先打开 [IANA 示例域名说明](https://www.iana.org/help/example-domains)，用自然语言点击预留域名链接，再从目标页面提取标题。
 
 真实浏览器最终到达 [Reserved Domains 页面](https://www.iana.org/domains/reserved)，提取的标题为 IANA-managed Reserved Domains。CLI、完整 SDK 和直接 HTTP 分别完成了这个动作和提取，下载各自的真实 PNG。下面是同一次原生浏览器的画面。

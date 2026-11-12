@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[muse](https://registry.agent-sandbox.cn/templates/muse/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/muse)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 已有 calc.py 的加法缺陷先由原生工具修复；原有三个检查保持不变，独立进程还运行了额外输入。另一次任务生成 hello.py，并下载到本机独立运行。
 
 本例使用 Meta Muse Code 1.4.11-R6667.1、极速版、CLI `0.5.7`、Python client/server `0.4.0a6`。

@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[openclaw](https://registry.agent-sandbox.cn/templates/openclaw/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/openclaw)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 一个对话网关的价值在于接住真实业务消息并保留会话上下文。本例通过原版 OpenClaw 网关汇总三笔费用，再在同一个会话中去掉其中一笔；后一次请求不重新发送明细，使用原生会话历史继续计算。
 
 实际第一轮返回3笔、51.30，第二轮去掉火车费用后返回2笔、36.30。CLI、完整 SDK 和直接 HTTP 分别完成了这个两轮流程，结果字段由独立算术核对。可以查看这次实际结果的[结构化摘要](./expense-result.json)。

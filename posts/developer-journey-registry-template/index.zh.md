@@ -11,6 +11,8 @@ draft: false
 
 本文模板：[python-hello](https://registry.agent-sandbox.cn/templates/python-hello/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/python-hello)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 有一个 Python 脚本要临时跑一下，如果每次都从安装环境、启动服务开始，准备工作会比脚本本身更长。Registry 中的模板可以作为起点：先用现成的运行环境和应用命令，再上传自己的文件。
 
 这篇选择 [python-hello](https://registry.agent-sandbox.cn/templates/python-hello/)，把它部署到 Alibaba Cloud Express，做一个可以从终端和程序中调用的 Python 工作台。我们会运行一段代码、上传文件、下载结果，并连接交互终端。

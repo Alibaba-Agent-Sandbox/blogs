@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[appworld](https://registry.agent-sandbox.cn/templates/appworld/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/appworld)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 AppWorld 的任务涉及应用 API 和数据库状态。这里把原版训练世界、API 和 evaluator 放入一次性极速版沙箱，由明确配置的模型通过工具调用完成一个训练任务，再下载加密结果并从保存的数据库独立复核评分。
 
 ## 准备平台与配置

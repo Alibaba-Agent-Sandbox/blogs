@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[droid](https://registry.agent-sandbox.cn/templates/droid/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/droid)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 有自己的 Chat Completions 模型服务时，可以使用 Factory Droid 的原生 BYOK 自定义模型。本例让原版 Droid0.241.1 在沙箱中生成 Python 程序与报告，再把文件取回独立运行。下载的 [generated_hello.py](./generated_hello.py) 输出 `Hello from the sandbox`，对应的 [生成报告](./generated-report.txt) 保留原始内容。
 
 这里使用模板的 `droid_byok`，由原版 CLI 执行文件工具循环；它使用原生 `customModels` 配置，没有另写协议转换服务，也没有替换 Droid 二进制。实际运行这条链路不需要 Factory 账号或浏览器登录。另一个 `droid` 命令使用 Factory 账号，凭据与本文自己的模型 Key 分开。

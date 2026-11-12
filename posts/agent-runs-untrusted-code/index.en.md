@@ -33,11 +33,16 @@ Nothing the agent wrote needs to be installed on your machine, and the script ne
 The default provider is Alibaba Cloud Agent Sandbox Express Edition (`alicloud-express`), which needs an API key.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.sh | sh
+git clone https://github.com/Alibaba-Agent-Sandbox/agent-sandbox.git
+cd agent-sandbox
+npm ci
+npm run build
+npm link
+cd ..
 export ABX_SANDBOX_API_KEY="<YOUR_API_KEY>"
 ```
 
-Windows users can install the binary with `irm https://raw.githubusercontent.com/Alibaba-Agent-Sandbox/agent-sandbox/main/install.ps1 | iex` in PowerShell. Follow the installer's PATH instructions; on Windows, open a new terminal. Run `abx --version` before continuing.
+Build the CLI with Node.js 20+ as shown above. These command examples use the current source command layout. Follow the [installation guide](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox#installation) for setup on your platform and check `abx --version`.
 
 In PowerShell, configure the key with `abx config set sandbox_api_key <YOUR_API_KEY>` instead of the Bash `export` command above.
 
@@ -110,14 +115,14 @@ beijing    110
 The same flow by hand with `abx`:
 
 ```bash
-abx create base --detach
-abx upload <sandbox-id> ./sales.csv /home/user/sales.csv
-abx upload <sandbox-id> ./analyze.py /home/user/analyze.py
-abx exec <sandbox-id> -- python /home/user/analyze.py
-abx kill <sandbox-id>
+abx deploy --template-id base --name analysis
+abx sandbox upload analysis ./sales.csv /home/user/sales.csv
+abx sandbox upload analysis ./analyze.py /home/user/analyze.py
+abx sandbox exec analysis -- python /home/user/analyze.py
+abx delete analysis --yes
 ```
 
-`analyze.py` is the script inside `AGENT_CODE` above, and `<sandbox-id>` is the value `abx create` prints. The result prints in your terminal; use `abx download` when you need a file back. Always `abx kill` when you are done: a sandbox uses quota for as long as it lives, and `abx list` shows everything still running.
+`analyze.py` is the script inside `AGENT_CODE` above. The local deployment name `analysis` selects the same sandbox for upload, execution and cleanup. Results print in the terminal; use `abx sandbox download analysis REMOTE LOCAL` to retrieve files. Use `abx delete analysis --yes` when finished; `abx list` shows deployments and visible sandboxes.
 
 ## Let the agent call it itself
 

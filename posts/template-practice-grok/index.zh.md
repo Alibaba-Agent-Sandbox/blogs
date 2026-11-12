@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[grok](https://registry.agent-sandbox.cn/templates/grok/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/grok)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 原生 Grok Build 可以使用显式配置的兼容模型。这个案例用自选模型修复现有计算函数，再生成一份可以下载运行的脚本和说明，把任务返回值与真实文件交付结合起来。
 
 本例使用 Grok Build `1.0.62`、CLI `0.5.7`、Python client/server

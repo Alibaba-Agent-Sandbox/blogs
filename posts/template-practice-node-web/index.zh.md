@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[node-web](https://registry.agent-sandbox.cn/templates/node-web/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/node-web)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 一个 Node 项目的交付需要安装后的程序真正监听并回应请求。这里从自带应用开始，启动 HTTP 服务，读取实际响应，再用三种入口管理同一个工作区。
 
 实际返回 HTTP 200，正文为 node-web ready。CLI、完整 Python 程序和直接 HTTP 都启动了真实服务并读取响应，随后独立确认服务已停止。

@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[opencode](https://registry.agent-sandbox.cn/templates/opencode/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/opencode)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 让代码助手做完工作，需要拿到真正能运行的文件。这个案例先让 OpenCode 生成一个
 Python 脚本并下载到本机，再把同一工作方式用于修复已有函数、保留原有用例和续接会话。
 最后为下一次任务选择第二个模型，工作区和调用接口都可以继续使用。

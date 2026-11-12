@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[swe](https://registry.agent-sandbox.cn/templates/swe/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/swe)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 给已有项目修复缺陷时，交付的不只是代理的一句“完成了”，还需要源代码差异和能复查的
 结果。这个案例处理 Flask Blueprint 的空名称问题：先复现原来的失败，再让原生
 mini-SWE-agent 修改代码，最后在另一个工作副本中应用补丁并运行原有检查。

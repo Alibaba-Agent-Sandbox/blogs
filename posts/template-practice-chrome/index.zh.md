@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[chrome](https://registry.agent-sandbox.cn/templates/chrome/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/chrome)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 当浏览器工作需要可见屏幕时，可以让自动化和远端桌面操作同一个 Chrome。这里启动私有 Xvfb/Openbox 桌面，打开 Example Domain，再把同一会话的屏幕导出。
 
 真实有界面 Chrome 返回 Example Domain 标题；CLI 与 SDK 截图均从远端下载后独立解码为 PNG。三种文档调用均完成导航，并停止本次桌面会话。

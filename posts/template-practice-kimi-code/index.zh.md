@@ -10,6 +10,8 @@ draft: false
 
 本文模板：[kimi-code](https://registry.agent-sandbox.cn/templates/kimi-code/) · [模板源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/kimi-code)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 一次性代码工作可以用 Kimi Code 的 headless prompt 模式完成：把任务、工作目录和交付要求一起提交，让原生 CLI 改文件，随后导出程序与说明。这里同时经历了已有函数修复和从零生成脚本两个步骤。
 
 本例使用 Kimi Code `2.2.0`、CLI `0.5.7`、Python client/server
