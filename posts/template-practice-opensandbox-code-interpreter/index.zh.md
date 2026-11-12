@@ -10,6 +10,8 @@ draft: true
 
 本文模板：[opensandbox-code-interpreter](https://registry.agent-sandbox.cn/templates/opensandbox-code-interpreter/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/opensandbox-code-interpreter/README.zh-CN.md)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 目标是在持久 Python 上下文中读入开销数据、计算汇总并导出图表。本文为未发布草稿：原生 SDK 已按锁文件安装；原生镜像实际拉取触发本机磁盘下限，尚未创建原生解释器实例。暂无真实业务输出，不把预期效果当作已完成的效果。
 
 ## 平台和实例准备

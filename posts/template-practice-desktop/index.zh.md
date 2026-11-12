@@ -10,6 +10,8 @@ draft: true
 
 本文模板：[desktop](https://registry.agent-sandbox.cn/templates/desktop/) · [使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/managed/desktop/README.zh-CN.md)。
 
+> 版本说明：本文保留写作时的 CLI、模板版本及实跑步骤，包含旧命令入口。使用当前源码 CLI 时，请从[当前模板使用指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.zh-CN.md)开始；源码获取使用 `template init --from`，部署使用 `deploy`，沙箱操作归入 `sandbox`，清理使用 `delete`。复现本文结果时遵循正文固定的版本。
+
 目标是用平台文件接口准备数据，再通过原版 Desktop SDK 在同一个实例完成截图与键鼠操作。本文为未发布草稿：缺少有权使用 E2B desktop 的账号凭据，原生桌面业务尚未运行。暂无真实业务输出，不把预期效果当作已完成的效果。
 
 ## 平台和实例准备

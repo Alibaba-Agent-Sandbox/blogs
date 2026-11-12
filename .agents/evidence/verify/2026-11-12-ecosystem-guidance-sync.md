@@ -24,3 +24,5 @@ The root dotenv's configured GitHub credential returned HTTP401, no alternate pr
 - Current general CLI examples were compared with actual built help. Versioned cases keep their pinned commands and prior execution claims; notices direct current-source users to the current owner guide.
 - Direct Lychee on article source cannot resolve existing website-root /start/ and /blog/ links. Site-root routes and fragments are checked after normal Website blog synchronization/build; this limitation does not justify editing historical outputs.
 - Article Python attachments and historical business results are unchanged. No article business program or model task was rerun, and no new business result is claimed.
+
+A global-selector-aware pass added the same explicit historical version boundary to the Base, Desktop and OpenSandbox interpreter cases. There are 54 version-note article files; current general tutorials retain supported source-CLI examples. All 59 post directories still pass validation.
