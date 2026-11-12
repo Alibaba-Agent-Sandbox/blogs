@@ -1,5 +1,7 @@
 # Engineering records: blogs
 
+- [Agents API delivery operations](notes/proposed/process/2026-11-12-agents-api-delivery-operations.md) · [record-placement verification](evidence/verify/2026-11-12-agents-api-delivery-operations.md).
+
 - [Reader-focused application article and template entry links](notes/proposed/process/2026-11-09-reader-focused-template-articles.md) · [verification](evidence/verify/2026-11-09-reader-focused-template-articles.md). Public usage, complete client examples and explicit template navigation; historical acceptance remains separate.
 
 - Ready for normal PR/CI: [managed Agents single-endpoint practical article](notes/proposed/feature/2026-11-06-managed-agents-best-practice.md) · [preparation evidence](evidence/verify/2026-11-06-managed-agents-best-practice.md). Normal public0.1.4 deployment and two real Qwen file turns pass; known temporary resources are independently released; the reader workflow and related local/render checks pass, with normal PR merge/publication still separate. Historical matrices are retained in the [engineering supplement](evidence/verify/2026-11-06-managed-agents-history-supplement.md).
