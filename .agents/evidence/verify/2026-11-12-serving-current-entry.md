@@ -31,3 +31,16 @@ dependency gate; website integration must land through its owner workflow.
 article parsed successfully. Two README shell examples contain explicit revision
 placeholders and were excluded from shell syntax checking. All historical case
 programs/assets are byte-unchanged; only the article Markdown changed in posts/.
+
+## Rendered integration
+
+Website integration passed its18 docs/catalog tests, Astro check and1,337-page
+build. Real Chrome checked the Registry template and website article in both
+languages at390/1280 widths: eight content/navigation cases passed. All current
+setup/deploy/delete snippets were visible, retired app commands and whole-catalog
+clone were absent, HTTP-client headings and original case version attribution
+were retained. Rendered106 blog pages had2,814 local route/fragment links with
+zero failures. Local preview servers were shut down. The initial browser harness
+used the incorrect website output directory and returned404; it was corrected
+to the actual build output before these passing assertions. This does not
+change or reclassify the previous separate strict favicon journey failure.
