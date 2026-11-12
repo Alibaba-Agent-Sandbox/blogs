@@ -1,6 +1,6 @@
 # Blog reader UI review — 2026-11-12
 
-Status: PARTIAL — source validation and rendering matrix passed; two full screenshot review rounds remain in progress.
+Status: PASS (local) — source validation, rendering matrices and two complete screenshot review rounds passed; remote delivery is tracked by the PR.
 
 Source baseline: 7298e5216146f10493d87f1892b0dd4aecb21405 after incorporating the independently merged article corrections. The initial frozen audit used eceef44; this is version drift, not a claim that the older article commands remain current.
 
@@ -20,3 +20,7 @@ No article content defect requiring a rewrite was found in this UI task. Two-lin
 No model, sandbox, database or other cloud resource was created. Article language fallback remains an explicit existing behavior; this UI task does not claim translations of every author article. Existing source ownership and attribution are preserved.
 
 GitHub authentication initially failed and was later restored. Remote CI/PR/merge are separate from these local results; final review results will be appended before readiness.
+
+## Completed reading review
+
+Both full cross-site passes cover 5,992 addresses, with 14,085 and 14,299 screenshots respectively, including blog language fallback routes. The final website regression passes 12 groups; the Skill matrix checks all 17 task copy actions in eight locale/theme/viewport combinations. Manual visual findings remain distinct from automated geometry and copy checks. No article content or draft publication was introduced by this record-only contribution.
