@@ -8,7 +8,7 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
-Quick links: [Agent API template collection](https://registry.agent-sandbox.cn/en/topics/agents-api/) · [Topic guides](https://www.agent-sandbox.cn/en/blog/topics/agents-api/) · [Development template source](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/feat/agentsapi-harness-20261117)
+Quick links: [Agent API template collection](https://registry.agent-sandbox.cn/en/topics/agents-api/) · [Topic guides](https://www.agent-sandbox.cn/en/blog/topics/agents-api/) · [Development template source](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31)
 
 The six new hosted templates remain under development and validation. This article explains their shared interface and selection criteria; it does not establish complete real-model or cloud acceptance for every Harness. Read the selected template's installation requirements, credential sources and supported scope before deployment. Released CLI 0.5.10 cannot execute the new YAML v1 recipes.
 
@@ -26,12 +26,12 @@ The business protocol is shared. Choose a Harness according to your existing acc
 
 | Template | Native Harness | Check before choosing |
 | --- | --- | --- |
-| [agents-api-codex](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/feat/agentsapi-harness-20261117/agents-api-codex) | Codex | Responses model endpoint, tool rounds and native Session continuation |
-| [agents-api-qwen-code](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/feat/agentsapi-harness-20261117/agents-api-qwen-code) | Qwen Code | Chat Completions tool calls and native Session continuation |
-| [agents-api-claude-code](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/feat/agentsapi-harness-20261117/agents-api-claude-code) | Claude Code | Supported native authentication, model endpoint and tool permissions |
-| [agents-api-qoder](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/feat/agentsapi-harness-20261117/agents-api-qoder) | Qoder | Native authentication and noninteractive execution; a model key is not a Qoder login credential |
-| [agents-api-opencode](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/feat/agentsapi-harness-20261117/agents-api-opencode) | OpenCode | The selected model Provider, native configuration and noninteractive invocation |
-| [agents-api-deepseek-harness](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/feat/agentsapi-harness-20261117/agents-api-deepseek-harness) | DeepSeek Harness | Native headless mode, model configuration and actual event granularity |
+| [agents-api-codex](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-codex) | Codex | Responses model endpoint, tool rounds and native Session continuation |
+| [agents-api-qwen-code](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-qwen-code) | Qwen Code | Chat Completions tool calls and native Session continuation |
+| [agents-api-claude-code](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-claude-code) | Claude Code | Supported native authentication, model endpoint and tool permissions |
+| [agents-api-qoder](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-qoder) | Qoder | Native authentication and noninteractive execution; a model key is not a Qoder login credential |
+| [agents-api-opencode](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-opencode) | OpenCode | The selected model Provider, native configuration and noninteractive invocation |
+| [agents-api-deepseek-harness](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-deepseek-harness) | DeepSeek Harness | Native headless mode, model configuration and actual event granularity |
 
 These links identify development source. Once a template enters the Registry catalog, its detail page becomes the configuration entry point; the collection follows actual catalog membership. Regular Sandbox templates such as `codex` and `qoder` have separate uses and do not automatically include the hosted Gateway.
 
