@@ -1,5 +1,7 @@
 # Engineering records: blogs
 
+- [Reviewed Agent API producer references](evidence/verify/2026-11-20-agents-api-reviewed-producer-pins.md).
+
 - [Pin Agent API guide links to the reviewed source](notes/proposed/process/2026-11-20-agents-api-guide-source-links.md) · [verification](evidence/verify/2026-11-20-agents-api-guide-source-links.md).
 
 - [Agent API topic discovery](notes/proposed/feature/2026-11-17-agents-api-topics.md) · [verification](evidence/verify/2026-11-17-agents-api-topics.md).

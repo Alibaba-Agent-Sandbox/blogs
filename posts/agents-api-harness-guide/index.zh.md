@@ -8,7 +8,7 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
-快速入口：[Agent API 模板专题](https://registry.agent-sandbox.cn/topics/agents-api/) · [专题文章](https://www.agent-sandbox.cn/blog/topics/agents-api/) · [开发中模板源码](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31)
+快速入口：[Agent API 模板专题](https://registry.agent-sandbox.cn/topics/agents-api/) · [专题文章](https://www.agent-sandbox.cn/blog/topics/agents-api/) · [开发中模板源码](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/339d64f801e4e6b13e2cc07159a212031b1f4320)
 
 六个新托管模板仍在开发与验证中。本文说明共同接口和选择方法，不表示每个 Harness 已完成真实模型与云端验收。需要部署时，先核对相应模板的安装要求、凭据来源与支持范围；旧 CLI 0.5.10 不能直接执行新的 YAML v1 配方。
 
@@ -26,12 +26,12 @@ draft: false
 
 | 模板 | 原生 Harness | 选择时检查什么 |
 | --- | --- | --- |
-| [agents-api-codex](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-codex) | Codex | Responses 模型接口、工具回合及原生 Session 继续方式 |
-| [agents-api-qwen-code](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-qwen-code) | Qwen Code | 对应模型服务的 Chat Completions 工具调用与原生会话继续 |
-| [agents-api-claude-code](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-claude-code) | Claude Code | Claude Code 支持的认证和模型入口，以及所需工具权限 |
-| [agents-api-qoder](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-qoder) | Qoder | Qoder 原生认证与非交互执行要求，不能把模型 Key 当作 Qoder 登录凭据 |
-| [agents-api-opencode](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-opencode) | OpenCode | 所选模型 Provider、原生配置及非交互运行方式 |
-| [agents-api-deepseek-harness](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/048db39f5a865b07343ede2a93393ceab7f2df31/agents-api-deepseek-harness) | DeepSeek Harness | 原生 headless 模式、模型配置和实际可提供的事件粒度 |
+| [agents-api-codex](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/339d64f801e4e6b13e2cc07159a212031b1f4320/agents-api-codex) | Codex | Responses 模型接口、工具回合及原生 Session 继续方式 |
+| [agents-api-qwen-code](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/339d64f801e4e6b13e2cc07159a212031b1f4320/agents-api-qwen-code) | Qwen Code | 对应模型服务的 Chat Completions 工具调用与原生会话继续 |
+| [agents-api-claude-code](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/339d64f801e4e6b13e2cc07159a212031b1f4320/agents-api-claude-code) | Claude Code | Claude Code 支持的认证和模型入口，以及所需工具权限 |
+| [agents-api-qoder](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/339d64f801e4e6b13e2cc07159a212031b1f4320/agents-api-qoder) | Qoder | Qoder 原生认证与非交互执行要求，不能把模型 Key 当作 Qoder 登录凭据 |
+| [agents-api-opencode](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/339d64f801e4e6b13e2cc07159a212031b1f4320/agents-api-opencode) | OpenCode | 所选模型 Provider、原生配置及非交互运行方式 |
+| [agents-api-deepseek-harness](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/339d64f801e4e6b13e2cc07159a212031b1f4320/agents-api-deepseek-harness) | DeepSeek Harness | 原生 headless 模式、模型配置和实际可提供的事件粒度 |
 
 上表链接指向开发源码。模板在 Registry 上架后，以详情页为配置入口；专题页会根据实际目录提供详情链接。普通 `codex`、`qoder` 等 Sandbox 模板保留独立用途，不自动具备托管 Gateway。
 
