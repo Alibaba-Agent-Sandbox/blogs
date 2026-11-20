@@ -3,14 +3,16 @@ title: 用一个 Gateway 把 Sandbox Agent 接入业务：部署、HTTP 调用�
 summary: 部署 agents-api 应用模板，让业务方通过一个 URL 上传文件、运行多轮 Agent 并下载结果。以 CSV 汇总与代码修改为例，介绍 CLI 部署、curl 调用、Python 集成和定制方式。
 date: 2026-11-06
 category: tutorial
-tags: [agents, sandbox, python, serverless, best-practice]
+tags: [agents-api, agents, sandbox, python, serverless]
 authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
-本文模板：[agents-api 应用模板](https://registry.agent-sandbox.cn/templates/agents-api/) · [源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/agents-api)
+本文历史案例模板：[agents-api 0.1.4 固定源码](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/4971598a5b14b62207076dd2da4264c139423628/agents-api) · [Registry 模板入口](https://registry.agent-sandbox.cn/templates/agents-api/) · [Agent API 专题与后续 Harness](https://www.agent-sandbox.cn/blog/topics/agents-api/)
 
-> 使用版本：部署与管理步骤使用当前源码 CLI 和当前 `agents-api` 模板；已发布的 CLI 0.5.10 不支持这些入口。下文 CSV 案例与下载产物来自模板 0.1.4 / CLI 0.5.10 的原实跑，不代表在新版本重新执行；需要复现该次结果时，可使用[当时的固定模板源码](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/4971598a5b14b62207076dd2da4264c139423628/agents-api)及该版本的说明。
+新版托管模板按 Harness 分开命名，目前仍在开发验证中。本文原始 Qwen CSV 产物与下面的旧版本记录保持不变；选择新模板时，请从专题读取其实际配置与限制。
+
+> 使用版本：CSV 案例、HTTP 调用与下载产物来自模板 0.1.4 / CLI 0.5.10 的原实跑，不代表六个新 Harness 模板重新执行。复现该次部署时使用[固定模板源码及其说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/4971598a5b14b62207076dd2da4264c139423628/agents-api)。当前模板的安装、升级与资源清理从 [Agent API 专题](https://registry.agent-sandbox.cn/topics/agents-api/)进入；新版 YAML v1 不能直接搭配 CLI 0.5.10。
 
 如果你希望把 Agent 接入自己的产品，通常不希望每个客户都先创建 Sandbox、查找实例地址、
 配置云凭据，再处理工作区和回收。业务应用更需要一个固定入口：上传文件、发起任务、
@@ -47,7 +49,7 @@ draft: false
 
 | 入口 | 使用者 | 本文用法 |
 | --- | --- | --- |
-| `abx deploy` 与应用管理命令 | 部署者 | 部署、查看状态、更新和移除应用 |
+| 所选模板的 CLI 部署与管理流程 | 部署者 | 部署、查看状态、更新和移除应用 |
 | Gateway HTTP URL | 业务应用或终端用户 | 用 `curl` 上传文件、创建 Session、运行任务、下载结果 |
 | Python HTTP 客户端 | Python 应用开发者 | 用 `httpx` 调用同一组 Gateway API |
 
@@ -57,120 +59,33 @@ Python 0.4.0a7 提供服务端托管运行时，尚未提供专用的 Gateway �
 
 ## 3. 部署前需要准备什么
 
-当前模板版本为 0.1.5，使用当前源码 CLI；镜像固定 client/server 0.4.0a7。
-部署主机需要 Node.js 20+、Docker 和 Python 3；运行后文终端示例还需要 Bash、`curl` 和 `jq`。
+部署者需要准备可访问的 Sandbox 平台、ACR 镜像仓库、FC 执行角色、已有 PostgreSQL 和模型访问配置。原 CSV 案例使用 Qwen Code 与支持工具调用的 Chat Completions；其他 Harness 的原生认证和模型协议可能不同，不能直接复用全部配置。
 
 | 资源或配置 | 用途 | 谁准备 |
 | --- | --- | --- |
-| 阿里云部署身份、FC 执行角色 | 部署并运行 Gateway 等服务 | 部署者提供已有身份和角色 |
+| 阿里云部署身份、FC 执行角色 | 部署并运行 Gateway、Worker 和 Dispatcher | 部署者提供已有身份和角色 |
 | ACR 镜像仓库及命名空间 | 存放构建镜像 | 部署者准备 |
 | 已有 PostgreSQL | 保存会话、提交和文件数据 | 部署者提供；模板不自动创建数据库 |
 | Sandbox 访问配置 | 创建 Session 所需的独占实例 | 部署者提供，留在服务端 |
-| 模型 Key、接口地址和模型 ID | 在 Sandbox 内运行 Agent | 部署者提供 |
-| 业务 Key | 调用 Gateway | 首次部署自动生成，由部署者分发给业务应用 |
+| 模型或 Harness 原生凭据 | 在 Sandbox 内运行选定 Agent | 按对应模板说明提供 |
+| 业务 Key | 调用 Gateway | 由部署流程准备，部署者只向业务应用分发该 Key |
 
-应用部署 FC Gateway、Worker 和 Dispatcher，并准备 Guest Sandbox 模板。
-Guest 默认请求 2 vCPU、4096 MB；每个活跃 Session 持有自己的 Sandbox。
-FC、Sandbox、数据库、镜像存储和模型分别可能产生费用。
+FC、Sandbox、数据库、镜像存储和模型可能分别产生费用。网络和证书配置需要保证这些服务相互可达。业务 Key、模型 Key、Sandbox 管理 Key 和云 AK/SK 用途不同；业务客户端不需要部署者的云凭据。
 
-FC、数据库网络、镜像仓库和 Sandbox 配置需要相互可达。数据库仅能通过 VPC 访问时，
-在 binding 中配置已有 VPC、交换机和安全组；使用私有数据库 CA 时，还需要配置 CA 链。
-具体配置见[模板配置说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/agents-api/README.zh-CN.md#配置)。
+## 4. 部署应用并配置业务客户端
 
-### 安装与获取模板
+现在从 [Registry Agent API 专题](https://registry.agent-sandbox.cn/topics/agents-api/)选择 Harness，使用其 README 中对应版本的源码获取、依赖安装、CLI 部署和私有配置步骤。新模板仍在开发验证，不应把旧版 `agents-api` 的绑定文件或命令直接复制到新 YAML。
 
-先按 [CLI 安装指南](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox#installation)安装当前源码 CLI，然后只获取要使用的模板：
+需要复现本文旧版完整 CLI 部署时，使用 [0.1.4 固定源码的部署说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/4971598a5b14b62207076dd2da4264c139423628/agents-api/README.zh-CN.md)。本文保留下来的 CSV 结果与业务 HTTP 示例属于该版本。
+
+部署完成后，业务客户端需要两个私有配置：
 
 ```bash
-abx template init ./agents-api --from agents-api
-cd agents-api
-python3 -m venv .abx/venv
-. .abx/venv/bin/activate
-python -m pip install httpx==0.28.1
-cp bindings.example.json .abx/bindings.json
-chmod 600 .abx/bindings.json
+export AGENTS_API_BASE_URL='<所选模板返回的 Gateway URL>'
+export AGENTS_API_KEY='<独立的业务 Key>'
 ```
 
-`template init` 得到可编辑项目，不会部署。创建虚拟环境也会创建 `.abx/`，无需单独建目录。
-部署和更新时保持该环境激活：模板会执行 `scripts/smoke.py`，通过 Gateway 完成两轮
-Agent 文件任务，所以这份主机端 Python 依赖仍然必需。
-按[模板安装指南](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/docs/using-templates.md#installation)
-完成 Sandbox 和镜像构建配置，并设置已有 ACR 命名空间：
-
-```bash
-abx config set acr_namespace YOUR_EXISTING_ACR_NAMESPACE
-```
-
-`YOUR_EXISTING_ACR_NAMESPACE` 替换为自己的命名空间。
-清单中 `application.deployment.accessRef` 选择已有 Serverless Devs access，
-`region` 使用实际部署地域。
-
-### 填写私有配置
-
-`bindings.example.json` 使用环境变量引用。部署前在当前终端准备下表中的值，
-不要将密钥写进 Dockerfile 或公开源码：
-
-| 环境变量 | 从哪里取得 |
-| --- | --- |
-| `ABX_MANAGED_DATABASE_URL` | 数据库服务提供的 PostgreSQL URL，使用可达主机名和相应 TLS 配置 |
-| `SANDBOX_API_KEY` | Sandbox 平台访问配置中的管理 Key |
-| `SANDBOX_BASE_URL`、`SANDBOX_DOMAIN`、`SANDBOX_REGION` | 同一平台的 API 地址、实例域名和地域 |
-| `OPENAI_API_KEY`、`OPENAI_BASE_URL`、`OPENAI_MODEL` | 模型服务账号提供的 Key、兼容接口地址和可用模型 ID |
-| `AGENTS_FC_ROLE_ARN` | 已有 FC 执行角色 ARN，需允许调用该应用的私有 Worker/Dispatcher |
-
-默认 model binding 使用 `qwen-code` adapter，需要支持工具调用的 Chat Completions。
-本文案例使用 `qwen3.5-plus`；实际可用模型取决于你的账号和接口。
-改用 `codex` 时，需要支持工具结果回合的 Responses 接口。
-
-应用令牌和模型 Key 用途不同。普通部署由 CLI 和运行时准备应用认证，不需要先手工生成
-`ABX_SERVER_TOKEN`。业务应用也不需要获得云 AK/SK、Sandbox 管理 Key 或内部 Token。
-
-## 4. 用 CLI 部署，取得一个 Gateway URL
-
-在 `agents-api` 模板目录运行：
-
-```bash
-abx deploy . --name agents-api --bindings .abx/bindings.json --plan
-abx deploy . --name agents-api --bindings .abx/bindings.json --yes
-abx status agents-api
-```
-
-`--plan` 只预览资源；`--yes` 确认构建、云端部署和模板的真实模型业务检查。
-保存部署/状态输出中后续需要的字段：
-
-| 字段 | 后续用途 |
-| --- | --- |
-| `endpoint` | 业务客户端的 Gateway URL |
-| `name` | 后续管理使用的应用名称，本例为 `agents-api` |
-| `credentials_file` | 本机私有凭据文件，其中 `businessKey` 用于业务调用 |
-
-部署后按应用名称管理：
-
-```bash
-abx status agents-api
-abx logs agents-api
-abx recover agents-api
-```
-
-`logs` 需要 FC 已配置 `logConfig`，本模板默认未配置时使用 FC 控制台的函数诊断。
-部署中断先用 `recover` 查看状态和恢复提示。对业务应用只分发 `endpoint` 和
-`businessKey`，不要直接分发整个凭据文件。
-
-在部署主机上，可以从私有文件读取业务 Key：
-
-```bash
-export AGENTS_API_BASE_URL='<deploy/status 返回的 endpoint>'
-export AGENTS_CREDENTIALS_FILE='<deploy/status 返回的 credentials_file 路径>'
-export AGENTS_API_KEY="$(python - <<'PY'
-import json, os
-from pathlib import Path
-print(json.loads(Path(os.environ['AGENTS_CREDENTIALS_FILE']).read_text())['businessKey'])
-PY
-)"
-```
-
-业务应用只需通过自己的私有配置提供 `AGENTS_API_BASE_URL` 和 `AGENTS_API_KEY`，
-无需持有部署者的凭据文件。不要打印 Key 或启用 shell 命令跟踪。
+在自己的密钥管理或私有配置中提供这些值，不打印 Key，也不启用 shell 命令跟踪。不要把数据库 URL、Sandbox 管理 Key、内部 Token 或整个部署凭据文件分发给业务应用。
 
 ## 5. 用同一份 CSV 完成两轮任务
 
@@ -354,18 +269,11 @@ with httpx.Client(
 | 要改什么 | 修改位置 | 生效方式 |
 | --- | --- | --- |
 | 每轮任务内容、输入文件、输出要求 | 业务请求 | 下一轮请求生效 |
-| 默认模型、模型 endpoint、adapter | 私有 model binding | 更新应用部署 |
+| 默认模型、模型 endpoint、Harness | 对应版本模板的私有配置 | 按模板说明更新应用 |
 | 预置代码、依赖或可编辑内容 | `fixtures/`、Dockerfile 及相关源码 | 重建镜像并更新应用 |
-| 会话寿命、并发、执行预算、文件限额 | `template.yaml` 的 `application` 配置 | 更新应用部署 |
+| 会话寿命、并发、执行预算、文件限额 | 对应版本模板的策略配置 | 按模板说明更新应用 |
 
-修改模板或绑定后，在同一项目目录用相同应用名称再次部署：
-
-```bash
-abx deploy . --name agents-api --bindings .abx/bindings.json --yes
-```
-
-已有 Session 继续绑定原 revision；需要新配置的任务应创建新 Session。
-旧 revision 的保留与退休操作见[模板使用说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/agents-api/README.zh-CN.md)。
+按所选模板说明构建并更新应用，保留旧 Session 的 Worker 与工作区归属；需要新配置的任务创建新 Session。新版模板的配置位置与升级方式见 [Agent API 专题](https://registry.agent-sandbox.cn/topics/agents-api/)，不能沿用旧版 `application`/binding 层级。
 
 ## 9. 状态、限制和结束使用
 
@@ -396,13 +304,7 @@ curl --fail-with-body -X DELETE "$AGENTS_API_BASE_URL/v1/files/FILE_ID" \
 完整示例会自动完成这些操作。默认 Session 空闲/最大寿命为 900/3600 秒，
 结果保留期为 24 小时，单输入文件和单产物上限各 10 MiB。需要长期保存的结果应下载到自己的存储。
 
-不再使用应用时，运行：
-
-```bash
-abx delete agents-api --bindings .abx/bindings.json --yes
-```
-
-自行准备的数据库和共享网络仍由你管理；镜像构建产物的保留与清理按[模板资源说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/main/agents-api/README.zh-CN.md#资源)处理。
+不再使用应用时，按照对应版本 README 的应用清理流程执行。新版模板使用带 drain 检查的清理入口，先停止接收任务、关闭会话计算，再移除应用资源；不要直接绕过该步骤删除正在服务会话的函数。自行准备的数据库、执行角色、共享网络和保留镜像仍由你管理。旧版资源的清理以[固定版本说明](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/blob/4971598a5b14b62207076dd2da4264c139423628/agents-api/README.zh-CN.md)为准。
 
 模板目前为 Beta，内置 FC 测试域名适合体验；生产接入需配置自己的 HTTPS 入口。
 受支持的参数和接口以 Gateway 的 `/v1/agent-sandbox/capabilities` 及
