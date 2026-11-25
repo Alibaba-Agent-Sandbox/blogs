@@ -8,9 +8,9 @@ authors: [Alibaba-Agent-Sandbox]
 draft: false
 ---
 
-本文模板：[agents-api 应用模板](https://registry.agent-sandbox.cn/templates/agents-api/) · [源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/agents-api)
+本文模板：[agents-api 应用模板](https://registry.agent-sandbox.cn/templates/agents-api/) · [源码与配置](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/main/agents-api) · [Agents API 专题](https://www.agent-sandbox.cn/topics/agents-api/) · [专题模板目录](https://registry.agent-sandbox.cn/topics/agents-api/)
 
-> 使用版本：部署与管理步骤使用当前源码 CLI 和当前 `agents-api` 模板；已发布的 CLI 0.5.10 不支持这些入口。下文 CSV 案例与下载产物来自模板 0.1.4 / CLI 0.5.10 的原实跑，不代表在新版本重新执行；需要复现该次结果时，可使用[当时的固定模板源码](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/4971598a5b14b62207076dd2da4264c139423628/agents-api)及该版本的说明。
+> 使用版本：部署与管理步骤使用已发布的 CLI 0.6.0-alpha.2 预览版和当前 `agents-api` 模板；CLI 0.5.10 不支持这些入口。下文 CSV 案例与下载产物来自模板 0.1.4 / CLI 0.5.10 的原实跑，不代表在新版本重新执行；需要复现该次结果时，可使用[当时的固定模板源码](https://github.com/Alibaba-Agent-Sandbox/awesome-templates/tree/4971598a5b14b62207076dd2da4264c139423628/agents-api)及该版本的说明。
 
 如果你希望把 Agent 接入自己的产品，通常不希望每个客户都先创建 Sandbox、查找实例地址、
 配置云凭据，再处理工作区和回收。业务应用更需要一个固定入口：上传文件、发起任务、
@@ -57,7 +57,7 @@ Python 0.4.0a7 提供服务端托管运行时，尚未提供专用的 Gateway �
 
 ## 3. 部署前需要准备什么
 
-当前模板版本为 0.1.5，使用当前源码 CLI；镜像固定 client/server 0.4.0a7。
+当前模板版本为 0.1.5，使用 CLI 0.6.0-alpha.2 预览版；镜像固定 client/server 0.4.0a7。
 部署主机需要 Node.js 20+、Docker 和 Python 3；运行后文终端示例还需要 Bash、`curl` 和 `jq`。
 
 | 资源或配置 | 用途 | 谁准备 |
@@ -79,9 +79,11 @@ FC、数据库网络、镜像仓库和 Sandbox 配置需要相互可达。数据
 
 ### 安装与获取模板
 
-先按 [CLI 安装指南](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox#installation)安装当前源码 CLI，然后只获取要使用的模板：
+先安装指定的 CLI 预览版，再获取要使用的模板。其他安装方式见[该版本安装指南](https://github.com/Alibaba-Agent-Sandbox/agent-sandbox/blob/v0.6.0-alpha.2/docs/zh/guide/binary-installation.md)：
 
 ```bash
+npm install --global @agent-sandbox/cli@0.6.0-alpha.2 --registry=https://registry.npmjs.org
+abx --version
 abx template init ./agents-api --from agents-api
 cd agents-api
 python3 -m venv .abx/venv
