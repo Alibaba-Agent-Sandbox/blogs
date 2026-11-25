@@ -1,7 +1,7 @@
 # Managed Agents article preview entry — 2026-11-25
 
-Result: PARTIAL — scoped article correction and local checks complete; topic
-publication readback and remote PR checks pending.
+Result: PASS — scoped article validation and publication prerequisites passed.
+Final PR delivery and website ingestion are tracked in the linked pull request.
 
 Baseline: 4a36152b8a800872e3a528bfa9abdcb1b54b80e1. Three current-usage paragraphs
 in posts/managed-agents-one-endpoint/index.zh.md require source installation.
@@ -37,3 +37,19 @@ template page also returned HTTP 200. Both requested topic URLs returned HTTP 40
 so their new article links are prepared but this change must not publish until
 real pages are available. Installation availability does not establish a new
 managed cloud or model acceptance run.
+
+## Publication prerequisites and independent review
+
+Both canonical topic URLs subsequently returned anonymous HTTP 200, with the
+Agents API topic heading, the managed-agents-one-endpoint article link and the
+agents-api template link in their actual HTML bodies. The initial 404 results
+remain the earlier observation; they were not treated as successful publication.
+
+Parent and API reviewers completed the final scoped review. The first candidate
+0e1f6ed822d38a94da1a2e0e68f16f8a9badf48e passed
+[Validate posts 45608628051](https://github.com/Alibaba-Agent-Sandbox/blogs/actions/runs/45608628051).
+The evidence-only update is subject to the same normal CI before merge.
+
+Delivery: [Blogs PR45](https://github.com/Alibaba-Agent-Sandbox/blogs/pull/45).
+No cloud runtime or model was rerun; the article continues to attribute its
+business results to their original versions.
