@@ -6,7 +6,7 @@ Tutorials, practical cases and engineering articles about building AI agents wit
 
 [Read the blog](https://www.agent-sandbox.cn/en/blog/) · [Browse source posts](posts/) · [Get started with Agent Sandbox](https://www.agent-sandbox.cn/en/start/)
 
-> **Preview release:** Agent Sandbox is currently in preview and may introduce breaking changes. The stable **1.0.0** release is expected on **November 15, 2026**. Stay tuned!
+> **Preview release:** Agent Sandbox is currently in preview and may introduce breaking changes.
 
 ## Find an article
 

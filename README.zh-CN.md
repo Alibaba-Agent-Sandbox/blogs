@@ -6,7 +6,7 @@
 
 [阅读博客](https://www.agent-sandbox.cn/blog/) · [浏览文章源码](posts/) · [开始使用 Agent Sandbox](https://www.agent-sandbox.cn/start/)
 
-> **预览版说明：** Agent Sandbox 目前处于预览阶段，可能会有不兼容变更。预计于 **2026 年 11 月 15 日**发布 **1.0.0 正式版**，敬请期待！
+> **预览版说明：** Agent Sandbox 目前处于预览阶段，可能会有不兼容变更。
 
 ## 查找文章
 
