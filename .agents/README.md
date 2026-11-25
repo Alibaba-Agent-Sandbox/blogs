@@ -146,3 +146,5 @@ Historical installation/source-pin decisions are superseded by the current publi
 - [Current managed Agents serving entry](notes/proposed/process/2026-11-12-serving-current-entry.md) · [verification](evidence/verify/2026-11-12-serving-current-entry.md).
 
 - [Blog reader experience and rendering ownership](notes/proposed/process/2026-11-12-reader-ui-review.md) · [verification](evidence/verify/2026-11-12-reader-ui-review.md).
+
+- [Confirmed documentation feedback](notes/proposed/process/2026-11-25-confirmed-documentation-feedback.md) · [verification](evidence/verify/2026-11-25-confirmed-documentation-feedback.md).
